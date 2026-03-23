@@ -9,11 +9,24 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "groups": [
+    "tabs": [
       {
-        "group": "Quickstart",
-        "pages": [
-          "welcome"
+        "tab": "test",
+        "groups": [
+          {
+            "group": "Quickstart",
+            "pages": [
+              "welcome"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "tugu",
+        "dropdowns": [
+          {
+            "dropdown": "Untitled Dropdown"
+          }
         ]
       }
     ]
