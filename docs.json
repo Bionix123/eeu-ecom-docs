@@ -9,15 +9,50 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "products": [
+    "languages": [
       {
-        "product": "CMS",
-        "tabs": [
+        "language": "ro",
+        "products": [
           {
-            "tab": "Master Admin"
-          },
-          {
-            "tab": "Magazin"
+            "product": "CMS",
+            "tabs": [
+              {
+                "tab": "Noțiuni introductive",
+                "icon": "circle-info",
+                "pages": [
+                  "ce-este-un-cms",
+                  "bun-venit"
+                ]
+              },
+              {
+                "tab": "Master Admin",
+                "groups": [
+                  {
+                    "group": "Introducere",
+                    "pages": []
+                  },
+                  {
+                    "group": "Magazine",
+                    "pages": []
+                  },
+                  {
+                    "group": "Utilizatori",
+                    "pages": []
+                  }
+                ]
+              },
+              {
+                "tab": "Magazin",
+                "groups": [
+                  {
+                    "group": "test grouo",
+                    "pages": [
+                      "test-page"
+                    ]
+                  }
+                ]
+              }
+            ]
           }
         ]
       }
