@@ -1,0 +1,75 @@
+---
+title: "Master Admin vs Magazin"
+icon: "angles-up-down"
+---
+
+Aplicația este structurată pe două niveluri principale: **Master Admin** și **Magazin**. Această structură permite gestionarea mai multor magazine dintr-un singur cont principal, dar și administrarea separată a conținutului pentru fiecare magazin.
+
+### Master Admin
+
+**Master Admin** reprezintă nivelul principal al contului unui client. Fiecare client primește acces la un cont de Master Admin, de unde poate administra toate magazinele sale.
+
+Din zona de Master Admin, utilizatorul poate:
+
+- configura unul sau mai multe magazine
+- gestiona utilizatorii și permisiunile acestora
+- atribui utilizatori la unul sau mai multe magazine
+- administra planul de abonament
+- gestiona setări generale ale contului
+
+Master Admin este practic zona de **management centralizat** pentru toate magazinele unui client.
+
+### Magazin
+
+Fiecare **Magazin** are propria zonă de administrare separată. După ce un magazin este creat din Master Admin, utilizatorii cu acces se pot conecta în panoul de administrare al acelui magazin.
+
+Din zona de administrare a unui magazin se pot:
+
+- crea landing page-uri pentru produse
+- edita pagini existente
+- crea pagini informative (Termeni și Condiții, Politica de retur etc.)
+- administra conținutul paginilor
+- gestiona setările specifice magazinului
+
+Important: **Conținutul unui magazin este separat de celelalte magazine.** Paginile, produsele și setările aparțin doar magazinului în care au fost create.
+
+---
+
+## Structura aplicației (pe scurt)
+
+Structura aplicației poate fi înțeleasă astfel:
+
+### **Master Admin (cont client)**
+
+**Dashboard**\
+→ Abonament\
+→ Noutăți
+
+**Magazine**\
+→ Magazin 1\
+→ Magazin 2\
+→ Magazin 3
+
+**Utilizatori**\
+→ Utilizator 1 (Account Admin)\
+→ Utilizator 2\
+→ Utilizator 3
+
+Iar în interiorul fiecărui magazin:
+
+### **Magazin**
+
+**Setări magazin**\
+→ Identitate Brand\
+→ Setari generale
+
+**Landing Page-uri**\
+→ Creare/editare pagini produs\
+→ Vizualizare pagini produs
+
+**Pagini statice**\
+→ Creare/editare pagini produs\
+→ Vizualizare pagini produs
+
+**Homepage**\
+→ Produse / Categorii
