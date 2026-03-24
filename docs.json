@@ -44,6 +44,7 @@
                   },
                   {
                     "group": "Master Admin",
+                    "icon": "computer",
                     "pages": [
                       "dashboard",
                       "magazine",
@@ -52,6 +53,7 @@
                   },
                   {
                     "group": "Magazin",
+                    "icon": "store",
                     "pages": [
                       "admin",
                       "setari",
