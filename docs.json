@@ -9,23 +9,15 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "products": [
       {
-        "tab": "test",
-        "groups": [
+        "product": "CMS",
+        "tabs": [
           {
-            "group": "Quickstart",
-            "pages": [
-              "welcome"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "tugu",
-        "dropdowns": [
+            "tab": "Master Admin"
+          },
           {
-            "dropdown": "Untitled Dropdown"
+            "tab": "Magazin"
           }
         ]
       }
