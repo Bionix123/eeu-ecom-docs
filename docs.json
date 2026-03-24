@@ -18,44 +18,45 @@
             "products": [
               {
                 "product": "CMS",
-                "tabs": [
+                "groups": [
                   {
-                    "tab": "Noțiuni introductive",
+                    "group": "Noțiuni introductive",
                     "icon": "circle-info",
                     "pages": [
-                      "ce-este-un-cms",
-                      "bun-venit",
-                      "abonamente",
-                      "master-admin-vs-magazin",
-                      "noutati"
-                    ]
-                  },
-                  {
-                    "tab": "Master Admin",
-                    "groups": [
                       {
-                        "group": "Introducere",
-                        "pages": []
-                      },
-                      {
-                        "group": "Magazine",
-                        "pages": []
-                      },
-                      {
-                        "group": "Utilizatori",
-                        "pages": []
-                      }
-                    ]
-                  },
-                  {
-                    "tab": "Magazin",
-                    "groups": [
-                      {
-                        "group": "test grouo",
+                        "group": "Quickstart",
+                        "expanded": true,
                         "pages": [
-                          "test-page"
+                          "ce-este-un-cms",
+                          "bun-venit"
+                        ]
+                      },
+                      {
+                        "group": "Informații",
+                        "expanded": true,
+                        "pages": [
+                          "abonamente",
+                          "master-admin-vs-magazin",
+                          "noutati"
                         ]
                       }
+                    ]
+                  },
+                  {
+                    "group": "Master Admin",
+                    "pages": [
+                      "dashboard",
+                      "magazine",
+                      "utilizatori"
+                    ]
+                  },
+                  {
+                    "group": "Magazin",
+                    "pages": [
+                      "admin",
+                      "setari",
+                      "pagini-produs",
+                      "pagini-statice"
                     ]
                   }
                 ]
