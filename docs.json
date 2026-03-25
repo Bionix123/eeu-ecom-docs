@@ -1,11 +1,11 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Mint Starter Kit",
+  "name": "Documentație CRM & CMS - EEU-ECOM",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#288fb9",
+    "light": "#20d2f1",
+    "dark": "#158ea3"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -21,34 +21,29 @@
                 "groups": [
                   {
                     "group": "Noțiuni introductive",
-                    "icon": "circle-info",
+                    "icon": "comment-question",
                     "pages": [
-                      {
-                        "group": "Quickstart",
-                        "expanded": true,
-                        "pages": [
-                          "ce-este-un-cms",
-                          "bun-venit"
-                        ]
-                      },
-                      {
-                        "group": "Informații",
-                        "expanded": true,
-                        "pages": [
-                          "abonamente",
-                          "master-admin-vs-magazin",
-                          "noutati"
-                        ]
-                      }
+                      "ce-este-un-cms",
+                      "cum-incep"
+                    ]
+                  },
+                  {
+                    "group": "Informații",
+                    "icon": "circle-info",
+                    "expanded": true,
+                    "pages": [
+                      "abonamente",
+                      "master-admin-vs-magazin",
+                      "noutati"
                     ]
                   },
                   {
                     "group": "Master Admin",
                     "icon": "computer",
                     "pages": [
-                      "dashboard",
-                      "magazine",
-                      "utilizatori"
+                      "admin-dashboard",
+                      "admin-magazine",
+                      "admin-utilizatori"
                     ]
                   },
                   {
@@ -71,7 +66,7 @@
   },
   "logo": {
     "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "dark": "/logo/light.svg"
   },
   "navbar": {
     "links": [
@@ -104,5 +99,9 @@
       "github": "https://github.com/mintlify",
       "linkedin": "https://linkedin.com/company/mintlify"
     }
-  }
+  },
+  "appearance": {
+    "strict": true
+  },
+  "description": "Aceasta este documentația oficiala a ecosistemului EEU-ECOM."
 }

@@ -1,0 +1,173 @@
+---
+icon: "store"
+title: "Magazine"
+---
+
+Secțiunea **Magazine** permite administrarea tuturor magazinelor din cont.
+
+Din această secțiune se pot:
+
+- crea magazine noi
+- edita magazine existente
+- șterge magazine
+- accesa panoul de administrare al unui magazin
+- configura setările generale ale magazinului (nume, domeniu, status etc.)
+
+Fiecare magazin este independent și are propriile pagini, produse și setări.
+
+## Adăugare magazin
+
+Această secțiune descrie procesul de creare a unui magazin nou și conectarea unui domeniu pentru acesta. Pentru ca un magazin să fie accesibil online, este necesară configurarea domeniului și a înregistrărilor DNS.
+
+**⚠️ ATENȚIE: Înainte de a configura un magazin in CMS, asigură-te că magazinul a fost creat în aplicația de bază - CRM, din meniul**
+
+<Frame caption='Click pe "Setup Store" pentru a adăuga/configura un magazin nou'>
+  ![Screenshot 2026 03 25 At 16 33 34](/images/Screenshot2026-03-25at16.33.34.png)
+</Frame>
+
+** Magazine (Stores)**
+
+## Conectare domeniu
+
+Pentru fiecare magazin se poate conecta un domeniu propriu (ex: **magazinulmeu.ro**). Conectarea domeniului presupune configurarea DNS prin **Cloudflare** și asocierea domeniului cu magazinul din platformă.
+
+Procesul general este următorul:
+
+1. Achiziție domeniu
+2. Creare cont Cloudflare
+3. Actualizare nameservers domeniu
+4. Adăugare DNS Record
+5. Conectare domeniu în platformă
+
+---
+
+### Achiziție domeniu
+
+Primul pas este achiziționarea unui domeniu de la un furnizor de domenii (registrar). Domeniul va fi folosit pentru magazin și pentru paginile de produs.
+
+Exemple de domenii:
+
+- [magazinulmeu.ro](http://magazinulmeu.ro)
+- [produsulmeu.ro](http://produsulmeu.ro)
+- [brandulmeu.com](http://brandulmeu.com)
+
+După achiziția domeniului, acesta trebuie conectat la Cloudflare pentru administrarea DNS-ului.
+
+Pași a
+
+<Frame>
+  ![Screenshot 2026 03 25 At 16 30 29](/images/Screenshot2026-03-25at16.30.29.png)
+</Frame>
+
+chiziție domeniu prin **CyberFolks**:
+
+1. Verifică disponibilitatea domeniului făcând click [aici](https://cyberfolks.ro/verificare-domeniu/)
+   <Frame caption='In poza atașată am verificat "vreau-acest-domeniu.ro"'>
+     ![Screenshot 2026 03 25 At 15 54 04](/images/Screenshot2026-03-25at15.54.04.png)
+   </Frame>
+2. În cazul în care domeniul dorit este disponibil, adaugă-l în coș și apoi **urmează pașii de finalizare a comenzii.**
+
+---
+
+### Creare cont Cloudflare
+
+**Cloudflare** este o platformă care oferă servicii de **DNS, securitate, SSL și optimizare a performanței** pentru website-uri. Practic, Cloudflare stă între vizitator și serverul pe care este găzduit site-ul și ajută la protejarea și accelerarea site-ului.
+
+Cloudflare este folosit în aplicație pentru:
+
+- administrarea DNS-urilor domeniilor
+- conectarea domeniilor la magazine
+- generarea certificatelor SSL (HTTPS)
+- protecție împotriva atacurilor
+- îmbunătățirea vitezei de încărcare a paginilor
+
+Pe scurt, **Cloudflare permite conectarea domeniului la platformă într-un mod sigur, rapid și stabil** și gestionează setările DNS necesare pentru ca magazinul să fie accesibil online.
+
+1. Accesează site-ul **Cloudflare** \> **Login** \> **Sign-up** sau apasă click direct [aici](https://dash.cloudflare.com/sign-up).
+2. Creează un **cont nou** sau autentifică-te cu Gmail / Apple sau GitHub
+   <Frame>
+     ![Screenshot 2026 03 25 At 15 51 12](/images/Screenshot2026-03-25at15.51.12.png)
+   </Frame>
+
+---
+
+### Adăugare domeniu în Cloudflare
+
+După crearea contului de Cloudflare, următorul pas este adăugarea domeniului în Cloudflare pentru administrarea DNS-ului.
+
+Pași pentru adăugarea domeniului în Cloudflare:
+
+1. Se accesează contul de Cloudflare.
+2. Se trece peste procesul de onboarding unde puteți raspunde cum doriți.
+3. Din meniul din stanga, click pe **Domains \> Overview **și apoi **Onboard Domain**
+   <Frame caption="(butonul albastru din dreapta)">
+     ![Screenshot 2026 03 25 At 16 05 00](/images/Screenshot2026-03-25at16.05.00.png)
+   </Frame>
+4. Se introduce numele domeniului (ex: [domeniulmeu.ro](http://domeniulmeu.ro)) și se configurează opțiunile ca în imaginea de mai jos.
+   <Frame>
+     ![Screenshot 2026 03 25 At 16 06 02](/images/Screenshot2026-03-25at16.06.02.png)
+   </Frame>
+5. Se selectează planul **Free** (este suficient pentru funcționarea magazinului).
+   <Frame>
+     ![Screenshot 2026 03 25 At 16 07 16](/images/Screenshot2026-03-25at16.07.16.png)
+   </Frame>
+6. Cloudflare va scana automat DNS-urile existente.
+7. Se confirmă înregistrările DNS (**Continue activation**)
+8. Cloudflare va genera două **nameserver-e**.
+   <Frame caption="Aceste 2 nameservers vor fi necesare mai târziu">
+     ![Screenshot 2026 03 25 At 16 08 42](/images/Screenshot2026-03-25at16.08.42.png)
+   </Frame>
+9. Aceste nameserver-e trebuie setate la furnizorul domeniului (următoarea secțiune).
+
+După finalizarea acestui pas, domeniul va fi administrat prin Cloudflare, iar DNS-urile vor putea fi configurate din Cloudflare.
+
+---
+
+### Actualizare nameservers la furnizorul de domeniu (CyberFolks)
+
+După adăugarea domeniului în **Cloudflare**, trebuie actualizate **nameserver-ele** la furnizorul de domenii, în cazul nostru, CyberFolks.
+
+Pași:
+
+1. Se intră în contul de client folosind [acest link](https://cyberfolks.ro/panoul-clientului/)
+2. Se accesează pagina **Domenii** (click pe cardul de sus)
+3. Click pe butonul ⚙️ din dreptul domeniului achiziționat
+   <Frame>
+     ![Screenshot 2026 03 25 At 16 15 31](/images/Screenshot2026-03-25at16.15.31.png)
+   </Frame>
+4. Navigați în tab-ul "Nameservere" din partea stângă, zona "Configurare" și introduceți cele două nameserver-e primite de la Cloudflare
+   <Frame>
+     ![Screenshot 2026 03 25 At 16 17 50](/images/Screenshot2026-03-25at16.17.50.png)
+   </Frame>
+5. Salvează modificările (click pe** Modificare nameservere**)
+
+ℹ️ Propagarea nameserver-elor poate dura între câteva minute și 24 de ore.
+
+---
+
+### Adăugare DNS Record
+
+După ce domeniul este activ în Cloudflare (nameserver-ele au fost setate și propagate cu succes), trebuie adăugat un **DNS record **de tip **CNAME** care va face legătura între domeniu și aplicație.
+
+Exemplu configurare:
+
+- Type: CNAME
+- Name: domeniul-meu.ro
+- Target: [domeniu-platforma.com](http://domeniu-platforma.com)
+- Proxy: Enabled (Cloud portocaliu)
+
+Acest lucru se face accesând meniul **DNS \> Records **(partea stângă) , urmat de click pe butonul "**Add Record**"
+
+<Frame>
+  ![Screenshot 2026 03 25 At 16 25 10](/images/Screenshot2026-03-25at16.25.10.png)
+</Frame>
+
+⚠️ **ATENȚIE: Nu adăugați orice DNS Record daca nu aveți cunoștiințe tehnice avansate! Adaugați strict DNS Record-ul pe care aplicația va spune sa îl adăugați (CNAME) atunci când setați un magazin nou.**
+
+<Frame caption="DNS Record-ul pe care trebuie sa îl adăugați apare întotdeauna în partea dreaptă atunci când configurați un magazin nou">
+  ![Screenshot 2026 03 25 At 16 30 45](/images/Screenshot2026-03-25at16.30.45.png)
+</Frame>
+
+După adăugarea DNS record-ului, domeniul va începe să pointeze către aplicație și magazinul va fi accesibil online.
+
+ℹ️ Propagarea DNS Records poate dura între câteva minute și 24 de ore.
