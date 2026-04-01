@@ -53,7 +53,8 @@
                       "admin",
                       "setari",
                       "pagini-produs",
-                      "pagini-statice"
+                      "pagini-statice",
+                      "pagina-de-multumire"
                     ]
                   }
                 ]
@@ -66,7 +67,8 @@
   },
   "logo": {
     "light": "/logo/light.svg",
-    "dark": "/logo/light.svg"
+    "dark": "/logo/light.svg",
+    "href": "https://join.eeu-ecom.app"
   },
   "navbar": {
     "links": [
