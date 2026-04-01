@@ -17,3 +17,33 @@ Exemple de pagini statice:
 Aceste pagini nu sunt pagini de vânzare, ci pagini informative necesare pentru magazin.
 
 Afișarea paginilor statice create în subsolul paginii se face din pagina **Setări \> Link-uri subsol**
+
+⚠️ Pentru a accesa o pagină statică trebuie sa utilizați prefixul `/pages/` în link, urmat de **slug-ul **paginii. Exemplu: `magazinul-meu.ro/pages/termeni-si-conditii` unde `termeni-si-conditii` este **slug-ul** 
+
+paginii. Nu uitați de asemenea să folosiți `/pages` când setați link-urile din subsolul paginii.
+
+## Creare pagină statică
+
+1. Accesați zona de pagini statice din pagina principală a panoului de administrare
+   <Frame caption='Click pe "Administrează conținut"'>
+     ![Screenshot 2026 04 01 At 14 58 57](/images/Screenshot2026-04-01at14.58.57.png)
+   </Frame>
+2. Click pe butonul "**Pagină nouă**" din colțul dreapta sus
+3. Completați câmpurile necesare:
+   - Titlu → Alegeți titlul paginii
+   - Slug → Slug-ul reprezinta identificatorul folosit in link-ul către pagină și trebuie să fie formatat "kebab-case", adică fiecare cuvânt trebuie scris cu litere mici și separat cu un dash `-`, exemplu: `acesta-este-un-slug`
+   - Conținut - folosind editorul **markdown** pus la dispoziție de aplicația noastră, aveți posibilitatea de a redacta conținutul într-un mod cat mai bine structurat și ușor de citit
+4. Pentru ca pagina sa fie vizibilă public, este necesar să activați această opțiune din partea dreaptă a editorului de conținut
+   <Frame>
+     <img
+       src="/images/Screenshot2026-04-01at14.54.21.png"
+       alt="Screenshot 2026 04 01 At 14 54 21"
+       title="Screenshot 2026 04 01 At 14 54 21"
+       style={{ width:"99%" }}
+     />
+   </Frame>
+5. Salvați pagina folosind butonul din colț dreapta sus
+6. Pentru a vizualiza pagina, click pe URL-ul public din card-ul "Informații pagină"
+   <Frame>
+     ![Screenshot 2026 04 01 At 14 56 48](/images/Screenshot2026-04-01at14.56.48.png)
+   </Frame>
