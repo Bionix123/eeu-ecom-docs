@@ -1,0 +1,228 @@
+---
+title: "Terminologie"
+icon: "book"
+---
+
+Acest ghid conține termenii și conceptele cheie folosite în platformă, pentru a facilita înțelegerea documentației și utilizarea aplicației.
+
+---
+
+## Termeni generali
+
+### CMS (Content Management System)
+
+Sistem de administrare a conținutului - o aplicație software care permite crearea, editarea și administrarea conținutului unui website fără a fi nevoie să scrii cod. În contextul platformei noastre, CMS-ul este optimizat pentru crearea rapidă de landing page-uri și pagini informative.
+
+### CRM (Customer Relationship Management)
+
+Aplicația principală EEU-ECOM care gestionează relațiile cu clienții, comenzile și abonamentele. Din CRM se accesează și se achiziționează abonamentul pentru CMS.
+
+### Master Admin
+
+Nivelul principal al contului unui client, de unde se pot administra toate magazinele, utilizatorii și setările generale ale contului. Este zona de management centralizat pentru toate magazinele unui client.
+
+### Magazin
+
+Fiecare magazin are propria zonă de administrare separată unde se pot crea landing page-uri, pagini statice și se pot gestiona setările specifice magazinului. Conținutul unui magazin este separat de celelalte magazine.
+
+---
+
+## Tipuri de pagini
+
+### Landing Page / Pagină de produs
+
+Pagină de prezentare și vânzare pentru un singur produs. Conține elemente precum imagini, descrieri, prețuri, beneficii, specificații și formular de comandă. Este optimizată pentru conversie.
+
+### Pagini statice (CMS Pages)
+
+Pagini informative necesare pentru magazin, precum:
+- Termeni și condiții
+- Politica de retur
+- Politica de confidențialitate
+- Livrare
+- Contact
+- Despre noi
+
+### Thank You Page / Pagina de mulțumire
+
+Pagina care apare după ce clientul a finalizat comanda. Confirmă că comanda a fost plasată cu succes și informează clientul despre următorii pași. Poate conține și oferte post-purchase pentru utilizatorii cu abonamente Gold și Gold Plus.
+
+### Homepage
+
+Pagina principală a magazinului unde pot fi evidențiate produse, colecții sau oferte speciale.
+
+---
+
+## Elemente de conținut
+
+### Slug
+
+Identificatorul folosit în URL-ul paginii (ex: `magazinul-meu.ro/produs-nume`). Trebuie să fie unic și formatat în "kebab-case" (litere mici separate cu cratimă).
+
+### Hero Section
+
+Prima secțiune mare din partea de sus a unui site web, vizibilă imediat când intri pe pagină, fără să dai scroll. Conține de obicei denumirea produsului, prețul, imaginea principală și butonul de acționare (CTA).
+
+### CTA (Call To Action)
+
+Buton sau element de acționare care încurajează utilizatorul să efectueze o acțiune (ex: "Comandă acum", "Adaugă în coș"). Este esențial pentru conversie.
+
+### Attention Grabbers
+
+Mesaje scurte de tip alertă, beneficii sau notificări care atrag atenția utilizatorilor (ex: "Livrare gratuită", "Stoc limitat", "Garanție 2 ani").
+
+### USP (Unique Selling Points)
+
+Avantajele principale ale produsului sau magazinului care îl diferențiază de concurență (ex: "Livrare în 24h", "Plată la livrare", "Retur 14 zile").
+
+### FAQ (Frequently Asked Questions)
+
+Secțiunea de întrebări frecvente și răspunsuri despre produs, livrare, plată sau garanție. Ajută la reducerea obiecțiilor și creșterea conversiei.
+
+---
+
+## Concepte tehnice
+
+### DNS (Domain Name System)
+
+Sistem care face legătura între numele domeniului (ex: magazinul-meu.ro) și serverul unde este găzduit site-ul. Pentru ca un magazin să fie accesibil online, trebuie configurate înregistrările DNS.
+
+### DNS Record
+
+Înregistrare în sistemul DNS care specifică cum trebuie direcționat traficul pentru un domeniu. În platformă se folosește tipul CNAME pentru conectarea domeniului la magazin.
+
+### CNAME
+
+Tip de DNS Record care creează un alias pentru un domeniu, redirecționând traficul către un alt domeniu sau subdomeniu.
+
+### Nameserver
+
+Serverul care gestionează înregistrările DNS pentru un domeniu. Pentru conectarea domeniului la magazin, nameserver-ele trebuie setate la Cloudflare.
+
+### Cloudflare
+
+Platformă care oferă servicii de DNS, securitate, SSL și optimizare a performanței pentru website-uri. Este folosită în aplicație pentru administrarea DNS-urilor și conectarea domeniilor la magazine.
+
+### SSL / HTTPS
+
+Protocol de securitate care criptează comunicarea între browser și server. Cloudflare generează automat certificate SSL pentru magazinele conectate.
+
+### Subdomeniu
+
+Adresă web secundară care face parte dintr-un domeniu principal (ex: `abc-xyz123ab.svx-cms.eeu-ecom.app`). Fiecare magazin primește automat un subdomeniu temporar până când domeniul propriu este configurat.
+
+### Propagare DNS
+
+Procesul prin care modificările DNS (nameservere, înregistrări) se răspândesc pe internet. Poate dura între câteva minute și 24 de ore.
+
+---
+
+## Funcționalități marketing
+
+### Cross-sell
+
+Tehnica de vânzare care propune produse complementare sau similare clientului (ex: "Clienții au mai cumpărat și...").
+
+### Upsell
+
+Tehnica de vânzare care propune o versiune superioară sau un pachet mai complet al produsului (ex: "Upgrade la versiunea Premium").
+
+### Post-purchase
+
+Oferte sau acțiuni care apar după finalizarea comenzii, de obicei pe pagina de mulțumire. Sunt folosite pentru vânzări suplimentare.
+
+### Conversie / Rata de conversie
+
+Procentul de vizitatori care efectuează acțiunea dorită (de obicei plasarea unei comenzi). O pagină cu rată de conversie mare transformă mai mulți vizitatori în clienți.
+
+---
+
+## Branding și design
+
+### Branding
+
+Identitatea vizuală a magazinului, incluzând logo, culori, fonturi și stilul general de prezentare.
+
+### Template
+
+Șablon predefinit pentru structura și design-ul unei pagini. Platforma va oferi template-uri optimizate pentru diferite tipuri de produse.
+
+### Responsive / Mobile-friendly
+
+Design care se adaptează automat la diferite dimensiuni de ecran (telefon, tabletă, desktop), asigurând o experiență optimă pe orice dispozitiv.
+
+---
+
+## Abonamente și planuri
+
+### Starter
+
+Plan de abonament pentru 1 magazin și 1 utilizator. Potrivit pentru antreprenori la început sau pentru testarea unui produs.
+
+### Seller
+
+Plan de abonament pentru până la 3 magazine și 3 utilizatori. Destinat business-urilor care administrează mai multe magazine sau au o echipă mică.
+
+### Advanced
+
+Plan de abonament cu număr nelimitat de magazine și utilizatori. Destinat business-urilor mari sau agențiilor.
+
+### Pause
+
+Plan special cu cost redus care permite întreruperea temporară a utilizării platformei fără a pierde datele. Magazinele pot fi inaccesibile publicului, dar datele rămân salvate.
+
+---
+
+## Utilizatori și permisiuni
+
+### Utilizator
+
+Persoană care are acces în platformă. Fiecare utilizator poate avea acces la unul sau mai multe magazine, în funcție de permisiunile setate.
+
+### Administrator / Account Admin
+
+Utilizator cu acces deplin asupra contului de Master Admin și a tuturor magazinelor. Poate gestiona utilizatori, magazine și abonamente.
+
+### Permisiuni
+
+Setări care definesc la ce magazine și funcționalități are acces un utilizator. Permit controlul accesului în echipă.
+
+---
+
+## SEO (Search Engine Optimization)
+
+### Meta Title
+
+Titlul paginii care apare în rezultatele motoarelor de căutare și în tab-ul browserului. Important pentru SEO.
+
+### Meta Description
+
+Descrierea scurtă a paginii care apare sub titlu în rezultatele căutării. Influențează rata de click din rezultatele Google.
+
+### Sitemap
+
+Fișier care conține lista tuturor paginilor site-ului, ajutând motoarele de căutare să indexeze conținutul.
+
+### Open Graph
+
+Protocol care permite controlul modului în care paginile sunt afișate când sunt distribuite pe rețelele sociale (Facebook, LinkedIn etc.).
+
+---
+
+## Alte concepte
+
+### Markdown
+
+Limbaj simplu de formatare a textului folosit în editorul de conținut pentru pagini statice. Permite formatarea rapidă fără cod HTML.
+
+### Kebab-case
+
+Format de scriere unde cuvintele sunt cu litere mici și separate prin cratimă (ex: `termeni-si-conditii`). Este folosit pentru slug-uri.
+
+### Footer / Subsol
+
+Zona de jos a paginii unde apar de obicei link-uri către pagini informative, date de contact și informații legale.
+
+### Review / Recenzie
+
+Evaluare sau feedback lăsat de clienți despre un produs. Crește încrederea și rata de conversie.
