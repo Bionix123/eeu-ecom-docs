@@ -9,52 +9,67 @@
   },
   "favicon": "/universal.png",
   "navigation": {
-    "languages": [
+    "anchors": [
       {
-        "language": "ro",
-        "products": [
+        "anchor": "CRM - Aplicația principală",
+        "pages": [
           {
-            "product": "CMS",
-            "groups": [
-              {
-                "group": "Noțiuni introductive",
-                "icon": "comment-question",
-                "pages": [
-                  "cms/ce-este-un-cms",
-                  "cms/cum-incep",
-                  "cms/terminologie"
-                ]
-              },
-              {
-                "group": "Informații",
-                "icon": "circle-info",
-                "expanded": true,
-                "pages": [
-                  "cms/abonamente",
-                  "cms/master-admin-vs-magazin",
-                  "cms/noutati"
-                ]
-              },
-              {
-                "group": "Master Admin",
-                "icon": "computer",
-                "pages": [
-                  "cms/admin-dashboard",
-                  "cms/admin-magazine",
-                  "cms/admin-utilizatori"
-                ]
-              },
-              {
-                "group": "Magazin",
-                "icon": "store",
-                "pages": [
-                  "cms/admin",
-                  "cms/setari",
-                  "cms/pagini-produs",
-                  "cms/pagini-statice",
-                  "cms/pagina-de-multumire"
-                ]
-              }
+            "group": "Introducere",
+            "icon": "book-open",
+            "pages": [
+              "crm/introducere"
+            ]
+          },
+          {
+            "group": "Module principale",
+            "icon": "grid",
+            "pages": [
+              "crm/comenzi",
+              "crm/produse"
+            ]
+          }
+        ]
+      },
+      {
+        "anchor": "CMS - Creator de magazine",
+        "icon": "browser",
+        "pages": [
+          {
+            "group": "Noțiuni introductive",
+            "icon": "comment-question",
+            "pages": [
+              "cms/ce-este-un-cms",
+              "cms/cum-incep",
+              "cms/terminologie"
+            ]
+          },
+          {
+            "group": "Informații",
+            "icon": "circle-info",
+            "pages": [
+              "cms/abonamente",
+              "cms/master-admin-vs-magazin",
+              "cms/noutati"
+            ]
+          },
+          {
+            "group": "Master Admin",
+            "icon": "computer",
+            "pages": [
+              "cms/admin-dashboard",
+              "cms/admin-magazine",
+              "cms/admin-utilizatori"
+            ]
+          },
+          {
+            "group": "Magazin",
+            "icon": "store",
+            "pages": [
+              "cms/admin",
+              "cms/setari",
+              "cms/pagini-produs",
+              "cms/pagini-statice",
+              "cms/pagina-de-multumire"
             ]
           }
         ]
