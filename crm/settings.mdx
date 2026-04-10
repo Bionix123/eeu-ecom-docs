@@ -1,0 +1,65 @@
+---
+title: "Setări"
+icon: "gear"
+---
+
+Secțiunea **Setări** conține configurările tehnice și funcționale ale aplicației CRM. Aceste setări sunt împărțite în mai multe categorii.
+
+## Setări instanță
+
+### Cont
+
+În această secțiune se gestionează documentația și abonamentul:
+
+- **Documentație aplicație** - Acces rapid la documentația platformei
+- **Gestionează abonamentul actual** - Administrare plan de abonament
+- **Editează ID-ul utilizatorului curent** - Modificare identificator utilizator
+
+### Comandă
+
+Configurări pentru procesarea comenzilor:
+
+- **ORDER SERIES** - Serie implicită comandă (ex: BUY). Această serie va fi folosită ca prefix pentru denumirea comenzilor. Exemplu: `BUY-COD-1234`
+- **DUPLICATE DAYS** - Număr maxim de zile între două comenzi pentru a fi marcate ca duplicate (ex: 21 zile)
+
+### Helpship
+
+Integrare cu serviciul de fulfillment Helpship:
+
+- **CLIENT ID** - ID Client Helpship
+- **CLIENT SECRET** - Secret Client Helpship
+- **PACKING PRICE** - Preț ambalare pentru fulfillment (ex: 5.10)
+- **LAST COD REPORT DATE** - Data ultimului raport COD generat
+- **RECEIVE EMAIL** - Declară dacă emailul proprietarului magazinului va fi trimis odata cu comenzile către Helpship
+- **POSTCODE AUTOCOMPLETION** - Declară dacă codurile poștale ale clientilor vor fi completate automat când sistemul detectează o adresă cu exactitate
+
+### Stoc
+
+Configurări pentru gestionarea stocului și livrărilor:
+
+- **DELIVERY TIME** - Timp de livrare import (ex: 10 zile)
+- **MAX DELIVERY TIME** - Timp maxim de livrare import (ex: 14 zile)
+- **AVG DEMAND DAYS** - Număr de zile pentru calcularea cererii medii de produse (ex: 10 zile)
+- **FIRST ALERT DAYS** - Număr de zile pentru notificare înainte de a ajunge la punctul de recomandare (ex: 3 zile)
+
+Aceste valori sunt folosite pentru calculele din pagina "produse" sau "inventar produse".
+
+## Client
+
+### Install Date
+
+- **INSTALL DATE** - Data când instanța dvs. a fost implementată pentru prima dată (ex: 2024-08-01)
+
+## Livrare
+
+### Curier implicit
+
+Selectare curier implicit din dropdown (ex: GLS) și configurare prețuri pentru fiecare curier disponibil.
+
+<Info>
+Acesta este prețul pe care vânzătorul îl plătește pentru livrare (fără TVA), nu prețul de livrare afișat pe pagina produsului.
+</Info>
+
+Fiecare curier are un buton **Salvează** pentru a actualiza prețul individual.
+
+Pentru a adăuga un curier nou, utilizați butonul **+ Adaugă curier nou**.

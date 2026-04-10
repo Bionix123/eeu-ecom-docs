@@ -1,0 +1,146 @@
+---
+title: "Addon-uri"
+icon: "puzzle-piece"
+---
+
+Funcționalități extra pentru eficientizarea vânzărilor și reducerea costurilor de operare.
+
+Platforma EEU-ECOM oferă addon-uri premium care automatizează procese critice și îmbunătățesc rata de conversie a magazinului tău. Aceste funcționalități sunt disponibile ca servicii suplimentare cu plată pe bază de utilizare.
+
+---
+
+## Recuperarea comenzilor din GLS
+
+Sistemul de recuperare automată a comenzilor GLS monitorizează livrările nereușite și marchează comenzile pentru reapelare imediată.
+
+### Beneficii
+
+**Monitorizare automată**
+- Sistemul monitorizează automat email-urile de la GLS pentru livrări nereușite
+- Detectează comenzile care nu au putut fi livrate din prima încercare
+
+**Recuperare rapidă**
+- Comenzile sunt marcate automat pentru reapelare și recuperare imediată
+- Procesul de recontactare a clienților este automatizat
+
+**Scade numărul de comenzi returnate**
+- Scade cu până la 3-5% rata de comenzilor returnate
+- Crește rata de conversie a magazinului
+- ROI-ul acestui addon este de până la 20x
+
+### Prețuri
+
+Costul per comandă recuperată: **3 Lei**
+
+Costul este adăugat automat la factura lunară de abonament. Plătești doar pentru comenzile efectiv recuperate.
+
+### Configurare
+
+Pentru a activa funcționalitatea de recuperare GLS, urmează acești pași:
+
+#### 1. Creează un cont Gmail nou
+
+Creează un cont de Gmail nou dedicat acestei automatizări.
+
+#### 2. Configurează regula de forward
+
+Creează o regulă de forward folosind filtrul:
+
+- **From:** `noreply@gls-romania.ro`
+- **Subject:** `unsuccessfully delivery`
+
+Forward către:
+```
+gls-inbox+{subdomain}@mg.eeu-ecom.app
+```
+
+⚠️ **Atenție:** Înlocuiește `{subdomain}` cu subdomeniul contului tău.
+
+**Exemplu:** `gls-inbox+abc@mg.eeu-ecom.app`
+
+#### 3. Confirmă regula de forward
+
+După ce ai setat regula de forward, vei primi un mail cu link-ul de confirmare. Accesează link-ul și acceptă forward-ul.
+
+#### 4. Actualizează mail-ul utilizatorului
+
+În aplicația EEU-ECOM:
+- Intră în pagina **Users**
+- Setează mail-ul pe care tocmai l-ai creat userului cu **ID 2**
+
+⚠️ **Atenție:** Dacă este userul de pe care te conectezi, de acum înainte va trebui să folosești acest mail pentru login.
+
+#### 5. Activează setarea Receive Email
+
+În pagina **Settings**, bifează setarea **"Receive Email"** din secțiunea cu setări pentru Helpship.
+
+---
+
+## Corectarea adreselor cu AI
+
+Sistemul de corectare automată a adreselor folosește inteligență artificială pentru a valida și corecta adresele clienților în timp real.
+
+### Beneficii
+
+**Crește rata de livrare a coletelor**
+- AI-ul redactează adresele clar, cu diacritice și fără greșeli
+- Adresele sunt formatate conform standardelor curierilor
+
+**Reduce timpii de procesare a comenzilor**
+- Adresele sunt validate și structurate automat — fără efort manual
+- Elimină necesitatea verificării manuale a fiecărei adrese
+
+**Scade volumul de muncă din Customer Support**
+- Mai puține comenzi de confirmat
+- Mai puține situații neclare
+- Mai puține greșeli de livrare
+
+### Prețuri
+
+Costul per corecție variază în funcție de planul de abonament:
+
+| Plan | Cost per corecție |
+|------|-------------------|
+| Bronze | 0.11 Lei |
+| Silver | 0.09 Lei |
+| Gold | 0.07 Lei |
+| Gold Plus | 0.05 Lei |
+
+### Cum funcționează
+
+**1. Plasarea comenzii**
+- Clientul plasează comanda (chiar și cu greșeli în adresă)
+
+**2. Preluarea automată**
+- Agentul AI va prelua comanda la maxim 5 minute după ce aceasta a intrat în pending
+
+**3. Corectarea adresei**
+- Adresa este validată, completată și curățată de erori
+- Sistemul adaugă diacritice și formatează conform standardelor
+
+**4. Verificare finală**
+- Tu sau un membru din echipa ta verifică și confirmă că totul este în regulă
+- Comanda este gata pentru procesare
+
+### Cumpărare credite
+
+Poți achiziționa credite pentru corecții în avans:
+
+- **Pachete rapide:** 50 Lei, 100 Lei, 300 Lei
+- **Sumă personalizată:** Introdu orice sumă dorești
+
+Creditele nu expiră și pot fi folosite oricând.
+
+### Considerente importante
+
+⚠️ Această tehnologie nu este 100% perfectă și din acest motiv nu putem oferi auto-trimiterea comenzilor cu nivel maxim de încredere.
+
+Recomandăm revizuirea cu atenție a tuturor corecțiilor făcute de sistemul nostru indiferent de nivelul de încredere afișat.
+
+---
+
+## Activare/Dezactivare
+
+Fiecare addon poate fi activat sau dezactivat individual din interfața de administrare. Când un addon este dezactivat, nu se vor mai percepe costuri pentru acel serviciu.
+
+💡 **Sfat:** Monitorizează statisticile fiecărui addon pentru a evalua ROI-ul și a optimiza costurile operaționale.

@@ -13,21 +13,65 @@
       {
         "anchor": "CRM - Aplicația principală",
         "pages": [
+          "crm/home",
+          "crm/addons",
           {
-            "group": "Introducere",
-            "icon": "book-open",
+            "group": "Prezentare generală",
+            "icon": "grid-2",
             "pages": [
-              "crm/introducere"
+              "crm/landing-page-offers",
+              "crm/products-inventory",
+              "crm/orders-dashboard"
             ]
           },
           {
-            "group": "Module principale",
-            "icon": "grid",
+            "group": "Analiză",
+            "icon": "chart-line",
             "pages": [
-              "crm/comenzi",
-              "crm/produse"
+              "crm/cost-and-profit",
+              "crm/sales-and-roas",
+              "crm/calculators"
             ]
-          }
+          },
+          {
+            "group": "Principal",
+            "icon": "bookmark",
+            "pages": [
+              "crm/orders",
+              "crm/partials",
+              "crm/inbound-calls",
+              "crm/order-recoveries"
+            ]
+          },
+          {
+            "group": "Resurse",
+            "icon": "store",
+            "pages": [
+              "crm/stores",
+              "crm/landing-pages",
+              "crm/ad-accounts",
+              "crm/customers",
+              "crm/webhooks"
+            ]
+          },
+          {
+            "group": "Produse vândute",
+            "icon": "shopping-cart",
+            "pages": [
+              "crm/bundles",
+              "crm/products",
+              "crm/attachment-rules"
+            ]
+          },
+          {
+            "group": "Gestionare utilizatori",
+            "icon": "user-circle",
+            "pages": [
+              "crm/users",
+              "crm/roles"
+            ]
+          },
+          "crm/settings"
         ]
       },
       {
