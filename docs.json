@@ -20,9 +20,9 @@
                 "group": "Noțiuni introductive",
                 "icon": "comment-question",
                 "pages": [
-                  "ce-este-un-cms",
-                  "cum-incep",
-                  "terminologie"
+                  "cms/ce-este-un-cms",
+                  "cms/cum-incep",
+                  "cms/terminologie"
                 ]
               },
               {
@@ -30,29 +30,29 @@
                 "icon": "circle-info",
                 "expanded": true,
                 "pages": [
-                  "abonamente",
-                  "master-admin-vs-magazin",
-                  "noutati"
+                  "cms/abonamente",
+                  "cms/master-admin-vs-magazin",
+                  "cms/noutati"
                 ]
               },
               {
                 "group": "Master Admin",
                 "icon": "computer",
                 "pages": [
-                  "admin-dashboard",
-                  "admin-magazine",
-                  "admin-utilizatori"
+                  "cms/admin-dashboard",
+                  "cms/admin-magazine",
+                  "cms/admin-utilizatori"
                 ]
               },
               {
                 "group": "Magazin",
                 "icon": "store",
                 "pages": [
-                  "admin",
-                  "setari",
-                  "pagini-produs",
-                  "pagini-statice",
-                  "pagina-de-multumire"
+                  "cms/admin",
+                  "cms/setari",
+                  "cms/pagini-produs",
+                  "cms/pagini-statice",
+                  "cms/pagina-de-multumire"
                 ]
               }
             ]
