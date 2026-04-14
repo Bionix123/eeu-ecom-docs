@@ -2,3 +2,105 @@
 title: "Comenzi"
 icon: "clipboard-list"
 ---
+
+Pagina **Comenzi** este cea mai importantă secțiune a aplicației CRM. Aici poți vedea toate comenzile primite și poți lua măsuri precum confirmarea sau anularea unei comenzi, editarea produselor, confirmarea/eliminarea add-on-urilor post-achiziție, și re-trimiterea unei comenzi în caz de eroare.
+
+## Ciclu de viață al statusului comenzii
+
+Acestea sunt statusurile prin care trece o comandă de la început până la final:
+
+### 1. New
+Acesta este statusul implicit al unei comenzi noi. Nu vei vedea acest status foarte des deoarece toate comenzile noi sunt **plasate în queue** automat. Singura excepție este atunci când o comandă are un **add-on post-achiziție neconfirmat**.
+
+### 2. Queued
+Comenzile cu acest status așteaptă să fie procesate de sistem. Sistemul verifică automat comenzile în queue și le trimite către următorul pas.
+
+### 3. Pending
+Acest status înseamnă că comanda așteaptă **confirmarea manuală** de către un operator. Comanda va rămâne în acest status până când cineva o confirmă manual.
+
+### 4. Confirmed
+Acesta este ultimul status din ciclul de viață al comenzii. Înseamnă că comanda a fost confirmată cu succes și poate fi trimisă de angajații centrului de fulfillment.
+
+### 5. Error
+Acest status este setat de obicei atunci când apare o eroare în pașii menționați anterior. În acest caz, poți încerca să **replasezi comanda cu Order Requeue** și, dacă acest lucru eșuează, contactează suportul tehnic.
+
+### 6. Test
+Acest status este setat pentru comenzile de test. Toate comenzile cu produse care au statusul **Testing** vor avea automat statusul **Test**.
+
+## Cum trimiți o comandă din Testing Phase
+
+După ce ai produsul în stoc:
+
+1. Treci produsul în status **ACTIVE** din pagina [Produse](/crm/products)
+2. Te asiguri că ai setat corect SKU-urile noi și că sunt deja disponibile în Helpship
+3. Intri în pagina **Orders**, selectezi comenzile pe care vrei să le trimiți (poți selecta atât **bulk**, cât și **individual**):
+   - Folosești selectorul de acțiuni din partea de sus a tabelului, sau
+   - În cazul comenzilor individuale, apeși pe butonul cu **3 puncte** din partea dreaptă a comenzii
+4. Selectezi acțiunea **"Order Requeue"** pentru a le trimite în Helpship
+
+## Statusul Post-Purchase al comenzilor
+
+Dacă pagina ta de destinație (Landing Page) are add-on-uri post-achiziție atașate, atunci unele comenzi vor avea și statusuri diferite de Post Purchase:
+
+- **None** - Nu există niciun add-on post-achiziție în comandă și comanda este plasată în queue ca de obicei
+- **Unconfirmed** - Comanda are cel puțin un add-on post-achiziție, dar clientul nu a dat click pe butonul "finalizează comanda". În acest caz, puteți suna clientul pentru a verifica dacă add-on-urile au fost adăugate din greșeală sau nu
+- **Confirmed** - Comanda are cel puțin un add-on post-achiziție și clientul a finalizat cu succes procesul post-achiziție. Nu este necesară nicio acțiune suplimentară
+
+## Acțiuni disponibile pentru comenzi
+
+Acțiunile pot fi executate făcând click pe cele **3 puncte** din partea dreaptă a unei comenzi.
+
+### Order Confirm
+
+Aceasta este una dintre cele mai importante acțiuni din aplicație. Acțiunea de Confirmare a Comenzii va afișa un ecran modal cu informațiile comenzii care trebuie revizuite manual.
+
+**Funcționalități ajutătoare:**
+
+- **Validarea Numărului de Telefon** - Dacă numărul de telefon este invalid, va apărea o notificare cu text roșu
+- **Detectarea Dublurilor de Comenzi** - Ajută la detectarea comenzilor duplicate. În cazul unui duplicat, va apărea o notificare cu text roșu
+
+**Câmpuri importante:**
+- **Numărul Străzii** și **Codul Poștal** trebuie setate manual
+
+### Order Cancel
+
+Această acțiune este utilizată pentru a anula o comandă. 
+
+<Warning>
+Asigură-te că comanda este fie **queued**, fie **pending**. Poți anula și o comandă **confirmed**, dar asigură-te că aceasta nu a fost deja trimisă.
+</Warning>
+
+### Post Purchase Confirm
+
+Folosește această acțiune pentru a confirma comenzile cu statusul de post-purchase **unconfirmed**.
+
+<Info>
+După ce confirmi post-purchase, trebuie să folosești **Order Requeue**!
+</Info>
+
+### Post Purchase Remove
+
+Folosește această acțiune pentru a elimina upsell-urile post-purchase ale comenzilor cu statusul **unconfirmed**.
+
+<Info>
+După eliminarea post-purchase, trebuie să folosești **Order Requeue**!
+</Info>
+
+### Order Requeue
+
+Această acțiune încearcă să pună din nou comanda în pending. Poate fi folosită în caz de **eroare** sau imediat după **confirmarea/eliminarea upsell-urilor post-purchase**.
+
+<Tip>
+Poți folosi și acțiunea **Order Requeue** pentru a transforma o **comandă de test** (status: **test**) într-o comandă reală. Asigură-te doar că comanda nu este mai veche de **10 zile**, altfel aceasta va rămâne blocată în starea "Pending / Fulfillable" și va trebui să contactezi furnizorul de servicii de fulfillment (HelpShip) pentru a o rezolva.
+</Tip>
+
+## Order Lines (Linii de comandă)
+
+Order Lines fac parte din structura mai largă a comenzii, capturând detaliile fiecărui articol comandat de un client, permițând urmărirea detaliată, confirmarea și facturarea corectă.
+
+O linie de comandă conține următoarele informații:
+
+- **Variantă de Produs (SKU)**
+- **Cantitate**
+- **Preț Unitar**
+- **Sursă** (comandă / manual / pre_comandă / post_comandă)

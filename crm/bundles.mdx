@@ -2,3 +2,92 @@
 title: "Pachete"
 icon: "store"
 ---
+
+Pagina **Pachete** (Bundles) permite crearea și gestionarea pachetelor de produse cu reguli de preț personalizate. Pachetele sunt utile pentru a oferi oferte speciale când clienții cumpără mai multe produse împreună.
+
+<Note>
+Această funcționalitate este disponibilă începând cu planul **Silver**.
+</Note>
+
+## Ce sunt pachetele?
+
+Un **Bundle** (Pachet) este o colecție de produse vândute împreună la un preț special. SKU-urile pachetelor sunt **interne** și nu trebuie să fie setate de partenerul logistic.
+
+## Funcționalități principale
+
+### Creare pachete
+
+Pentru fiecare pachet poți configura:
+
+- **Nume pachet**
+- **SKU intern** (generat automat sau personalizat)
+- **Reguli de preț** pentru diferite cantități
+- **Produse incluse** în pachet
+
+### Bundle Items (Produse incluse)
+
+Fiecare Bundle poate avea mai multe **Produse Incluse în Pachet** (Bundle items).
+
+#### Cum atașezi produse în pachet
+
+1. După ce creezi pachetul, navighează înapoi la pagina de index (vizualizarea tabelului)
+2. Apasă pe ID-ul pachetului (evidențiat în albastru)
+3. Acum te afli pe pagina "detaliilor" pachetului
+4. Aici poți vedea butonul **Create bundle items**
+5. Poți edita produsele existente incluse în pachet
+
+## Reguli de preț
+
+Pachetele folosesc un sistem flexibil de stabilire a prețurilor bazat pe cantitate.
+
+### Prețuri standard
+
+Primele 3 opțiuni sunt clare:
+
+- **Preț pentru 1** - Prețul când clientul cumpără 1 unitate
+- **Preț pentru 2** - Prețul când clientul cumpără 2 unități
+- **Preț pentru 3** - Prețul când clientul cumpără 3 unități
+
+### Reguli avansate de preț
+
+Pentru cantități mai mari de 3, sistemul folosește următoarele reguli:
+
+- **Cantitatea Produselor Incluse în Pachet** = Suma cantităților calculate efectiv pentru fiecare Produs Inclus în Pachet
+- **Numărul de Produse Incluse în Pachet** = Numărul de Produse Incluse în Pachet din pachet
+
+<Info>
+Dacă Numărul de Produse Incluse în Pachet sau Cantitatea > 3, prețul per produs va fi calculat astfel:
+- `(Preț_pentru_3 / 3) * Cantitate` sau
+- `(Preț_pentru_3 / 3) * Număr`
+</Info>
+
+### Dependență de Landing Page
+
+Prețurile pachetelor depind de ofertele de pe pagina principală de destinație (Landing Page) pentru unul, două sau trei produse.
+
+<Tip>
+Asigură-te că prețurile din pachet sunt sincronizate cu ofertele de pe Landing Page pentru o experiență consistentă a clientului.
+</Tip>
+
+## Exemple de utilizare
+
+### Pachet 2+1 Gratis
+
+Creează un pachet cu:
+- Preț pentru 1: 100 RON
+- Preț pentru 2: 150 RON
+- Preț pentru 3: 150 RON (al treilea produs gratis)
+
+### Pachet Reducere Progresivă
+
+Creează un pachet cu:
+- Preț pentru 1: 100 RON
+- Preț pentru 2: 180 RON (10% reducere)
+- Preț pentru 3: 240 RON (20% reducere)
+
+## Bune practici
+
+- Creează pachete atractive care încurajează clienții să cumpere mai multe produse
+- Testează diferite strategii de preț pentru a găsi cea mai profitabilă combinație
+- Monitorizează performanța pachetelor în rapoartele de vânzări
+- Actualizează prețurile pachetelor când modifici prețurile produselor individuale
