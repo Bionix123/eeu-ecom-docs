@@ -2,3 +2,155 @@
 title: "Inventar produse"
 icon: "gift"
 ---
+
+Pagina **Inventar produse** oferă o vizualizare completă și detaliată a stocului de produse, împărțită pe trei tab-uri principale: **General**, **Active** și **Leftovers**. Această pagină este esențială pentru monitorizarea performanței produselor și gestionarea eficientă a inventarului.
+
+## Tab-ul General
+
+Tab-ul **General** oferă o prezentare generală a întregului inventar de produse, indiferent de status.
+
+### Date generale inventar produse
+
+#### Valoare inventar
+Grafic cu bare care compară valoarea inventarului pentru:
+- **All Products** - Valoarea totală a tuturor produselor din stoc (VAT și Non-VAT)
+- **Active Products** - Valoarea produselor active din stoc (VAT și Non-VAT)
+- **Leftover Products** - Valoarea produselor leftover din stoc
+
+#### Status produse
+Grafic circular (pie chart) care arată distribuția produselor pe statusuri:
+- **Active** - Produse active în vânzare
+- **Leftover** - Produse care nu mai sunt promovate activ
+- **Testing** - Produse în faza de testare
+- **Paused** - Produse puse pe pauză
+
+### Rotație lunară stoc (NET - Ultimele 12 luni)
+Grafic combinat care arată evoluția stocului pe ultimele 12 luni:
+- **Turnover** (bare verzi) - Rotația stocului pe lună
+- **Quantity Sold** (linie) - Cantitatea vândută lunar
+
+Acest grafic ajută la identificarea tendințelor sezoniere și la planificarea aprovizionării.
+
+### Produse vândute pe zi (Ultimele 14 zile)
+Grafic cu bare care arată numărul de produse vândute zilnic în ultimele 14 zile. Util pentru:
+- Identificarea zilelor cu vânzări mari
+- Detectarea tendințelor pe termen scurt
+- Planificarea stocului pe termen scurt
+
+## Tab-ul Active
+
+Tab-ul **Active** se concentrează exclusiv pe produsele cu statusul **Active**, oferind analize detaliate despre performanța acestora.
+
+### Date inventar produse active
+
+#### Top 5 produse active după valoare inventar
+Tabel care listează primele 5 produse active după valoarea inventarului, cu următoarele coloane:
+- **Product Name** - Numele produsului
+- **SKU** - Codul unic al produsului
+- **Available** - Cantitatea disponibilă în stoc
+- **Inventory Value** - Valoarea totală a stocului pentru produsul respectiv
+
+Grafic cu bare orizontale care vizualizează aceleași date pentru o comparație rapidă.
+
+#### Venituri produse active (Ultimele 14 zile)
+Grafic liniar multi-serie care arată evoluția veniturilor pentru produsele active în ultimele 14 zile. Fiecare linie reprezintă un produs diferit, permițând compararea performanței.
+
+#### Top 5 produse active după venituri (Ultimele 14 zile)
+Grafic cu bare orizontale care arată primele 5 produse active după venituri generate în ultimele 14 zile.
+
+#### Produse active sub punctul de recomandare
+Tabel critic care listează produsele active care au atins sau sunt sub punctul de reaprovizionare:
+- **Product Name** - Numele produsului
+- **SKU** - Codul produsului
+- **Available** - Cantitatea disponibilă curent
+- **Reorder Point** - Punctul la care trebuie comandat stoc nou
+- **Demand** - Cererea zilnică medie
+- **Days Left** - Numărul de zile până la epuizarea stocului
+
+<Warning>
+Produsele din acest tabel necesită atenție imediată pentru a evita rupturi de stoc. Produsele cu **Days Left = 0** sunt în zona critică.
+</Warning>
+
+#### Top 5 produse active după cerere
+Grafic cu bare orizontale care arată primele 5 produse active după cererea zilnică medie, ajutând la identificarea produselor cu cea mai mare rotație.
+
+### Prezentare generală produse
+Tabel detaliat cu toate produsele active, incluzând:
+- **Product** - Imagine și nume produs
+- **Status** - Statusul produsului (Active)
+- **SKU** - Codul produsului
+- **Reorder Point** - Punctul de reaprovizionare
+- **Available** - Cantitatea disponibilă
+- **Return Rate** - Rata de returnare (%)
+- **Unit Price** - Prețul unitar
+- **Inventory Value** - Valoarea totală a stocului
+- **Demand** - Cererea zilnică medie
+- **Days Left** - Zile până la epuizare
+
+<Info>
+Acest tabel oferă o vizualizare completă a tuturor metricilor importante pentru fiecare produs activ, facilitând luarea deciziilor rapide de aprovizionare.
+</Info>
+
+### Produse vândute pe zi (Ultimele 14 zile)
+Similar cu tab-ul General, dar filtrat doar pentru produsele active.
+
+## Tab-ul Leftovers
+
+Tab-ul **Leftovers** se concentrează pe produsele cu statusul **Leftover** - produse care nu mai sunt promovate activ dar încă sunt disponibile pentru vânzare.
+
+### Date inventar produse leftover
+
+#### Top 5 produse leftover după valoare inventar
+Tabel și grafic cu bare care arată primele 5 produse leftover după valoarea inventarului:
+- **Product Name** - Numele produsului
+- **SKU** - Codul produsului
+- **Available** - Cantitatea disponibilă
+- **Inventory Value** - Valoarea stocului
+
+Acest raport ajută la identificarea produselor leftover care blochează cel mai mult capital.
+
+#### Venituri produse leftover (Ultimele 14 zile)
+Grafic liniar multi-serie care arată evoluția veniturilor pentru produsele leftover în ultimele 14 zile.
+
+<Tip>
+Chiar dacă produsele sunt leftover, unele pot genera venituri consistente prin vânzări organice sau ca upsell/cross-sell.
+</Tip>
+
+#### Top 5 produse leftover după venituri (Ultimele 14 zile)
+Grafic cu bare orizontale care identifică produsele leftover cu cele mai mari venituri în ultimele 14 zile.
+
+#### Top 5 estimări stoc produse leftover
+Tabel detaliat cu estimări pentru produsele leftover:
+- **Product Name** - Numele produsului
+- **SKU** - Codul produsului
+- **Available** - Cantitatea disponibilă
+- **Demand** - Cererea zilnică medie
+- **Inventory Value** - Valoarea stocului
+- **Days Left** - Zile până la epuizare (999 = cerere foarte scăzută)
+
+<Info>
+Valoarea **999** la **Days Left** indică faptul că cererea pentru produsul respectiv este foarte scăzută sau zero, iar stocul va dura foarte mult timp.
+</Info>
+
+## Utilizare și bune practici
+
+### Monitorizare zilnică
+- Verifică tab-ul **Active** pentru produsele sub punctul de reaprovizionare
+- Monitorizează graficul "Products Sold by Day" pentru a detecta anomalii
+
+### Analiză săptămânală
+- Analizează "Top 5 by Revenue" pentru a identifica produsele performante
+- Verifică "Return Rate" pentru produsele cu rate mari de returnare
+
+### Planificare lunară
+- Studiază "Monthly Stock Turnover" pentru tendințe sezoniere
+- Evaluează produsele leftover pentru posibile lichidări sau promoții
+
+### Optimizare inventar
+- Folosește datele de **Demand** pentru a ajusta cantitățile comandate
+- Monitorizează **Days Left** pentru a preveni rupturi de stoc
+- Identifică produsele leftover cu valoare mare de inventar pentru strategii de lichidare
+
+<Warning>
+Produsele active cu **Days Left** sub 7 zile necesită comandă urgentă de stoc pentru a evita pierderea vânzărilor.
+</Warning>

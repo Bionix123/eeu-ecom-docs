@@ -39,7 +39,6 @@
             "pages": [
               "crm/orders",
               "crm/partials",
-              "crm/inbound-calls",
               "crm/order-recoveries"
             ]
           },

@@ -2,3 +2,156 @@
 title: "Panou principal comenzi"
 icon: "clipboard-list"
 ---
+
+Pagina **Panou principal comenzi** (Orders Dashboard) oferă o vizualizare completă a statisticilor și performanței comenzilor, cu posibilitatea de filtrare după perioadă și landing page. Această pagină este esențială pentru monitorizarea vânzărilor și analiza performanței campaniilor.
+
+## Filtre și KPI-uri
+
+Secțiunea de filtrare permite personalizarea datelor afișate pentru a obține informații relevante.
+
+### Filtre disponibile
+
+#### Perioada
+- **Start Date** - Data de început pentru analiza datelor
+- **End Date** - Data de sfârșit pentru analiza datelor
+- **Presets rapide**:
+  - **Today** - Doar comenzile de astăzi
+  - **Week To Date** - De la începutul săptămânii până acum
+  - **Month To Date** - De la începutul lunii până acum
+  - **All Time** - Toate comenzile din istoric
+
+#### Landing Page
+- **All Landing Pages** - Afișează date pentru toate paginile de destinație
+- **Filtrare specifică** - Selectează o pagină de destinație specifică pentru analiză detaliată
+
+<Info>
+Dacă nu găsești o pagină de destinație în dropdown, poți schimba sursa pentru a vedea și alte opțiuni disponibile.
+</Info>
+
+#### Source (Sursă)
+Filtrare după sursa comenzilor (de exemplu: Facebook, Partial, Organic, etc.)
+
+### KPI-uri principale
+
+Panoul afișează următorii indicatori cheie de performanță:
+
+- **Total** - Valoarea totală a comenzilor în perioada selectată (RON)
+- **Comenzi** - Numărul total de comenzi
+- **Produse vândute** - Numărul total de produse vândute
+- **Rată de erori** - Rata problemelor (%)
+- **Valoare medie** - Valoarea medie a comenzii (RON)
+
+## Statistici și grafice
+
+### Comenzi după sursa de trafic
+
+Grafic cu bare care arată distribuția comenzilor pe surse de trafic:
+- **Organic** - Trafic organic
+- **Partner** - Trafic de la parteneri
+- **Facebook** - Trafic de pe Facebook
+- **Inbound Call** - Comenzi primite prin apeluri telefonice
+
+Fiecare sursă afișează procentajul din totalul comenzilor.
+
+### Comenzi după status
+
+Tabel care listează comenzile grupate pe statusuri:
+- **STATUS** - Statusul comenzii
+- **COUNT** - Numărul de comenzi cu acel status
+
+Statusuri posibile:
+- **Confirmed** - Comenzi confirmate și trimise către fulfillment
+- **Pending** - Comenzi în așteptare pentru confirmare
+- **Canceled** - Comenzi anulate
+- **New Inbound** - Comenzi noi primite prin apeluri telefonice
+- **Wrong Address** - Adresă incorectă
+- **Action Required** - Necesită acțiune
+- **Refused** - Refuzate
+- **Error** - Erori
+- **New** - Noi
+- **Upsell Unconfirmed** - Upsell neconfirmat
+
+<Tip>
+Monitorizează statusurile **Action Required** și **Error** pentru a rezolva rapid problemele și a îmbunătăți rata de conversie.
+</Tip>
+
+### Rată returnări
+
+Indicator care arată rata de returnare a comenzilor:
+- **Procentaj** - Rata de returnare (%)
+- **Detalii** - Număr de returnări vs. comenzi livrate
+
+<Info>
+O rată de returnare de **0,0%** este ideală și indică produse de calitate și clienți mulțumiți.
+</Info>
+
+### Creștere venituri
+
+Grafic liniar care arată evoluția veniturilor în perioada selectată, cu două linii:
+- **Pre-Purchase** (linia albastră) - Venituri din vânzări tip upsell pre-purchase din formular
+- **Post-Purchase** (linia violet) - Venituri din upsell-uri post-achiziție de pe pagina de mulțumire
+
+Graficul include și o vizualizare cu bare pentru comparație directă între cele două tipuri de venituri.
+
+<Note>
+Acest grafic poate fi filtrat **By Landing Page** pentru a vedea performanța fiecărei pagini de destinație individual.
+</Note>
+
+### Distribuție upsell-uri
+
+Grafic circular (pie chart) care arată distribuția upsell-urilor.
+
+Acest grafic ajută la înțelegerea tipurilor de upsell-uri care generează cele mai multe venituri.
+
+### Top venituri
+
+Secțiune cu tab-uri care arată top produsele după venituri:
+
+#### Tab-uri disponibile:
+- **Pre** - Venituri din vânzări tip upsell pre-purchase din formular
+- **Post** - Venituri din upsell-uri post-achiziție de pe pagina de mulțumire
+- **All** - Toate veniturile din upsell-uri combinate
+
+#### Filtrare:
+- **Landing Page** - Filtrare după landing page
+
+Grafic cu bare orizontale care arată:
+- **Numele produsului**
+- **Valoarea veniturilor** (RON)
+
+<Tip>
+Folosește această secțiune pentru a identifica produsele cele mai performante și pentru a optimiza strategia de vânzare.
+</Tip>
+
+## Utilizare și bune practici
+
+### Monitorizare zilnică
+- Folosește preset-ul **Today** pentru a vedea performanța zilei curente
+- Verifică **Comenzi după status** pentru comenzi care necesită acțiune
+- Monitorizează **Rată returnări** (return rate) constant pentru a identifica potențiale probleme fie in pasul de confirmare al comenzii fie în procesul de livrare
+
+### Analiză săptămânală
+- Folosește **Week To Date** pentru a evalua performanța săptămânii
+- Compară **Creștere venituri** între Pre-Purchase și Post-Purchase
+- Analizează **Comenzi după sursa de trafic** pentru a optimiza bugetul și strategia
+
+### Planificare lunară
+- Folosește **Month To Date** pentru rapoarte lunare
+- Studiază **Distribuție upsell-uri** pentru a identifica oportunități de upsell
+- Analizează **Top venituri** pentru a identifica produsele performante
+
+### Optimizare campanii
+- Filtrează după **Landing Page** specifică pentru a evalua performanța fiecărei campanii
+- Identifică produsele cu cele mai mari venituri pentru a le promova mai mult
+
+<Warning>
+Comenzile cu status **Error** sau **Action Required** trebuie rezolvate cât mai rapid pentru a evita pierderea vânzărilor și nemulțumirea clienților. Pentru comenzile cu status **Error** folosește acțiunea **Order Requeue** pentru a reîncerca trimiterea comenzii. Pentru comenzile cu status **Action Required**, verifică detaliile comenzii în Helpship pentru a identifica acțiunea necesară.
+</Warning>
+
+## Butonul "Aplică filtre"
+
+După ce ai configurat filtrele dorite (perioadă, landing page, sursă), apasă butonul **Aplică filtre** pentru a actualiza toate statisticile și graficele conform selecției tale.
+
+<Info>
+Toate graficele și statisticile se vor actualiza automat după aplicarea filtrelor, oferind o vizualizare personalizată a datelor tale. Fiecare interogare este salvată în memoria cache timp de 15 minute pentru a optimiza performanța, acesta fiind motivul pentru care modificările nu se reflectă imediat.
+</Info>

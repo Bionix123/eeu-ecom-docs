@@ -2,3 +2,119 @@
 title: "Cost & Profit"
 icon: "chart-line"
 ---
+
+Pagina **Cost & Profit** oferă o analiză detaliată a costurilor și profiturilor pentru fiecare perioadă selectată. Această pagină este esențială pentru monitorizarea performanței financiare și identificarea tendințelor de profitabilitate.
+
+<Info>
+**Diferența față de Vânzări și ROAS:** Pagina Cost și Profit analizează **încasările reale** (comenzi confirmate și livrate, după aplicarea ratei de returnare), în timp ce pagina Vânzări și ROAS analizează **vânzările brute** (înainte de rata de retur). Cost și Profit oferă o imagine mai realistă a profitabilității efective.
+</Info>
+
+## Filtre și opțiuni
+
+### Selectează an și lună
+- **Anul** - Dropdown pentru selectarea anului dorit (ex: 2026)
+- **Luna** - Dropdown pentru selectarea lunii dorite (ex: Martie)
+- **Buton Generează** - Generează raportul pentru perioada selectată
+
+### Opțiuni de afișare
+- **Include vânzări din upsell-uri** - Include veniturile din upsell-uri în calcule
+- **Plătitor TVA** - Calculează profitul pentru firmă plătitoare de TVA (bifat) sau neplătitoare de TVA (nebifat). Această opțiune afectează modul de calcul al profitului deoarece există diferențe în tratamentul TVA-ului
+- **Include cheltuieli pentru campanii de retargeting** - Include costurile campaniilor de retargeting în calcule
+
+## Statistici generale
+
+Panoul afișează următorii indicatori principali pentru perioada selectată:
+
+### Venituri
+**Valoarea totală** - Venituri totale generate în perioada selectată (RON)
+
+### TVA datorat de plătit
+**Valoarea TVA** - TVA de plătit pentru perioada selectată (RON)
+- **TVA Încasat** - TVA încasat
+- **TVA de Plată** - TVA de plătit
+
+### Profit
+**Valoarea profitului** - Profit total generat în perioada selectată (RON)
+- **Net** - Profit net (pentru plătitori TVA)
+- **% din venituri** - Procentul profitului din venituri
+
+### Cheltuieli publicitate
+**Valoarea cheltuielilor** - Cheltuieli totale cu publicitatea (RON)
+- **ROAS** - Return on Ad Spend (Venituri / Cheltuieli publicitate)
+
+### Rată returnare
+**Procentaj returnări** - Rata de returnare a comenzilor (%)
+
+## Tabel detaliat pe perioade
+
+Tabelul afișează o defalcare detaliată pentru fiecare perioadă cu următoarele coloane:
+
+### Coloane disponibile
+
+- **Dată** - Perioada pentru care sunt calculate datele
+- **Venituri** - Venituri totale generate
+- **Cheltuieli publicitate** - Costuri cu publicitatea
+- **Cost total** - Costuri totale (produse + împachetare + livrare)
+- **Profit** - Profitul net din vânzări înainte de taxe și cheltuieli administrative
+- **Profit %** - Procentul profitului din venituri
+- **ROAS** - Return on Ad Spend (Venituri / Cheltuieli publicitate)
+- **Rată returnare (%)** - Procentul comenzilor returnate
+
+### Coduri de culoare pentru Profit %
+
+Tabelul folosește un sistem de culori pentru a indica rapid performanța:
+
+- **Verde** - Profit % ridicat (peste 15%)
+- **Galben** - Profit % mediu (10-15%)
+- **Portocaliu** - Profit % scăzut (5-10%)
+- **Roșu** - Profit % foarte scăzut sau negativ (sub 5%)
+
+<Tip>
+Folosește codurile de culoare pentru a identifica rapid perioadele cu performanță slabă și pentru a investiga cauzele.
+</Tip>
+
+### Coduri de culoare pentru ROAS
+
+- **Verde** - ROAS ridicat (peste 3.0)
+- **Galben** - ROAS mediu (2.0-3.0)
+- **Portocaliu** - ROAS scăzut (1.5-2.0)
+- **Roșu** - ROAS foarte scăzut (sub 1.5)
+
+<Warning>
+Un ROAS sub 2.5 indică faptul că cheltuielile cu publicitatea sunt prea mari în raport cu veniturile generate. Revizuiește strategia de marketing.
+</Warning>
+
+## Utilizare și bune practici
+
+### Analiză lunară
+- Generează rapoarte lunare pentru a evalua performanța generală
+- Compară profitul % între luni pentru a identifica tendințe sezoniere
+- Monitorizează ROAS-ul pentru a optimiza bugetul de publicitate
+
+### Identificare probleme
+- Perioadele cu profit % roșu necesită investigare imediată
+- Verifică rata de returnare pentru perioade cu performanță slabă
+- Analizează costurile totale pentru a identifica cheltuieli neașteptate
+
+### Optimizare campanii
+- Folosește datele de ROAS pentru a aloca bugetul către campaniile performante
+- Identifică perioadele cu cheltuieli mari de publicitate și profit scăzut
+- Ajustează strategia de marketing pe baza datelor istorice
+
+### Planificare financiară
+- Folosește datele de TVA pentru planificarea plăților
+- Monitorizează profitul net pentru a evalua sănătatea financiară
+- Identifică tendințele de venituri pentru planificarea bugetului
+
+<Info>
+Raportul ia în considerare toate comenzile confirmate și livrate în perioada selectată. Comenzile anulate sau returnate sunt excluse din calcule, dar sunt reflectate în rata de returnare.
+</Info>
+
+## Cum să obții cele mai precise rezultate
+
+Pentru a obține cele mai precise rezultate din raport, asigură-te că:
+
+- Toate comenzile sunt marcate corect (confirmate, livrate, anulate, returnate)
+- Costurile de produse, împachetare și livrare sunt actualizate periodic în paginile produse și setări
+- Perioada selectată include suficiente date pentru analiză (zilele marcate cu galben reprezintă zilele cu date incomplete)
+- Ia în considerare o perioadă tampon de cel putin 7-10 zile pentru a evita erorile de calcul
