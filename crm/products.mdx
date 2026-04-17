@@ -1,37 +1,34 @@
 ---
 title: "Produse"
-icon: "gift"
+icon: "box"
 ---
 
-Pagina **Produse** permite gestionarea completă a produselor tale. Aici poți adăuga produse noi, seta prețuri unitare, defini statusuri și variante, și urmări cantitățile disponibile și estimările stocului.
+Pagina **Produse** este locul unde adaugi și gestionezi produsele tale. Aici poți seta **prețul unitar**, **statusul** (Activ, Testare, etc.), și defini **variantele** acestora. În plus, poți urmări **cantitățile disponibile**, **estimările stocului**, și **statusul disponibilității variantelor**.
 
-## Funcționalități principale
+## Statusuri disponibile
 
-### Adăugare produse
+Fiecare produs poate avea unul dintre următoarele statusuri:
 
-Pentru fiecare produs poți configura:
+### Paused
+Produs inactiv pe care nu îl mai vinzi sau pe care l-ai testat și nu a funcționat.
 
-- **Nume produs**
-- **Preț unitar**
-- **Status** (Activ, Testare, Paused, Leftover)
-- **Variante** (culori, mărimi, etc.)
-- **SKU-uri** pentru fiecare variantă
+### Testing
+Produs în stadiul de testare. Comenzile primite pe produse cu status **Testing** nu vor intra în platforma de trimitere colete (Helpship).
 
-### Statusuri disponibile
+### Active
+Produs activ pe care încă îl vinzi și pentru care încă rulezi reclame.
 
-- **Paused** - Produs inactiv pe care nu îl mai vinzi sau pe care l-ai testat și nu a funcționat
-- **Testing** - Produs în stadiul de testare. Comenzile primite pe produse cu status Testing nu vor intra în platforma de trimitere colete (Helpship)
-- **Active** - Produs activ pe care încă îl vinzi și pentru care încă rulezi reclame
-- **Leftover** - Produs activ pentru care nu mai rulezi reclame dar încă mai ai stoc și vrei să îl vinzi în continuare ca upsell
+### Leftover
+Produs activ pentru care nu mai rulezi reclame dar încă mai ai stoc și vrei să îl vinzi în continuare ca upsell.
 
 <Info>
-Statusul **Leftover** este util pentru a identifica rapid produsele pentru care nu mai rulezi reclame dar le vinzi ca upsell sau ai încă stoc disponibil.
+Statusul **Leftover** te ajută să identifici rapid produsele pentru care nu mai rulezi reclame dar le vinzi ca upsell sau ai încă stoc disponibil.
 </Info>
 
 ## Gestionarea stocurilor
 
 <Note>
-Anumite părți din această funcționalitate sunt disponibile doar la planul **GOLD PLUS**.
+Anumite părți din această funcționalitate sunt disponibile doar la planul **Gold Plus**.
 </Note>
 
 ### Sincronizare inventar
@@ -42,50 +39,64 @@ Prin apăsarea butonului **Sync Inventory** poți sincroniza manual cantitățil
 Sincronizarea nu ia în calcul cantitățile "On Order".
 </Warning>
 
-### Metrici de stoc
+### Metrici importante
 
-- **Cererea medie** - Calculată pe baza datelor de vânzări din ultimele 7 zile și reprezintă cantitatea vândută zilnică medie
-- **Punctul de reaprovizionare** - Cantitatea la care ar trebui să comanzi noi stocuri. Această valoare este supra-estimată pe baza unui calcul de "stoc de siguranță" care ține cont de posibile întârzieri în livrare
-- **Zile rămase** - Numărul de zile până când se va epuiza stocul
+#### Cererea medie
+Calculată pe baza datelor de vânzări din ultimele zile și reprezintă cantitatea medie vândută zilnic.
+
+#### Punctul de reaprovizionare
+Cantitatea la care ar trebui să te gândești să comanzi noi stocuri. Această valoare este supra-estimată pe baza unui calcul de "stoc de siguranță" care ține cont de posibile întârzieri în livrare.
 
 <Info>
-Pentru a calcula corect "stocul de siguranță", trebuie să ai variabilele **STOCK_DELIVERY_TIME** și **STOCK_MAX_DELIVERY_TIME** configurate corect în [Setări](/crm/settings).
+Pentru a modifica numărul de zile pentru calculul cererii medii sau a punctului de reaprovizionare, mergeți la **Setari** → **Stoc** și modificați valorile aferente.
 </Info>
+
+#### Zile rămase
+Numărul de zile până când se va epuiza stocul.
 
 ### Coduri de culoare pentru variante
 
 Variantele produselor sunt colorate în funcție de statusul stocului:
 
-- **Albastru** - Produsul nu este activ
-- **Verde** - Stoc suficient
-- **Galben** - 1-3 zile până la atingerea punctului de reaprovizionare
-- **Roșu** - Cantitatea disponibilă ≤ Punctul de reaprovizionare
+- 🔵 **Albastru** - Produsul nu este activ
+- 🟢 **Verde** - Stoc suficient
+- 🟡 **Galben** - 1-3 zile până la atingerea punctului de reaprovizionare
+- 🔴 **Roșu** - Cantitatea disponibilă ≤ Punctul de reaprovizionare
 
 ## Variante de produs
 
-Fiecare produs poate avea una sau mai multe **variante**. De exemplu, un produs care vine în 2 culori diferite va avea 2 SKU-uri, ceea ce înseamnă 2 variante. Fiecare variantă va avea propriul SKU și ambele vor aparține aceluiași produs.
+Fiecare **produs** poate avea una sau mai multe **variante**. De exemplu, dacă ai un produs care vine în 2 culori diferite, vei avea 2 SKU-uri, ceea ce înseamnă că ai 2 variante. Fiecare variantă va avea propriul SKU și ambele vor aparține aceluiași produs.
+
+<Tip>
+Dacă produsul tău vine într-o singură culoare/mărime/variantă (un singur SKU), atunci vei avea doar o variantă.
+</Tip>
 
 ### Cum atașezi variante
 
 1. După ce creezi produsul, navighează înapoi la pagina de index (vizualizarea tabelului)
-2. Apasă pe ID-ul produsului (evidențiat în albastru)
+2. Apasă pe **ID-ul** acestuia (evidențiat în albastru)
 3. Acum te afli pe "pagina detaliilor" produsului
-4. Aici poți vedea butonul **Create product variant** și poți edita variantele existente
+4. Aici poți vedea butonul **Create product variant**
+5. Poți edita variantele existente
 
 ### Gestionarea SKU-urilor
 
-**În timpul testării:**
-- Poți folosi orice SKU unic dorești
-- Recomandăm să-l prefixezi cu cuvântul "TEST"
-- Exemplu: `TEST-CERCEI-AURII`
+#### În timpul testării
 
-**După validarea produsului:**
+În timp ce testezi produsul, poți folosi orice SKU unic dorești. Îți sugerăm să-l prefixezi cu cuvântul "TEST".
 
-Când produsul tău a fost un succes și te pregătești să-l vinzi:
+**Exemplu:** `TEST-CERCEI-AURII`
 
-1. Schimbă fiecare SKU al variantei cu cel nou primit de la partenerul logistic
+#### După validarea produsului
+
+Să presupunem că produsul tău a fost un succes, l-ai comandat, partenerul logistic ți-a dat un SKU pentru el și acum te pregătești să-l vinzi.
+
+**Primul lucru pe care ar trebui să-l faci:**
+
+1. **Schimbă fiecare SKU al variantei** cu cel nou pe care l-ai primit de la partenerul logistic
 2. Setează **statusul produsului** pe **Active**
 3. Asigură-te că SKU-urile sunt disponibile în Helpship
 
-<Tip>
-Păstrează o evidență clară a SKU-urilor de test vs. SKU-urile de producție pentru a evita confuziile.</Tip>
+<Warning>
+Este esențial să actualizezi SKU-urile înainte de a trece produsul în status Active pentru a evita erorile de sincronizare cu Helpship.
+</Warning>
