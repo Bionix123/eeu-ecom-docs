@@ -3,66 +3,143 @@ title: "Comenzi"
 icon: "clipboard-list"
 ---
 
-Pagina **Comenzi** este cea mai importantă secțiune a aplicației CRM. Aici poți vedea toate comenzile primite și poți lua măsuri precum confirmarea sau anularea unei comenzi, editarea produselor, confirmarea/eliminarea add-on-urilor post-achiziție, și re-trimiterea unei comenzi în caz de eroare.
+Pagina **Comenzi** este cea mai importantă secțiune a aplicației CRM. Aici poți vedea toate comenzile primite și poți lua măsuri precum confirmarea sau anularea unei comenzi, editarea produselor, confirmarea/eliminarea ofertelor post-achiziție, și re-trimiterea unei comenzi în caz de eroare.
 
-## Ciclu de viață al statusului comenzii
+## Ciclul de viață al unei comenzi în funcție de status
+
+<Info>
+Exită și alte statusuri care pot apărea în anumite situații speciale, dar acestea sunt cele mai comune. Pentru mai multe detalii, consultă secțiunea [Statusuri speciale](#statusuri-speciale).
+</Info>
 
 Acestea sunt statusurile prin care trece o comandă de la început până la final:
 
-### 1. New
-Acesta este statusul implicit al unei comenzi noi. Nu vei vedea acest status foarte des deoarece toate comenzile noi sunt **plasate în queue** automat. Singura excepție este atunci când o comandă are un **add-on post-achiziție neconfirmat**.
+### New
+Acesta este statusul implicit al unei comenzi noi. Nu vei vedea acest status foarte des deoarece toate comenzile noi sunt **plasate în queue** automat. Singura excepție este atunci când o comandă are o **ofertă post-achiziție neconfirmată**.
 
-### 2. Queued
+### Queued
 Comenzile cu acest status așteaptă să fie procesate de sistem. Sistemul verifică automat comenzile în queue și le trimite către următorul pas.
 
-### 3. Pending
+### Pending
 Acest status înseamnă că comanda așteaptă **confirmarea manuală** de către un operator. Comanda va rămâne în acest status până când cineva o confirmă manual.
 
-### 4. Confirmed
+### Confirmed
 Acesta este ultimul status din ciclul de viață al comenzii. Înseamnă că comanda a fost confirmată cu succes și poate fi trimisă de angajații centrului de fulfillment.
 
-### 5. Error
-Acest status este setat de obicei atunci când apare o eroare în pașii menționați anterior. În acest caz, poți încerca să **replasezi comanda cu Order Requeue** și, dacă acest lucru eșuează, contactează suportul tehnic.
+### Error
+Acest status este setat de obicei atunci când apare o eroare în pașii menționați anterior. În acest caz, poți încerca să **replasezi comanda cu Retrimitere comandă** și, dacă acest lucru eșuează, contactează suportul tehnic.
 
-### 6. Test
+<Warning>
+Asigură-te că respectiva comandă nu a fost deja trimisă către **Helpship** înainte de a o retrimite. Dacă comanda a fost deja trimisă, recomandăm schimbarea manuala a statusului în **Confirmed** și manipularea comenzii direct din Helpship.
+</Warning>
+
+### Test
 Acest status este setat pentru comenzile de test. Toate comenzile cu produse care au statusul **Testing** vor avea automat statusul **Test**.
+
+### Canceled
+Comenzile cu acest status au fost anulate.
+
+## Coloana SYNC
+
+Această coloană indică dacă comanda a fost transmisă cu succes către Helpship.
+
+<Info>
+Comenzile din faza de testare, precum și comenzile cu eroare sau cele cu produse adăugate post-achiziție și neconfirmate vor fi întotdeauna marcate cu **X** în această coloană.
+</Info>
+
+## Statusuri speciale
+<Info>
+Aceste statusuri apar doar clienților cu planul **Gold Plus** în urma sincronizărilor zilnice cu Helpship.
+</Info>
+
+### Returned
+Comenzile cu acest status nu au fost ridicate de către client.
+
+### Paid
+Comenzile cu acest status au fost plătite de către client și există într-unul din COD report-urile generate de Helpship.
+
+### Wrong Address
+Comenzile cu acest status au fost marcate de către curier din cauza adresei greșite. Verificați situația individual pentru a determina adresa corectă. Ulterior, contactați Helpship pentru a solicita curierului să modifice adresa.
+
+### Action Required
+Comenzile cu acest status necesită verificare amănunțită pentru a determina cauza. Consultă platforma Helpship pentru mai multe detalii.
 
 ## Cum trimiți o comandă din Testing Phase
 
 După ce ai produsul în stoc:
 
 1. Treci produsul în status **ACTIVE** din pagina [Produse](/crm/products)
-2. Te asiguri că ai setat corect SKU-urile noi și că sunt deja disponibile în Helpship
-3. Intri în pagina **Orders**, selectezi comenzile pe care vrei să le trimiți (poți selecta atât **bulk**, cât și **individual**):
+2. Te asiguri că ai setat corect SKU-urile noi la nivel de variație produs și că unitățile sunt deja disponibile în Helpship
+3. Intri în pagina **Orders**, selectezi comenzile (cu status = test) pe care vrei să le trimiți (poți selecta atât **bulk**, cât și **individual**):
    - Folosești selectorul de acțiuni din partea de sus a tabelului, sau
    - În cazul comenzilor individuale, apeși pe butonul cu **3 puncte** din partea dreaptă a comenzii
-4. Selectezi acțiunea **"Order Requeue"** pentru a le trimite în Helpship
+4. Selectezi acțiunea **"Retrimite comandă"** pentru a le trimite în Helpship
 
 ## Statusul Post-Purchase al comenzilor
 
-Dacă pagina ta de destinație (Landing Page) are add-on-uri post-achiziție atașate, atunci unele comenzi vor avea și statusuri diferite de Post Purchase:
+Dacă pagina ta de destinație (Landing Page) are oferte post-achiziție atașate, atunci trebuie sa ții cont și de statusul de Post Purchase:
 
-- **None** - Nu există niciun add-on post-achiziție în comandă și comanda este plasată în queue ca de obicei
-- **Unconfirmed** - Comanda are cel puțin un add-on post-achiziție, dar clientul nu a dat click pe butonul "finalizează comanda". În acest caz, puteți suna clientul pentru a verifica dacă add-on-urile au fost adăugate din greșeală sau nu
-- **Confirmed** - Comanda are cel puțin un add-on post-achiziție și clientul a finalizat cu succes procesul post-achiziție. Nu este necesară nicio acțiune suplimentară
+- **None** - Nu există niciun produs post-achiziție în comandă și comanda este plasată în queue ca de obicei
+- **Confirmed** - Comanda are cel puțin un produs post-achiziție și clientul a finalizat cu succes procesul post-achiziție. Nu este necesară nicio acțiune suplimentară
+- **Unconfirmed** - Comanda are cel puțin un produs post-achiziție, dar clientul nu a dat click pe butonul "finalizează comanda". În acest caz, puteți suna clientul pentru a verifica dacă produsele au fost adăugate din greșeală sau nu
+
+<Note>
+   Recomandăm confirmarea telefonică a comenzilor cu status **Unconfirmed** pentru a verifica dacă clientul a adăugat produsele din greșeală sau nu.
+</Note>
+
+<Warning>
+   Comenzile cu status **Unconfirmed** nu sunt trimise automat în Helpship - râmân blocate în status **New** - și necesită confirmarea sau ștergerea produselor post-achiziție pentru a fi trimise. Pentru a confirma sau șterge produsele post-achiziție, trebuie să folosești una din acțiunile **Confirmare post-achiziție** sau **Eliminare post-achiziție**.
+</Warning>
 
 ## Acțiuni disponibile pentru comenzi
 
 Acțiunile pot fi executate făcând click pe cele **3 puncte** din partea dreaptă a unei comenzi.
 
+<Frame caption="Acțiunile disponibile pentru comenzi">
+![Order Actions](/images/order-actions.png)
+</Frame>
+
 ### Order Confirm
 
 Aceasta este una dintre cele mai importante acțiuni din aplicație. Acțiunea de Confirmare a Comenzii va afișa un ecran modal cu informațiile comenzii care trebuie revizuite manual.
 
+<Frame caption="Ecranul de confirmare a comenzii">
+![Order Confirm Modal](/images/order-confirm-modal.png)
+</Frame>
+
+Sub secțiunea **Cod poștal** se află zona de sumar comandă - aici poți verifica conținutul comenzii.
+
+<Frame caption="Zona de sumar comandă - conținut extins">
+![Order Confirm Modal](/images/order-confirm-summary.png)
+</Frame>
+
+Fiecare comandă trebuie să aibă următoarele informații completate:
+
+- **Numărul de Telefon** - Acesta trebuie să fie un număr de România valid
+- **Județul și Localitatea** - Acestea trebuie să fie verificate și corectate dacă este necesar
+- **Adresă și Detalii Adresă** - Acestea trebuie să fie verificate și corectate dacă este necesar. Câmpul **Adresă** trebuie să conțină doar tipul străzii (Strada, Alee, Bulevard, etc.), denumirea străzii și numărul străzii și numărul. Câmpul **Detalii Adresă** trebuie să conțină blocul, etajul, apartamentul, sau alte detalii relevante
+- **Codul Poștal** - Acesta trebuie să fie completat corect pentru a fi sigur că livrarea se va face în zona corectă
+
+<Info>
+   Pentru a reduce timpii de confirmare și a evita erorile de completare, recomandăm utilizarea addon-ului [Corectarea adreselor cu AI](/addons#corectarea-adreselor-cu-ai). Această funcționalitate îți va curăța automat datele introduse de client, va elimina prescurtarile și va formata cât mai clar posibil adresa.
+</Info>
+
 **Funcționalități ajutătoare:**
 
+- **Curăță și Completează** - Ajută la curățarea și completarea automată a informațiilor comenzii
+- **Undo auto-completion** - Permite anularea completării automate a informațiilor comenzii
 - **Validarea Numărului de Telefon** - Dacă numărul de telefon este invalid, va apărea o notificare cu text roșu
-- **Detectarea Dublurilor de Comenzi** - Ajută la detectarea comenzilor duplicate. În cazul unui duplicat, va apărea o notificare cu text roșu
+- **Detectarea Dublurilor de Comenzi** - Ajută la detectarea comenzilor duplicate. În cazul unui duplicat, va apărea o alertă
+- **Recomandarea Codului Poștal** - Ajută la completarea codului poștal corect în mod automat
+- **Avertizare blacklist** - Dacă numărul de telefon/clientul se află în lista neagră, comanda va fi anulată automat
+- **Avertizare istoric** - Dacă clientul are comenzi anulate în trecut, va apărea o alertă și posbilitatea de a vizualiza istoricul comenzilor
 
-**Câmpuri importante:**
-- **Numărul Străzii** și **Codul Poștal** trebuie setate manual
+**Situații cunoscute:**
+- În anumite județe există mai multe localități cu același nume, de obicei sate cu același nume care aparțin de comune diferite.
+- Localitățile de mici dimensiuni au un singur cod poștale
+- Codurile poștale pentru adresele din București încep deobicei cu 01, 02, etc. până la 07. Aceste prefixe reprezintă sectoarele din București. 06 și 07 sunt folosite pentru Sector 6 și zonele de suburbanat.
+- Uneori sistemul nu poate oferi recomandări pentru codul poștal, dar poți introduce manual codul poștal corect. Pentru a determina codul poștal corect, poți căuta pe Google sau pe site-urile de căutare a codurilor poștale (Poșta Română, coduripostale.ro sau .net, etc).
 
-### Order Cancel
+### Anulare comandă
 
 Această acțiune este utilizată pentru a anula o comandă. 
 
@@ -70,37 +147,54 @@ Această acțiune este utilizată pentru a anula o comandă.
 Asigură-te că comanda este fie **queued**, fie **pending**. Poți anula și o comandă **confirmed**, dar asigură-te că aceasta nu a fost deja trimisă.
 </Warning>
 
-### Post Purchase Confirm
+### Blocare / Deblocare comandă
+
+Aceste acțiuni sunt echivalentul Hold și Unhold din Helpship. O comandă pusă pe Hold nu va mai pleca spre împachetare până când nu va fi deblocată (unhold).
+
+### Notă comandă
+
+Această acțiune este utilizată pentru a adăuga o notă la o comandă. Poate fi folosită pentru a adăuga informații utile despre comandă, cum ar fi motivul anulării, detalii despre client, etc.
+
+### Schimbare status comandă
+
+Această acțiune este utilizată pentru a schimba manual statusul unei comenzi. Poate fi folosită pentru a schimba statusul unei comenzi din **error/pending** în **confirmed** atunci când există probleme de sincronizare.
+
+### Confirmare post-achiziție
 
 Folosește această acțiune pentru a confirma comenzile cu statusul de post-purchase **unconfirmed**.
 
-<Info>
-După ce confirmi post-purchase, trebuie să folosești **Order Requeue**!
-</Info>
-
-### Post Purchase Remove
+### Eliminare post-achiziție
 
 Folosește această acțiune pentru a elimina upsell-urile post-purchase ale comenzilor cu statusul **unconfirmed**.
 
-<Info>
-După eliminarea post-purchase, trebuie să folosești **Order Requeue**!
-</Info>
+### Retrimitere comandă / Order Requeue
 
-### Order Requeue
-
-Această acțiune încearcă să pună din nou comanda în pending. Poate fi folosită în caz de **eroare** sau imediat după **confirmarea/eliminarea upsell-urilor post-purchase**.
+Această acțiune încearcă să pună din nou comanda în pending. Poate fi folosită în caz de **eroare**.
 
 <Tip>
-Poți folosi și acțiunea **Order Requeue** pentru a transforma o **comandă de test** (status: **test**) într-o comandă reală. Asigură-te doar că comanda nu este mai veche de **10 zile**, altfel aceasta va rămâne blocată în starea "Pending / Fulfillable" și va trebui să contactezi furnizorul de servicii de fulfillment (HelpShip) pentru a o rezolva.
+Poți folosi acțiunea **Retrimitere comandă** pentru a transforma o **comandă de test** (status: **test**) într-o comandă reală. Pentru a face acest lucru, urmează cu atenție pașii menționați mai sus. Asigură-te doar că comanda nu este mai veche de **10 zile**, altfel aceasta va rămâne blocată în starea "Pending / Fulfillable".
 </Tip>
 
-## Order Lines (Linii de comandă)
+### Sincronizare cu Helpship
 
-Order Lines fac parte din structura mai largă a comenzii, capturând detaliile fiecărui articol comandat de un client, permițând urmărirea detaliată, confirmarea și facturarea corectă.
+Această acțiune încearcă să sincronizeze comanda cu Helpship. Poate fi folosită în cazul în care comanda a fost modificată manual în Helpship și doriți ca modificările să fie reflectate și în CRM.
+
+## Linii de comandă
+
+Linii de comandă - acestea fac parte din structura mai largă a comenzii, capturând detaliile fiecărui articol comandat de un client, permițând modificări la conținutul comenzii.
 
 O linie de comandă conține următoarele informații:
 
 - **Variantă de Produs (SKU)**
 - **Cantitate**
 - **Preț Unitar**
-- **Sursă** (comandă / manual / pre_comandă / post_comandă)
+- **Sursă** (comandă / manual / pre_purchase / post_purchase)
+
+![Linii de comandă](/images/order-lines.png)
+
+<Tip>
+Dacă spre exemplu vrei să adaugi un produs la o comandă, poți face acest lucru prin adăugarea unei noi linii de comandă. **Atenție** la cantitate și preț unitar!
+</Tip>
+<Info>
+Totalul comenzii se actualizează automat la modificarea linilor de comandă. În cazul în care modificarea nu se reflectă imediat, recomandăm reîncărcarea paginii.
+</Info>

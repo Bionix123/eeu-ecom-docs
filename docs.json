@@ -29,8 +29,7 @@
             "icon": "chart-line",
             "pages": [
               "crm/cost-and-profit",
-              "crm/sales-and-roas",
-              "crm/calculators"
+              "crm/sales-and-roas"
             ]
           },
           {

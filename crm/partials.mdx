@@ -9,12 +9,12 @@ Pagina **Parțiale** conține toate comenzile parțiale făcute de clienți care
 Asigură-te că Parțialul pe care urmează să lucrezi are cel puțin **10 minute vechime**, altfel ar putea fi vorba de un client care încă completează formularul de checkout.
 </Warning>
 
-## Clean-Up Session Duplicates
+## Curăță parțiale
 
 Aceasta este o funcție care ajută la curățarea parțialelor care au fost deja transformate în comenzi. Uneori, aceste parțiale nu sunt eliminate automat din listă.
 
 <Tip>
-Recomandăm utilizatorilor să ruleze mai întâi o **"Session Duplicates Clean-Up"** înainte de a începe lucrul cu parțialele (apelarea comenzilor parțiale).
+Recomandăm utilizatorilor să ruleze mai întâi **"Curăță parțiale"** înainte de a începe lucrul cu parțialele (apelarea comenzilor parțiale).
 </Tip>
 
 ## Ciclu de viață al statusului parțialelor
@@ -39,11 +39,15 @@ Acest status este de obicei folosit pentru parțialele care au fost marcate ante
 
 ## Acțiuni disponibile pentru parțiale
 
-Acțiunile pot fi executate făcând click pe cele **3 puncte** de pe partea dreaptă a rândului unui parțial.
+Acțiunile pot fi executate făcând click pe cele **3 puncte** de pe partea dreaptă a rândului unui parțial, similar cu acțiunile din pagina [Comenzi](/crm/orders#acțiuni-disponibile-pentru-comenzi).
 
 ### Partial Confirm
 
 Aceasta este cea mai importantă acțiune din această secțiune. Va afișa o fereastră modală cu câmpuri de adresă și selecționare a cantităților și variantelor disponibile.
+
+<Frame caption="Modal confirmare parțiale">
+![Modal confirmare parțiale](/images/partial-confirm-modal.png)
+</Frame>
 
 **Înainte de a trimite parțialul mai departe, persoana care se ocupă de el trebuie să:**
 
@@ -56,19 +60,19 @@ Aceasta este cea mai importantă acțiune din această secțiune. Va afișa o fe
 După confirmarea unui parțial, acesta va fi transformat automat într-o comandă completă și va apărea în pagina [Comenzi](/crm/orders).
 </Info>
 
-### Partial Later
+### Marchează pentru mai tărziu
 
 Marchează parțialul pentru a fi apelat mai târziu. Util când clientul nu răspunde sau solicită să fie contactat la o altă oră.
 
-### Partial Refused
+### Refuzare parțial
 
-Marchează parțialul ca refuzat când clientul declină oferta.
+Marchează parțialul ca refuzat când clientul refuză oferta.
 
-### Partial Duplicate
+### Marchează parțial duplicat
 
 Marchează parțialul ca duplicat când identifici că există deja o comandă pentru acest client sau că parțialul este duplicat.
 
-### Partial Unanswered
+### Marchează parțial nerăspuns
 
 Marchează parțialul ca nerăspuns după multiple încercări de contact.
 
@@ -82,7 +86,7 @@ Marchează parțialul ca nerăspuns după multiple încercări de contact.
 
 ## Workflow recomandat
 
-1. Rulează **Clean-Up Session Duplicates**
+1. Rulează **Clean-Up**
 2. Filtrează parțialele cu status **Pending**
 3. Verifică vechimea parțialului (minim 10 minute)
 4. Contactează clientul telefonic
