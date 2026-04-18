@@ -1,4 +1,214 @@
 ---
 title: "Pagini de destinație"
-icon: "gear"
+icon: "file-lines"
 ---
+
+Pagina **Pagini de destinație** (Landing Pages) permite gestionarea paginilor tale de vânzare. Aici poți crea și configura pagini de destinație pentru produsele tale, seta oferte, prețuri și opțiuni de personalizare.
+
+## Tabel pagini de destinație
+
+Tabelul afișează toate paginile de destinație configurate cu următoarele informații:
+
+### Coloane disponibile
+
+- **ID** - ID-ul paginii de destinație în sistem
+- **Produs** - Produsul asociat acestei pagini
+- **Magazin** - Magazinul căruia îi aparține pagina
+- **Nume** - Numele descriptiv al paginii
+- **Slug** - URL-ul paginii (ex: produs-demo)
+- **Link-uri** - Link-urile către paginile de destinație și multumire
+- **Preț 1, Preț 2, Preț 3** - Prețurile pentru cele 3 oferte
+- **Preț transport** - Costul transportului
+- **Status post achizitie** - Dacă pagina are activate ofertele post achizitie
+- **Status urmărire** - Configurarea tracking-ului (Sursă urmărire și Status)
+
+### Sursă urmărire
+
+Coloana **Sursă urmărire** indică de unde provin setările de tracking:
+
+- **Setări magazin** - Se folosesc setările implicite de la nivel de magazin
+- **Setări personalizate** - Pagina folosește setări proprii de tracking, diferite de cele ale magazinului
+
+<Info>
+Dacă tracking-ul a fost setat la nivel de magazin, nu este necesar să fie setat și la nivel de landing page. Setările se vor prelua automat de la magazin. Setările personalizate sunt necesare doar când dorești ca acea pagină să aibă un alt pixel sau token API conversii diferit față de celelalte pagini din magazin.
+</Info>
+
+## Creare pagină de destinație
+
+### Informații de bază
+
+#### Produs
+Selectează produsul asociat cu această pagină de destinație.
+
+#### Magazin
+Alege magazinul responsabil căruia îi aparține această pagină de destinație.
+
+#### Nume
+Introdu un nume descriptiv pentru această pagină de destinație.
+
+<Tip>
+Folosește un nume sugestiv care te ajută să identifici rapid pagina (ex: "Produs Premium - Campanie Vara 2026").
+</Tip>
+
+#### Slug
+Introdu un nume pentru calea finală a slide-ului paginii de destinație (ex: "produs" va deveni magazinulmeu.com/produs).
+
+<Warning>
+Slug-ul trebuie să fie unic și să conțină doar litere mici, cifre și cratime. Nu folosi spații sau caractere speciale.
+</Warning>
+
+#### Calea paginii Thank You
+Exemplu: Calea Thank You `/multumim-frumos` va direcționa clientul pe pagina `magazinulmeu.ro/multumim-frumos` după plasarea comenzii. (Opțional)
+
+<Info>
+Pagina Thank You este pagina pe care clientul o vede după ce a plasat comanda cu succes. Aici poți afișa mesaje de confirmare, oferte suplimentare sau instrucțiuni pentru client.
+</Info>
+
+## Setări ofertă
+
+### Setări formular
+
+### SKU principal
+Selectează SKU-ul principal al produsului care va fi afișat în formularul de comandă.
+
+În cazul în care produsul are mai multe variante, acesta va fi varianta implicită afișată în formular.
+
+#### Titlu Oferta 1, 2, 3
+Definește titlurile pentru cele 3 oferte disponibile (ex: "Cumpără 1", "Cumpără 2", "Cumpără 3").
+
+#### Numerale 1, 2, 3
+Setează numerale descriptive pentru fiecare ofertă (ex: "Un creion", "Două creioane", "Trei creioane").
+
+#### Afișați etichetele variantelor
+Bifarea acestei căsuțe va face ca numele de afișare ale variantelor să apară deasupra imaginilor, în formularul de checkout.
+
+<Tip>
+Activează această opțiune dacă dorești ca clienții să vadă clar numele fiecărei variante (ex: "Roz", "Nude", "Roșu") deasupra imaginilor produsului în formular.
+</Tip>
+
+#### Afișați Variante
+Selectează ce variante să fie afișate în formular.
+
+<Info>
+Această opțiune este utilă pentru produsele cu mai multe variante, permițând afișarea tutoror variațiilor de produs și/sau a unor pachete.
+</Info>
+
+### Text formular
+
+#### Text Buton Comandă
+Personalizează textul butonului de comandă (ex: "Plasează comanda", "Comandă acum").
+
+#### Câmp Email
+Bifează acest câmp dacă dorești să colectezi adrese de email în formularul de comandă.
+<Tip>
+Nu recomandăm acest lucru deoarece există riscul ca rata de conversie să scadă deoarece mulți dintre clienții noștri nu folosesc adrese de email.
+</Tip>
+
+#### Câmp Notă
+Bifează acest câmp dacă dorești să permiti clienților să adauge note la comanda lor.
+
+#### Text Placeholder Notă
+Setează textul placeholder pentru câmpul de notă (ex: "Scrie o notă (opțional)").
+
+### Multiplicator cantitate
+
+Valoarea implicită este 1. Dacă dorești să afișezi oferte în care cantitatea este multiplicată, poți seta această valoare.
+
+Exemplu: Setând valoarea la 2, clienții vor primi 2 / 4 / 6 unități în loc de 1 / 2 / 3.
+
+### Prețuri
+
+#### Preț 1, Preț 2, Preț 3
+Setează prețurile pentru cele 3 oferte disponibile.
+
+<Warning>
+Asigură-te că prețul pentru oferta 3 se împarte exact la 3 pentru a evita erori de afișare a prețurilor.
+</Warning>
+
+
+#### Preț transport
+Setează prețul pentru transportul produsului (poate fi 0 pentru transport gratuit).
+
+#### Status post achiziție
+Selectează dacă dorești ca ofertele post-achiziție să fie afișate pe pagina de mulțumire.
+
+
+## Personalizare
+
+### Număr recenzii
+Selectează numărul de recenzii care să fie afișate în widget-ul pentru recenzii.
+
+### Schemă de culori
+
+Personalizează culorile formularului de comandă:
+
+- **Culoarea primară** - Culoarea principală a formularului
+- **Culoarea accent** - Culoarea pentru butoane și elemente interactive  
+- **Culoarea fundal** - Culoarea de fundal a formularului
+
+<Tip>
+Poți folosi aceleași culori ca la nivel de magazin sau poți personaliza pentru fiecare pagină în parte.
+</Tip>
+
+## Urmărire conversii
+
+Configurează urmărirea conversiilor pentru această pagină de destinație.
+
+### ID Facebook Pixel
+Introdu ID-ul Facebook Pixel pentru urmărire (opțional - se va folosi cel de la magazin dacă nu este completat).
+
+### Token API conversii
+Introdu token-ul API pentru conversii Facebook (opțional - se va folosi cel de la magazin dacă nu este completat).
+
+### ID TikTok Pixel
+Introdu ID-ul TikTok Pixel pentru urmărire (opțional - se va folosi cel de la magazin dacă nu este completat).
+
+### Urmărire client-side activată (Facebook & TikTok Pixel)
+Bifează această opțiune pentru a instala automat codul Facebook și TikTok Pixel pe această pagină.
+
+### Urmărire server-side activată (API conversii)
+Bifează această opțiune pentru a activa urmărirea server-side prin API-ul de conversii.
+
+### Nume eveniment conversie (opțional)
+Setează un nume personalizat pentru evenimentul de conversie.
+
+<Info>
+**Setări implicite:** Dacă nu completezi câmpurile de tracking, pagina va folosi automat setările configurate la nivel de magazin. Completează aceste câmpuri doar dacă dorești să folosești pixeli sau token-uri diferite pentru această pagină specifică.
+</Info>
+
+<Warning>
+Folosirea de setări personalizate de tracking pentru fiecare pagină poate complica raportarea. Recomandăm să folosești setările de la nivel de magazin pentru consistență, cu excepția cazurilor în care ai nevoie de tracking separat pentru campanii specifice.
+</Warning>
+
+## Bune practici
+
+### Denumire și organizare
+- Folosește nume descriptive pentru pagini care includ produsul și campania
+- Păstrează slug-urile scurte și relevante
+- Organizează paginile pe magazine pentru o gestionare mai ușoară
+
+### Configurare oferte
+- Testează diferite combinații de prețuri pentru cele 3 oferte
+- Asigură-te că oferta 2 sau 3 este cea mai atractivă (de obicei cea mai populară)
+- Setează prețul de transport corect pentru a evita confuziile
+
+### Personalizare vizuală
+- Aliniază culorile cu identitatea brandului tău
+- Testează schema de culori pe diferite dispozitive
+- Asigură-te că textul este lizibil pe toate fundalurile
+
+### Urmărire conversii
+- Folosește setările de la magazin pentru consistență
+- Creează setări personalizate doar pentru campanii speciale
+- Verifică că pixelii funcționează corect înainte de a lansa campanii
+- Monitorizează calitatea datelor în platformele de advertising
+
+### Optimizare conversii
+- Testează diferite texte pentru butonul de comandă
+- Experimentează cu afișarea/ascunderea câmpului de email
+- Oferă variante upsell/cross-sell relevante
+- Creează pagini Thank You personalizate pentru fiecare campanie
+
+<Tip>
+Pentru cele mai bune rezultate, creează pagini de destinație separate pentru fiecare campanie majoră. Acest lucru îți permite să testezi și să optimizezi fiecare pagină independent.
+</Tip>
