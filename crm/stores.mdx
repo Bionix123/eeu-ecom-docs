@@ -2,3 +2,185 @@
 title: "Magazine"
 icon: "store"
 ---
+
+Pagina **Magazine** permite gestionarea magazinelor tale online. Fiecare magazin poate avea propriile setări de personalizare, serie comenzi și configurări de urmărire conversii pentru platformele de advertising.
+
+<Info>
+Poți avea mai multe magazine în cadrul aceluiași cont, fiecare cu propriile setări și configurări independente.
+</Info>
+
+## Tabel magazine
+
+Tabelul afișează toate magazinele configurate cu următoarele informații:
+
+<Frame caption="Exemplu tabel magazine">
+![Stores Table](/images/stores-table.png)
+</Frame>
+
+### Coloane disponibile
+
+- **ID** - ID-ul magazinului în sistem
+- **URL** - Adresa magazinului online (ex: shop.magazinulmeu.ro)
+- **Țară** - Țara în care operează magazinul
+- **Serie comenzi** - Prefixul comenzilor pentru acest magazin
+- **Schemă de culori** - Culorile personalizate pentru formularul de comandă (primară, accent, fundal)
+- **Status urmărire** - Configurarea tracking-ului pentru platformele de advertising (Server/Client)
+
+## Configurare magazin
+
+### Informații de bază
+
+#### URL
+Introduci URL-ul unic pentru acest magazin (ex: siteuldumeanovastra.com).
+
+<Tip>
+URL-ul trebuie să fie unic pentru fiecare magazin. Acesta va fi folosit pentru a identifica magazinul în sistem.
+</Tip>
+
+#### Țară
+Selectează țara în care va opera acest magazin. Această setare influențează validările și formatările specifice țării respective.
+
+## Customizează
+
+### Serie comenzi
+
+Specifică seria de comenzi pentru acest magazin (ex: MGM, CLO, ECM). Această serie va fi utilizată în numerotarea comenzilor.
+
+**Format comenzi:** `{serie}-COD-{id}`
+
+**Exemple:**
+- Magazin cu seria **MGM** → Comanda cu ID 144 va fi: `MGM-COD-144`
+- Magazin cu seria **CLO** → Comanda cu ID 89 va fi: `CLO-COD-89`
+
+<Info>
+Seria de comenzi te ajută să identifici rapid din ce magazin provine o comandă, mai ales când gestionezi mai multe magazine simultan.
+</Info>
+
+### Schemă de culori
+
+Personalizează culorile formularului de comandă pentru a se potrivi cu identitatea vizuală a magazinului tău.
+
+Poți configura 3 culori:
+
+- **Culoarea primară** - Culoarea principală a formularului
+- **Culoarea accent** - Culoarea pentru butoane și elemente interactive
+- **Culoarea fundal** - Culoarea de fundal a formularului
+
+<Frame caption="Formular configurare magazin">
+![Store Configuration Form](/images/store-edit-form.png)
+</Frame>
+
+<Warning>
+Va rugăm să așteptați câteva minute pentru ca modificările să aibă efect și reîmprospătați cache-ul local (CMD/CTRL + SHIFT + R).
+</Warning>
+
+## Urmărire conversii
+
+Configurează urmărirea conversiilor pentru platformele de advertising. Există două tipuri de urmărire disponibile:
+
+### Urmărire client-side (Pixel)
+
+Urmărirea client-side se face prin intermediul unui **pixel** instalat pe site-ul tău. Pixelul este un fragment de cod JavaScript care trimite date către platformele de advertising direct din browser-ul clientului.
+
+#### ID Facebook Pixel
+Introdu ID-ul Facebook Pixel pentru urmărire.
+
+#### ID TikTok Pixel
+Introdu ID-ul TikTok Pixel pentru urmărire.
+
+#### Urmărire client-side activată
+Bifează această opțiune pentru a instala automat codul Facebook și TikTok Pixel pe site-ul dvs.
+
+<Info>
+În momentul în care bifezi opțiunea **Urmărire client-side activată**, sistemul va instala automat pixelii pe site, fără să fie nevoie de intervenție tehnică suplimentară sau adăugarea manuală a codurilor.
+</Info>
+
+### Urmărire server-side (API Conversii)
+
+Urmărirea server-side se face prin **API**, iar în acest caz aplicația va transmite din "spate" datele către platforme. Acest tip de urmărire oferă mai multă acuratețe și fiabilitate.
+
+#### Token API conversii Meta
+Introdu token-ul API pentru conversii Facebook.
+
+<Info>
+**Momentan urmărirea server-side este disponibilă doar pentru platforma Meta (Facebook).**
+</Info>
+
+#### Urmărire server-side activată
+Bifează această opțiune pentru a activa urmărirea server-side prin API-ul de conversii Meta.
+
+<Note>
+TikTok urmărire server-side va fi disponibilă în curând.
+</Note>
+
+## Client-side vs Server-side
+
+### Urmărire doar prin Pixel (Client-side)
+
+**Avantaje:**
+- Configurare simplă și rapidă
+- Nu necesită token-uri API
+- Funcționează imediat după instalare
+
+**Dezavantaje:**
+- Poate fi blocată de ad-blockers
+- Dependentă de browser-ul clientului
+- Mai puțin precisă în anumite cazuri
+
+### Urmărire prin Conversion API (Server-side)
+
+**Avantaje:**
+- Nu poate fi blocată de ad-blockers
+- Mai multă acuratețe în raportarea conversiilor
+- Platformele primesc mai multe informații despre client
+- Mai fiabilă pentru optimizarea campaniilor
+
+**Dezavantaje:**
+- Necesită configurare suplimentară (token API)
+- Disponibilă doar pentru Meta momentan
+
+<Tip>
+**Recomandare:** În principiu, urmărirea doar prin pixel ar trebui să fie suficientă, dar constituie un avantaj adăugarea urmăririi prin Conversion API de la Meta deoarece platforma va primi și mai multe informații despre client, iar în anumite cazuri poate crește acuratețea raportării conversiilor.
+</Tip>
+
+## Configurare optimă
+
+Pentru cele mai bune rezultate, recomandăm următoarea configurare:
+
+### Setup minim (suficient pentru majoritatea cazurilor)
+1. Configurează **ID Facebook Pixel**
+2. Configurează **ID TikTok Pixel**
+3. Activează **Urmărire client-side**
+
+### Setup avansat (recomandat pentru performanță maximă)
+1. Configurează **ID Facebook Pixel**
+2. Configurează **Token API conversii Meta**
+3. Activează **Urmărire client-side**
+4. Activează **Urmărire server-side**
+5. Configurează **ID TikTok Pixel**
+
+<Warning>
+Asigură-te că ai permisiunile necesare pentru a accesa token-urile API de la platformele respective. Aceste token-uri sunt sensibile și trebuie păstrate în siguranță.
+</Warning>
+
+## Bune practici
+
+### Organizare magazine
+- Folosește serii de comenzi sugestive și ușor de reținut (ex: MGM pentru "Magazinul Meu")
+- Păstrează o convenție consistentă pentru denumirea seriilor
+- Documentează ce serie aparține fiecărui magazin
+
+### Personalizare vizuală
+- Alege culori care se potrivesc cu brandul tău
+- Testează schema de culori pe diferite dispozitive
+- Asigură-te că textul este lizibil pe fundalul ales
+
+### Urmărire conversii
+- Verifică că pixelii funcționează corect folosind extensiile de browser (Facebook Pixel Helper, TikTok Pixel Helper)
+- Testează conversiile înainte de a lansa campanii
+- Monitorizează calitatea datelor în platformele de advertising
+- Activează urmărirea server-side pentru Meta dacă vrei acuratețe maximă
+
+<Info>
+Pentru a obține token-ul API de conversii Meta, accesează Business Manager → Setări → Evenimente de date → Selectează pixelul → API Conversii → Generează token de acces.
+</Info>
