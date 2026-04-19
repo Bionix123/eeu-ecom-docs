@@ -2,3 +2,192 @@
 title: "Clienți"
 icon: "users"
 ---
+
+Pagina **Clienți** îți permite să vizualizezi și să gestionezi baza de clienți. Aici poți accesa informații detaliate despre fiecare client, istoricul comenzilor și statistici de cumpărare.
+
+## Tabel clienți
+
+Tabelul afișează toți clienții înregistrați în sistem cu următoarele informații:
+
+### Coloane disponibile
+
+- **ID** - ID-ul unic al clientului în sistem
+- **Nume complet** - Numele complet al clientului
+- **Telefon** - Numărul de telefon al clientului
+- **Email** - Adresa de email a clientului (dacă a fost furnizată)
+- **Ultima comandă** - Link către ultima comandă plasată de client
+- **Pe lista neagră** - Indicator dacă clientul este pe lista neagră
+- **Statistici comenzi** - Informații despre numărul total de comenzi, comenzi returnate și dacă există ultima comandă returnată
+- **Acțiuni** - Opțiuni pentru vizualizare detalii și editare
+
+### Funcții de căutare și filtrare
+
+Poți căuta clienți folosind bara de căutare din partea de sus a tabelului. Căutarea funcționează pe baza:
+- Nume complet
+- Număr de telefon
+
+## Acțiuni disponibile
+
+Pentru fiecare client, sunt disponibile următoarele acțiuni prin meniul cu **3 puncte**:
+
+### Adăugare client în lista neagră
+
+Această acțiune îți permite să adaugi un client în lista neagră. Clienții din lista neagră pot fi identificați rapid în tabel.
+
+<Info>
+Comenzile clienților de pe lista neagră vor fi anulate în mod automat.
+</Info>
+
+<Warning>
+Adăugarea unui client în lista neagră ar trebui făcută doar în cazuri justificate, cum ar fi comenzi frauduloase sau comportament abuziv.
+</Warning>
+
+### Eliminare client din lista neagră
+
+Dacă un client a fost adăugat greșit în lista neagră sau situația s-a rezolvat, poți elimina clientul din lista neagră folosind această acțiune.
+
+### Vizualizare detalii
+
+Apasă pe iconița **ochi** pentru a vizualiza pagina de detalii a clientului.
+
+### Editare
+
+Apasă pe iconița **creion** pentru a edita informațiile clientului.
+
+## Pagina de detalii client
+
+Pagina de detalii oferă o vedere completă asupra profilului clientului și istoricului său de comenzi.
+
+### Informații client
+
+Secțiunea de sus afișează informațiile de bază ale clientului:
+
+- **ID** - ID-ul unic al clientului
+- **Nume complet** - Numele complet al clientului
+- **Telefon** - Numărul de telefon
+- **Email** - Adresa de email (dacă există)
+- **Ultima comandă** - Link către ultima comandă plasată
+- **Pe lista neagră** - Status listă neagră cu indicator vizual
+- **Motiv dată neagră** - Motivul pentru care clientul a fost adăugat în lista neagră (dacă este cazul)
+
+### Statistici comenzi
+
+Această secțiune afișează statistici detaliate despre comportamentul de cumpărare al clientului:
+
+- **Total comenzi** - Numărul total de comenzi plasate
+- **Comenzi returnate** - Numărul și procentul comenzilor returnate
+- **Este ultima comandă returnată** - Indicator dacă ultima comandă a fost returnată
+
+<Info>
+Statisticile de comenzi te ajută să identifici rapid clienții fideli și să înțelegi modelele de returnare.
+</Info>
+
+### Istoric comenzi
+
+În partea de jos a paginii se află tabelul cu toate comenzile plasate de client, cu următoarele informații:
+
+- **ID** - ID-ul comenzii
+- **SYNC** - Status sincronizare
+- **Status** - Statusul curent al comenzii
+- **Status post-achiziție** - Statusul ofertelor post-achiziție
+- **Client** - Numele clientului
+- **Notă internă** - Note interne despre comandă
+- **Informații** - Detalii suplimentare despre comandă
+- **Prețuri** - Total comandă, preț produs, preț pre-achiziție, discount, preț transport
+- **Creat la** - Data și ora plasării comenzii
+- **Confirmare comandă** - Buton pentru confirmarea comenzii
+- **Acțiuni** - Opțiuni pentru vizualizare și editare comandă
+
+<Tip>
+Poți folosi funcția de căutare din tabelul de comenzi pentru a găsi rapid o comandă specifică a clientului.
+</Tip>
+
+## Gestionarea listei negre
+
+Lista neagră este un instrument util pentru a marca clienții problematici și a preveni comenzile frauduloase.
+
+### Când să adaugi un client în lista neagră
+
+- **Comenzi frauduloase** - Client care a plasat comenzi cu intenția de a frauda
+- **Returnări excesive** - Client cu un procent foarte mare de returnări
+- **Comportament abuziv** - Client care a avut un comportament abuziv față de echipa de suport
+- **Refuz repetat al comenzilor** - Client care refuză sistematic comenzile la livrare
+
+### Cum să adaugi un client în lista neagră
+
+1. Găsește clientul în tabelul de clienți
+2. Apasă pe cele **3 puncte** din dreptul clientului
+3. Selectează **"Adăugare client în lista neagră"**
+4. Confirmă acțiunea
+
+<Info>
+După adăugarea în lista neagră, clientul va fi marcat vizual în tabel pentru identificare rapidă.
+</Info>
+
+### Cum să elimini un client din lista neagră
+
+1. Găsește clientul în tabelul de clienți
+2. Apasă pe cele **3 puncte** din dreptul clientului
+3. Selectează **"Eliminare client din lista neagră"**
+4. Confirmă acțiunea
+
+## Statistici și analiză
+
+### Identificarea clienților fideli
+
+Folosește coloana **Statistici comenzi** pentru a identifica clienții cu:
+- Număr mare de comenzi
+- Procent scăzut de returnări
+- Comenzi recente
+
+### Monitorizarea returnărilor
+
+Verifică procentul de comenzi returnate pentru fiecare client pentru a:
+- Identifica probleme cu produsele
+- Detecta potențiale fraude
+- Îmbunătăți experiența clienților
+
+### Analiza comportamentului de cumpărare
+
+Pagina de detalii client oferă informații valoroase despre:
+- Frecvența comenzilor
+- Valoarea medie a comenzilor
+- Produsele preferate (prin istoricul comenzilor)
+
+## Bune practici
+
+### Gestionarea datelor clienților
+- Verifică periodic acuratețea informațiilor de contact
+- Actualizează datele clienților când primești informații noi
+- Păstrează note interne despre interacțiunile importante
+
+### Utilizarea listei negre
+- Adaugă clienți în lista neagră doar pentru motive justificate
+- Documentează motivul adăugării în lista neagră
+- Revizuiește periodic lista neagră pentru a elimina clienții care nu mai reprezintă un risc
+
+### Monitorizare și analiză
+- Verifică regulat statisticile de returnări
+- Identifică și recompensează clienții fideli
+- Investighează clienții cu procent mare de returnări
+
+### Protecția datelor
+- Respectă regulamentele GDPR în gestionarea datelor clienților
+- Nu partaja informații personale ale clienților fără consimțământ
+- Asigură-te că doar persoanele autorizate au acces la datele clienților
+
+<Warning>
+Informațiile despre clienți sunt confidențiale și trebuie tratate cu atenție. Asigură-te că respecti toate regulamentele privind protecția datelor personale.
+</Warning>
+
+## Căutare avansată
+
+Pentru a găsi rapid un client specific, poți folosi bara globală de căutare cu următoarele criterii:
+
+- **Căutare după nume** - Introdu numele complet sau parțial
+- **Căutare după telefon** - Introdu numărul de telefon
+- **Căutare după ID comandă** - Introdu ID-ul unei comenzi pentru a găsi clientul asociat
+
+<Tip>
+Căutarea este case-insensitive și funcționează și cu termeni parțiali, facilitând găsirea rapidă a clienților.
+</Tip>

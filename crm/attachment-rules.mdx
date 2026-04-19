@@ -1,4 +1,362 @@
 ---
 title: "Reguli de atașare"
-icon: "store"
+icon: "link"
 ---
+
+Pagina **Reguli de atașare** îți permite să configurezi reguli automate pentru adăugarea de produse suplimentare la comenzi în funcție de anumite condiții.
+
+<Info>
+Această funcționalitate este disponibilă doar pentru abonamentul **Gold Plus**.
+</Info>
+
+## Ce sunt regulile de atașare?
+
+Regulile de atașare sunt reguli automate care adaugă produse bonus sau suplimentare la comenzi atunci când sunt îndeplinite anumite condiții (cantitate, SKU-uri specifice, etc.).
+
+### Cazuri de utilizare
+
+- **Produse complementare** - Atașează automat produse complementare (ex: zgardă la pandantiv anti-dăunători)
+- **Oferte 2+1, 3+2, 4+3** - Oferă produse gratuite la achiziționarea unui număr specific de unități
+- **Cumpără X, primești Y gratis** - Oferă produse bonus la anumite cantități achiziționate
+- **Campanii promoționale** - Configurează oferte speciale pentru perioade limitate
+- **Upsell automat** - Adaugă produse suplimentare pentru a crește valoarea comenzii
+
+<Info>
+Mare parte din aceste oferte pot fi realizate și cu pachete (bundles) sau multiplicator cantități, dar există situații în care regulile de atașare sunt mult mai ușor de configurat și gestionat.
+</Info>
+
+## Tabel reguli de atașare
+
+Tabelul afișează toate regulile de atașare configurate cu următoarele informații:
+
+### Coloane disponibile
+
+- **ID** - ID-ul unic al regulii în sistem
+- **Nume** - Numele descriptiv al regulii
+- **Pagini de destinație** - Paginile pe care se aplică regula
+- **Aplică la upsell-uri** - Dacă regula se aplică și la upsell-uri
+- **Cantitate minimă** - Cantitatea minimă pentru care se aplică regula
+- **Cantitate maximă** - Cantitatea maximă pentru care se aplică regula
+- **Conține SKU-uri variante** - SKU-urile produselor care declanșează regula
+- **Regulă de comparație** - Tipul de comparație (ȘI sau SAU)
+- **SKU variantă atașată** - SKU-ul produsului care va fi atașat
+- **Cantitate atașată** - Cantitatea produsului atașat
+- **Dată început** - Data de la care regula devine activă
+- **Dată sfârșit** - Data până la care regula este activă
+- **Activ** - Statusul regulii (activă/inactivă)
+- **Acțiuni** - Opțiuni pentru editare și ștergere
+
+## Creare regulă de atașare
+
+<Frame caption="Formular creare regulă de atașare">
+![Attachment Rule Form](/images/attachment-rule-create.png)
+</Frame>
+
+Pentru a crea o regulă de atașare nouă, apasă butonul **"Creează Regulă de atașare"** și completează formularul.
+
+### Câmpuri formular
+
+#### Nume
+Introdu un nume descriptiv pentru regulă care să te ajute să o identifici rapid.
+
+<Tip>
+Folosește nume sugestive care descriu oferta (ex: "Zgardă gratis la pandantiv", "Ofertă 2+1 Creion sprâncene", "Black Friday - 3+2 gratis").
+</Tip>
+
+#### Pagini de destinație
+
+Selectează paginile de destinație pe care se aplică regula.
+
+<Info>
+**Dacă nu se selectează nicio pagină de destinație**, regula se va aplica pe **orice pagină** pe care se vinde produsul/produsele selectate în câmpul "Conține SKU-uri variante".
+</Info>
+
+#### Aplică la upsell-uri
+
+Bifează această opțiune dacă dorești ca regula să se aplice și la upsell-uri.
+
+<Info>
+Dacă este bifat, upsell-urile vor beneficia de aceeași regulă de atașare ca și produsele principale.
+</Info>
+
+#### Cantitate minimă
+
+Setează cantitatea minimă de produse pentru care se aplică regula.
+
+**Exemple:**
+- Pentru ofertă "2+1": setează **2**
+- Pentru ofertă "3+2": setează **3**
+- Pentru ofertă "Cumpără 3, primești 1 gratis": setează **3**
+
+#### Cantitate maximă
+
+Setează cantitatea maximă de produse pentru care se aplică regula.
+
+<Info>
+**Dacă vrei să faci o regulă care să se aplice doar la 2 bucăți**, trebuie să pui minim **2** și maxim **2**.
+
+**Dacă vrei să oferi un singur produs ca atașament indiferent de cantitatea achizitionată**, atunci setează minim **1** și maxim **3** (sau care este cantitatea maximă din oferta de pe pagina de produs).
+</Info>
+
+**Exemple:**
+- Pentru ofertă care se aplică doar la 2 bucăți: minim **2**, maxim **2**
+- Pentru ofertă care se aplică de la 1 la 3 bucăți: minim **1**, maxim **3**
+- Pentru ofertă nelimitată: minim **1**, maxim **999**
+
+#### Conține SKU-uri variante
+
+Selectează toate variantele de produs care trebuie să fie în comandă pentru a declanșa regula.
+
+<Info>
+Selectați toate variantele de produs care trebuie să declanșeze această regulă de atașare. Pentru a selecta mai multe SKU-uri, ține apăsată tasta **Ctrl** (sau **Cmd** pe Mac) și click pe fiecare SKU.
+</Info>
+
+<Tip>
+Poți selecta mai multe SKU-uri dacă oferta se aplică la mai multe produse diferite.
+</Tip>
+
+#### Regulă de comparație
+
+Selectează tipul de comparație pentru SKU-urile selectate:
+
+- **ȘI** - Comanda trebuie să conțină **TOATE** SKU-urile selectate anterior pentru a adăuga atașamentul
+- **SAU** - Comanda trebuie să conțină **DOAR UNUL** din SKU-urile selectate anterior pentru a adăuga atașamentul
+
+<Info>
+**Dacă regula de comparație este ȘI**, va necesita ca **toate** produsele de mai sus să fie prezente în comandă pentru ca regula să se aplice.
+
+**Dacă este SAU**, va aplica regula dacă **oricare** dintre cele de mai sus este selectat.
+</Info>
+
+**Exemple:**
+
+**Regulă ȘI:**
+- SKU-uri: Creion Roz + Creion Nude
+- Regula se aplică **doar** dacă comanda conține **ambele** produse
+
+**Regulă SAU:**
+- SKU-uri: Creion Roz, Creion Nude, Creion Roșu
+- Regula se aplică dacă comanda conține **oricare** dintre aceste produse
+
+#### SKU variantă atașată
+
+Selectează SKU-ul produsului care va fi adăugat automat ca atașament.
+
+<Tip>
+Acesta este produsul "bonus" sau "gratuit" care va fi adăugat la comandă când condițiile sunt îndeplinite.
+</Tip>
+
+#### Cantitate atașată
+
+Setează cantitatea produsului atașat care va fi adăugată.
+
+**Exemple:**
+- Pentru "2+1": cantitate atașată **1**
+- Pentru "3+2": cantitate atașată **2**
+- Pentru "Cumpără 3, primești 2 gratis": cantitate atașată **2**
+
+#### Dată început
+
+Selectează data de la care regula devine activă.
+
+#### Dată sfârșit
+
+Selectează data până la care regula rămâne activă.
+
+<Info>
+**Datele de început și sfârșit se folosesc doar dacă vrei ca regula să se aplice într-o anumită perioadă.**
+
+Pentru o perioadă nelimitată, selectează data de azi și o dată cu mult în viitor (ex: 01.01.2050).
+</Info>
+
+<Tip>
+Folosește perioade limitate pentru campanii sezoniere (Black Friday, Crăciun, etc.) și perioade nelimitate pentru oferte permanente.
+</Tip>
+
+#### Activ
+
+Bifează această căsuță pentru a activa regula.
+
+<Warning>
+**Foarte important:** Asigură-te că regula este setată ca **activă** pentru a funcționa. O regulă inactivă nu va fi aplicată la comenzi, chiar dacă toate celelalte condiții sunt îndeplinite.
+</Warning>
+
+## Exemple de configurare
+
+### Exemplu 1: Ofertă 2+1 (Cumpără 2, primești 1 gratis)
+
+**Configurare:**
+- **Nume:** "Ofertă 2+1 Creion sprâncene"
+- **Pagini de destinație:** (necompletat - se aplică pe toate paginile)
+- **Aplică la upsell-uri:** ✓ (bifat)
+- **Cantitate minimă:** 2
+- **Cantitate maximă:** 2
+- **Conține SKU-uri variante:** Creion Roz, Creion Nude, Creion Roșu
+- **Regulă de comparație:** SAU
+- **SKU variantă atașată:** Creion Roz (sau oricare variantă)
+- **Cantitate atașată:** 1
+- **Dată început:** 01.01.2026
+- **Dată sfârșit:** 31.12.2050
+- **Activ:** ✓
+
+**Rezultat:** Când clientul cumpără 2 creioane (oricare culoare), primește automat 1 creion gratis.
+
+### Exemplu 2: Produs complementar (Zgardă gratis la pandantiv)
+
+**Configurare:**
+- **Nume:** "Zgardă gratis la pandantiv anti-dăunători"
+- **Pagini de destinație:** Pagina Pandantiv
+- **Aplică la upsell-uri:** ✗ (nebifat)
+- **Cantitate minimă:** 1
+- **Cantitate maximă:** 3
+- **Conține SKU-uri variante:** Pandantiv Anti-Dăunători
+- **Regulă de comparație:** ȘI
+- **SKU variantă atașată:** Zgardă
+- **Cantitate atașată:** 1
+- **Dată început:** 01.01.2026
+- **Dată sfârșit:** 31.12.2050
+- **Activ:** ✓
+
+**Rezultat:** Când clientul cumpără pandantivul, primește automat o zgardă gratis (indiferent dacă cumpără 1, 2 sau 3 pandantive).
+
+### Exemplu 3: Ofertă 3+2 (Cumpără 3, primești 2 gratis)
+
+**Configurare:**
+- **Nume:** "Black Friday - 3+2 gratis"
+- **Pagini de destinație:** (necompletat)
+- **Aplică la upsell-uri:** ✓
+- **Cantitate minimă:** 3
+- **Cantitate maximă:** 3
+- **Conține SKU-uri variante:** Produs X
+- **Regulă de comparație:** SAU
+- **SKU variantă atașată:** Produs X
+- **Cantitate atașată:** 2
+- **Dată început:** 25.11.2026
+- **Dată sfârșit:** 30.11.2026
+- **Activ:** ✓
+
+**Rezultat:** În perioada Black Friday, când clientul cumpără 3 produse, primește automat 2 produse gratis.
+
+### Exemplu 4: Set complet (Cumpără toate culorile, primești bonus)
+
+**Configurare:**
+- **Nume:** "Set complet - Bonus perie"
+- **Pagini de destinație:** (necompletat)
+- **Aplică la upsell-uri:** ✗
+- **Cantitate minimă:** 1
+- **Cantitate maximă:** 1
+- **Conține SKU-uri variante:** Creion Roz, Creion Nude, Creion Roșu
+- **Regulă de comparație:** ȘI
+- **SKU variantă atașată:** Perie sprâncene
+- **Cantitate atașată:** 1
+- **Dată început:** 01.01.2026
+- **Dată sfârșit:** 31.12.2050
+- **Activ:** ✓
+
+**Rezultat:** Când clientul cumpără toate cele 3 culori de creion, primește automat o perie pentru sprâncene gratis.
+
+## Gestionare reguli
+
+### Editare regulă
+
+Pentru a edita o regulă existentă:
+1. Găsește regula în tabel
+2. Apasă pe iconița **creion** din coloana Acțiuni
+3. Modifică câmpurile dorite
+4. Salvează modificările
+
+### Ștergere regulă
+
+Pentru a șterge o regulă:
+1. Găsește regula în tabel
+2. Apasă pe iconița **ștergere** din coloana Acțiuni
+3. Confirmă ștergerea
+
+<Warning>
+Ștergerea unei reguli este permanentă. Comenzile plasate anterior cu această regulă nu vor fi afectate, dar comenzile noi nu vor mai beneficia de ofertă.
+</Warning>
+
+### Dezactivare temporară
+
+Dacă vrei să oprești temporar o regulă fără să o ștergi:
+1. Editează regula
+2. Debifează căsuța **Activ**
+3. Salvează modificările
+
+<Tip>
+Dezactivarea este utilă pentru oferte sezoniere pe care vrei să le reactivezi mai târziu fără să le recreezi.
+</Tip>
+
+## Bune practici
+
+### Denumire reguli
+- Folosește nume descriptive care includ tipul ofertei
+- Menționează produsele sau perioada în nume
+- Exemplu: "Black Friday 2026 - 3+2 Creion sprâncene"
+
+### Configurare cantități
+- Verifică că intervalul minim-maxim este corect
+- Pentru oferte fixe (doar la 2 buc), setează minim = maxim
+- Pentru oferte flexibile, setează un interval larg
+
+### Reguli de comparație
+- Folosește **ȘI** pentru seturi complete (toate produsele necesare)
+- Folosește **SAU** pentru oferte pe orice variantă
+- Testează regula după creare pentru a verifica comportamentul
+
+### Perioade de valabilitate
+- Setează date precise pentru campanii limitate
+- Folosește date îndepărtate (2050) pentru oferte permanente
+- Verifică că data de început este corectă înainte de lansare
+
+### Testare
+- Testează fiecare regulă după creare
+- Verifică că produsul atașat apare corect în coș
+- Confirmă că cantitățile sunt corecte
+- Testează pe diferite pagini de destinație
+
+### Monitorizare
+- Verifică regulat că regulile active funcționează corect
+- Dezactivează regulile expirate
+- Șterge regulile vechi pentru a menține tabelul organizat
+
+### Combinare cu alte funcționalități
+- Regulile de atașare pot fi combinate cu pachete (bundles)
+- Pot fi folosite împreună cu multiplicatorul de cantități
+- Alege metoda cea mai simplă pentru fiecare caz
+
+<Info>
+Dacă o ofertă poate fi realizată atât cu reguli de atașare, cât și cu pachete, alege varianta care este mai ușor de configurat și gestionat pentru cazul tău specific.
+</Info>
+
+## Diferențe față de alte funcționalități
+
+### Reguli de atașare vs Pachete (Bundles)
+
+**Reguli de atașare:**
+- Flexibile pentru oferte condiționale
+- Ideale pentru produse bonus/gratuite
+- Se aplică automat la checkout
+- Mai ușor de configurat pentru oferte simple
+
+**Pachete:**
+- Vizibile ca oferte separate
+- Prețuri fixe pentru set
+- Mai bune pentru seturi predefinite
+- Mai vizibile pentru clienți
+
+### Reguli de atașare vs Multiplicator cantități
+
+**Reguli de atașare:**
+- Permit adăugarea de produse diferite
+- Flexibile pentru oferte complexe
+- Pot avea condiții multiple
+
+**Multiplicator cantități:**
+- Simplu pentru oferte de tipul "1+1 / 2+2 / 3+3"
+- Mai rapid de configurat pentru oferte simple
+- Tipuri de ofertă limitate deoarece multiplicatorul se aplică la toate ofertele de pe pagină
+
+<Tip>
+Alege **reguli de atașare** când vrei să adaugi produse diferite sau când ai condiții complexe. Alege **pachete** când vrei să prezinți oferte ca produse separate sau când vrei sa oferi 2 variații diferite ale produsului în aceeași ofertă. Alege **multiplicator** pentru oferte simple de același produs.
+</Tip>

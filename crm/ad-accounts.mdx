@@ -2,3 +2,230 @@
 title: "Conturi publicitare"
 icon: "rectangle-ad"
 ---
+
+<Info>
+**Această funcționalitate este disponibilă începând cu planul GOLD PLUS**
+</Info>
+
+Pagina **Conturi publicitare** (Ad Accounts) îți permite să adăugi toate conturile de reclamă (Meta sau TikTok) și să contorizezi în aplicație toate sumele cheltuite pentru a genera vânzări.
+
+Scopul acestei funcționalități este de a genera automat rapoarte de vânzări și profitabilitate, salvând astfel ore de muncă manuală în Excel.
+
+## Tabel conturi publicitare
+
+<Frame caption="Tabel conturi publicitare">
+![Ad Accounts Table](/images/ad-accounts-page.png)
+</Frame>
+
+Tabelul afișează toate conturile publicitare configurate cu următoarele informații:
+
+### Coloane disponibile
+
+- **ID** - ID-ul contului publicitar în sistem
+- **Nume** - Numele descriptiv al contului
+- **Platformă** - Platforma publicitară (Meta sau TikTok)
+- **Acțiuni** - Opțiuni pentru gestionarea contului și adăugarea cheltuielilor
+
+## Creare cont publicitar
+
+Pentru a adăuga un cont publicitar nou, apasă butonul **"Creează Cont de reclame"** și completează formularul.
+
+<Frame caption="Formular creare cont publicitar">
+![Ad Account Form](/images/ad-accounts-form.png)
+</Frame>
+
+### Câmpuri formular
+
+#### Nume
+Introdu un nume descriptiv pentru contul publicitar (ex: "Meta - Cont Principal", "TikTok - Campanii Produse").
+
+<Tip>
+Folosește nume care te ajută să identifici rapid contul, mai ales dacă ai mai multe conturi pe aceeași platformă.
+</Tip>
+
+#### Monedă
+Selectează moneda în care sunt înregistrate cheltuielile (ex: RON, EUR, USD).
+
+#### Platformă
+Selectează platforma publicitară:
+- **Meta** (Facebook/Instagram)
+- **TikTok**
+
+<Info>
+ID-ul contului poate fi găsit în setările contului din Ads Manager (Meta) sau TikTok Ads Manager.
+</Info>
+
+## Adăugare cheltuieli
+
+După ce ai adăugat un cont publicitar, poți începe să adăugi cheltuieli pe zile pentru fiecare Landing Page în parte. Aceste cheltuieli vor fi reflectate în calculele din dashboard-urile **"Sales & ROAS"** și **"Cost & Profit"**.
+
+Există două metode de adăugare a cheltuielilor:
+
+### Metoda 1: Adăugare manuală
+
+Pentru a adăuga cheltuieli manual:
+
+1. Apasă pe cele **3 puncte** din dreptul contului publicitar
+2. Selectează opțiunea **"Înregistrare cheltuială cont publicitar"**
+3. Completează suma și pagina vizată
+
+<Info>
+Toate cheltuielile adăugate pot fi vizualizate și eventual șterse sau editate din pagina de detalii a contului publicitar respectiv.
+</Info>
+
+<Warning>
+Dacă la un Landing Page adăugi două intrări pentru aceeași zi, prima intrare va fi înlocuită de ultima intrare adăugată (nu se vor aduna).
+</Warning>
+
+### Metoda 2: Import CSV (recomandat)
+
+Metoda recomandată de adăugare a cheltuielilor este prin intermediul **importului de rapoarte CSV**. Aceste rapoarte pot fi generate direct din **Ads Manager (Meta)** și pot cuprinde una sau mai multe zile de reclame.
+
+<Tip>
+Recomandăm **maxim 31 zile** per import pentru a evita problemele de procesare.
+</Tip>
+
+#### Cerință importantă: Denumirea campaniilor
+
+Pentru ca importul CSV să funcționeze corect, fiecare campanie trebuie să conțină în numele său (campaign name) ID-ul Landing Page-ului pe care îl targetează sub forma `#EEU{ID}`.
+
+**Exemple:**
+
+```
+Creion pentru sprancene #EEU28     // ID-ul LP: 28
+Reclama 2 cercei #EEU6             // ID-ul LP: 6
+Campanie vanzari xyz #EEU99        // ID-ul LP: 99
+```
+
+<Warning>
+- Campaniile care nu respectă această cerință nu vor fi luate în considerare în momentul importului
+- Aveți mare grijă să folosiți ID-ul corect al Landing Page-ului în denumirea campaniei pentru a evita erori de calcul
+</Warning>
+
+## Generare raport CSV pentru import (Meta)
+
+Urmează acești pași pentru a genera un raport CSV din Meta Ads Manager:
+
+### Pasul 1: Creează raport nou
+Accesează **Ads Manager** și creează un raport nou: **Reports > Create new report**
+
+### Pasul 2: Selectează perioada
+Selectează ziua sau perioada dorită (recomandat maxim 31 zile).
+
+### Pasul 3: Reordonează coloanele
+În partea dreaptă se află ecranul **"Customize pivot table"**:
+1. Click pe cele **3 puncte**
+2. Selectează **"Reorder columns"**
+
+### Pasul 4: Configurează coloanele
+Șterge toate coloanele cu excepția:
+- **Campaign Name**
+- **Amount Spent**
+
+<Info>
+Aceste două coloane sunt esențiale pentru ca importul să funcționeze corect.
+</Info>
+
+### Pasul 5: Adaugă breakdown pe zile
+Din ecranul din partea dreaptă, tab-ul **"Breakdown"**, bifează căsuța **"Day"**.
+
+### Pasul 6: Configurează filtrele
+Asigură-te că în partea de sus, secțiunea **"Filters"**, pe lângă filtrul **"Has Delivery"** ai și filtrul **"Impressions > 0"**.
+
+Dacă nu îl ai, îl poți adăuga manual: `impressions > 0`
+
+<Tip>
+Aceste filtre asigură că în raport apar doar campaniile care au avut livrare efectivă și impresii.
+</Tip>
+
+### Pasul 7: Exportă raportul
+După ce ai obținut raportul dorit:
+1. Apasă butonul **"Export"** din partea dreaptă-sus a ecranului
+2. Asigură-te că raportul este exportat în format **CSV**
+3. Verifică că opțiunea **"Include summary row"** este **debifată**
+4. Exportă raportul
+
+### Pasul 8: Importă în platformă
+În platforma **EEU-ECOM > Ad Accounts**:
+1. Apasă pe cele **3 puncte** din dreptul contului publicitar
+2. Selectează opțiunea **"Import înregistrări cheltuieli publicitare"**
+3. Încarcă raportul CSV obținut în pasul anterior
+
+<Info>
+După import, cheltuielile vor fi procesate automat și asociate cu Landing Page-urile corespunzătoare pe baza ID-urilor din denumirea campaniilor.
+</Info>
+
+### Ștergere cheltuieli importate greșit
+
+Dacă ai importat cheltuieli greșit sau dorești să ștergi înregistrările existente:
+
+1. Apasă pe cele **3 puncte** din dreptul contului publicitar
+2. Selectează opțiunea **"Șterge înregistrări cheltuieli publicitare"**
+3. Confirmă ștergerea
+
+<Frame caption="Opțiune ștergere cheltuieli publicitare">
+![Remove Ad Costs](/images/ad-accounts-remove-costs.png)
+</Frame>
+
+<Warning>
+Această acțiune va șterge toate cheltuielile importate în perioada introdusă pentru pagina sau paginile selectate. Asigură-te că dorești să ștergi datele înainte de a confirma. În cazul în care ai șters ceva greșit, poți reimporta oricând datele dar asigură-te că ai șters toate cheltuielile din perioada raportului pe care urmează să îl re-imporți.
+</Warning>
+
+## Vizualizare și gestionare cheltuieli
+
+Toate cheltuielile importate sau adăugate manual pot fi vizualizate în pagina de detalii a contului publicitar.
+
+Din această pagină poți:
+- **Vizualiza** toate înregistrările de cheltuieli
+- **Edita** cheltuielile existente
+- **Șterge** înregistrări greșite
+- **Filtra** cheltuielile pe Landing Page sau perioadă
+
+## Raportare și analiză
+
+Cheltuielile adăugate în conturile publicitare sunt folosite automat pentru a calcula tabelele de vânzări și profitabilitate din dashboard-uri:
+
+### Dashboard Sales & ROAS
+În baza datelor din conturile publicitare, se calculează automat:
+- **ROAS** (Return on Ad Spend) pentru fiecare Landing Page
+- Performanța campaniilor înainte de returnări
+- Comparația dintre cheltuielile publicitare și vânzările generate
+- Tabelele detaliate cu metrici de performanță
+
+### Dashboard Cost & Profit
+În baza datelor din conturile publicitare, se calculează automat:
+- **Profitul real** după deducerea cheltuielilor publicitare
+- Returnările și costurile de achiziție
+- Tabelele complete de profitabilitate
+- Analiza cost-beneficiu pentru fiecare Landing Page
+
+<Tip>
+Pentru cele mai bune rezultate, importă cheltuielile zilnic sau săptămânal pentru a avea date actualizate în dashboard-uri.
+</Tip>
+
+## Bune practici
+
+### Denumirea campaniilor
+- Folosește întotdeauna formatul `#EEU{ID}` în denumirea campaniilor
+- Verifică ID-ul Landing Page-ului înainte de a lansa campania
+- Păstrează un format consistent pentru toate campaniile
+
+### Import CSV
+- Importă cheltuielile regulat (zilnic sau săptămânal)
+- Nu depăși 31 zile per import
+- Verifică că raportul conține doar coloanele necesare
+- Asigură-te că filtrele sunt configurate corect
+
+### Gestionare conturi
+- Adaugă nume descriptive pentru fiecare cont publicitar
+- Organizează conturile pe platforme și scopuri
+- Verifică periodic că toate cheltuielile sunt importate corect
+
+### Monitorizare
+- Verifică dashboard-urile Sales & ROAS și Cost & Profit regulat
+- Compară datele din platformă cu cele din Ads Manager
+- Investighează discrepanțele imediat
+
+<Warning>
+Datele greșite în conturile publicitare pot duce la calcule incorecte de ROAS și profit. Verifică întotdeauna că cheltuielile sunt asociate cu Landing Page-urile corecte.
+</Warning>

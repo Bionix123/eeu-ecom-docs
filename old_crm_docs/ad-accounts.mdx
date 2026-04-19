@@ -1,0 +1,64 @@
+## III. Ad Accounts
+
+**Această funcționalitate este disponiblă începând cu planul GOLD PLUS**
+
+În această pagină îți poți adăuga toate conturile de reclama (Meta sau TikTok), având posibilitatea de a contoriza în aplicație toate sumele cheltuite în pentru a genera vânzări. 
+
+Scopul acestei funcționalități este de a genera automat rapoarte de vânzări și profitabilitate, salvând astfel ore de muncă manuala în excel. 
+
+**Creare Ad Account**
+
+Pentru început, vom intra în pagina **Ad Accounts** disponibilă în sidebar menu și vom apasa butonul “**Create**” iar ulterior vom completa formularul cu datele contului pe care dorim să îl adăugam.
+
+![Screenshot 2025-02-07 at 18.49.53.png](attachment:79a527ae-cf33-42c6-a653-55e64ab88588:Screenshot_2025-02-07_at_18.49.53.png)
+
+**Ad Spent Logging - manual**
+
+După ce am adăugat un **Ad Account**, putem începe sa adăugăm **cheltuieli** pe zile pentru fiecare **Landing Page** în parte. Aceste cheltuieli vor fi reflectate in calculele din **dashboard-urile “Sales & Roas” si “Cost & Profit”**.
+
+👉 In platforma **EEU-ECOM > Ad Accounts**, apasă pe cele **3 puncte** din dreptul Ad Account-ului în cauză și selectează optiunea “**Ad Account Log Record**” iar apoi completează suma si Landing Page-ul targhetat.
+
+Toate cheltuielile adăugate pot fi vizualizate si eventual sterse sau editate din Detail Page-ul Ad Account-ului respectiv.
+
+De asemenea, daca la un Landing Page adăugi două intrări pentru aceeași zi, prima intrare va fi înlocuită de ultima intrare adăugată (nu se vor aduna).
+
+**Ad Spent Logging - import CSV (recomandat)**
+
+Cea de-a 2-a metoda de adaugare a cheltuielilor în platforma este prin intermediul **importului de rapoarte CSV**. Aceste rapoarte **pot fi generate direct din Ads Manager (Meta)** și pot cuprinde una sau mai multe zile de reclame (recomandăm **maxim 31 zile** per import)
+
+Înainte de a explica care sunt pașii pentru a genera aceste rapoarte, trebuie menționat faptul că există o cerință adițională:
+
+- Fiecare campanie trebuie sa contina in numele sau (campaign name) ID-ul Landing Page-ului pe care il targeteaza sub forma `#EEU{ID}` ca in exemplele urmatoare:
+
+```markdown
+**"Creion pentru sprancene #EEU28"** // Aici ID-ul LP-ului este **28**
+**"Reclama 2 cercei #EEU6"** // Aici ID-ul LP-ului este **6**
+**"Campanie vanzari xyz #EEU99"** // Aici ID-ul LP-ului este **99**
+```
+
+- Campaniile care nu respectă această cerință nu vor fi luate în considerare în momentul importului.
+- ⚠️ Aveți mare grijă să folosiți ID-ul corect al Landing Page-ului în denumirea campaniei pentru a evita erori de calcul.
+
+**Ad Spent Logging - generare raport CSV pentru import**
+
+1. Accesează Ads Manager si crează un raport nou (Reports > Create new report)
+    
+    ![Screenshot 2025-02-07 at 19.09.12.png](attachment:a970c04b-7578-45d5-a284-f4f1aa7a226d:Screenshot_2025-02-07_at_19.09.12.png)
+    
+2. Selectează ziua sau perioada dorită (recomandat maxim 31 zile!)
+3. In partea dreaptă se afla ecranul “**Customize pivot table**” > Click pe cele 3 puncte și “**Reorder columns**”
+    
+    ![Screenshot 2025-02-07 at 19.11.18.png](attachment:1d82db02-b034-4a47-ad10-53e0bcce759f:Screenshot_2025-02-07_at_19.11.18.png)
+    
+4. Șterge toate coloanele cu excepția “**Campaign Name**” și “**Amount Spent**”
+5. Tot din ecranul din partea dreaptă, tab-ul “breakdown”, bifează căsuța “Day”
+6. Asigură-te că în partea de sus, secțiunea “**filters**”, pe langa filtrul “**Has Delivery**” ai și filtrul **“Impressions > 0”**. Daca nu îl ai, îl poți adăuga manual `impressions > 0`
+    
+    ![Screenshot 2025-02-07 at 19.15.39.png](attachment:563aaf54-fbf6-46b1-86f8-9f89e257f9a6:Screenshot_2025-02-07_at_19.15.39.png)
+    
+7. După ce ai obținut raportul dorit, apasă butonul “**Export”** din partea dreaptă-sus a ecranului și asigură-te ca raportul este exportat **CSV** și “Include summary row” este **debifat >** Exportă.
+    
+    ![Screenshot 2025-02-07 at 19.17.44.png](attachment:457182f5-8d12-45ff-846a-16df3ebeebc2:Screenshot_2025-02-07_at_19.17.44.png)
+    
+
+👉 In platforma **EEU-ECOM > Ad Accounts**, apasă pe cele **3 puncte** din dreptul Ad Account-ului în cauză și selectează optiunea “**Import Ad Spent Records**” iar apoi încarcă raportul **CSV** obținut în pasul anterior.

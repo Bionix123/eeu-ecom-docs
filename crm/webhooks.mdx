@@ -2,3 +2,153 @@
 title: "Webhook-uri"
 icon: "webhook"
 ---
+
+Pagina **Webhook-uri** îți permite să configurezi integrări automate cu sisteme externe prin trimiterea de notificări HTTP când anumite evenimente au loc în platformă.
+
+<Info>
+Această funcționalitate este disponibilă începând cu planul **Gold**.
+</Info>
+
+## Ce sunt webhook-urile?
+
+Webhook-urile sunt notificări automate trimise către un URL specificat când anumite evenimente au loc în sistem. Acestea permit integrarea platformei cu alte aplicații și servicii externe.
+
+### Cazuri de utilizare
+- **SMS confirmare** - Trimite SMS-uri de confirmare comandă către clienți
+- **Notificări personalizate** - Primește notificări în aplicații externe (Slack, Discord, etc.)
+- **Automatizări** - Declanșează procese automate în alte sisteme
+- **Sincronizare date** - Menține datele sincronizate între platforme
+- **Raportare** - Trimite date către sisteme de raportare și analiză
+
+## Tabel webhook-uri
+
+Tabelul afișează toate webhook-urile configurate cu următoarele informații:
+
+### Coloane disponibile
+
+- **URL** - URL-ul către care sunt trimise notificările
+- **Eveniment** - Tipul de eveniment care declanșează webhook-ul
+- **Acțiuni** - Opțiuni pentru editare și ștergere
+
+## Creare webhook
+
+Pentru a crea un webhook nou, apasă butonul **"Creează Webhook"** și completează formularul.
+
+### Câmpuri formular
+
+#### URL
+Introdu URL-ul complet către care vor fi trimise notificările webhook.
+
+<Info>
+URL-ul trebuie să fie accesibil public și să accepte cereri POST cu date JSON.
+</Info>
+
+<Warning>
+Asigură-te că URL-ul este corect și că serverul tău este configurat să primească și să proceseze cererile webhook.
+</Warning>
+
+#### Eveniment
+
+Selectează evenimentul care va declanșa webhook-ul. Evenimentele disponibile sunt:
+
+- **Comandă creată** - Se declanșează când o comandă nouă este plasată
+- **Comandă expediată** - Se declanșează când o comandă este trimisă către Helpship
+- **Comandă confirmată** - Se declanșează când o comandă este confirmată din pagina Comenzi > Order Confirm
+- **Comandă programată** - Se declanșează când o comandă este programată (scheduled)
+- **Comandă anulată** - Se declanșează când o comandă este anulată
+- **Comandă pusă în așteptare** - Se declanșează când o comandă este pusă în așteptare (hold)
+- **Comandă scoasă din așteptare** - Se declanșează când o comandă este scoasă din așteptare (unhold)
+- **Parțial creat** - Se declanșează când un parțial este creat
+
+<Tip>
+Poți crea mai multe webhook-uri pentru același eveniment dacă dorești să trimiți notificări către mai multe sisteme.
+</Tip>
+
+## Gestionare webhook-uri
+
+### Editare webhook
+
+Pentru a edita un webhook existent:
+1. Găsește webhook-ul în tabel
+2. Apasă pe iconița **creion** din coloana Acțiuni
+3. Modifică URL-ul sau evenimentul
+4. Salvează modificările
+
+### Ștergere webhook
+
+Pentru a șterge un webhook:
+1. Găsește webhook-ul în tabel
+2. Apasă pe iconița **ștergere** din coloana Acțiuni
+3. Confirmă ștergerea
+
+<Warning>
+Ștergerea unui webhook este permanentă. Asigură-te că nu mai ai nevoie de acel webhook înainte de a-l șterge.
+</Warning>
+
+## Testare webhook-uri
+
+### Verificare funcționare
+
+Pentru a verifica că webhook-ul funcționează corect:
+
+1. **Creează un webhook** pentru un eveniment de test
+2. **Declanșează evenimentul** manual (ex: creează o comandă de test)
+3. **Verifică logs** pe serverul tău pentru a confirma primirea cererii
+4. **Validează datele** primite pentru a te asigura că sunt complete
+
+### Debugging
+
+Dacă webhook-ul nu funcționează:
+
+- **Verifică URL-ul** - Asigură-te că este corect și accesibil
+- **Verifică serverul** - Confirmă că serverul acceptă cereri POST
+- **Verifică firewall-ul** - Asigură-te că nu blochează cererile
+- **Verifică logs** - Caută erori în logs-urile serverului tău
+- **Testează manual** - Folosește tools precum Postman pentru a testa endpoint-ul
+
+<Tip>
+Poți folosi servicii precum webhook.site sau requestbin.com pentru a testa și a vedea exact ce date sunt trimise de webhook.
+</Tip>
+
+## Securitate
+
+### Bune practici de securitate
+
+- **Folosește HTTPS** - Întotdeauna folosește URL-uri HTTPS pentru a proteja datele
+- **Limitează accesul** - Restricționează accesul la endpoint-ul webhook doar la IP-urile platformei
+- **Monitorizează** - Monitorizează cererile webhook pentru activitate suspectă
+- **Gestionează erorile** - Implementează gestionare corectă a erorilor pe serverul tău
+
+### Protecție împotriva atacurilor
+
+<Warning>
+Nu expune informații sensibile în răspunsurile webhook-ului și asigură-te că endpoint-ul este protejat împotriva atacurilor.
+</Warning>
+
+## Bune practici
+
+### Configurare webhook-uri
+
+- **Testează înainte de producție** - Testează webhook-urile într-un mediu de test
+- **Documentează** - Păstrează documentație despre ce face fiecare webhook
+- **Monitorizează** - Verifică regulat că webhook-urile funcționează corect
+- **Optimizează** - Asigură-te că procesarea webhook-urilor este rapidă
+
+### Procesare date
+
+- **Procesare asincronă** - Procesează datele webhook în background pentru răspunsuri rapide
+- **Validare date** - Validează întotdeauna datele primite
+- **Idempotență** - Implementează procesare idempotentă pentru a gestiona duplicate
+- **Logging** - Păstrează logs detaliate pentru debugging
+
+### Scalabilitate
+
+- **Queue system** - Folosește un sistem de queue pentru procesare
+- **Rate limiting** - Implementează rate limiting pe endpoint
+- **Load balancing** - Distribuie încărcarea pe mai multe servere
+- **Monitoring** - Monitorizează performanța și volumul de cereri
+
+<Tip>
+Pentru aplicații critice, consideră implementarea unui sistem de backup care să verifice periodic dacă toate evenimentele au fost procesate corect.
+</Tip>
+
