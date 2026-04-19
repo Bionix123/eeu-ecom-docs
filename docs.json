@@ -13,8 +13,25 @@
       {
         "anchor": "CRM - Aplicația principală",
         "pages": [
-          "crm/home",
-          "crm/addons",
+          {
+            "group": "Noțiuni introductive",
+            "icon": "comment-question",
+            "pages": [
+              "crm/ce-este-un-crm",
+              "crm/cms-sau-wordpress",
+              "crm/cum-incep",
+              "crm/terminologie",
+              "crm/documentatie-veche"
+            ]
+          },
+          {
+            "group": "Principal",
+            "icon": "home",
+            "pages": [
+              "crm/home",
+              "crm/addons"
+            ]
+          },
           {
             "group": "Prezentare generală",
             "icon": "grid-2",

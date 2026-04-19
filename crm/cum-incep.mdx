@@ -1,0 +1,393 @@
+---
+title: "Cum încep?"
+icon: "rocket"
+---
+
+Bine ai venit în ecosistemul EEU-ECOM! Această pagină te va ghida pas cu pas pentru a începe să folosești CRM-ul și CMS-ul pentru a-ți lansa primul produs.
+
+<Info>
+**Recomandare importantă:** Pentru cea mai bună experiență de învățare, recomandăm utilizarea **în paralel** a acestei documentații împreună cu [tutorialul video pentru Starter & Bronze](https://vintage-word-a14.notion.site/NOU-Tutorial-introductiv-pentru-Starter-Bronze-1e5eedfbcfdb8074b060e6c581b2136b). Videoclipurile îți vor arăta exact cum să faci lucrurile, iar documentația îți va oferi referințe detaliate.
+</Info>
+
+---
+
+## Pasul 1: Alege planul de abonament
+
+Primul pas este să alegi planul potrivit pentru nevoile tale:
+
+### Planuri disponibile:
+
+- **Starter** - Ideal pentru început și testare (funcționalități de bază)
+- **Bronze** - Necesar pentru a putea începe să transmiți comenzi reale către depozit
+- **Silver** - Include bundles și recenzii
+- **Gold** - Include webhooks și oferte pre/post-achiziție
+- **Gold Plus** - Toate funcționalitățile avansate (Cost & Profit, ROAS, Attachment Rules, etc.)
+
+<Tip>
+Dacă ești la început, recomandăm să începi cu planul **Starter** pentru a învăța sistemul, apoi să faci upgrade când ai nevoie de funcționalități avansate.
+</Tip>
+
+<Info>
+Abonamentele se pot achiziționa de pe pagina: **[https://join.eeu-ecom.app](https://join.eeu-ecom.app)**
+</Info>
+
+---
+
+## Pasul 2: Urmărește tutorialul video
+
+Înainte de a începe configurarea, **urmărește tutorialul video pentru Starter & Bronze**. Acest tutorial îți va arăta exact ce să faci, pas cu pas.
+
+**🎥 [Tutorial introductiv pentru Starter & Bronze](https://vintage-word-a14.notion.site/NOU-Tutorial-introductiv-pentru-Starter-Bronze-1e5eedfbcfdb8074b060e6c581b2136b)**
+
+<Warning>
+**Important:** Acest tutorial face parte din [documentația veche](/crm/documentatie-veche) și **unele lucruri s-au schimbat** în versiunea actuală a aplicației (interfața, organizarea unor funcționalități). Funcționalitățile de bază rămân aceleași, dar aspectul poate fi diferit.
+
+**Recomandăm utilizarea în paralel** a tutorialului video (pentru a vedea procesul) și a acestei documentații (pentru informații actualizate).
+</Warning>
+
+### Ce vei învăța din tutorial:
+
+- **Configurare inițială** - Cum să configurezi contul și magazinul
+- **Adăugare produse** - Cum să adaugi produse și variante
+- **Creare landing pages** - Cum să creezi pagini de destinație optimizate
+- **Gestionare comenzi** - Cum să procesezi și să gestionezi comenzile
+- **Integrare Helpship** - Cum să conectezi sistemul cu Helpship pentru expedieri
+- **Tracking conversii** - Cum să configurezi pixelii și tracking-ul
+- **Funcționalități de bază** - Toate funcționalitățile esențiale pentru început
+
+<Info>
+Tutorialul conține **videoclipuri explicative** care îți arată exact ce să faci. Este cea mai rapidă metodă de a învăța să folosești sistemul. Urmărește-l în paralel cu această documentație pentru rezultate optime.
+</Info>
+
+---
+
+## Pasul 3: Creează magazinul în CRM
+
+După ce ai urmărit tutorialul, începe configurarea:
+
+### 3.1. Creează magazinul în CRM
+
+**Important:** Magazinul se creează mai întâi în **CRM**, nu în CMS!
+
+1. Accesează pagina **[Magazine](/crm/stores)** din CRM
+2. Apasă **"Creează magazin"**
+3. Completează informațiile de bază:
+   - **Nume magazin**
+   - **Domeniu** (subdomenul tău, ex: "magazinulmeu")
+   - **Setări de bază**
+
+<Info>
+Magazinul creat în CRM este baza pentru tot ce urmează. După ce creezi magazinul în CRM, vei putea:
+1. Crea **landing page-uri** în CRM (asociate acestui magazin)
+2. Accesa **CMS-ul** pentru setup-ul propriu-zis al website-ului (bazat pe magazinul din CRM)
+</Info>
+
+### 3.2. Configurează tracking-ul (opțional pentru început)
+
+Dacă vrei să urmărești conversiile de la început:
+
+1. În pagina **[Magazine](/crm/stores)**, editează magazinul creat
+2. Adaugă:
+   - **Facebook Pixel ID** (dacă ai)
+   - **TikTok Pixel ID** (dacă ai)
+   - **Token API Conversii** (pentru tracking server-side)
+
+<Tip>
+Poți configura tracking-ul și mai târziu. Pentru început, poți sări peste acest pas și să te concentrezi pe crearea primului produs și a primei landing page.
+</Tip>
+
+---
+
+## Pasul 4: Adaugă primul produs
+
+### 4.1. Creează produsul în CRM
+
+1. Accesează pagina **[Produse](/crm/products)**
+2. Apasă **"Creează produs"**
+3. Completează:
+   - **Nume produs**
+   - **Preț unitar**
+   - **Status:** Setează **Testing** pentru început
+
+<Warning>
+Produsele cu status **Testing** nu sunt trimise automat în Helpship. Acest lucru îți permite să testezi fără să trimiți comenzi reale.
+</Warning>
+
+### 4.2. Adaugă variante de produs
+
+1. După ce ai creat produsul, apasă pe **ID-ul produsului** (evidențiat în albastru)
+2. Apasă **"Create product variant"**
+3. Pentru fiecare variantă, completează:
+   - **Nume variantă** (ex: "Roz", "Nude", "Roșu")
+   - **SKU:** Folosește un SKU temporar prefixat cu "TEST" (ex: "TEST-CREION-ROZ")
+   - **Imagine produs**
+
+<Tip>
+Pentru început, folosește SKU-uri temporare cu prefix "TEST". După ce validezi produsul și îl comanzi, vei schimba SKU-urile cu cele reale primite de la partenerul logistic.
+</Tip>
+
+---
+
+## Pasul 5: Creează prima landing page în CRM
+
+### 5.1. Creează pagina de destinație în CRM
+
+**Important:** Landing page-urile se creează în **CRM**, nu în CMS!
+
+1. Accesează pagina **[Pagini de destinație](/crm/landing-pages)** din CRM
+2. Apasă **"Creează pagină de destinație"**
+3. Completează informațiile de bază:
+   - **Produs:** Selectează produsul creat
+   - **Magazin:** Selectează magazinul creat în CRM
+   - **Nume:** Nume descriptiv (ex: "Creion sprâncene - Campanie Vara 2026")
+   - **Slug:** URL-ul paginii (ex: "creion-sprancene")
+
+### 5.2. Configurează ofertele și prețurile
+
+1. Setează **SKU principal** (varianta implicită)
+2. Configurează titlurile pentru cele 3 oferte:
+   - **Titlu Oferta 1:** "Cumpără 1"
+   - **Titlu Oferta 2:** "Cumpără 2"
+   - **Titlu Oferta 3:** "Cumpără 3"
+3. Setează **Numerale** (ex: "Un creion", "Două creioane", "Trei creioane")
+4. Configurează **Prețurile:**
+   - **Preț 1:** 49 lei
+   - **Preț 2:** 89 lei
+   - **Preț 3:** 120 lei
+5. Setează **Preț transport** (ex: 15 lei sau 0 pentru gratuit)
+
+### 5.3. Personalizează pagina
+
+1. Alege **Schemă de culori** (sau folosește cea de la magazin)
+2. Setează **Text Buton Comandă** (ex: "Comandă acum")
+3. Configurează **Calea paginii Thank You** (ex: "/multumim")
+
+<Info>
+Pentru detalii complete despre toate opțiunile de configurare, consultă documentația [Pagini de destinație](/crm/landing-pages).
+</Info>
+
+---
+
+## Pasul 6: Setup magazin și landing pages în CMS
+
+După ce ai creat magazinul și landing page-urile în CRM, acum poți accesa **CMS-ul** pentru setup-ul propriu-zis al website-ului.
+
+### 6.1. Accesează CMS-ul
+
+1. Accesează secțiunea **CMS** din meniul principal
+2. Vei vedea magazinul creat în CRM
+3. Selectează magazinul pentru a începe setup-ul
+
+### 6.2. Configurează magazinul în CMS
+
+În CMS vei putea configura:
+- **Design-ul magazinului** - Culori, logo, aspectul general
+- **Pagini statice** - Termeni și condiții, Politica de confidențialitate, etc.
+- **Setări avansate** - Configurări specifice pentru website
+
+<Info>
+**Ordinea corectă:**
+1. **CRM** - Creezi magazinul (baza de date)
+2. **CRM** - Creezi landing page-uri (asociate magazinului)
+3. **CMS** - Configurezi aspectul și conținutul website-ului (bazat pe magazinul din CRM)
+</Info>
+
+<Tip>
+Pentru detalii complete despre configurarea în CMS, consultă documentația [CMS - Creator de magazine](/cms/ce-este-un-cms).
+</Tip>
+
+---
+
+## Pasul 7: Testează prima comandă
+
+### 7.1. Plasează o comandă de test
+
+1. Accesează landing page-ul creat (link-ul din coloana "Link-uri")
+2. Completează formularul cu date de test
+3. Plasează comanda
+
+### 7.2. Verifică comanda în CRM
+
+1. Accesează pagina **[Comenzi](/crm/orders)**
+2. Verifică că comanda apare cu:
+   - **Status:** New sau Queued
+   - **Helpship:** ❌ (normal pentru produse în Testing)
+
+<Info>
+Comenzile cu produse în status **Testing** nu sunt trimise automat în Helpship. Acest lucru îți permite să testezi fluxul complet fără să generezi comenzi reale.
+</Info>
+
+---
+
+## Pasul 8: Integrare Helpship (când ești gata să vinzi)
+
+### 8.1. Pregătește produsul pentru vânzare
+
+1. Comandă produsul de la furnizor
+2. Primește SKU-urile reale de la partenerul logistic (Helpship)
+3. Actualizează SKU-urile în CRM:
+   - Accesează **[Produse](/crm/products)**
+   - Apasă pe ID-ul produsului
+   - Editează fiecare variantă și înlocuiește SKU-ul "TEST-..." cu SKU-ul real
+4. Schimbă **Status produs** din **Testing** în **Active**
+
+### 8.2. Verifică sincronizarea
+
+1. Plasează o comandă de test
+2. Verifică că apare în Helpship
+3. Confirmă că toate datele sunt corecte
+
+<Warning>
+Asigură-te că SKU-urile din CRM sunt **identice** cu cele din Helpship. Orice diferență va cauza erori de sincronizare.
+</Warning>
+
+---
+
+## Pasul 9: Configurează tracking-ul conversiilor (opțional)
+
+### 9.1. Adaugă pixelii
+
+Dacă vrei să urmărești conversiile pentru optimizarea campaniilor:
+
+1. Accesează **[Magazine](/crm/stores)**
+2. Editează magazinul
+3. Adaugă:
+   - **Facebook Pixel ID**
+   - **TikTok Pixel ID**
+4. Bifează **"Urmărire client-side activată"**
+
+### 9.2. Configurează API Conversii (recomandat)
+
+Pentru tracking mai precis:
+
+1. Generează **Token API Conversii** din Meta Business Manager
+2. Adaugă token-ul în setările magazinului
+3. Bifează **"Urmărire server-side activată"**
+
+<Tip>
+Tracking-ul server-side este mult mai precis decât cel client-side, mai ales după restricțiile iOS 14+. Recomandăm configurarea ambelor pentru rezultate optime.
+</Tip>
+
+---
+
+## Pasul 10: Lansează prima campanie
+
+Acum ești gata să lansezi prima campanie publicitară:
+
+1. **Creează campania** în Meta Ads Manager sau TikTok Ads
+2. **Setează URL-ul** către landing page-ul tău
+3. **Monitorizează comenzile** în pagina [Comenzi](/crm/orders)
+4. **Urmărește performanța** în [Orders Dashboard](/crm/orders-dashboard) (Gold Plus)
+
+---
+
+## Pasul 11: Optimizează și scalează
+
+După primele comenzi:
+
+### Analizează performanța
+
+- **[Orders Dashboard](/crm/orders-dashboard)** - KPI-uri și statistici (Gold Plus)
+- **[Sales & ROAS](/crm/sales-and-roas)** - Performanță campanii (Gold Plus)
+- **[Cost & Profit](/crm/cost-and-profit)** - Profitabilitate reală (Gold Plus)
+
+### Optimizează conversiile
+
+- Testează diferite prețuri pentru cele 3 oferte
+- Adaugă **[recenzii](/crm/landing-pages#recenzii)** pentru credibilitate (Silver+)
+- Configurează **[oferte upsell](/crm/landing-pages#oferte-pre-achizitie)** (Gold+)
+- Creează **[reguli de atașare](/crm/attachment-rules)** pentru oferte automate (Gold Plus)
+
+### Scalează business-ul
+
+- Adaugă mai multe produse
+- Creează landing pages separate pentru fiecare campanie
+- Conectează **[conturi publicitare](/crm/ad-accounts)** pentru tracking automat (Gold Plus)
+- Activează **[recuperare comenzi GLS](/crm/addons)** (Gold Plus)
+
+---
+
+## Resurse utile
+
+### Documentație
+
+- **[Tutorial video Starter & Bronze](https://vintage-word-a14.notion.site/NOU-Tutorial-introductiv-pentru-Starter-Bronze-1e5eedfbcfdb8074b060e6c581b2136b)** - Videoclipuri pas cu pas
+- **[Documentație veche (Notion)](https://vintage-word-a14.notion.site/Documenta-ie-n-Rom-n-134eedfbcfdb80928ee6d192723a0a55)** - Ghiduri detaliate suplimentare
+- **[Terminologie](/crm/terminologie)** - Glosar cu termeni tehnici
+- **[Ce este un CRM?](/crm/ce-este-un-crm)** - Introducere în sistem
+
+### Pagini importante CRM
+
+- **[Comenzi](/crm/orders)** - Gestionare comenzi
+- **[Produse](/crm/products)** - Gestionare produse
+- **[Pagini de destinație](/crm/landing-pages)** - Creare landing pages
+- **[Magazine](/crm/stores)** - Configurare magazine
+- **[Addon-uri](/crm/addons)** - Funcționalități premium
+
+### Suport
+
+- **Email:** ecomplatform.app@gmail.com
+- **WhatsApp:** Link pentru grupul de suport pe pagina principală din aplicație
+
+---
+
+## Recomandări finale
+
+<Tip>
+**Strategia de învățare recomandată:**
+
+1. **Urmărește tutorialul video** pentru a vedea procesul complet
+2. **Folosește această documentație** ca referință în timp ce configurezi
+3. **Consultă documentația veche** pentru detalii suplimentare când ai nevoie
+4. **Testează tot** cu produse în status Testing înainte de a lansa
+5. **Cere ajutor** când întâmpini dificultăți - suntem aici să te ajutăm!
+</Tip>
+
+<Info>
+**Utilizare în paralel a ambelor documentații:**
+
+- **Tutorialul video** - Pentru a vedea exact cum se face
+- **Documentația nouă** - Pentru referințe rapide și funcționalități noi
+- **Documentația veche** - Pentru explicații foarte detaliate
+
+Această combinație îți va oferi cea mai completă experiență de învățare.
+</Info>
+
+<Warning>
+**Atenție la detalii:**
+
+- Verifică că SKU-urile sunt corecte înainte de a trece produsul în Active
+- Testează întotdeauna cu comenzi de test înainte de a lansa campanii
+- Asigură-te că tracking-ul funcționează corect
+- Monitorizează comenzile zilnic, mai ales la început
+</Warning>
+
+---
+
+## Întrebări frecvente
+
+### Cât timp durează configurarea inițială?
+
+Cu tutorialul video, configurarea completă (magazin + produs + landing page) durează **30-60 minute**.
+
+### Pot testa fără să plătesc pentru comenzi reale?
+
+Da! Folosește status **Testing** pentru produse. Comenzile nu vor fi trimise în Helpship și poți testa tot fluxul gratuit.
+
+### Ce plan ar trebui să aleg pentru început?
+
+Recomandăm **Starter** pentru început. Poți face upgrade oricând când ai nevoie de funcționalități avansate.
+
+### Trebuie să urmăresc tutorialul video?
+
+Nu este obligatoriu, dar este **foarte recomandat**. Videoclipurile îți arată exact ce să faci și vei învăța mult mai rapid.
+
+### Pot folosi ambele documentații în paralel?
+
+**Da, și recomandăm acest lucru!** Tutorialul video + documentația nouă + documentația veche = experiență completă de învățare.
+
+---
+
+Succes cu primul tău produs! 🚀
+
+Dacă ai întrebări sau întâmpini dificultăți, nu ezita să ne contactezi. Suntem aici să te ajutăm să reușești!
