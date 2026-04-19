@@ -37,6 +37,14 @@ Coloana **Sursă urmărire** indică de unde provin setările de tracking:
 Dacă tracking-ul a fost setat la nivel de magazin, nu este necesar să fie setat și la nivel de landing page. Setările se vor prelua automat de la magazin. Setările personalizate sunt necesare doar când dorești ca acea pagină să aibă un alt pixel sau token API conversii diferit față de celelalte pagini din magazin.
 </Info>
 
+### Acțiuni disponibile
+
+Pentru fiecare pagină de destinație din tabel, sunt disponibile următoarele acțiuni:
+
+- **Vizualizare detalii** (iconița **ochi**) - Accesează pagina de detalii pentru a gestiona recenzii și oferte pre/post-achiziție
+- **Editare** - Modifică setările paginii de destinație
+- **Ștergere** - Șterge pagina de destinație
+
 ## Creare pagină de destinație
 
 ### Informații de bază
@@ -200,6 +208,146 @@ Setează un nume personalizat pentru evenimentul de conversie.
 <Warning>
 Folosirea de setări personalizate de tracking pentru fiecare pagină poate complica raportarea. Recomandăm să folosești setările de la nivel de magazin pentru consistență, cu excepția cazurilor în care ai nevoie de tracking separat pentru campanii specifice.
 </Warning>
+
+## Gestionare recenzii și oferte
+
+Pentru a accesa funcționalitățile de recenzii și oferte pre/post-achiziție, apasă pe iconița **ochi** (Vizualizare detalii) din tabelul de pagini de destinație pentru landing page-ul dorit.
+
+<Frame caption="Pagina de detalii - Recenzii și oferte">
+![Landing Page Details](/images/landing-pages-detail.png)
+</Frame>
+
+Pagina de detalii conține trei secțiuni principale:
+- **Recenzii** - Gestionarea recenziilor afișate pe pagina de destinație
+- **Oferte pre-achiziție** - Configurarea ofertelor upsell din formular
+- **Oferte post-achiziție** - Configurarea ofertelor upsell de pe pagina de mulțumire
+
+### Recenzii
+
+<Info>
+Funcționalitatea de recenzii este disponibilă începând cu planul **Silver**.
+</Info>
+
+Recenziile sunt afișate în widget-ul de recenzii de pe pagina de destinație și ajută la creșterea încrederii clienților.
+
+#### Adăugare recenzie
+
+Pentru a adăuga o recenzie nouă, apasă butonul **"Creează Landing Page Review"** și completează formularul:
+
+**Câmpuri formular:**
+
+- **Name** - Numele autorului recenziei
+- **Author** - Autorul recenziei (poate fi același cu Name sau diferit)
+- **Comment** - Textul recenziei (comentariul clientului)
+- **Timestamp** - Folosește 1z / 3sapt. / 1lun. pentru a face recenziile mai credibile și asemănătoare ca cele reale de pe Facebook
+- **Likes** - Numărul de like-uri pentru recenzie
+- **Heart reacts** - Numărul de reacții cu inimă
+- **Care reacts** - Numărul de reacții de îngrijorare
+- **Replied count** - Numărul de răspunsuri la recenzie
+- **Comment photo** - Fotografie atașată recenziei (opțional)
+- **Landing Page** - Pagina de destinație la care se atașează recenzia
+
+<Tip>
+Pentru a face recenziile mai credibile, variază numărul de like-uri, reacții și răspunsuri. Folosește timestamp-uri realiste și adaugă fotografii când este posibil.
+</Tip>
+
+#### Previzualizare recenzii
+
+După ce ai adăugat recenzii, le poți previzualiza accesând link-ul din coloana **"Link-uri utile"** din tabelul de pagini de destinație.
+
+<Info>
+Numărul de recenzii afișate în widget se configurează din secțiunea **Personalizare** → **Număr recenzii** la crearea/editarea paginii de destinație.
+</Info>
+
+### Oferte pre-achiziție
+
+<Info>
+Ofertele pre-achiziție și post-achiziție sunt disponibile începând cu planul **Gold**.
+</Info>
+
+Ofertele pre-achiziție sunt upsell-uri afișate în formularul de comandă, înainte ca clientul să finalizeze comanda.
+
+#### Adăugare ofertă pre-achiziție
+
+Pentru a adăuga o ofertă pre-achiziție, apasă butonul **"Creează Purchase Offer"** din secțiunea **"Oferte pre-achiziție"** și completează formularul:
+
+**Câmpuri formular:**
+
+- **Landing Page** - Pagina de destinație la care se atașează oferta (pre-completat)
+- **Type** - Tipul ofertei: **Pre-achiziție** sau **Post-achiziție**
+- **Vendable** - Produsul ofertat: **Variantă produs** sau **Bundle** (pachet)
+- **Variantă/Bundle** - Selectează varianta de produs sau bundle-ul specific
+- **Title** - Titlul ofertei (ex: "Adaugă un creion extra!")
+- **Description** - Descrierea ofertei (detalii despre produs sau beneficii)
+- **Quantity** - Cantitatea oferită
+- **SRP** - Prețul recomandat de vânzare (cel tăiat)
+- **Price** - Prețul ofertei
+- **Active** - Bifează pentru a activa oferta
+- **Media** - Imagine pentru ofertă
+- **Display Order** - Ordinea de afișare (pentru multiple oferte). Ofertele cu Display Order mai mic sunt afișate mai sus.
+
+<Tip>
+Pentru ofertele pre-achiziție, folosește prețuri atractive și descrieri clare care evidențiază beneficiile produsului adăugat. Testează diferite variante folosind câmpul Split.
+</Tip>
+
+### Oferte post-achiziție
+
+Ofertele post-achiziție sunt upsell-uri afișate pe pagina de mulțumire, după ce clientul a plasat comanda inițială.
+
+#### Adăugare ofertă post-achiziție
+
+Pentru a adăuga o ofertă post-achiziție, apasă butonul **"Creează Purchase Offer"** din secțiunea **"Oferte post-achiziție"** și completează formularul cu aceleași câmpuri ca la ofertele pre-achiziție, dar selectând **Type: Post-achiziție**.
+
+**Diferențe față de ofertele pre-achiziție:**
+
+- Ofertele post-achiziție apar pe pagina de mulțumire, după plasarea comenzii
+- Clientul trebuie să confirme adăugarea produselor post-achiziție
+- Comenzile cu produse post-achiziție neconfirmate rămân în status **New** până la confirmare
+
+<Warning>
+Comenzile cu oferte post-achiziție neconfirmate nu sunt trimise automat în Helpship. Trebuie să confirmi sau să elimini produsele post-achiziție din pagina [Comenzi](/crm/orders) pentru a procesa comanda.
+</Warning>
+
+<Info>
+Pentru a activa afișarea ofertelor post-achiziție pe pagina de mulțumire, asigură-te că ai setat **Status post achiziție** la crearea/editarea paginii de destinație.
+</Info>
+
+#### Gestionare oferte post-achiziție în comenzi
+
+Ofertele post-achiziție pot avea următoarele statusuri în comenzi:
+
+- **None** - Nu există produse post-achiziție în comandă
+- **Confirmed** - Clientul a confirmat produsele post-achiziție
+- **Unconfirmed** - Clientul nu a confirmat produsele post-achiziție
+
+Pentru mai multe detalii despre gestionarea comenzilor cu oferte post-achiziție, consultă pagina [Comenzi](/crm/orders).
+
+### Bune practici pentru recenzii și oferte
+
+#### Recenzii
+- Adaugă recenzii autentice și variate
+- Folosește fotografii reale când este posibil
+- Variază timestamp-urile pentru a părea natural
+- Menține un ton pozitiv dar realist
+- Actualizează recenziile periodic
+
+#### Oferte pre-achiziție
+- Oferă produse complementare relevante
+- Folosește prețuri atractive (reduceri clare)
+- Limitează numărul de oferte (1-3 maxim)
+- Testează diferite variante cu Split testing
+- Asigură-te că imaginile sunt de calitate
+
+#### Oferte post-achiziție
+- Oferă produse care completează comanda inițială
+- Folosește descrieri clare și beneficii evidente
+- Setează prețuri competitive
+- Monitorizează rata de confirmare
+- Contactează clienții cu oferte neconfirmate
+
+<Tip>
+Pentru cele mai bune rezultate, combină recenzii autentice cu oferte relevante și bine poziționate. Testează diferite combinații pentru a găsi ce funcționează cel mai bine pentru publicul tău.
+</Tip>
 
 ## Bune practici
 
