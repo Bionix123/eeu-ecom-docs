@@ -11,7 +11,7 @@ Din această secțiune se pot:
 - edita pagini existente
 - duplica pagini existente
 - publica / ascunde pagini
-- controla vizibilitatea paginilor (homepage, ascuns, sau categorie)
+- controla vizibilitatea paginilor (vizibil, ascuns, sau categorie)
 - seta prețul afișat și prețul tăiat
 - încărca materiale media specifice produsului prezentat
 - adăuga secțiuni (imagini, texte, beneficii, etc.)
@@ -292,7 +292,51 @@ Este zona principală unde definești informațiile esențiale vizibile pentru u
 
 **ℹ️ Majoritatea informațiilor din acestă secțiune vor fi precompletate în baza setărilor generale la nivel de magazin.**
 
-### VIII. JSON
+### VIII. Produse similare
+
+Această secțiune permite adăugarea și gestionarea **produselor similare** care vor fi afișate într-un carousel la finalul paginii de produs.
+
+#### Funcționalitate
+
+Produsele similare apar într-un **carousel infinit** cu următoarele caracteristici:
+
+**Design carousel:**
+- **3 carduri vizibile** simultan (stânga, centru, dreapta)
+- **Card central** - dimensiune completă (280-320px) cu toate detaliile produsului
+- **Carduri laterale** - preview-uri cu opacitate redusă (50%)
+- **Navigare** cu butoane săgeți (stânga/dreapta) în partea de jos
+- **Responsive** - optimizat pentru ecrane de la 375px în sus
+
+**Elemente afișate pe fiecare card:**
+- Imagine sau videoclip produs
+- Nume produs
+- Preț
+- Preț vechi (dacă există)
+- Buton "Vezi"
+
+**Navigare inteligentă:**
+- Click pe un produs similar deschide landing page-ul acelui produs
+- URL-ul include parametrul `?navigated_from={slug-produs-curent}` pentru tracking
+- Carousel-ul se actualizează automat cu produsele similare ale noului produs
+
+#### Configurare în admin
+
+Pentru a adăuga produse similare:
+
+1. Accesează secțiunea **"Produse similare"** din pagina edit a paginii de produs (Landing Page)
+2. Selectează produsele dorite din lista de landing pages disponibile
+
+<Info>
+Produsele similare pot fi orice alte landing pages create în magazin. Nu există restricții - poți adăuga produse din aceeași categorie, produse complementare, sau produse cu prețuri similare.
+</Info>
+
+<Tip>
+**Recomandări pentru produse similare:**
+- Adaugă **3-6 produse** pentru un carousel echilibrat
+- Alege produse din **aceeași categorie** sau cu **caracteristici similare**
+</Tip>
+
+### IX. JSON
 
 Această secțiune permite **exportul, importul și editarea structurii paginii de landing în format JSON**.
 
