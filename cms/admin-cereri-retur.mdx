@@ -1,0 +1,116 @@
+---
+title: "Cereri de retur"
+icon: "box-open"
+---
+
+Pagina **Cereri de retur** din Master Admin permite administratorilor să vizualizeze și să gestioneze toate cererile de retur primite prin [formularul de retur](/cms/setari#formular-retur).
+
+## Vizualizare cereri
+
+Toate cererile de retur sunt afișate într-un tabel cu următoarele informații:
+
+- **Nume complet** - Numele clientului care a trimis cererea
+- **Telefon** - Numărul de telefon al clientului
+- **Email** - Adresa de email a clientului
+- **Număr comandă** - Numărul comenzii (dacă a fost furnizat de client)
+- **Magazin** - Magazinul asociat cererii
+- **Status** - Statusul curent al cererii
+- **Trimis la** - Data și ora când a fost trimisă cererea
+
+## Gestionare cereri
+
+Pentru fiecare cerere de retur, administratorii pot efectua următoarele acțiuni:
+
+### Vizualizare detalii
+
+Click pe o cerere pentru a vedea toate detaliile, inclusiv:
+- Informații complete despre client
+- Mesajul solicitării de retur
+- Numărul comenzii (dacă există)
+- Istoricul statusurilor
+
+### Atribuire comandă
+
+Dacă clientul nu a furnizat numărul comenzii sau dacă acesta este incorect, administratorul poate:
+
+1. Click pe cererea de retur
+2. Introduce sau modifica **ID-ul comenzii** în câmpul dedicat
+3. Salva modificările
+
+<Info>
+Atribuirea unui ID de comandă ajută la asocierea cererii de retur cu comanda reală din sistem pentru procesare mai eficientă.
+</Info>
+
+### Schimbare status
+
+Fiecare cerere de retur poate avea unul dintre următoarele statusuri:
+
+**În așteptare** (status implicit)
+- Cererea a fost primită dar nu a fost încă procesată
+- Statusul inițial pentru toate cererile noi
+- Culoare: Galben/Portocaliu
+
+**În procesare**
+- Cineva din echipă s-a apucat de procesarea cererii
+- Cererea este în curs de rezolvare
+- Culoare: Albastru
+
+**Rezolvat**
+- Cererea de retur a fost procesată complet
+- Returul a fost finalizat
+- Culoare: Verde
+
+### Cum se schimbă statusul
+
+1. Click pe cererea de retur
+2. Selectează noul status din dropdown-ul **Status**
+3. Salva modificările
+
+<Tip>
+Folosește statusurile pentru a urmări progresul fiecărei cereri și pentru a coordona echipa. De exemplu, când începi să procesezi o cerere, schimbă statusul în **În procesare** pentru ca alți colegi să știe că cineva se ocupă deja de ea.
+</Tip>
+
+## Filtrare și căutare
+
+Tabelul de cereri de retur include opțiuni de filtrare și căutare pentru a găsi rapid cererile dorite:
+
+- **Filtrare după status** - Afișează doar cererile cu un anumit status
+- **Filtrare după magazin** - Afișează doar cererile pentru un magazin specific
+- **Căutare** - Caută după nume, email, telefon sau număr comandă
+
+## Workflow recomandat
+
+Pentru gestionarea eficientă a cererilor de retur, recomandăm următorul workflow:
+
+1. **Primire cerere** - Cererea apare automat cu status **În așteptare**
+2. **Preluare cerere** - Administratorul care preia cererea o deschide și schimbă statusul în **În procesare**
+3. **Verificare comandă** - Verifică numărul comenzii și atribuie ID-ul corect dacă este necesar
+4. **Procesare retur** - Contactează clientul și procesează returul conform politicii magazinului
+5. **Finalizare** - După ce returul este complet, schimbă statusul în **Rezolvat**
+
+<Warning>
+Cererile de retur trebuie procesate conform OUG 18/2026. Clienții au dreptul legal de a returna produsele în 14 zile de la primire. Asigură-te că toate cererile sunt procesate prompt și profesional.
+</Warning>
+
+## Notificări
+
+Când un client trimite o cerere de retur prin formularul public:
+- Cererea apare imediat în această pagină
+- Clientul primește un email de confirmare cu detaliile cererii
+- Administratorii pot vedea cererea în timp real
+
+<Info>
+Pentru a activa formularul de retur și link-ul din footer, accesează pagina [Setări](/cms/setari#formular-retur) și configurează opțiunile de vizibilitate.
+</Info>
+
+## Raportare
+
+Pagina oferă o vizualizare completă a tuturor cererilor de retur pentru:
+- Monitorizarea volumului de retururi
+- Identificarea problemelor recurente cu produsele
+- Evaluarea performanței echipei de customer support
+- Respectarea termenelor legale de procesare
+
+<Tip>
+Verifică regulat pagina de cereri de retur pentru a te asigura că toate cererile sunt procesate la timp. Cererile cu status **În așteptare** mai vechi de 24 ore ar trebui prioritizate.
+</Tip>

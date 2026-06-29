@@ -10,7 +10,52 @@ Aici pot fi configurate:
 - logo
 - culori / branding
 - setări SEO
+- formular retur (vizibilitate și text link în footer)
 - lista de link-uri din footer
-- conținut predefinit pentru secțiuni din paginile de produs (mai multe detalii despre aceste secțiuni se regăsesc în [Pagini produs](/pagini-produs))
+- conținut predefinit pentru secțiuni din paginile de produs (mai multe detalii despre aceste secțiuni se regăsesc în [Pagini produs](/cms/pagini-produs))
 
 Această secțiune conține toate setările generale ale magazinului. Aceste setări sunt individuale pentru fiecare magazin administrat.
+
+---
+
+## Formular retur
+
+Setările pentru formularul de retur conform OUG 18/2026.
+
+### Configurare
+
+- **Vizibil** - Activează/dezactivează afișarea link-ului "Formular retur" în footer
+- **Text** - Textul afișat pentru link (implicit: "Formular retur")
+- **Poziție** - Poziția link-ului în lista de link-uri din footer (1 = primul, 2 = al doilea, etc.)
+
+<Info>
+Link-ul către formularul de retur apare în footer doar dacă opțiunea **Vizibil** este activată. Clienții pot accesa formularul pentru a trimite cereri de retur conform legislației.
+</Info>
+
+### Formular public
+
+Formularul de retur este accesibil la adresa `/return-form` și conține:
+
+**Câmpuri obligatorii:**
+- Nume complet
+- Telefon
+- Email
+- Mesaj solicitare retur
+
+**Câmpuri opționale:**
+- Număr comandă
+
+**Condiții obligatorii (checkboxes):**
+- Confirm că produsele returnate nu sunt defecte și nu au fost folosite
+- Înțeleg că expedierea se face pe cheltuiala mea și sunt responsabil pentru ambalare
+- Am luat la cunoștință că returul trebuie inițiat în 14 zile
+
+<Warning>
+Toate cele 3 checkbox-uri trebuie bifate pentru ca formularul să poată fi trimis. Sistemul include protecție anti-spam și rate limiting (maxim 5 cereri/minut/IP).
+</Warning>
+
+---
+
+## Footer Links
+
+Lista de link-uri afișate în footer-ul magazinului. Link-ul pentru formularul de retur se inserează automat la poziția configurată în setările de mai sus.

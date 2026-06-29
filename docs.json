@@ -117,7 +117,8 @@
             "pages": [
               "cms/admin-dashboard",
               "cms/admin-magazine",
-              "cms/admin-utilizatori"
+              "cms/admin-utilizatori",
+              "cms/admin-cereri-retur"
             ]
           },
           {
