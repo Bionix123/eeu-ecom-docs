@@ -276,7 +276,96 @@ Această secțiune permite adăugarea **întrebărilor frecvente și a răspunsu
 
 Secțiunea FAQ ajută clienții să găsească rapid răspunsuri la întrebările comune și poate crește rata de conversie.
 
-### VII. Setări
+### VII. Recenzii
+
+Această secțiune permite gestionarea **recenziilor produsului** care vor fi afișate pe landing page pentru a crește încrederea clienților și rata de conversie.
+
+#### Setări recenzii
+
+**Sursă recenzii** - Alege de unde provin recenziile afișate pe pagină:
+
+**Widget extern**
+- Folosește widget-ul de recenzii creat în **CRM** (Facebook-style)
+- Recenziile sunt gestionate din aplicația principală CRM
+- Widget-ul se încarcă dintr-un URL personalizat
+- Ideal pentru sincronizare cu recenziile din CRM
+
+**Recenzii CMS**
+- Adaugă și gestionează recenzii direct din CMS
+- Control complet asupra recenziilor afișate pe această pagină
+- Recenzii independente pentru fiecare landing page
+- Ideal pentru recenzii personalizate per produs
+
+<Info>
+**Widget extern** este recomandat dacă ai deja recenzii create în CRM și vrei să le afișezi pe landing page. **Recenzii CMS** este util dacă vrei să gestionezi recenzii separate pentru fiecare produs direct din CMS.
+</Info>
+
+#### Configurare Widget extern
+
+Dacă alegi **Widget extern**, configurează:
+
+**Poziție secțiune:**
+- Selectează unde să apară secțiunea de recenzii pe pagină
+- Opțiuni: După formular checkout, După hero section, etc.
+
+**Număr recenzii afișat:**
+- Setează câte recenzii să fie vizibile în hero section și în secțiunea de recenzii
+- Acest număr controlează câte recenzii se încarcă din widget
+
+**URL widget recenzii personalizat:**
+- URL-ul către widget-ul de recenzii din CRM
+- Câmpul este read-only când sursa este setată pe "Recenzii CMS"
+
+<Tip>
+Poți genera URL-ul widget-ului din CRM accesând pagina de landing page și copiind link-ul către secțiunea de recenzii.
+</Tip>
+
+#### Gestionare Recenzii CMS
+
+Dacă alegi **Recenzii CMS**, poți adăuga și gestiona recenzii direct din această secțiune:
+
+**Adăugare recenzie nouă:**
+
+1. Click pe **"Adaugă recenzie"** în secțiunea "Recenzii CMS"
+2. Completează câmpurile:
+   - **Nume client** - Numele persoanei care lasă recenzia
+   - **Timestamp** - Data recenziei (ex: "acum 1 zi", "acum 2 săptămâni")
+   - **Stele (1-5)** - Rating-ul produsului de la 1 la 5 stele
+   - **Hearts** - Număr de reacții/aprecieri (hearts) pentru recenzie
+   - **Avatar URL** - Link către imaginea de profil a clientului (opțional)
+   - **Text recenzie** - Conținutul recenziei (max 5000 caractere)
+   - **Imagini recenzie** - Poți adăuga imagini la recenzie (opțional)
+
+3. Click pe **"Salvează"** pentru a adăuga recenzia
+
+<Warning>
+Recenziile adăugate în **Recenzii CMS** sunt specifice acestei pagini de produs și nu vor apărea pe alte landing pages.
+</Warning>
+
+#### Afișare recenzii pe landing page
+
+Recenziile apar pe landing page în funcție de configurare:
+
+**Pentru Widget extern:**
+- Widget-ul se încarcă la poziția selectată
+- Afișează numărul de recenzii configurat
+- Design Facebook-style din CRM
+
+**Pentru Recenzii CMS:**
+- Recenziile apar în ordinea adăugării
+- Fiecare recenzie afișează: avatar, nume, timestamp, stele, text, imagini (dacă există)
+- Hearts-urile sunt afișate ca număr de aprecieri
+
+<Tip>
+**Recomandări pentru recenzii:**
+- Adaugă **5-10 recenzii** pentru credibilitate optimă
+- Folosește **recenzii autentice** cu detalii specifice produsului
+- Include **imagini în recenzii** pentru impact vizual mai mare
+- Variază **rating-ul** (nu doar 5 stele) pentru autenticitate
+- Actualizează **timestamp-urile** să fie recente ("acum 2 zile", "acum 1 săptămână")
+</Tip>
+
+### VIII. Setări
 
 Această secțiune permite configurarea informațiilor de bază ale paginii de prezentare (landing page), inclusiv identitatea vizuală și datele de contact ale magazinului.
 
@@ -292,7 +381,7 @@ Este zona principală unde definești informațiile esențiale vizibile pentru u
 
 **ℹ️ Majoritatea informațiilor din acestă secțiune vor fi precompletate în baza setărilor generale la nivel de magazin.**
 
-### VIII. Produse similare
+### IX. Produse similare
 
 Această secțiune permite adăugarea și gestionarea **produselor similare** care vor fi afișate într-un carousel la finalul paginii de produs.
 
@@ -336,7 +425,7 @@ Produsele similare pot fi orice alte landing pages create în magazin. Nu exist�
 - Alege produse din **aceeași categorie** sau cu **caracteristici similare**
 </Tip>
 
-### IX. JSON
+### X. JSON
 
 Această secțiune permite **exportul, importul și editarea structurii paginii de landing în format JSON**.
 
