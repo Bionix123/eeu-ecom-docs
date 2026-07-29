@@ -1,0 +1,107 @@
+---
+title: "Hartă rată retururi"
+icon: "map-location-dot"
+---
+
+<Warning>
+Acest dashboard este vizibil **doar pentru abonamentul Gold Plus**.
+</Warning>
+
+Pagina **Hartă rată retururi** (Return Rate Map) din secțiunea **Analiză** oferă o vizualizare geografică a ratei de retur pe județe pentru comenzile din România.
+
+<Frame>
+  ![Dashboard hartă rată retururi pe județe](/images/return-rate-map.jpeg)
+</Frame>
+
+## Vizualizare hartă
+
+Harta interactivă afișează România împărțită pe județe, fiecare județ fiind colorat în funcție de rata de retur:
+
+**Cod culori:**
+- **Verde** - Rată de retur scăzută (0-10%)
+- **Galben** - Rată de retur medie (10-15%)
+- **Portocaliu** - Rată de retur ridicată (15-20%)
+- **Roșu** - Rată de retur foarte ridicată (peste 20%)
+
+### Informații la hover
+
+Când treci cu mouse-ul peste un județ, se afișează un tooltip cu:
+- **Numele județului**
+- **Rata de retur** (procent)
+- **Market Share** (ponderea din totalul comenzilor)
+- **Total comenzi** din județul respectiv
+- **Comenzi ramase în status confirmed** (încă nu s-au primit date referitor la livrare sau retur)
+
+### Navigare hartă
+
+- **Zoom in/out** - Butoane + și - în colțul stânga sus
+- **Hover** - Informații detaliate pentru fiecare județ
+- **Click** - Selectează județul pentru detalii în tabel
+
+## Filtre disponibile
+
+### Perioadă
+
+**Period Start / Period End:**
+- Selectează intervalul de date pentru analiză
+- Format: DD.MM.YYYY
+- Folosește calendar picker pentru selecție rapidă
+
+**Quick Select:**
+- **This Month** - Luna curentă
+- **Last Month** - Luna trecută
+- **Last 3 Months** - Ultimele 3 luni
+- **Last 6 Months** - Ultimele 6 luni
+- **This Year** - Anul curent
+- **All Time** - Toate datele disponibile
+
+### Filtre suplimentare
+
+**Filter by:**
+
+**All** - Toate comenzile (implicit)
+
+**Product** - Filtrează după produs specific
+**Landing Page** - Filtrează după landing page
+
+<Tip>
+Folosește filtrele pentru a identifica produsele sau landing page-urile cu rate de retur ridicate în anumite zone geografice. Acest lucru te poate ajuta să optimizezi descrierile produselor sau să ajustezi strategia de livrare.
+</Tip>
+
+## Counties Breakdown (Detalii pe județe)
+
+Tabelul din partea de jos oferă o vizualizare detaliată a datelor pentru fiecare județ:
+
+### Coloane tabel
+
+**County** - Județul (cod + nume)
+- Sortabil alfabetic
+- Exemplu: "IF - Ilfov", "B - București"
+
+**Return Rate** - Rata de retur
+- Procent din comenzile totale care au fost returnate
+- Sortabil descrescător/crescător
+- Culoare background: gradient de la verde (scăzut) la roșu (ridicat)
+
+**Market Share** - Ponderea în piață
+- Procentul din totalul comenzilor care provin din acest județ
+- Sortabil descrescător/crescător
+- Ajută la identificarea județelor cu volum mare de comenzi
+
+**Total Orders** - Total comenzi
+- Numărul total de comenzi din județ în perioada selectată
+- Sortabil descrescător/crescător
+
+**Confirmed Orders** - Comenzi confirmate
+- Comenzi ramase în status confirmed (încă nu s-au primit date referitor la livrare sau retur)
+
+### Sortare tabel
+
+Click pe header-ul coloanei pentru a sorta:
+- **Prima dată** - Sortare descrescătoare
+- **A doua oară** - Sortare crescătoare
+- **A treia oară** - Resetare la ordinea implicită
+
+<Info>
+Datele se actualizează în timp real pe măsură ce comenzile sunt procesate.
+</Info>
