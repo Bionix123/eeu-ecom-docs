@@ -69,8 +69,15 @@ Accesul este valabil o zi și se reînnoiește automat până la 30 de zile de f
 - caută pagini după titlu sau slug, status, vizibilitate sau categorie
 - citește conținutul unei pagini, secțiune cu secțiune
 - modifică orice secțiune: titlu și prețuri afișate, galeria de imagini, badge-uri, beneficii, blocuri de conținut, specificații, întrebări frecvente, call-to-action, culori, review-urile din CMS, produse recomandate
+- face modificări punctuale, fără să rescrie toată secțiunea: schimbă un singur badge, adaugă o întrebare frecventă pe o anumită poziție, șterge un bloc de conținut sau mută o poză pe primul loc în galerie. Restul secțiunii rămâne neschimbat.
 - creează pagini noi (ca ciornă, completate cu valorile implicite ale magazinului) sau duplică o pagină existentă
 - publică sau depublică pagini, le schimbă vizibilitatea (vizibil, ascuns, doar în categorie), titlul, slug-ul sau categoriile
+
+#### Review-urile afișate pe pagină
+
+Implicit, o pagină afișează review-urile landing page-ului din CRM cu același slug. Dacă în builder este completat câmpul **URL widget recenzii personalizat**, pagina afișează în schimb review-urile din acel URL. Poate fi intenționat, de exemplu ca o variantă de ofertă să arate review-urile paginii originale.
+
+Când citește o pagină, asistentul îți spune ce review-uri afișează de fapt. Te avertizează și dacă URL-ul personalizat duce la alt landing page, alt magazin sau altă adresă de CRM, ca să poți decide dacă îl păstrezi sau îl golești.
 
 <Warning>
 Prețurile din pagină (preț afișat și preț tăiat) sunt **doar afișate**. Prețul încasat de la client se setează în CRM. Când schimbi unul, asistentul îți amintește să îl actualizezi și pe celălalt.
@@ -147,6 +154,9 @@ Verifică în **Aplicațiile conectate** că aplicația apare în listă. Dacă 
 
 **Pagina modificată arată la fel pe site.**
 Modificările se văd imediat după salvare pentru paginile publicate. Dacă pagina este ciornă, cere asistentului să o publice.
+
+**Pagina afișează review-urile altui produs.**
+Verifică câmpul **URL widget recenzii personalizat** din builder sau întreabă asistentul ce review-uri afișează pagina. Golește câmpul ca pagina să afișeze propriile review-uri.
 
 **Am schimbat slug-ul unei pagini și formularul de comandă nu mai apare.**
 Formularul vine din landing page-ul CRM cu același slug. Schimbă slug-ul și în CRM, manual sau prin asistentul conectat la CRM.
