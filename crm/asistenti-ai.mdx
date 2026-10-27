@@ -1,0 +1,141 @@
+---
+title: "Asistenți AI (MCP)"
+icon: "sparkles"
+---
+
+Poți conecta **Claude**, **ChatGPT** sau **Codex** la CRM și poți lucra în limbaj natural: verifici comenzi, adaugi note, modifici produsele unei comenzi, creezi review-uri sau landing page-uri, ceri rapoarte zilnice de performanță. Asistentul lucrează cu contul tău și are exact drepturile utilizatorului tău.
+
+Conectarea se face prin **MCP** (Model Context Protocol), standardul prin care asistenții AI folosesc aplicații externe.
+
+<Warning>
+Asistenții AI sunt disponibili doar pentru abonamentul **Gold Plus** și pentru utilizatorii care au permisiunea `mcp.use`.
+</Warning>
+
+## CRM sau CMS
+
+EEU-ECOM are două aplicații și fiecare are propriul server MCP:
+
+- **CRM (acest server)**: comenzi, parțiale, clienți, produse și stoc, Helpship, cheltuieli de reclamă și rapoarte, utilizatori și setări, plus partea comercială a unui landing page: prețuri, formular de comandă, review-urile din widget, upsell-uri, pixeli de tracking, magazin și slug.
+- **CMS**: pagina de produs așa cum o văd vizitatorii (texte, secțiuni, imagini, design, publicare). Vezi [Asistenți AI (MCP) în CMS](/cms/asistenti-ai).
+
+Pagina de produs din CMS afișează formularul de comandă și widgetul de review-uri ale landing page-ului din CRM cu **același slug**, din magazinul CRM legat de magazinul CMS. Dacă schimbi slug-ul unui landing page în CRM, schimbă-l și în CMS, altfel pagina nu mai afișează formularul.
+
+<Tip>
+Conectează ambele servere și dă-le numele recomandate (ex: `EEU-ECOM RJE CRM` și `EEU-ECOM RJE CMS`). Așa tu și asistentul le deosebiți ușor, iar asistentul alege singur aplicația potrivită pentru fiecare cerere.
+</Tip>
+
+## Conectare
+
+Informațiile de conectare se află în [Setări](/crm/settings), secțiunea **Asistenți AI (MCP)**:
+
+- **Adresa serverului MCP** (ex: `https://rje.eeu-ecom.app/mcp`), cu buton de copiere
+- **Numele recomandat al conectorului** (ex: `EEU-ECOM RJE CRM`)
+- pașii pentru Claude, ChatGPT și Codex și un link către instrucțiunile complete
+
+### Claude (claude.ai / Claude Desktop)
+
+1. Deschide **Settings → Connectors** și alege **Add custom connector**
+2. Numește conectorul ca în **Setări** (ex: `EEU-ECOM RJE CRM`) și lipește adresa serverului
+3. Click pe **Connect**: ești trimis în CRM. Autentifică-te și aprobă accesul.
+
+### ChatGPT
+
+1. În **Settings → Apps & Connectors**, activează **Developer mode** (setări avansate)
+2. Creează un conector nou cu numele recomandat, adresa serverului și autentificare **OAuth**
+3. Autentifică-te în CRM și aprobă accesul
+
+### Codex
+
+Rulează comenzile afișate în **Setări**, de forma:
+
+```bash
+codex mcp add eeu-rje-crm --url https://rje.eeu-ecom.app/mcp
+codex mcp login eeu-rje-crm
+```
+
+<Info>
+Accesul este valabil o zi și se reînnoiește automat până la 30 de zile de folosire. Parola ta nu este niciodată transmisă asistentului.
+</Info>
+
+## Permisiuni
+
+Permisiunile se gestionează din [Roluri](/crm/roles):
+
+| Permisiune | Ce permite |
+|---|---|
+| `mcp.use` | Conectarea unui asistent și acțiunile de citire (listare, căutare, vizualizare) |
+| `mcp.write` | Acțiunile care modifică date. Fără ea, asistentul nici nu vede aceste acțiuni |
+| `mcp.audit` | Vizualizarea activității AI și a aplicațiilor conectate ale **tuturor** utilizatorilor, nu doar ale tale |
+
+`mcp.use` și `mcp.write` sunt acordate implicit rolurilor **Master Admin** și **Store Owner**. Pe lângă acestea, fiecare acțiune verifică aceleași permisiuni ca în aplicație (ex: anularea unei comenzi, crearea unui review) și funcțiile incluse în abonament.
+
+<Tip>
+Pentru a tăia imediat accesul unui utilizator, scoate permisiunea `mcp.use` din rolul lui sau apasă **Deconectează** în lista de aplicații conectate.
+</Tip>
+
+## Ce poate face asistentul
+
+### Citire și analiză
+
+- caută și afișează comenzi, parțiale, clienți, landing page-uri, review-uri, upsell-uri, produse, magazine. Căutarea este aceeași ca în aplicație, inclusiv căutarea comenzilor după IP.
+- calculează statistici direct pe server: comenzi pe landing page și zi, cele mai vândute upsell-uri, rata de retur pe landing page, clienți cu multe comenzi sau retururi
+- rapoartele din aplicație, cu aceleași cifre: [Landing Page Offers](/crm/landing-page-offers) (recomandat pentru rapoarte zilnice sau săptămânale), [Sales & ROAS](/crm/sales-and-roas), [Cost & Profit](/crm/cost-and-profit), [Hartă rată retururi](/crm/return-rate-map)
+- **exporturi**: pentru volume mari, asistentul generează un fișier CSV sau JSONL și îți dă un link de descărcare valabil o oră, în loc să afișeze datele în conversație
+
+### Comenzi
+
+- adaugă note interne
+- blochează, retrimite sau sincronizează cu Helpship (ca butoanele din aplicație)
+- schimbă statusul (doar în aplicație, nu și în Helpship) sau anulează comanda (și în Helpship)
+- modifică produsele unei comenzi: adaugă, schimbă sau șterge linii. Totalul se recalculează și Helpship este actualizat. Nu se aplică la comenzile plătite, returnate, neplătite sau anulate. O comandă confirmată trebuie mai întâi pusă pe hold în Helpship.
+- corectează un SKU greșit pe mai multe comenzi deodată (ex: un landing page configurat cu varianta greșită): mai întâi o previzualizare, apoi aplicarea, cu confirmarea ta
+- transformă un [parțial](/crm/partials) în comandă
+
+### Landing page-uri, review-uri și upsell-uri
+
+- creează landing page-uri și modifică prețurile, setările și [formularul de comandă](/crm/landing-pages) (SKU, variante, etichete, câmpuri, textul butonului)
+- creează, modifică sau șterge review-uri (cu avatar și poze) și upsell-uri pre / post-purchase (cu imagine, GIF sau MP4)
+- copiază un review sau un upsell pe alt landing page
+
+### Alte resurse
+
+- produse, variante și bundle-uri; [reguli de atașare](/crm/attachment-rules)
+- cheltuieli de reclamă: înregistrează o zi, șterge o perioadă sau importă un raport CSV ([conturile de reclamă](/crm/ad-accounts) nu pot fi create sau șterse prin asistent)
+- [webhooks](/crm/webhooks), întotdeauna cu confirmare explicită
+- [setările](/crm/settings) instanței (valorile secrete nu sunt afișate și nu pot fi modificate)
+- utilizatori și roluri (doar Master Admin). Utilizatorii noi primesc o parolă temporară pe care trebuie să o schimbe la prima autentificare.
+
+**Nu sunt disponibile prin asistent:** confirmarea comenzii cu editarea adresei, unirea comenzilor, apelurile primite, crearea sau ștergerea conturilor de reclamă, editarea sau ștergerea utilizatorilor și rolurilor.
+
+### Imagini și video
+
+- **Fișier deja online**: dă-i asistentului linkul.
+- **Fișier de pe calculatorul tău**: asistentul îți dă un link privat de upload, valabil 30 de minute, de folosit cu `curl -X PUT --data-binary @poza.jpg "<link>"`.
+- Sunt acceptate **JPG, PNG, WEBP, GIF** (review-uri și upsell-uri) și **MP4** (doar upsell-uri), cel mult **3 MB**, ca în aplicație. Tipul fișierului se verifică după conținut.
+
+## Siguranță
+
+- Înainte de orice modificare, asistentul îți spune ce va schimba și îți cere confirmarea.
+- Acțiunile ireversibile (anulare, ștergere, schimbare de status, blacklist...) cer o **confirmare explicită**.
+- Textele scrise de clienți sau de terți (note, adrese, review-uri) sunt tratate ca **date**, niciodată ca instrucțiuni.
+- Valorile secrete (token-uri, parole, chei) nu sunt transmise asistentului.
+- Limite per utilizator: 120 de cereri pe minut, dintre care cel mult **30 de modificări**. Exporturile și calculele grele au limite separate.
+
+## Aplicații conectate și activitate AI
+
+În [Setări](/crm/settings), secțiunea **Asistenți AI (MCP)**:
+
+- **Aplicațiile conectate** arată fiecare asistent autorizat, când a fost conectat și când a fost folosit ultima dată. Butonul **Deconectează** retrage accesul imediat.
+- **Activitate AI** arată acțiunile făcute prin asistenți în ultimele **30 de zile**, cu filtre după utilizator, acțiune, perioadă sau doar erori. Click pe un rând pentru detalii.
+
+Fără permisiunea `mcp.audit`, vezi doar propriile aplicații și propria activitate.
+
+## Exemple de cereri
+
+- „Arată-mi comenzile în așteptare de azi.”
+- „Adaugă nota «Confirmat pe WhatsApp» la comanda 45213.”
+- „Fă-mi raportul zilnic pe Landing Page Offers și spune-mi ce landing page-uri au ROAS scăzut.”
+- „Câte comenzi au venit de pe același IP ca și comanda 45213 în ultimele zile?”
+- „Adaugă un review cu poza asta la landing page-ul lampa-solara.”
+- „Comenzile de ieri de pe landing page-ul X au SKU-ul greșit, înlocuiește-l cu Y.”
+- „Exportă comenzile returnate din septembrie, cu județul și landing page-ul.”

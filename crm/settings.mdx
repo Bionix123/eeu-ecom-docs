@@ -21,6 +21,7 @@ Configurări pentru procesarea comenzilor:
 
 - **ORDER SERIES** - Serie implicită comandă (ex: BUY). Această serie va fi folosită ca prefix pentru denumirea comenzilor. Exemplu: `BUY-COD-1234`
 - **DUPLICATE DAYS** - Număr maxim de zile între două comenzi pentru a fi marcate ca duplicate (ex: 21 zile)
+- **ORDER DUPLICATE IP CHECK ENABLED** - Avertizează și pentru comenzile plasate de pe aceeași adresă IP în ultimele 5 zile, chiar dacă au alt număr de telefon (implicit activ). Detalii în [Comenzi → Order Confirm](/crm/orders)
 
 ### Helpship
 
@@ -63,3 +64,14 @@ Acesta este prețul pe care vânzătorul îl plătește pentru livrare (fără T
 Fiecare curier are un buton **Salvează** pentru a actualiza prețul individual.
 
 Pentru a adăuga un curier nou, utilizați butonul **+ Adaugă curier nou**.
+
+## Asistenți AI (MCP)
+
+Secțiunea **Asistenți AI (MCP)** este vizibilă pentru abonamentul **Gold Plus** și pentru utilizatorii cu permisiunea `mcp.use`. Aici găsești:
+
+- **Adresa serverului MCP** a instanței, cu buton de copiere, și numele recomandat al conectorului (ex: `EEU-ECOM RJE CRM`)
+- pașii de conectare pentru Claude, ChatGPT și Codex
+- **Aplicațiile conectate**, cu butonul **Deconectează**
+- **Activitate AI**: acțiunile făcute prin asistenți în ultimele 30 de zile, cu filtre
+
+Ghidul complet: [Asistenți AI (MCP)](/crm/asistenti-ai).

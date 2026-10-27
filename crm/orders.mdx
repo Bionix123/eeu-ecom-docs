@@ -132,10 +132,40 @@ Fiecare comandă trebuie să aibă următoarele informații completate:
 - **Curăță și Completează** - Ajută la curățarea și completarea automată a informațiilor comenzii
 - **Undo auto-completion** - Permite anularea completării automate a informațiilor comenzii
 - **Validarea Numărului de Telefon** - Dacă numărul de telefon este invalid, va apărea o notificare cu text roșu
-- **Detectarea Dublurilor de Comenzi** - Ajută la detectarea comenzilor duplicate. În cazul unui duplicat, va apărea o alertă
+- **Detectarea Dublurilor de Comenzi** - Ajută la detectarea comenzilor duplicate ale aceluiași client (același telefon), în intervalul setat în [Setări](/crm/settings) (**DUPLICATE DAYS**). În cazul unui duplicat, va apărea o alertă
+- **Comenzi de pe același IP** - Avertizează când de pe aceeași adresă IP au fost plasate mai multe comenzi în ultimele 5 zile, chiar dacă au alt telefon (vezi mai jos)
 - **Recomandarea Codului Poștal** - Ajută la completarea codului poștal corect în mod automat
 - **Avertizare blacklist** - Dacă numărul de telefon/clientul se află în lista neagră, comanda va fi anulată automat
 - **Avertizare istoric** - Dacă clientul are comenzi anulate în trecut, va apărea o alertă și posbilitatea de a vizualiza istoricul comenzilor
+
+#### Comenzi de pe același IP
+
+În ecranul de confirmare apare un avertisment separat atunci când de pe **aceeași adresă IP** au fost plasate mai multe comenzi în **ultimele 5 zile**:
+
+> X orders were placed from the same IP in the last 5 days. Please check!
+
+Verificarea prinde și comenzile plasate cu **alt număr de telefon** sau din altă sesiune. Cele mai frecvente situații sunt:
+
+- **comenzi false** sau repetate, plasate de aceeași persoană cu date diferite
+- **a doua comandă cu numărul de telefon corectat**, după ce clientul a greșit numărul la prima comandă
+
+Cum se calculează:
+
+- se numără comenzile care **nu sunt anulate**, inclusiv comanda pe care o confirmi
+- intervalul este fix, de 5 zile, și nu depinde de **DUPLICATE DAYS**
+- pentru IPv4 se compară adresa exactă, iar pentru IPv6 rețeaua clientului (primele 64 de biți ai adresei). Telefoanele primesc adrese IPv6 diferite în timp, dar din aceeași rețea.
+
+Click pe avertisment deschide lista comenzilor de pe același IP, ca să le poți compara (nume, telefon, adresă, produse) înainte de a confirma sau a anula.
+
+<Tip>
+Poți căuta oricând o adresă IP (IPv4 sau IPv6) în câmpul de căutare din lista de comenzi: vor fi afișate toate comenzile de pe acel IP (pentru IPv6, de pe aceeași rețea).
+</Tip>
+
+<Info>
+Mai multe comenzi de pe același IP nu înseamnă neapărat fraudă: membrii aceleiași familii sau colegii dintr-un birou pot comanda de pe aceeași conexiune. Verifică detaliile comenzilor înainte de a lua o decizie.
+</Info>
+
+Verificarea este activă implicit și poate fi oprită din [Setări](/crm/settings) (**ORDER DUPLICATE IP CHECK ENABLED**).
 
 **Situații cunoscute:**
 - În anumite județe există mai multe localități cu același nume, de obicei sate cu același nume care aparțin de comune diferite.

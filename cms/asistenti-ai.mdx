@@ -1,0 +1,152 @@
+---
+title: "Asistenți AI (MCP)"
+icon: "sparkles"
+---
+
+Poți conecta **Claude**, **ChatGPT** sau **Codex** la CMS și poți lucra în limbaj natural: schimbi texte și imagini în paginile de produs, adaugi întrebări frecvente sau review-uri, publici pagini, gestionezi categoriile, paginile statice și setările magazinului, ba chiar configurezi un magazin nou. Asistentul lucrează cu contul tău de administrator.
+
+Conectarea se face prin **MCP** (Model Context Protocol), standardul prin care asistenții AI folosesc aplicații externe.
+
+<Warning>
+Asistenții AI sunt disponibili doar în planul **Advanced** și doar pentru utilizatorii **administratori** activi. Vezi [Abonamente](/cms/abonamente).
+</Warning>
+
+## CMS sau CRM
+
+EEU-ECOM are două aplicații și fiecare are propriul server MCP:
+
+| | CMS (acest server) | CRM |
+|---|---|---|
+| **Ce conține** | Ce văd vizitatorii: texte, secțiuni, imagini, culori, review-urile din CMS, publicarea paginilor, categorii, pagini statice, setările magazinului, cereri de retur | Prețurile încasate, formularele de comandă, comenzile, clienții, produsele, review-urile din widget, upsell-urile, rapoartele |
+| **Numele conectorului** | `EEU-ECOM <INSTANȚĂ> CMS` | `EEU-ECOM <INSTANȚĂ> CRM` |
+
+O pagină de produs din CMS afișează **formularul de comandă** și **widgetul de review-uri** ale landing page-ului din CRM care are **același slug**, din magazinul CRM legat de magazinul CMS. De aceea slug-urile trebuie să fie identice în ambele aplicații.
+
+<Tip>
+Conectează ambele servere (CMS și CRM). Asistentul își dă seama singur ce cerere ține de care aplicație. De exemplu, la „schimbă prețul și titlul paginii lampa-solara” modifică prețul în CRM și titlul în CMS.
+</Tip>
+
+Pentru asistenții AI din CRM, vezi [Asistenți AI (MCP) în CRM](/crm/asistenti-ai).
+
+## Conectare
+
+Toate informațiile de conectare se află în panoul de administrare, în meniul **Asistenți AI (MCP)**:
+
+- **Adresa serverului MCP** (ex: `https://rje.sv1-cms.eeu-ecom.app/mcp`), cu buton de copiere
+- **Numele recomandat al conectorului** (ex: `EEU-ECOM RJE CMS`)
+- pașii pentru Claude, ChatGPT și Codex
+
+### Claude (claude.ai / Claude Desktop)
+
+1. Deschide **Settings → Connectors** și alege **Add custom connector**
+2. Numește conectorul exact ca în pagina **Asistenți AI (MCP)** (ex: `EEU-ECOM RJE CMS`) și lipește adresa serverului
+3. Click pe **Connect**: ești trimis în panoul de administrare al CMS-ului
+4. Autentifică-te cu contul tău și apasă **Autorizează**
+
+### ChatGPT
+
+1. În **Settings → Apps & Connectors**, activează **Developer mode** (setări avansate)
+2. Creează un conector nou cu numele recomandat, adresa serverului și autentificare **OAuth**
+3. Autentifică-te în CMS și aprobă accesul
+
+### Codex
+
+Rulează în terminal comenzile afișate în pagina **Asistenți AI (MCP)**, de forma:
+
+```bash
+codex mcp add eeu-rje-cms --url https://rje.sv1-cms.eeu-ecom.app/mcp
+codex mcp login eeu-rje-cms
+```
+
+<Info>
+Accesul este valabil o zi și se reînnoiește automat până la 30 de zile de folosire. După aceea asistentul îți cere să te conectezi din nou. Parola ta nu este niciodată transmisă asistentului.
+</Info>
+
+## Ce poate face asistentul
+
+### Pagini de produs
+
+- caută pagini după titlu sau slug, status, vizibilitate sau categorie
+- citește conținutul unei pagini, secțiune cu secțiune
+- modifică orice secțiune: titlu și prețuri afișate, galeria de imagini, badge-uri, beneficii, blocuri de conținut, specificații, întrebări frecvente, call-to-action, culori, review-urile din CMS, produse recomandate
+- creează pagini noi (ca ciornă, completate cu valorile implicite ale magazinului) sau duplică o pagină existentă
+- publică sau depublică pagini, le schimbă vizibilitatea (vizibil, ascuns, doar în categorie), titlul, slug-ul sau categoriile
+
+<Warning>
+Prețurile din pagină (preț afișat și preț tăiat) sunt **doar afișate**. Prețul încasat de la client se setează în CRM. Când schimbi unul, asistentul îți amintește să îl actualizezi și pe celălalt.
+</Warning>
+
+### Pagini statice, categorii și setări
+
+- creează, modifică, publică sau șterge [pagini statice](/cms/pagini-statice) (termeni și condiții, politica de retur...)
+- creează, modifică sau șterge categorii
+- citește și modifică [setările magazinului](/cms/setari): logo, favicon, font, paletă de culori, date de contact, linkurile din meniu și footer, opțiunile de afișare, formularul de retur, valorile implicite pentru pagini noi
+
+Legătura cu CRM-ul (ID-ul magazinului din CRM și adresa instanței) nu poate fi modificată prin asistent.
+
+### Imagini și video
+
+- **Fișier deja online**: dă-i asistentului linkul. Asistentul descarcă fișierul în media magazinului sau a paginii.
+- **Fișier de pe calculatorul tău**: asistentul îți dă un link privat de upload, valabil 30 de minute. Încarci fișierul cu comanda primită, de forma `curl -X PUT --data-binary @poza.jpg "<link>"`.
+- Se aplică aceleași reguli ca în biblioteca media: **JPG, PNG, WEBP** sau **MP4**, cel mult **1,5 MB**, cel mult **40 de fișiere** pe pagină de produs. Imaginile sunt optimizate automat.
+- Asistentul poate șterge fișiere și te avertizează dacă fișierul este folosit într-o pagină, într-o categorie sau în setări.
+
+### Cereri de retur
+
+- caută [cererile de retur](/cms/admin-cereri-retur) din toate magazinele după nume, telefon, email, număr de comandă, status sau perioadă
+- schimbă statusul unei cereri (în așteptare, în lucru, rezolvată) și îi asociază numărul comenzii. Clientul nu este notificat.
+
+### Exporturi
+
+Pentru volume mari (sute sau mii de cereri de retur, multe pagini de produs), asistentul nu afișează datele în conversație. Generează un fișier **CSV** (sau JSONL) și îți dă un link de descărcare valabil o oră. Fișierul cu cereri de retur conține date personale ale clienților (inclusiv IBAN): nu distribui linkul.
+
+### Magazine noi și verificarea DNS
+
+Asistentul poate configura un magazin nou, la fel ca butonul **Setup Magazin** din [Magazine](/cms/admin-magazine):
+
+1. Îți arată magazinele din CRM care nu au încă magazin în CMS. Magazinul trebuie creat mai întâi în CRM, cu domeniul lui.
+2. După confirmarea ta, creează magazinul. Domeniul este înregistrat pe server și în Cloudflare, iar setările implicite și paginile statice sunt create automat.
+3. Îți dă pașii de configurare a domeniului, adică exact pașii din [Conectare domeniu propriu](/cms/admin-magazine#conectare-domeniu-propriu): domeniul adăugat în Cloudflare, nameserver-ele Cloudflare setate la furnizorul domeniului și înregistrarea **CNAME** cu proxy-ul activ (cloud portocaliu).
+4. La cererea ta, verifică DNS-ul (ca butonul **Verifică setări DNS**). Dacă domeniul nu funcționează încă, îți spune motivul: de exemplu, nameserver-ele nu sunt încă ale Cloudflare sau înregistrarea CNAME lipsește sau nu are proxy-ul activ.
+
+Până la verificarea DNS, magazinul este accesibil pe subdomeniul de sistem. CMS-ul verifică singur, o dată pe oră, magazinele neverificate.
+
+## Siguranță
+
+- Înainte de orice modificare, asistentul îți spune ce va schimba și îți cere confirmarea.
+- Acțiunile greu de anulat cer o **confirmare explicită**: depublicarea, ștergerea, schimbarea slug-ului (schimbă adresa paginii și rupe legătura cu formularul din CRM), crearea unui magazin și dezactivarea indexării în motoarele de căutare.
+- Textele scrise de clienți (cereri de retur) sau găsite în pagini sunt tratate ca **date**, niciodată ca instrucțiuni. Dacă un text conține o „comandă” pentru asistent, asistentul o semnalează în loc să o execute.
+- Limite per utilizator: 120 de cereri pe minut, dintre care cel mult **30 de modificări**. Importurile și upload-urile de fișiere sunt limitate la 10 pe minut, exporturile la 5, crearea de magazine la 3.
+
+## Aplicații conectate și activitate AI
+
+În pagina **Asistenți AI (MCP)** găsești:
+
+- **Aplicațiile conectate**: fiecare asistent autorizat, cine l-a conectat, când și când a fost folosit ultima dată. Butonul **Deconectează** retrage accesul imediat; asistentul va trebui autorizat din nou.
+- **Activitate AI**: toate acțiunile făcute prin asistenți în ultimele **30 de zile**, cu utilizatorul, aplicația, acțiunea și rezultatul. Poți filtra după utilizator, acțiune, perioadă sau doar erori. Click pe **Detalii** afișează argumentele trimise.
+
+Link-ul **Instrucțiuni complete** din aceeași pagină deschide documentația din panou, cu lista tuturor acțiunilor disponibile.
+
+## Exemple de cereri
+
+- „Schimbă titlul principal al paginii lampa-solara în «Lampă solară cu senzor de mișcare».”
+- „Adaugă trei întrebări frecvente despre livrare și retur în pagina lanterna-led.”
+- „Importă imaginea asta ca prima poză din galerie: https://…”
+- „Creează o pagină ciornă pentru produsul … cu slug-ul …, după modelul paginii cort-camping.”
+- „Arată-mi cererile de retur încă nerezolvate din săptămâna asta.”
+- „Exportă toate cererile de retur din octombrie.”
+- „Configurează magazinul pentru magazin-nou.ro și spune-mi ce trebuie să setez la domeniu.”
+
+## Întrebări frecvente
+
+**Nu văd meniul Asistenți AI (MCP) sau pagina spune că funcția nu este disponibilă.**
+Funcția este inclusă doar în planul **Advanced** și este vizibilă doar administratorilor.
+
+**Asistentul spune că nu are acces.**
+Verifică în **Aplicațiile conectate** că aplicația apare în listă. Dacă nu apare, conectează-te din nou din asistent. Contul tău trebuie să fie de administrator și activ.
+
+**Pagina modificată arată la fel pe site.**
+Modificările se văd imediat după salvare pentru paginile publicate. Dacă pagina este ciornă, cere asistentului să o publice.
+
+**Am schimbat slug-ul unei pagini și formularul de comandă nu mai apare.**
+Formularul vine din landing page-ul CRM cu același slug. Schimbă slug-ul și în CRM, manual sau prin asistentul conectat la CRM.

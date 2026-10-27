@@ -46,7 +46,8 @@
             "icon": "chart-line",
             "pages": [
               "crm/cost-and-profit",
-              "crm/sales-and-roas"
+              "crm/sales-and-roas",
+              "crm/return-rate-map"
             ]
           },
           {
@@ -84,6 +85,13 @@
             "pages": [
               "crm/users",
               "crm/roles"
+            ]
+          },
+          {
+            "group": "Asistenți AI",
+            "icon": "sparkles",
+            "pages": [
+              "crm/asistenti-ai"
             ]
           },
           "crm/settings"
@@ -130,6 +138,13 @@
               "cms/pagini-produs",
               "cms/pagini-statice",
               "cms/pagina-de-multumire"
+            ]
+          },
+          {
+            "group": "Asistenți AI",
+            "icon": "sparkles",
+            "pages": [
+              "cms/asistenti-ai"
             ]
           }
         ]
