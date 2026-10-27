@@ -78,6 +78,7 @@ Pentru a tăia imediat accesul unui utilizator, scoate permisiunea `mcp.use` din
 ### Citire și analiză
 
 - caută și afișează comenzi, parțiale, clienți, landing page-uri, review-uri, upsell-uri, produse, magazine. Căutarea este aceeași ca în aplicație, inclusiv căutarea comenzilor după IP.
+- afișează un landing page complet într-un singur pas: prețurile, setările formularului de comandă, review-urile și upsell-urile (cu SKU-ul vândut și imaginile)
 - calculează statistici direct pe server: comenzi pe landing page și zi, cele mai vândute upsell-uri, rata de retur pe landing page, clienți cu multe comenzi sau retururi
 - rapoartele din aplicație, cu aceleași cifre: [Landing Page Offers](/crm/landing-page-offers) (recomandat pentru rapoarte zilnice sau săptămânale), [Sales & ROAS](/crm/sales-and-roas), [Cost & Profit](/crm/cost-and-profit), [Hartă rată retururi](/crm/return-rate-map)
 - **exporturi**: pentru volume mari, asistentul generează un fișier CSV sau JSONL și îți dă un link de descărcare valabil o oră, în loc să afișeze datele în conversație
@@ -94,8 +95,18 @@ Pentru a tăia imediat accesul unui utilizator, scoate permisiunea `mcp.use` din
 ### Landing page-uri, review-uri și upsell-uri
 
 - creează landing page-uri și modifică prețurile, setările și [formularul de comandă](/crm/landing-pages) (SKU, variante, etichete, câmpuri, textul butonului)
+- **duplică un landing page**, de exemplu pentru o variantă de ofertă (1+1, alte prețuri): copiază formularul, tracking-ul, review-urile și upsell-urile active, iar tu spui doar ce diferă (vezi mai jos)
 - creează, modifică sau șterge review-uri (cu avatar și poze) și upsell-uri pre / post-purchase (cu imagine, GIF sau MP4)
-- copiază un review sau un upsell pe alt landing page
+- copiază review-urile și upsell-urile de pe un landing page pe altul: toate deodată sau doar pe cele alese, cu imagini cu tot
+
+#### Variante de ofertă
+
+Pentru a testa o ofertă nouă pentru un produs existent (ex: „1+1 gratis” la pantalonii modelatori), cere asistentului să duplice landing page-ul:
+
+1. În CRM, asistentul creează landing page-ul nou cu slug-ul ales. Copiază formularul de comandă, tracking-ul (pixeli, CAPI, TikTok), review-urile și upsell-urile active, cu imaginile lor, și modifică doar ce îi spui: prețurile, SRP-ul, multiplicatorul de cantitate sau etichetele din formular.
+2. În CMS (dacă ai conectat și [asistentul CMS](/cms/asistenti-ai)), duplică pagina de produs cu **același slug**, ca formularul să apară pe pagină.
+
+Comenzile, parțialele și cheltuielile de reclamă nu se copiază, așa că testul pornește de la zero. Dacă un pas nu reușește (de exemplu slug-ul e deja folosit), nu se creează nimic.
 
 ### Alte resurse
 
@@ -109,6 +120,7 @@ Pentru a tăia imediat accesul unui utilizator, scoate permisiunea `mcp.use` din
 
 ### Imagini și video
 
+- **Imagine deja folosită** de un review sau un upsell: asistentul o refolosește direct, fără să o încarce din nou. Fișierul se copiază pe server.
 - **Fișier deja online**: dă-i asistentului linkul.
 - **Fișier de pe calculatorul tău**: asistentul îți dă un link privat de upload, valabil 30 de minute, de folosit cu `curl -X PUT --data-binary @poza.jpg "<link>"`.
 - Sunt acceptate **JPG, PNG, WEBP, GIF** (review-uri și upsell-uri) și **MP4** (doar upsell-uri), cel mult **3 MB**, ca în aplicație. Tipul fișierului se verifică după conținut.
@@ -139,3 +151,5 @@ Fără permisiunea `mcp.audit`, vezi doar propriile aplicații și propria activ
 - „Adaugă un review cu poza asta la landing page-ul lampa-solara.”
 - „Comenzile de ieri de pe landing page-ul X au SKU-ul greșit, înlocuiește-l cu Y.”
 - „Exportă comenzile returnate din septembrie, cu județul și landing page-ul.”
+- „Fă o variantă a landing page-ului 219 cu oferta 1+1: prețuri 99 / 139 / 169, slug pantaloni-modelatori-oferta-2x.”
+- „Copiază review-urile de pe landing page-ul 219 pe 340.”
