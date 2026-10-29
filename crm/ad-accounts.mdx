@@ -51,6 +51,9 @@ Selectează platforma publicitară:
 - **Meta** (Facebook/Instagram)
 - **TikTok**
 
+#### ID cont publicitar Meta (opțional)
+ID-ul contului din Meta Ads Manager, de exemplu `476107121417312` (merge și forma `act_476107121417312`). Câmpul e opțional: importul manual funcționează și fără el. Îl folosește asistentul AI ca să știe sigur cărui cont îi aparține un raport. Vezi [Asistenți AI (MCP)](/crm/asistenti-ai).
+
 <Info>
 ID-ul contului poate fi găsit în setările contului din Ads Manager (Meta) sau TikTok Ads Manager.
 </Info>
@@ -101,6 +104,19 @@ Campanie vanzari xyz #EEU99        // ID-ul LP: 99
 - Campaniile care nu respectă această cerință nu vor fi luate în considerare în momentul importului
 - Aveți mare grijă să folosiți ID-ul corect al Landing Page-ului în denumirea campaniei pentru a evita erori de calcul
 </Warning>
+
+#### Mai multe instanțe pe același cont Meta
+
+ID-ul unui Landing Page e unic doar în instanța lui: `#EEU10` poate fi un produs în instanța GRC și alt produs în instanța RJE. Dacă un cont Meta rulează campanii pentru mai multe instanțe, adaugă în tag și prefixul instanței:
+
+```
+Orhidee Pro #EEU-GRC10      // LP 10 din instanța GRC
+Foxi #EEU-RJE-12            // LP 12 din instanța RJE (cu sau fără cratimă înainte de ID)
+```
+
+- Fiecare instanță importă doar campaniile cu prefixul ei și pe cele fără prefix (`#EEU10`).
+- Campaniile cu prefixul altei instanțe sunt ignorate. Astfel, un raport încărcat din greșeală în altă instanță nu atribuie cheltuielile altor Landing Page-uri.
+- Dacă ai o singură instanță, nu trebuie să schimbi nimic: `#EEU{ID}` funcționează ca până acum.
 
 ## Generare raport CSV pentru import (Meta)
 
@@ -155,6 +171,14 @@ După ce ai obținut raportul dorit:
 După import, cheltuielile vor fi procesate automat și asociate cu Landing Page-urile corespunzătoare pe baza ID-urilor din denumirea campaniilor.
 </Info>
 
+**Ce se înlocuiește la import:**
+- Sumele se adună pe fiecare Landing Page și zi și se convertesc din moneda contului.
+- Fiecare combinație cont publicitar + Landing Page + zi din raport înlocuiește înregistrarea existentă pentru aceeași combinație. Nu se adună peste ea.
+- Cheltuielile aceluiași Landing Page din **alte conturi publicitare** nu sunt atinse.
+- Zilele și Landing Page-urile care **nu apar în raport** rămân neschimbate. Dacă vrei să scoți cheltuieli care nu mai apar într-un raport nou, șterge întâi perioada (vezi mai jos), apoi reimportă.
+
+**Ce se ignoră:** campaniile fără tag, cu ID-ul unui Landing Page care nu există, cu prefixul altei instanțe, cu o dată invalidă (formatul corect este `AAAA-LL-ZZ`) sau cu o sumă invalidă. Sumele pot avea punct sau virgulă zecimală (`12.50` sau `12,50`).
+
 ### Ștergere cheltuieli importate greșit
 
 Dacă ai importat cheltuieli greșit sau dorești să ștergi înregistrările existente:
@@ -206,7 +230,7 @@ Pentru cele mai bune rezultate, importă cheltuielile zilnic sau săptămânal p
 ## Bune practici
 
 ### Denumirea campaniilor
-- Folosește întotdeauna formatul `#EEU{ID}` în denumirea campaniilor
+- Folosește întotdeauna formatul `#EEU{ID}` în denumirea campaniilor (sau `#EEU-{INSTANȚĂ}{ID}` dacă un cont Meta rulează campanii pentru mai multe instanțe)
 - Verifică ID-ul Landing Page-ului înainte de a lansa campania
 - Păstrează un format consistent pentru toate campaniile
 

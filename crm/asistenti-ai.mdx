@@ -111,12 +111,21 @@ Comenzile, parțialele și cheltuielile de reclamă nu se copiază, așa că tes
 ### Alte resurse
 
 - produse, variante și bundle-uri; [reguli de atașare](/crm/attachment-rules)
-- cheltuieli de reclamă: înregistrează o zi, șterge o perioadă sau importă un raport CSV ([conturile de reclamă](/crm/ad-accounts) nu pot fi create sau șterse prin asistent)
+- [conturi de reclamă](/crm/ad-accounts): le creează și le modifică (nume, platformă, monedă, ID-ul contului Meta). Nu le poate șterge.
+- cheltuieli de reclamă: înregistrează o zi, șterge o perioadă, importă un raport CSV și citește cheltuielile deja înregistrate pe cont, Landing Page și zi
 - [webhooks](/crm/webhooks), întotdeauna cu confirmare explicită
 - [setările](/crm/settings) instanței (valorile secrete nu sunt afișate și nu pot fi modificate)
 - utilizatori și roluri (doar Master Admin). Utilizatorii noi primesc o parolă temporară pe care trebuie să o schimbe la prima autentificare.
 
-**Nu sunt disponibile prin asistent:** confirmarea comenzii cu editarea adresei, unirea comenzilor, apelurile primite, crearea sau ștergerea conturilor de reclamă, editarea sau ștergerea utilizatorilor și rolurilor.
+**Nu sunt disponibile prin asistent:** confirmarea comenzii cu editarea adresei, unirea comenzilor, apelurile primite, ștergerea conturilor de reclamă, editarea sau ștergerea utilizatorilor și rolurilor.
+
+#### Importul cheltuielilor de reclamă
+
+1. **Probă, fără scriere.** Asistentul rulează întâi importul în mod de probă și îți arată sumele pe fiecare Landing Page și zi, plus campaniile ignorate și motivul (fără tag, Landing Page inexistent, tag-ul altei instanțe, dată sau sumă invalidă). Importă doar după ce confirmi.
+2. **Contul potrivit.** Raportul se potrivește după ID-ul contului Meta, salvat pe contul de reclamă din CRM. Dacă niciun cont nu are încă acel ID, asistentul îți propune contul care a mai avut cheltuieli pe Landing Page-urile din raport. După confirmarea ta, salvează ID-ul pe cont pentru data viitoare.
+3. **Avertizare la contul greșit.** Dacă importi pe un cont pe care Landing Page-urile din raport nu au avut niciodată cheltuieli, asistentul te avertizează înainte.
+
+Regulile importului (ce se înlocuiește, tag-urile cu prefix de instanță) sunt aceleași ca în admin. Vezi [Conturi publicitare](/crm/ad-accounts).
 
 ### Imagini și video
 
@@ -153,3 +162,4 @@ Fără permisiunea `mcp.audit`, vezi doar propriile aplicații și propria activ
 - „Exportă comenzile returnate din septembrie, cu județul și landing page-ul.”
 - „Fă o variantă a landing page-ului 219 cu oferta 1+1: prețuri 99 / 139 / 169, slug pantaloni-modelatori-oferta-2x.”
 - „Copiază review-urile de pe landing page-ul 219 pe 340.”
+- „Importă raportul ăsta de cheltuieli din Meta, dar arată-mi întâi ce ar importa.”
