@@ -13,12 +13,12 @@ Asistenții AI sunt disponibili doar în planul **Advanced** și doar pentru uti
 
 ## CMS sau CRM
 
-EEU-ECOM are două aplicații și fiecare are propriul server MCP:
+Startscale are două aplicații și fiecare are propriul server MCP:
 
 | | CMS (acest server) | CRM |
 |---|---|---|
 | **Ce conține** | Ce văd vizitatorii: texte, secțiuni, imagini, culori, review-urile din CMS, publicarea paginilor, categorii, pagini statice, setările magazinului, cereri de retur | Prețurile încasate, formularele de comandă, comenzile, clienții, produsele, review-urile din widget, upsell-urile, rapoartele |
-| **Numele conectorului** | `EEU-ECOM <INSTANȚĂ> CMS` | `EEU-ECOM <INSTANȚĂ> CRM` |
+| **Numele conectorului** | `Startscale <INSTANȚĂ> CMS` | `Startscale <INSTANȚĂ> CRM` |
 
 O pagină de produs din CMS afișează **formularul de comandă** și **widgetul de review-uri** ale landing page-ului din CRM care are **același slug**, din magazinul CRM legat de magazinul CMS. De aceea slug-urile trebuie să fie identice în ambele aplicații.
 
@@ -33,13 +33,13 @@ Pentru asistenții AI din CRM, vezi [Asistenți AI (MCP) în CRM](/crm/asistenti
 Toate informațiile de conectare se află în panoul de administrare, în meniul **Asistenți AI (MCP)**:
 
 - **Adresa serverului MCP** (ex: `https://rje.sv1-cms.eeu-ecom.app/mcp`), cu buton de copiere
-- **Numele recomandat al conectorului** (ex: `EEU-ECOM RJE CMS`)
+- **Numele recomandat al conectorului** (ex: `Startscale RJE CMS`)
 - pașii pentru Claude, ChatGPT și Codex
 
 ### Claude (claude.ai / Claude Desktop)
 
 1. Deschide **Settings → Connectors** și alege **Add custom connector**
-2. Numește conectorul exact ca în pagina **Asistenți AI (MCP)** (ex: `EEU-ECOM RJE CMS`) și lipește adresa serverului
+2. Numește conectorul exact ca în pagina **Asistenți AI (MCP)** (ex: `Startscale RJE CMS`) și lipește adresa serverului
 3. Click pe **Connect**: ești trimis în panoul de administrare al CMS-ului
 4. Autentifică-te cu contul tău și apasă **Autorizează**
 
@@ -54,8 +54,8 @@ Toate informațiile de conectare se află în panoul de administrare, în meniul
 Rulează în terminal comenzile afișate în pagina **Asistenți AI (MCP)**, de forma:
 
 ```bash
-codex mcp add eeu-rje-cms --url https://rje.sv1-cms.eeu-ecom.app/mcp
-codex mcp login eeu-rje-cms
+codex mcp add startscale-rje-cms --url https://rje.sv1-cms.eeu-ecom.app/mcp
+codex mcp login startscale-rje-cms
 ```
 
 <Info>

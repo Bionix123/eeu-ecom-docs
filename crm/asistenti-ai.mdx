@@ -13,7 +13,7 @@ Asistenții AI sunt disponibili doar pentru abonamentul **Gold Plus** și pentru
 
 ## CRM sau CMS
 
-EEU-ECOM are două aplicații și fiecare are propriul server MCP:
+Startscale are două aplicații și fiecare are propriul server MCP:
 
 - **CRM (acest server)**: comenzi, parțiale, clienți, produse și stoc, Helpship, cheltuieli de reclamă și rapoarte, utilizatori și setări, plus partea comercială a unui landing page: prețuri, formular de comandă, review-urile din widget, upsell-uri, pixeli de tracking, magazin și slug.
 - **CMS**: pagina de produs așa cum o văd vizitatorii (texte, secțiuni, imagini, design, publicare). Vezi [Asistenți AI (MCP) în CMS](/cms/asistenti-ai).
@@ -21,7 +21,7 @@ EEU-ECOM are două aplicații și fiecare are propriul server MCP:
 Pagina de produs din CMS afișează formularul de comandă și widgetul de review-uri ale landing page-ului din CRM cu **același slug**, din magazinul CRM legat de magazinul CMS. Dacă schimbi slug-ul unui landing page în CRM, schimbă-l și în CMS, altfel pagina nu mai afișează formularul.
 
 <Tip>
-Conectează ambele servere și dă-le numele recomandate (ex: `EEU-ECOM RJE CRM` și `EEU-ECOM RJE CMS`). Așa tu și asistentul le deosebiți ușor, iar asistentul alege singur aplicația potrivită pentru fiecare cerere.
+Conectează ambele servere și dă-le numele recomandate (ex: `Startscale RJE CRM` și `Startscale RJE CMS`). Așa tu și asistentul le deosebiți ușor, iar asistentul alege singur aplicația potrivită pentru fiecare cerere.
 </Tip>
 
 ## Conectare
@@ -29,13 +29,13 @@ Conectează ambele servere și dă-le numele recomandate (ex: `EEU-ECOM RJE CRM`
 Informațiile de conectare se află în [Setări](/crm/settings), secțiunea **Asistenți AI (MCP)**:
 
 - **Adresa serverului MCP** (ex: `https://rje.eeu-ecom.app/mcp`), cu buton de copiere
-- **Numele recomandat al conectorului** (ex: `EEU-ECOM RJE CRM`)
+- **Numele recomandat al conectorului** (ex: `Startscale RJE CRM`)
 - pașii pentru Claude, ChatGPT și Codex și un link către instrucțiunile complete
 
 ### Claude (claude.ai / Claude Desktop)
 
 1. Deschide **Settings → Connectors** și alege **Add custom connector**
-2. Numește conectorul ca în **Setări** (ex: `EEU-ECOM RJE CRM`) și lipește adresa serverului
+2. Numește conectorul ca în **Setări** (ex: `Startscale RJE CRM`) și lipește adresa serverului
 3. Click pe **Connect**: ești trimis în CRM. Autentifică-te și aprobă accesul.
 
 ### ChatGPT
@@ -49,8 +49,8 @@ Informațiile de conectare se află în [Setări](/crm/settings), secțiunea **A
 Rulează comenzile afișate în **Setări**, de forma:
 
 ```bash
-codex mcp add eeu-rje-crm --url https://rje.eeu-ecom.app/mcp
-codex mcp login eeu-rje-crm
+codex mcp add startscale-rje-crm --url https://rje.eeu-ecom.app/mcp
+codex mcp login startscale-rje-crm
 ```
 
 <Info>

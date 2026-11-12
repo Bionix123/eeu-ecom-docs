@@ -1,13 +1,13 @@
 {
   "$schema": "https://mintlify.com/docs.json",
   "theme": "mint",
-  "name": "Documentație CRM & CMS - EEU-ECOM",
+  "name": "Documentație CRM & CMS - Startscale",
   "colors": {
     "primary": "#ba0202",
     "light": "#e53935",
     "dark": "#ffb33b"
   },
-  "favicon": "/universal.png",
+  "favicon": "/favicon.svg",
   "navigation": {
     "anchors": [
       {
@@ -152,8 +152,8 @@
     ]
   },
   "logo": {
-    "light": "/logo/universal.png",
-    "dark": "/logo/universal.png",
+    "light": "/logo/startscale-logo-light-bg.svg",
+    "dark": "/logo/startscale-logo-dark-bg.svg",
     "href": "https://join.eeu-ecom.app"
   },
   "navbar": {
@@ -188,5 +188,5 @@
   "appearance": {
     "strict": true
   },
-  "description": "Aceasta este documentația oficiala a ecosistemului EEU-ECOM."
+  "description": "Aceasta este documentația oficiala a ecosistemului Startscale."
 }
