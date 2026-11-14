@@ -5,6 +5,10 @@ icon: "users"
 
 Pagina **Clienți** îți permite să vizualizezi și să gestionezi baza de clienți. Aici poți accesa informații detaliate despre fiecare client, istoricul comenzilor și statistici de cumpărare.
 
+<Info>
+Lista neagră (coloana, filtrul și acțiunile) este disponibilă începând cu planul **Silver**. Coloana **Statistici comenzi** este disponibilă doar în planul **Gold Plus**.
+</Info>
+
 ## Tabel clienți
 
 Tabelul afișează toți clienții înregistrați în sistem cu următoarele informații:
@@ -23,8 +27,12 @@ Tabelul afișează toți clienții înregistrați în sistem cu următoarele inf
 ### Funcții de căutare și filtrare
 
 Poți căuta clienți folosind bara de căutare din partea de sus a tabelului. Căutarea funcționează pe baza:
+- ID client
 - Nume complet
 - Număr de telefon
+- Adresa din comenzile clientului (județ, localitate, stradă, număr, cod poștal)
+
+Filtre disponibile: **are email** și **pe lista neagră** (Silver+). Lista poate fi exportată ca CSV.
 
 ## Acțiuni disponibile
 
@@ -32,7 +40,7 @@ Pentru fiecare client, sunt disponibile următoarele acțiuni prin meniul cu **3
 
 ### Adăugare client în lista neagră
 
-Această acțiune îți permite să adaugi un client în lista neagră. Clienții din lista neagră pot fi identificați rapid în tabel.
+Această acțiune îți permite să adaugi un client în lista neagră, cu un **motiv**. Clienții din lista neagră pot fi identificați rapid în tabel.
 
 <Info>
 Comenzile clienților de pe lista neagră vor fi anulate în mod automat.
@@ -68,7 +76,7 @@ Secțiunea de sus afișează informațiile de bază ale clientului:
 - **Email** - Adresa de email (dacă există)
 - **Ultima comandă** - Link către ultima comandă plasată
 - **Pe lista neagră** - Status listă neagră cu indicator vizual
-- **Motiv dată neagră** - Motivul pentru care clientul a fost adăugat în lista neagră (dacă este cazul)
+- **Motiv listă neagră** - Motivul pentru care clientul a fost adăugat în lista neagră (dacă este cazul)
 
 ### Statistici comenzi
 
@@ -182,11 +190,11 @@ Informațiile despre clienți sunt confidențiale și trebuie tratate cu atenți
 
 ## Căutare avansată
 
-Pentru a găsi rapid un client specific, poți folosi bara globală de căutare cu următoarele criterii:
+Pentru a găsi rapid un client specific, poți folosi bara de căutare din pagina **Clienți** cu următoarele criterii:
 
 - **Căutare după nume** - Introdu numele complet sau parțial
 - **Căutare după telefon** - Introdu numărul de telefon
-- **Căutare după ID comandă** - Introdu ID-ul unei comenzi pentru a găsi clientul asociat
+- **Căutare după adresă** - Introdu județul, localitatea, strada sau codul poștal dintr-o comandă a clientului
 
 <Tip>
 Căutarea este case-insensitive și funcționează și cu termeni parțiali, facilitând găsirea rapidă a clienților.
