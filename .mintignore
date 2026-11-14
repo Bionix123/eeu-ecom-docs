@@ -5,3 +5,8 @@
 # Draft content
 drafts/
 *.draft.mdx
+
+# Not published: superseded by the crm/* pages (old Notion export kept for reference)
+old_crm_docs/
+# Stub without content (inbound calls are enabled only on a few instances)
+crm/inbound-calls.mdx
