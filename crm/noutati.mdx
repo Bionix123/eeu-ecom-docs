@@ -1,0 +1,64 @@
+---
+title: "Noutăți"
+description: "Noutățile și actualizările CRM-ului Startscale."
+icon: "newspaper"
+---
+
+Aici găsești noutățile și actualizările CRM-ului, de la cele mai noi la cele mai vechi.
+
+## 14 noiembrie 2026
+
+### Corecturi
+
+- Parțialele rămase în **Later** fără activitate de peste 7 zile sunt refuzate automat în fiecare noapte, nu doar la **Curăță Partiale**.
+- Un parțial deja confirmat nu mai poate fi confirmat a doua oară prin API: nu se mai creează o comandă dublă.
+- Costul din **Order Recoveries** folosește prețul real, 3,50 lei pe comandă recuperată.
+- Setările au denumiri clare în locul celor tehnice (de exemplu **Interval verificare comenzi duplicate (zile)**, **Cost ambalare per comandă**).
+
+### Pagina Profit
+
+O pagină nouă, în meniul **General** → **Profit** (Gold Plus): profitul real și estimat pe pagini de destinație, produse și comenzi, recomandări automate, ROAS față de pragul de rentabilitate, POAS și randamentul stocului. Comenzile încă deschise sunt estimate cu rata istorică de retur. Detalii în [Profit](/crm/profit).
+
+### Orders Insights
+
+Panoul de comenzi se numește acum **Orders Insights**. Are indicatorii pe un singur rând, comparații cu perioada anterioară până la aceeași oră, rata de confirmare, comenzile neconfirmate de peste 24 de ore, butoane rapide **Upsell neconfirmat** și **De confirmat (pending)** și harta comenzilor pe zile și ore. Detalii în [Orders Insights](/crm/orders-dashboard).
+
+### Parțiale
+
+Widget-ul de pe pagina **Parțiale** este mai compact: cifrele perioadei cu link-uri **Deschide**, cardurile pentru reapeluri și curățare, tabelul agenților și graficele de status, rata de acceptare și viteza de apel. Detalii în [Parțiale](/crm/partials).
+
+### Produse & inventar
+
+Dashboard-ul de stoc este refăcut: produse de reaprovizionat cu data până la care trebuie comandat, cele mai vândute, stoc mort, evoluția vânzărilor și un tabel cu căutare și sortare. Tab-ul nou **Volum și greutate** calculează volumul și greutatea stocului și simulează în 3D așezarea pe paleți sau în cutii. Cererea se calculează pe toată perioada aleasă, rata de retur doar pe comenzile finalizate din ultimele 90 de zile, iar produsele în testare sau pe pauză nu mai intră în totalurile de stoc. Detalii în [Inventar produse](/crm/products-inventory).
+
+### Produse și variante
+
+Variantele au câmpurile **Lungime (cm)**, **Lățime (cm)**, **Înălțime (cm)** și **Greutate (g)** și opțiunea **SKU virtual (serviciu)**, pentru servicii fără stoc fizic. Variantele fără vânzări nu mai apar ca fiind de comandat. Detalii în [Produse](/crm/products).
+
+### Dashboard-uri refăcute
+
+Paginile **Oferte pagini de destinație** (cu alegerea între zile calendaristice și zile cu activitate), **Cost & Profit** (cu comenzile încasate pe zile), **Vânzări & ROAS** și **Calculatoare** au un design nou.
+
+### Pagini de destinație și magazine
+
+- Lista paginilor de destinație are coloanele **Pagină** și **Prețuri** și un filtru după status (**Activ** / **Testare**).
+- **Schemă de culori** se află acum în **Setări ofertă**, imediat după **Setări formular**. Câmpul **Număr recenzii** a dispărut din formular, iar widget-ul de recenzii nu mai afișează antetul cu stele și numărul de recenzii.
+- Magazinele noi primesc automat țara implicită a instanței, fără selector de țară.
+- Pagina **Magazine** afișează bannerul CMS.
+
+### Setări, API și webhook-uri
+
+- Pagina **Setări** are un design nou, cu secțiuni. **Avertismente** și **Activitate AI** sunt restrânse implicit.
+- Secțiunea nouă **API și Webhooks**: aici adaugi și ștergi webhook-urile (nu mai apar în meniul lateral) și creezi chei API, cu acces **Doar citire** sau **Citire și scriere**.
+- Documentația API publică, la adresa `/api-docs` a instanței, cu tab-urile REST, Webhooks și MCP, în română și engleză. Detalii în [API și integrări](/crm/api).
+
+### Roluri, utilizatori și limbă
+
+- Permisiunile sunt grupate pe zone de lucru, cu descrieri, dependențe bifate automat, permisiuni marcate ca sensibile sau blocate de plan și roluri tip (**Agent call center**, **Manager depozit**, **Marketing**, **Administrator**).
+- Fiecare utilizator își alege **Limba interfeței** (implicit Română), din profil sau din selectorul din bara de sus.
+
+### Acasă și abonament
+
+- Lângă **Panou principal** apare planul tău de abonament.
+- Paginile de gestionare a abonamentului, schimbare a planului și date de facturare au un design nou.
+- Interfața are culoarea principală Startscale (roșu).

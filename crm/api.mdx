@@ -1,0 +1,88 @@
+---
+title: "API și integrări"
+description: "API-ul REST, webhook-urile și serverul MCP al instanței tale, cu documentația publică de la /api-docs și cheile API."
+icon: "code"
+---
+
+Fiecare instanță CRM are propria documentație API, publică și mereu la zi, la adresa **`/api-docs`** a instanței (de exemplu `https://instanta-ta.eeu-ecom.app/api-docs`). Pagina se generează din codul aplicației, deci descrie exact ce poate face versiunea instalată la tine.
+
+Pagina de aici îți spune ce găsești acolo și cum obții acces. Detaliile despre endpoint-uri, câmpuri și exemple de cod sunt în documentația instanței.
+
+## Ce conține documentația API
+
+Documentația are trei tab-uri:
+
+- **REST API**: endpoint-urile `/api/v1/*` pentru comenzi, linii de comandă, comenzi parțiale, clienți și landing page-uri, cu parametri, exemple de cerere și răspuns și nivelul de acces necesar pentru fiecare.
+- **Webhooks**: evenimentele trimise de CRM, formatul cererii, payload-urile și regulile de livrare. Vezi și [Webhook-uri](/crm/webhooks).
+- **MCP (asistenți AI)**: cum conectezi Claude, ChatGPT sau Codex la CRM. Vezi și [Asistenți AI (MCP)](/crm/asistenti-ai).
+
+Pagina este disponibilă în română și engleză (selectorul **Limba**), are căutare, temă luminoasă sau întunecată și un câmp **Cheie pentru exemple**, care completează cheia ta în exemplele de cod doar în pagina deschisă (nu este salvată nicăieri).
+
+### Versiuni pentru unelte și agenți AI
+
+Același conținut este disponibil și în formate citite de programe:
+
+| Adresă | Ce conține |
+| --- | --- |
+| `/api-docs/openapi.json` | Specificația OpenAPI, pentru Postman, generatoare de cod sau agenți AI |
+| `/api-docs.md` | Toată documentația în Markdown |
+
+Implicit, ambele sunt în engleză. Adaugă `?lang=ro` pentru română.
+
+<Tip>
+Când lucrezi cu un asistent AI la o integrare, dă-i adresa `/api-docs.md` sau `/api-docs/openapi.json` a instanței tale: va avea lista completă și corectă a endpoint-urilor.
+</Tip>
+
+## Chei API
+
+Cererile către `/api/v1/*` au nevoie de o **cheie API**. Cheile se gestionează din **Setări** → **API și Webhooks**, de utilizatorii cu permisiunea **Gestionare API keys** (pe lângă permisiunea **Setări**, necesară ca să deschizi pagina). Cheile API sunt disponibile pe orice plan.
+
+### Creează o cheie
+
+1. Deschide **Setări** → **API și Webhooks**.
+2. La **Chei API**, completează **Nume** (de exemplu numele integrării), alege **Acces** și, opțional, data la care cheia **Expiră**.
+3. Apasă **Creează cheie**.
+4. Copiază cheia afișată și păstreaz-o într-un loc sigur (manager de parole, variabilă de mediu pe serverul integrării), apoi apasă **Am copiat-o**.
+
+<Warning>
+Cheia completă este afișată **o singură dată**, la creare. După aceea lista arată doar primele caractere ale cheii. Dacă ai pierdut-o, revoc-o și creează alta.
+</Warning>
+
+### Niveluri de acces
+
+| Nivel | Ce permite |
+| --- | --- |
+| **Doar citire** (`read`, implicit) | Doar cereri `GET`. Orice altă cerere primește eroarea `403`. |
+| **Citire și scriere** (`read_write`) | Toate endpoint-urile: citire, confirmări, anulări, note, linii de comandă. |
+
+În documentația API, fiecare endpoint are o etichetă cu nivelul minim necesar.
+
+### Folosește cheia
+
+Trimite cheia în header-ul `Authorization`:
+
+```http
+Authorization: Bearer CHEIA_TA
+```
+
+Integrările mai vechi pot trimite încă tokenul ca parametru `access_token` în URL, dar pentru integrări noi folosește header-ul: URL-urile ajung în loguri și în istoricul browserului.
+
+<Info>
+Tokenul de instanță folosit înainte de cheile API este încă acceptat, cu acces complet. Pentru integrări noi folosește chei API: pot fi limitate la citire, pot expira și pot fi revocate una câte una.
+</Info>
+
+### Revocă o cheie
+
+O cheie compromisă sau care nu mai e folosită se revocă din **Setări** → **API și Webhooks**, cu butonul **Revocă**. Aplicațiile care o folosesc pierd accesul imediat.
+
+Lista cheilor arată, pentru fiecare, începutul cheii, nivelul de acces, cine a creat-o, când a fost creată, ultima folosire și data de expirare.
+
+### Bune practici
+
+- Folosește cheile doar pe server. Nu le pune în codul unui site sau al unei aplicații mobile.
+- Creează câte o cheie pentru fiecare integrare, cu nivelul minim necesar: `read` pentru rapoarte și sincronizări care doar citesc.
+- Pune o dată de expirare cheilor pentru integrări temporare.
+
+<Warning>
+Permisiunea **Gestionare API keys** este marcată ca sensibilă: o cheie dă acces aplicațiilor externe la comenzi, parțiale și clienți. Acord-o doar administratorilor. Vezi [Roluri](/crm/roles).
+</Warning>

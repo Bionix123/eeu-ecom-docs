@@ -3,61 +3,65 @@ title: "Utilizatori"
 icon: "users"
 ---
 
-Pagina **Utilizatori** permite gestionarea completă a utilizatorilor care au acces la aplicația CRM. Aici poți administra conturile de utilizator și permisiunile acestora.
+Pagina **Utilizatori** îți permite să gestionezi conturile care au acces la CRM: datele lor, rolurile, permisiunile suplimentare și limba interfeței.
 
-## Funcționalități
-
-### Creare utilizatori
-
-Pentru a adăuga un utilizator nou în sistem:
-
-1. Click pe butonul **Adaugă utilizator**
-2. Completează informațiile necesare:
-   - Nume utilizator
-   - Email
-   - Parolă
-3. Asignează un rol utilizatorului din lista de roluri disponibile
-4. Salvează modificările
-
-### Editare utilizatori
-
-Pentru a modifica datele unui utilizator existent:
-
-1. Selectează utilizatorul din listă
-2. Click pe butonul **Editează**
-3. Modifică informațiile dorite:
-   - Nume
-   - Email
-   - Rol asignat
-4. Salvează modificările
-
-### Ștergere utilizatori
-
-Pentru a elimina un utilizator din sistem:
-
-1. Selectează utilizatorul din listă
-2. Click pe butonul **Șterge**
-3. Confirmă acțiunea de ștergere
-
-<Warning>
-Ștergerea unui utilizator este o acțiune permanentă și nu poate fi anulată. Asigură-te că dorești să elimini utilizatorul înainte de a confirma.
-</Warning>
-
-## Asignare roluri
-
-Fiecare utilizator trebuie să aibă un rol asignat care definește permisiunile sale în aplicație. Rolurile pot fi selectate din lista de roluri configurate în pagina [Roluri](/crm/roles).
-
-Prin asignarea unui rol, utilizatorul va moșteni automat toate permisiunile asociate acelui rol.
-
-## Gestionare acces
-
-Utilizatorii pot avea diferite niveluri de acces în funcție de rolul asignat:
-
-- **Administrator** - Acces complet la toate funcționalitățile
-- **Manager** - Acces la majoritatea funcțiilor, cu excepția setărilor critice
-- **Operator** - Acces limitat la funcțiile operaționale de bază
-- **Vizualizare** - Acces doar pentru vizualizare, fără drepturi de editare
+O găsești în meniul lateral, la **Gestionare utilizatori** → **Utilizatori**.
 
 <Info>
-Rolurile și permisiunile specifice pot fi personalizate în pagina [Roluri](/crm/roles).
+Crearea utilizatorilor noi este disponibilă începând cu planul **Silver**.
 </Info>
+
+## Creează un utilizator
+
+1. Click pe butonul de creare a unui utilizator.
+2. Completează **Nume**, **Email** și **Parolă**.
+3. Opțional, alege **Limba interfeței**.
+4. Atribuie unul sau mai multe **Roluri**.
+5. Salvează.
+
+## Editează un utilizator
+
+Deschide utilizatorul, apasă **Editează**, modifică datele dorite și salvează.
+
+<Note>
+Un utilizator nu își poate schimba propriile roluri: pe profilul tău, câmpul este doar pentru citire.
+</Note>
+
+## Șterge un utilizator
+
+Folosește acțiunea de ștergere și confirmă.
+
+<Warning>
+Ștergerea unui utilizator este permanentă și nu poate fi anulată.
+</Warning>
+
+## Roluri
+
+Fiecare utilizator primește toate permisiunile rolurilor atribuite. Rolurile și permisiunile lor se configurează în pagina [Roluri](/crm/roles), unde găsești și roluri tip gata făcute: **Agent call center**, **Manager depozit**, **Marketing** și **Administrator**.
+
+## Permisiuni specifice utilizatorului
+
+Pe pagina utilizatorului, câmpul **Permisiuni specifice utilizatorului** arată aceeași matrice de permisiuni ca la roluri:
+
+- permisiunile care vin din roluri sunt blocate și marcate **Din rol**; la hover vezi din ce rol vin;
+- poți bifa permisiuni în plus, marcate **Extra pentru acest utilizator**;
+- sus vezi un rezumat cu rolurile, numărul de permisiuni efective și câte sunt extra.
+
+Permisiunile din rol se schimbă din pagina rolului. Aici adaugi doar permisiuni extra pentru acest utilizator.
+
+<Tip>
+Dacă mai mulți utilizatori au nevoie de aceleași permisiuni extra, creează un rol pentru ei în loc să le adaugi pe fiecare.
+</Tip>
+
+## Limba interfeței
+
+Fiecare utilizator își alege limba în care vede CRM-ul: **Română** sau **English**. Dacă nu alege nimic, vede interfața în română (**Implicit (Română)**).
+
+Limba se schimbă în două moduri:
+
+- din selectorul **Limba interfeței** din bara de sus (arată codul limbii curente, de exemplu **RO**); pagina se reîncarcă în limba aleasă;
+- din câmpul **Limba interfeței** de pe pagina utilizatorului.
+
+<Note>
+Limba interfeței este personală. **Limba instanței**, din [Setări](/crm/settings#perioadă-curentă), se folosește doar pentru notificările automate, paginile publice și vizitatorii nelogați. Pagina **Acasă** este mereu în română.
+</Note>

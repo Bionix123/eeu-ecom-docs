@@ -3,75 +3,117 @@ title: "Setări"
 icon: "gear"
 ---
 
-Secțiunea **Setări** conține configurările tehnice și funcționale ale aplicației CRM. Aceste setări sunt împărțite în mai multe categorii.
+Pagina **Setări** (titlu: **Setări instanță**) conține configurările instanței tale de CRM: comenzi, integrarea Helpship, stoc, livrare, API și webhook-uri și asistenți AI.
 
-## Setări instanță
+O deschizi din meniul lateral, la **Setări**. Pagina este vizibilă doar pentru utilizatorii cu permisiunea **Setări**, marcată ca sensibilă: cine o are poate schimba setările întregii instanțe.
 
-### Cont
+## Cum funcționează pagina
 
-În această secțiune se gestionează documentația și abonamentul:
+- În antet găsești butoanele **Documentație aplicație**, **Gestionează abonamentul actual** și **Editează profilul utilizatorului curent**.
+- Rândul **Secțiuni** te duce direct la secțiunea dorită.
+- Fiecare modificare se salvează automat, după o jumătate de secundă. Confirmarea apare ca mesaj **Setare actualizată**.
 
-- **Documentație aplicație** - Acces rapid la documentația platformei
-- **Gestionează abonamentul actual** - Administrare plan de abonament
-- **Editează ID-ul utilizatorului curent** - Modificare identificator utilizator
+## Comandă
 
-### Comandă
+- **Serie implicită comenzi**: seria implicită a comenzilor, folosită ca prefix în numărul lor (ex: `BUY` → `BUY-COD-1234`) când magazinul nu are o serie proprie.
+- **Interval verificare comenzi duplicate (zile)**: numărul maxim de zile între două comenzi ale aceluiași client pentru a fi marcate ca duplicate (maximum 100).
+- **Verifică duplicatele și după IP**: avertizează și pentru comenzile plasate de pe aceeași adresă IP în ultimele 5 zile, chiar dacă au alt număr de telefon. Detalii în [Comenzi](/crm/orders).
+- **Afișează numărul comenzii**: afișează clientului numărul comenzii pe pagina de după comandă (oferta post-achiziție și mesajul de mulțumire).
+- **Tracking conversie pentru parțiale confirmate**: trimite către Meta (Conversions API) un eveniment Purchase când un parțial venit din Facebook este confirmat și devine comandă.
+- **Informații landing page în comenzile parțiale**: afișează în fereastra de confirmare a unui parțial un panou cu informații despre landing page (link, prețuri, preț livrare, total estimat).
 
-Configurări pentru procesarea comenzilor:
+## Helpship
 
-- **ORDER SERIES** - Serie implicită comandă (ex: BUY). Această serie va fi folosită ca prefix pentru denumirea comenzilor. Exemplu: `BUY-COD-1234`
-- **DUPLICATE DAYS** - Număr maxim de zile între două comenzi pentru a fi marcate ca duplicate (ex: 21 zile)
-- **ORDER DUPLICATE IP CHECK ENABLED** - Avertizează și pentru comenzile plasate de pe aceeași adresă IP în ultimele 5 zile, chiar dacă au alt număr de telefon (implicit activ). Detalii în [Comenzi → Order Confirm](/crm/orders)
+- **Helpship – ID client** și **Helpship – cheie secretă**: datele de conectare la Helpship. La salvare, CRM-ul verifică automat conexiunea.
+- **Cost ambalare per comandă**: prețul de ambalare al centrului de fulfillment, cu link către **Istoric Preț Ambalare**.
+- **Ultimul raport de încasări (ramburs)**: data ultimului raport COD procesat (doar citire).
+- **Primește emailuri de la Helpship**: dacă emailul proprietarului magazinului se trimite cu comenzile către Helpship.
+- **Nume expeditor pe colet**: numele expeditorului trimis la Helpship. Gol înseamnă domeniul magazinului. Poți folosi `{store}`, care se înlocuiește cu domeniul magazinului (ex: „Magazin `{store}`”).
+- **Completare automată cod poștal**: completează automat codul poștal al comenzilor când acesta este sigur.
 
-### Helpship
+## Stoc
 
-Integrare cu serviciul de fulfillment Helpship:
+Aceste valori sunt folosite în [Inventar produse](/crm/products-inventory), pe pagina [Produse](/crm/products) și în alertele de stoc scăzut.
 
-- **CLIENT ID** - ID Client Helpship
-- **CLIENT SECRET** - Secret Client Helpship
-- **PACKING PRICE** - Preț ambalare pentru fulfillment (ex: 5.10)
-- **LAST COD REPORT DATE** - Data ultimului raport COD generat
-- **RECEIVE EMAIL** - Declară dacă emailul proprietarului magazinului va fi trimis odata cu comenzile către Helpship
-- **POSTCODE AUTOCOMPLETION** - Declară dacă codurile poștale ale clientilor vor fi completate automat când sistemul detectează o adresă cu exactitate
+- **Timp estimat de livrare**: în câte zile ajunge de obicei în stoc marfa comandată la furnizor. Punctul de reaprovizionare acoperă vânzările din aceste zile plus stocul de siguranță.
+- **Timp maxim de livrare**: cât poate dura cel mult o livrare. Zilele peste timpul estimat devin stoc de siguranță: (maxim − estimat) × vânzări pe zi. Dacă e egal cu timpul estimat, nu există rezervă.
+- **Zile pentru calculul cererii medii**: câte zile se folosesc pentru vânzările pe zi (bucăți vândute în ultimele N zile ÷ N, fără comenzile anulate, de test sau cu eroare). Mai puține zile reacționează mai repede la schimbări, mai multe netezesc vârfurile.
+- **Avertizare cu câte zile înainte**: cu câte zile de vânzări înainte de punctul de reaprovizionare ești avertizat. Varianta apare **Pe terminate** și primești o notificare de stoc scăzut la sincronizarea stocului cu Helpship.
 
-### Stoc
+<Info>
+**Exemplu:** vinzi 10 bucăți pe zi, livrarea durează de obicei 7 zile și cel mult 10. Comanzi când stocul ajunge la 100 de bucăți: 70 pentru cele 7 zile plus 30 rezervă pentru o întârziere de 3 zile. Cu **Avertizare cu câte zile înainte** = 3, ești avertizat la 130 de bucăți.
+</Info>
 
-Configurări pentru gestionarea stocului și livrărilor:
+## Perioadă curentă
 
-- **DELIVERY TIME** - Timp de livrare import (ex: 10 zile)
-- **MAX DELIVERY TIME** - Timp maxim de livrare import (ex: 14 zile)
-- **AVG DEMAND DAYS** - Număr de zile pentru calcularea cererii medii de produse (ex: 10 zile)
-- **FIRST ALERT DAYS** - Număr de zile pentru notificare înainte de a ajunge la punctul de recomandare (ex: 3 zile)
+- **Comenzi în perioada curentă** și **Limita de comenzi atinsă**: numărul de comenzi din perioada curentă de facturare și dacă limita planului a fost atinsă (doar citire).
+- **Limba instanței**: **Română** sau **Engleză**. Este limba notificărilor generate automat, a paginilor publice și a vizitatorilor nelogați.
 
-Aceste valori sunt folosite pentru calculele din pagina "produse" sau "inventar produse".
-
-## Client
-
-### Install Date
-
-- **INSTALL DATE** - Data când instanța dvs. a fost implementată pentru prima dată (ex: 2024-08-01)
+<Note>
+**Limba instanței** nu schimbă limba interfeței pentru utilizatori. Fiecare utilizator își alege **Limba interfeței** din selectorul din bara de sus sau din profilul său (implicit Română). Vezi [Utilizatori](/crm/users#limba-interfeței).
+</Note>
 
 ## Livrare
 
-### Curier implicit
-
-Selectare curier implicit din dropdown (ex: GLS) și configurare prețuri pentru fiecare curier disponibil.
+- **Curier implicit**: curierul folosit implicit pentru comenzi.
+- **Curieri**: pentru fiecare curier setezi **Preț**, **Prag Rată Retur** și **Curier Helpship**, apoi apeși **Salvează**. Link-ul **Istoric Costuri** arată evoluția prețului.
+- **Adaugă curier nou**: disponibil cât timp ai mai puțin de 4 curieri.
 
 <Info>
-Acesta este prețul pe care vânzătorul îl plătește pentru livrare (fără TVA), nu prețul de livrare afișat pe pagina produsului.
+Prețul curierului este prețul pe care îl plătești tu pentru livrare (fără TVA), nu prețul de livrare afișat pe pagina produsului.
 </Info>
 
-Fiecare curier are un buton **Salvează** pentru a actualiza prețul individual.
+### Alerte rată retur
 
-Pentru a adăuga un curier nou, utilizați butonul **+ Adaugă curier nou**.
+Când activezi **Alerte Rată Retur**, la confirmarea comenzii apare un avertisment dacă rata de retur a județului este prea mare pentru curierul ales.
+
+- **Condiție Alertă**: **Pragul propriu al curierului** sau **Media ratei de retur a tuturor județelor**
+- **Perioadă de Referință**: **Luna Trecută**, **Ultimele 3 Luni** (implicit), **Ultimele 6 Luni** sau **Tot Timpul**
+
+## API și Webhooks
+
+Aici conectezi alte aplicații la CRM: webhook-urile le trimit evenimentele pe loc, iar cheile API le permit să citească sau să modifice date.
+
+### Webhooks
+
+Webhook-urile se gestionează de aici (nu mai apar în meniul lateral) și sunt disponibile începând cu planul **Gold**.
+
+1. Completează **URL** (adresa care primește evenimentul).
+2. Alege **Eveniment**.
+3. Apasă **Adaugă webhook**.
+
+Fiecare webhook trimite un singur eveniment. Pentru mai multe evenimente adaugă mai multe webhook-uri, cu aceeași adresă dacă vrei. Un webhook se șterge cu **Șterge**. Lista evenimentelor și formatul datelor sunt în [Webhook-uri](/crm/webhooks).
+
+<Warning>
+Cererile webhook nu sunt semnate. Folosește o adresă greu de ghicit, de exemplu cu un token secret în URL.
+</Warning>
+
+### Chei API
+
+Secțiunea **Chei API** apare doar pentru utilizatorii cu permisiunea **Gestionare API keys**.
+
+1. Completează **Nume** (ex: Zapier).
+2. Alege **Acces**: **Doar citire** (implicit, doar cereri GET) sau **Citire și scriere**.
+3. Opțional, alege data la care cheia **Expiră**.
+4. Apasă **Creează cheie**, copiază cheia și apasă **Am copiat-o**.
+
+<Warning>
+Cheia este afișată **o singură dată**. Dacă o pierzi, revoc-o și creează alta.
+</Warning>
+
+Aplicația externă trimite cheia în header-ul `Authorization: Bearer <cheie>`. O cheie se revocă cu **Revocă**: aplicațiile care o folosesc pierd accesul imediat. Link-ul **Documentația API** deschide documentația API a instanței. Detalii în [API și integrări](/crm/api).
 
 ## Asistenți AI (MCP)
 
 Secțiunea **Asistenți AI (MCP)** este vizibilă pentru abonamentul **Gold Plus** și pentru utilizatorii cu permisiunea `mcp.use`. Aici găsești:
 
-- **Adresa serverului MCP** a instanței, cu buton de copiere, și numele recomandat al conectorului (ex: `Startscale RJE CRM`)
+- **Adresa serverului MCP** a instanței, cu butonul **Copiază**, și numele recomandat al conectorului (ex: `Startscale RJE CRM`)
 - pașii de conectare pentru Claude, ChatGPT și Codex
 - **Aplicațiile conectate**, cu butonul **Deconectează**
-- **Activitate AI**: acțiunile făcute prin asistenți în ultimele 30 de zile, cu filtre
+- **Activitate AI**: acțiunile făcute prin asistenți în ultimele 30 de zile, cu filtre. Lista este restrânsă implicit; apasă **Arată** ca să o deschizi.
 
 Ghidul complet: [Asistenți AI (MCP)](/crm/asistenti-ai).
+
+## Avertismente
+
+Secțiunea **Avertismente** arată problemele detectate azi care pot cere modificări în setările magazinului (cel mult 20). Este restrânsă implicit; numărul de avertismente apare în antetul ei. Butonul **Reîncarcă** verifică din nou.

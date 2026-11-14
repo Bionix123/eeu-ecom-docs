@@ -18,6 +18,9 @@ Funcționalitate premium opțională care poate fi activată în CRM pentru a au
 ### API (Application Programming Interface)
 O interfață care permite comunicarea între două aplicații software. De exemplu, API-ul de conversii Meta permite trimiterea datelor de conversie direct către Meta pentru tracking mai precis.
 
+### API key (Cheie API)
+Cheie secretă cu care o aplicație externă accesează API-ul CRM-ului. Se creează din **Setări** → **API și Webhooks**, este afișată o singură dată și poate avea acces **Doar citire** sau **Citire și scriere**. Detalii în [API și integrări](/crm/api).
+
 ### API Conversii (Conversions API)
 Sistem de tracking server-side oferit de Meta care trimite datele de conversie direct de pe server către Meta, fără a depinde de browser-ul utilizatorului. Mai precis decât tracking-ul client-side.
 
@@ -34,12 +37,19 @@ O colecție de produse vândute împreună ca un singur produs. De exemplu, un p
 ### Blacklist (Listă neagră)
 Lista cu clienți care au fost marcați ca nedoriți (de obicei din cauza fraudelor sau comenzilor false). Comenzile de la clienții din lista neagră sunt anulate automat.
 
+
+### Breakeven ROAS (Prag de rentabilitate)
+ROAS-ul la care profitul unei pagini este zero: venituri ÷ profit înainte de reclame. Peste prag pagina câștigă bani, sub prag pierde. Îl găsești în pagina [Profit](/crm/profit).
+
 ---
 
 ## C
 
 ### CMS (Content Management System)
 Sistem de gestionare a conținutului care permite crearea și editarea paginilor web fără a scrie cod. CMS-ul Startscale este optimizat pentru crearea rapidă de landing page-uri de vânzare.
+
+### Comandă deschisă
+Comandă care nu este încă nici plătită, nici returnată. În rapoartele de profit, rezultatul ei este estimat până la finalizare.
 
 ### Conversie
 Acțiunea dorită pe care o face un vizitator pe site (de obicei plasarea unei comenzi). Rata de conversie = numărul de comenzi / numărul de vizitatori × 100.
@@ -122,6 +132,9 @@ Setare care înmulțește cantitatea din oferte. De exemplu, cu multiplicator 2,
 
 ## O
 
+### Orders Insights
+Pagina cu statisticile comenzilor: cifrele perioadei, rata de confirmare, alertele și harta pe zile și ore. Detalii în [Orders Insights](/crm/orders-dashboard).
+
 ### Ofertă post-achiziție
 Upsell afișat pe pagina de mulțumire, după ce clientul a plasat comanda inițială. Clientul poate adăuga produse suplimentare la comanda existentă.
 
@@ -129,7 +142,7 @@ Upsell afișat pe pagina de mulțumire, după ce clientul a plasat comanda iniț
 Upsell afișat în formularul de comandă, înainte ca clientul să finalizeze comanda. De obicei produse complementare sau cantități suplimentare.
 
 ### Order Recovery (Recuperare comandă)
-Proces de recontactare a clienților ale căror comenzi nu au fost livrate din prima încercare. CRM-ul oferă recuperare automată pentru comenzile GLS.
+Reprogramarea automată în GLS a livrărilor nereușite (addon Gold Plus). Detalii în [Recuperare comenzi](/crm/order-recoveries).
 
 ---
 
@@ -138,11 +151,17 @@ Proces de recontactare a clienților ale căror comenzi nu au fost livrate din p
 ### Pixel
 Cod de tracking plasat pe site pentru urmărirea acțiunilor vizitatorilor. Exemple: Facebook Pixel, TikTok Pixel.
 
+### POAS (Profit on Ad Spend)
+Profitul generat de reclame raportat la costul lor: profit înainte de reclame ÷ cheltuieli publicitare. Un POAS sub 1 înseamnă că reclamele costă mai mult decât profitul pe care îl aduc.
+
 ### Post-purchase (Post-achiziție)
 Vezi "Ofertă post-achiziție".
 
 ### Pre-purchase (Pre-achiziție)
 Vezi "Ofertă pre-achiziție".
+
+### Punct de reaprovizionare
+Stocul la care trebuie să comanzi marfă nouă: cererea medie zilnică × timpul maxim de livrare. Include un stoc de siguranță pentru întârzieri.
 
 ### Produs
 Articol fizic pe care îl vinzi. Un produs poate avea mai multe variante (culori, mărimi, etc.).
@@ -152,7 +171,10 @@ Articol fizic pe care îl vinzi. Un produs poate avea mai multe variante (culori
 ## R
 
 ### Rata de returnare
-Procentul din comenzi care sunt returnate de clienți sau de curier (neridicate, refuzate, etc.). Formula: comenzi returnate / total comenzi × 100.
+Procentul din comenzi care sunt returnate de clienți sau de curier (neridicate, refuzate, etc.).
+
+### Rată de retur pe comenzi rezolvate
+Rata de retur calculată doar pe comenzile finalizate: returnate ÷ (plătite + returnate). Comenzile încă în livrare nu intră, ca să nu scadă artificial rata. Se folosește în [Inventar produse](/crm/products-inventory) (ultimele 90 de zile) și în [Profit](/crm/profit).
 
 ### Recenzie
 Feedback de la clienți despre produs, afișat pe landing page pentru a crește încrederea. În CRM poți adăuga recenzii cu like-uri, reacții și fotografii.
@@ -170,6 +192,9 @@ Tracking care se face de pe server, nu din browser-ul utilizatorului. Mai precis
 ### SKU (Stock Keeping Unit)
 Cod unic care identifică o variantă specifică de produs. De exemplu, dacă ai un creion în 3 culori, vei avea 3 SKU-uri diferite (unul pentru fiecare culoare).
 
+### SKU virtual (serviciu)
+Variantă care reprezintă un serviciu vândut cu SKU doar pentru fulfillment și factură. Nu are stoc fizic, deci nu intră în valoarea stocului, în estimările de stoc și în alertele de stoc mic.
+
 ### Slug
 Partea finală a URL-ului unei pagini. De exemplu, pentru URL-ul "magazin.ro/creion-sprancene", slug-ul este "creion-sprancene".
 
@@ -180,7 +205,10 @@ Testarea a două variante diferite ale aceleiași pagini sau oferte pentru a ved
 Prețul recomandat de vânzare - prețul "tăiat" care apare lângă prețul promoțional pentru a arăta reducerea.
 
 ### Status
-Starea curentă a unei comenzi, produs sau alte elemente din sistem. Exemple statusuri comenzi: New, Queued, Confirmed, Shipped, Delivered, Returned.
+Starea curentă a unei comenzi, a unui produs sau a altui element din sistem. Exemple de statusuri ale comenzilor: New, Queued, Pending, Confirmed, Paid, Returned. Lista completă este în [Comenzi](/crm/orders).
+
+### Stoc mort
+Stoc fără nicio vânzare într-o perioadă aleasă (30, 60 sau 90 de zile). Reprezintă bani blocați în marfă.
 
 ### Stoc
 Cantitatea disponibilă dintr-un produs în depozit.
@@ -206,7 +234,7 @@ Tracking care se face din browser-ul utilizatorului prin cod JavaScript (pixeli)
 ## U
 
 ### Upsell
-Ofertă de produse suplimentare sau upgrade-uri prezentată clientului în timpul procesului de cumpărare. Scopul este să crești valoarea comenzii.
+Ofertă de produse suplimentare sau de un pachet mai mare, prezentată clientului ca să crească valoarea comenzii. Upsell-urile se configurează în CRM: oferte pre-achiziție (în formularul de comandă) și post-achiziție (pe pagina de mulțumire).
 
 ---
 
@@ -233,7 +261,7 @@ Element interactiv care poate fi plasat pe o pagină web. De exemplu, widget-ul 
 ## Termeni specifici statusuri comenzi
 
 ### New (Nou)
-Status inițial al unei comenzi. Comenzile rămân în acest status dacă au oferte post-achiziție neconfirmate sau dacă sunt în faza de testare.
+Status inițial al unei comenzi. Comenzile noi trec automat în **Queued**; rămân **New** doar dacă au o ofertă post-achiziție neconfirmată.
 
 ### Queued (În coadă)
 Comanda așteaptă să fie procesată de sistem. Sistemul verifică automat comenzile în queue și le trimite către următorul pas.
@@ -241,17 +269,29 @@ Comanda așteaptă să fie procesată de sistem. Sistemul verifică automat come
 ### Pending (În așteptare)
 Comanda așteaptă să fie confirmată telefonic de echipa de customer support.
 
+### Scheduled (Programată)
+Comanda a fost confirmată cu o dată de livrare programată și este trimisă automat în ziua aleasă (planul Silver).
+
 ### Confirmed (Confirmată)
 Comanda a fost confirmată și este pregătită pentru expediere.
 
-### Shipped (Expediată)
-Comanda a fost preluată de curier și este în tranzit către client.
+### Test
+Comandă de test. Comenzile cu produse în status **Testing** sau **Paused** primesc automat statusul **Test** și nu sunt trimise în Helpship.
 
-### Delivered (Livrată)
-Comanda a fost livrată cu succes clientului.
+### Paid (Plătită)
+Comanda a fost plătită de client și apare într-un raport COD din Helpship (Gold Plus).
+
+### Unpaid (Neplătită)
+Comanda a fost livrată, dar după cel puțin 7 zile nu apare încă într-un raport COD.
 
 ### Returned (Returnată)
-Comanda a fost returnată (refuzată de client, neridicată, adresă greșită, etc.).
+Comanda nu a fost ridicată de client și s-a întors (Gold Plus).
+
+### Wrong Address (Adresă greșită)
+Curierul a marcat comanda din cauza unei adrese greșite. Verifică adresa și cere în Helpship modificarea ei.
+
+### Action Required (Necesită acțiune)
+Comanda necesită verificare; detaliile sunt în Helpship.
 
 ### Cancelled (Anulată)
 Comanda a fost anulată (de client, de echipă sau automat de sistem).
@@ -267,7 +307,7 @@ Comanda are o eroare tehnică care împiedică procesarea (de obicei probleme de
 Produs activ pe care îl vinzi și pentru care rulezi reclame. Comenzile cu produse Active sunt trimise automat în Helpship.
 
 ### Testing (Testare)
-Produs în faza de testare. Comenzile cu produse Testing **nu** sunt trimise automat în Helpship.
+Produs în faza de testare. Comenzile cu produse Testing primesc statusul **Test** și **nu** sunt trimise în Helpship.
 
 ### Paused (Pauzat)
 Produs inactiv pe care nu îl mai vinzi sau pe care l-ai testat și nu a funcționat.
@@ -279,17 +319,25 @@ Produs activ pentru care nu mai rulezi reclame dar încă mai ai stoc și vrei s
 
 ## Termeni specifice planuri de abonament
 
+Fiecare plan include tot ce au planurile de sub el. Comparația completă este în [Cum încep → Alege planul de abonament](/crm/cum-incep#pasul-1-alege-planul-de-abonament).
+
+### Pause
+Păstrează contul și datele, dar nu primește și nu procesează comenzi.
+
+### Starter
+Aceleași funcționalități ca Bronze, cu o limită de 300 de comenzi pe lună.
+
 ### Bronze
-Planul de bază, ideal pentru început sau testare.
+Planul de bază, cu o limită de 1.000 de comenzi pe lună.
 
 ### Silver
-Plan intermediar cu funcționalități suplimentare (ex: bundles, recenzii).
+Adaugă detectarea duplicatelor, lista neagră, statusuri avansate pentru parțiale, programarea comenzilor, reguli de atașare, utilizatori și roluri.
 
 ### Gold
-Plan avansat cu funcționalități premium (ex: webhooks, oferte pre/post-achiziție).
+Adaugă ofertele pre și post-achiziție, magazine nelimitate, webhook-uri și mai multe țări.
 
 ### Gold Plus
-Planul complet cu toate funcționalitățile avansate (ex: Cost & Profit, Sales & ROAS, Attachment Rules, Order Recoveries, Ad Accounts).
+Planul complet: toate dashboard-urile din General și Analiză, conturi publicitare, sincronizare zilnică cu Helpship, asistenți AI și addon-urile avansate.
 
 ---
 

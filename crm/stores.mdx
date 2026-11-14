@@ -6,8 +6,17 @@ icon: "store"
 Pagina **Magazine** permite gestionarea magazinelor tale online. Fiecare magazin poate avea propriile setări de personalizare, serie comenzi și configurări de urmărire conversii pentru platformele de advertising.
 
 <Info>
-Poți avea mai multe magazine în cadrul aceluiași cont, fiecare cu propriile setări și configurări independente.
+Poți avea mai multe magazine în cadrul aceluiași cont, fiecare cu propriile setări și configurări independente. Al doilea magazin și următoarele cer planul **Gold**.
 </Info>
+
+## Banner CMS
+
+Deasupra listei de magazine apare un banner despre CMS-ul Startscale:
+
+- dacă instanța ta nu are CMS, bannerul prezintă CMS-ul și are butonul **Încearcă gratuit 30 de zile** și link-ul **Vezi ce include**;
+- dacă ai deja CMS, apare cardul **CMS-ul tău este activ**, cu link-ul **Deschide CMS-ul**.
+
+Detalii despre CMS în [Ce este un CMS](/cms/ce-este-un-cms).
 
 ## Tabel magazine
 
@@ -21,7 +30,7 @@ Tabelul afișează toate magazinele configurate cu următoarele informații:
 
 - **ID** - ID-ul magazinului în sistem
 - **URL** - Adresa magazinului online (ex: shop.magazinulmeu.ro)
-- **Țară** - Țara în care operează magazinul
+- **Țară** - Țara magazinului (implicit, țara principală a instanței)
 - **Serie comenzi** - Prefixul comenzilor pentru acest magazin
 - **Schemă de culori** - Culorile personalizate pentru formularul de comandă (primară, accent, fundal)
 - **Status urmărire** - Configurarea tracking-ului pentru platformele de advertising (Server/Client)
@@ -38,7 +47,7 @@ URL-ul trebuie să fie unic pentru fiecare magazin. Acesta va fi folosit pentru 
 </Tip>
 
 #### Țară
-Selectează țara în care va opera acest magazin. Această setare influențează validările și formatările specifice țării respective.
+Formularul nu mai are selector de țară (nici câmp de nume: magazinul este identificat prin URL). Un magazin nou primește automat țara implicită a instanței (de obicei România). Adăugarea altor țări în instanță cere planul **Gold**. Țara apare în listă și pe pagina magazinului, iar lista se poate filtra cu **Filtru Țară**.
 
 ## Customizează
 
@@ -58,7 +67,7 @@ Seria de comenzi te ajută să identifici rapid din ce magazin provine o comand�
 
 ### Schemă de culori
 
-Personalizează culorile formularului de comandă pentru a se potrivi cu identitatea vizuală a magazinului tău.
+Personalizează culorile formularului de comandă pentru a se potrivi cu identitatea vizuală a magazinului tău. Schema de culori este disponibilă începând cu planul **Starter**.
 
 Poți configura 3 culori:
 

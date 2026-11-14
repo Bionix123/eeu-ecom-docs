@@ -15,7 +15,7 @@ Platforma Startscale oferă addon-uri premium care automatizează procese critic
 Această funcționalitate este disponibilă doar pentru abonamentul **Gold Plus**.
 </Info>
 
-Sistemul de recuperare automată a comenzilor GLS monitorizează livrările nereușite și marchează comenzile pentru reapelare imediată.
+Sistemul de recuperare automată a comenzilor GLS monitorizează livrările nereușite și reprogramează automat livrarea în GLS. Notificările detectate apar în pagina [Order Recoveries](/crm/order-recoveries), vizibilă în meniu după activarea addon-ului.
 
 ### Beneficii
 
@@ -24,8 +24,8 @@ Sistemul de recuperare automată a comenzilor GLS monitorizează livrările nere
 - Detectează comenzile care nu au putut fi livrate din prima încercare
 
 **Recuperare rapidă**
-- Comenzile sunt marcate automat pentru reapelare și recuperare imediată
-- Procesul de recontactare a clienților este automatizat
+- Livrarea este reprogramată automat, cât timp clientul încă așteaptă coletul
+- Un colet poate fi reprogramat de cel mult 2 ori
 
 **Scade numărul de comenzi returnate**
 - Scade cu până la 3-5% rata de comenzilor returnate
@@ -36,7 +36,7 @@ Sistemul de recuperare automată a comenzilor GLS monitorizează livrările nere
 
 Costul per comandă recuperată: **3,50 lei, TVA inclus**
 
-Costul este adăugat automat la factura lunară de abonament. Plătești doar pentru comenzile efectiv recuperate.
+Costul este adăugat automat la factura lunară de abonament. Plătești doar pentru comenzile efectiv recuperate: comenzile reprogramate de sistem care ajung apoi să fie plătite (apar în raportul COD).
 
 ### Configurare
 
@@ -105,7 +105,7 @@ Costul per corecție variază în funcție de planul de abonament:
 
 | Plan | Cost per corecție |
 |------|-------------------|
-| Bronze | 0.11 Lei |
+| Starter / Bronze | 0.11 Lei |
 | Silver | 0.09 Lei |
 | Gold | 0.07 Lei |
 | Gold Plus | 0.05 Lei |
@@ -119,6 +119,8 @@ Prețurile nu includ TVA. Creditele se cumpără din pagina **Add-on-uri**, iar 
 
 **2. Preluarea automată**
 - Agentul AI va prelua comanda la maxim 5 minute după ce aceasta a intrat în pending
+- Sunt verificate comenzile în status **Pending** din ultimele 7 zile, doar cât timp ai credite disponibile
+- Dacă o adresă nu poate fi corectată după **3 încercări**, AI-ul renunță la ea și adresa rămâne pentru verificare manuală
 
 **3. Corectarea adresei**
 - Adresa este validată, completată și curățată de erori
@@ -133,7 +135,7 @@ Prețurile nu includ TVA. Creditele se cumpără din pagina **Add-on-uri**, iar 
 Poți achiziționa credite pentru corecții în avans:
 
 - **Pachete rapide:** 50 Lei, 100 Lei, 300 Lei
-- **Sumă personalizată:** Introdu orice sumă dorești
+- **Sumă personalizată:** minim 50 Lei, multiplu de 10 Lei
 
 Creditele nu expiră și pot fi folosite oricând.
 
@@ -147,6 +149,6 @@ Recomandăm revizuirea cu atenție a tuturor corecțiilor făcute de sistemul no
 
 ## Activare/Dezactivare
 
-Fiecare addon poate fi activat sau dezactivat individual din interfața de administrare. Când un addon este dezactivat, nu se vor mai percepe costuri pentru acel serviciu.
+Fiecare addon poate fi activat sau dezactivat individual din pagina **Addon-uri** (comutatorul **Corectare automată**, respectiv comutatorul din tab-ul GLS). Când un addon este dezactivat, nu se vor mai percepe costuri pentru acel serviciu.
 
 💡 **Sfat:** Monitorizează statisticile fiecărui addon pentru a evalua ROI-ul și a optimiza costurile operaționale.

@@ -3,131 +3,56 @@ title: "Order Recoveries"
 icon: "bell"
 ---
 
-Pagina **Order Recoveries** afișează toate comenzile care au fost marcate pentru recuperare automată din sistemul GLS. Această funcționalitate face parte din addon-ul de [Recuperare comenzi GLS](/crm/addons#recuperarea-comenzilor-din-gls).
+Pagina **Order Recoveries** afișează livrările GLS nereușite detectate de addon-ul [Recuperarea comenzilor din GLS](/crm/addons#recuperarea-comenzilor-din-gls) și ce s-a întâmplat cu fiecare.
 
 <Info>
-Această funcționalitate este disponibilă doar pentru abonamentul **Gold Plus**.
+Pagina apare în meniu (secțiunea **Principal**) doar după ce addon-ul este activat. Addon-ul este disponibil doar pentru abonamentul **Gold Plus**. Prețul, beneficiile și pașii de configurare sunt descriși în pagina [Addon-uri](/crm/addons#recuperarea-comenzilor-din-gls).
 </Info>
+
+## Cum funcționează
+
+1. **Încercare de livrare** - Curierul GLS nu reușește să livreze coletul și trimite un email de notificare
+2. **Detectare** - Emailul ajunge, prin regula de forward configurată, la sistemul nostru, care îl asociază comenzii după AWB
+3. **Reprogramare automată** - Livrarea este reprogramată automat în GLS, fără intervenția echipei de suport
+4. **Facturare** - Comanda este considerată recuperată și este facturată doar dacă, după reprogramare, ajunge să fie **plătită** (apare în raportul COD din Helpship)
 
 <Info>
-Sistemul de recuperare automată monitorizează livrările nereușite de la GLS și marchează comenzile pentru reapelare imediată, reducând rata de returnare cu până la 3-5%.
+Un colet (același AWB) poate fi reprogramat de cel mult **2 ori**. La o nouă livrare nereușită, notificarea primește statusul **Limit Reached** și nu mai este reprogramată.
 </Info>
 
-## Ce sunt Order Recoveries?
+## Statistici
 
-Order Recoveries sunt comenzi care au fost detectate automat ca fiind nereușite la livrare de către curierul GLS. Sistemul monitorizează email-urile de la GLS și reprogramează automat livrările pentru următoarea zi disponibilă, fără intervenție manuală.
+Partea de sus a paginii afișează, pentru perioada aleasă (azi, ieri, săptămâna curentă, luna curentă sau un interval personalizat):
 
-### Cum funcționează sistemul
+- **Total Notifications** - numărul de livrări nereușite detectate
+- **Rescheduled**, **Failed**, **Limit Reached** - numărul de notificări pe fiecare status
+- **Recovered Orders** - comenzile reprogramate care au fost apoi plătite
+- **Recovery Cost** - costul estimat al comenzilor recuperate
+- graficele **Notifications Over Time** și **Status Breakdown**
 
-1. **Încercare de livrare** - Curierul GLS încearcă livrarea comenzii
-2. **Notificare nereușită** - Dacă livrarea este nereușită, GLS trimite notificare pe email
-3. **Filtrare automată** - Sistemul nostru filtrează email-urile de recuperare și le introduce în lista de reprogramare
-4. **Reprogramare automată** - Sistemul reprogramează automat livrarea pentru următoarea zi disponibilă (în mod normal, următoarea încercare de livrare este după 3 zile lucrătoare)
+## Tabelul notificărilor
 
-<Info>
-**Procesul este complet automat** - Nu este necesară nicio intervenție din partea echipei de customer support. Sistemul gestionează automat întregul proces de recuperare.
-</Info>
+| Coloană | Ce conține |
+|---|---|
+| **ID** | ID-ul notificării |
+| **INFO** | ID-ul extern al notificării și AWB-ul coletului |
+| **Order** | Comanda asociată (seria magazinului + `-COD-` + ID-ul comenzii) |
+| **Status** | Vezi mai jos |
+| **Reason** | Motivul livrării nereușite, din emailul GLS |
+| **GLS Login** | Linkul din emailul GLS către pagina coletului |
+| **Rescheduled Day** | Ziua pentru care a fost reprogramată livrarea |
+| **Created At** / **Updated At** | Când a fost detectată notificarea și când s-a schimbat ultima dată |
 
-## Tabel comenzi de recuperat
+Căutarea din tabel funcționează după ID-ul notificării. Rândurile nu pot fi editate.
 
-Tabelul afișează toate comenzile marcate pentru recuperare cu următoarele informații:
+### Statusuri
 
-### Coloane disponibile
-
-- **Order ID** - ID-ul comenzii în sistem
-- **Client** - Numele clientului
-- **Telefon** - Numărul de telefon al clientului
-- **Adresă** - Adresa de livrare
-- **Data livrării nereușite** - Când a avut loc tentativa nereușită
-- **Data reprogramării** - Data la care a fost reprogramată livrarea
-- **Motiv** - Motivul pentru care livrarea nu a reușit (ex: client absent, adresă incorectă)
-- **Status** - Statusul procesului de recuperare
-
-### Statusuri recuperare
-
-- **New** - Comandă nou detectată, așteaptă reprogramare automată
-- **Rescheduled** - Livrare reprogramată automat pentru următoarea zi disponibilă
-- **Unchangeable** - Comanda nu poate fi modificată (de exemplu, deja în curs de livrare)
-- **Failed** - Recuperare eșuată după multiple încercări nereușite
-
-## Monitorizare și vizualizare
-
-Pagina Order Recoveries oferă vizibilitate completă asupra procesului automat de recuperare:
-
-### Filtrare și căutare
-- Filtrează comenzile după status (New, Rescheduled, Unchangeable, Failed)
-- Caută după Order ID, nume client sau număr de telefon
-- Sortează după dată pentru a vedea cele mai recente recuperări
-
-### Detalii comandă
-Apasă pe Order ID pentru a vedea detalii complete:
-- Istoricul încercărilor de livrare
-- Motivele pentru care livrarea nu a reușit
-- Datele de reprogramare
-- Comunicările automate trimise către client
-
-## Statistici recuperare
-
-Panoul afișează statistici despre performanța recuperării:
-
-- **Total comenzi de recuperat** - Numărul total de comenzi marcate pentru recuperare
-- **Comenzi recuperate** - Numărul de comenzi recuperate cu succes
-- **Rata de recuperare** - Procentul de comenzi recuperate din total
-- **Valoare recuperată** - Valoarea totală a comenzilor recuperate (RON)
-
-<Tip>
-O rată de recuperare de peste 70% este considerată excelentă. Sistemul automat reprogramează comenzile imediat după detectarea livrării nereușite, maximizând șansele de recuperare.
-</Tip>
-
-## Avantaje sistem automat
-
-### Reprogramare instantanee
-- Comenzile sunt reprogramate automat imediat după detectarea livrării nereușite
-- Nu se pierde timp cu apeluri telefonice sau verificări manuale
-- Procesul este mai rapid decât reprogramarea standard GLS (3 zile lucrătoare)
-
-### Fără intervenție manuală
-- Sistemul funcționează 24/7 fără pauze
-- Nu necesită resurse din echipa de customer support
-- Elimină erorile umane în procesul de reprogramare
-
-### Transparență completă
-- Vizualizezi toate comenzile recuperate într-un singur loc
-- Monitorizezi performanța sistemului în timp real
-- Accesezi istoricul complet al fiecărei recuperări
-
-## Configurare addon
-
-Pentru a activa funcționalitatea de recuperare automată GLS, consultă secțiunea [Recuperarea comenzilor din GLS](/crm/addons#recuperarea-comenzilor-din-gls) din pagina Addon-uri.
-
-### Costuri
-
-- **Cost per comandă recuperată:** 3,50 lei, TVA inclus
-- Plătești doar pentru comenzile efectiv recuperate
-- ROI estimat: până la 20x
+- **New** - Notificare nouă, în curs de procesare
+- **Rescheduled** - Livrarea a fost reprogramată
+- **Unchangeable** - Livrarea nu mai poate fi modificată în GLS (de exemplu, coletul este deja în livrare sau în retur)
+- **Failed** - Reprogramarea nu a reușit
+- **Limit Reached** - Coletul a fost deja reprogramat de 2 ori
 
 <Warning>
-Asigură-te că addon-ul este configurat corect pentru a primi notificările de la GLS. Verifică setările de forward email și confirmă că regula este activă.
+Dacă nu apar notificări noi deși ai livrări nereușite, verifică regula de forward din Gmail și setarea **Receive Email** din [Setări](/crm/settings). Pașii sunt în pagina [Addon-uri](/crm/addons#configurare).
 </Warning>
-
-## Beneficii
-
-### Reducere returnări
-- Scade cu 3-5% rata de comenzi returnate
-- Economisești costuri de transport retur
-- Îmbunătățești profitabilitatea magazinului
-
-### Reprogramare mai rapidă
-- Livrările sunt reprogramate automat pentru următoarea zi disponibilă
-- Procesul este mai rapid decât reprogramarea standard GLS (care durează 3 zile lucrătoare)
-- Crește șansele ca clientul să primească comanda la a doua încercare
-
-### Automatizare completă
-- Nu mai trebuie să verifici manual email-urile de la GLS
-- Sistemul identifică și reprogramează automat comenzile problematice
-- Zero intervenție necesară din partea echipei de customer support
-- Funcționează 24/7 fără pauze
-
-<Info>
-Comenzile recuperate cu succes contribuie la veniturile tale fără costuri suplimentare de marketing. Fiecare comandă recuperată este profit direct adăugat la business.
-</Info>

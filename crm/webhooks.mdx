@@ -3,152 +3,97 @@ title: "Webhook-uri"
 icon: "webhook"
 ---
 
-Pagina **Webhook-uri** îți permite să configurezi integrări automate cu sisteme externe prin trimiterea de notificări HTTP când anumite evenimente au loc în platformă.
+Webhook-urile trimit automat o cerere HTTP `POST` către o adresă aleasă de tine când se întâmplă ceva cu o comandă sau un parțial. Așa conectezi CRM-ul la alte aplicații (Zapier, Make, un CRM extern, un serviciu de SMS) fără să scrii cod în CRM.
 
 <Info>
-Această funcționalitate este disponibilă începând cu planul **Gold**.
+Webhook-urile sunt disponibile începând cu planul **Gold** și se gestionează din **Setări** → **API și Webhooks**. Nu mai au pagină separată în meniul lateral.
 </Info>
 
-## Ce sunt webhook-urile?
+## Cazuri de utilizare
 
-Webhook-urile sunt notificări automate trimise către un URL specificat când anumite evenimente au loc în sistem. Acestea permit integrarea platformei cu alte aplicații și servicii externe.
+- **SMS de confirmare**: trimiți clientului un SMS când comanda este creată sau expediată
+- **Notificări**: primești comenzile noi în Slack, Discord sau email
+- **Sincronizare**: trimiți comenzile și parțialele în alt CRM sau într-un sistem de raportare
+- **Automatizări**: declanșezi fluxuri în Zapier sau Make
 
-### Cazuri de utilizare
-- **SMS confirmare** - Trimite SMS-uri de confirmare comandă către clienți
-- **Notificări personalizate** - Primește notificări în aplicații externe (Slack, Discord, etc.)
-- **Automatizări** - Declanșează procese automate în alte sisteme
-- **Sincronizare date** - Menține datele sincronizate între platforme
-- **Raportare** - Trimite date către sisteme de raportare și analiză
+## Adaugă un webhook
 
-## Tabel webhook-uri
+1. Deschide **Setări** → **API și Webhooks**.
+2. La **Webhooks**, completează **URL**: adresa publică, `http` sau `https`, care primește cererea.
+3. Alege **Eveniment**.
+4. Apasă **Adaugă webhook**.
 
-Tabelul afișează toate webhook-urile configurate cu următoarele informații:
+Fiecare webhook trimite **un singur eveniment**. Ca să primești mai multe evenimente, adaugă câte un webhook pentru fiecare; poți folosi aceeași adresă. Aceeași adresă nu poate fi adăugată de două ori pentru același eveniment.
 
-### Coloane disponibile
+Pentru a opri un webhook, apasă **Șterge** și confirmă. Adresa nu va mai primi evenimentul respectiv. Ca să schimbi adresa sau evenimentul, șterge webhook-ul și adaugă unul nou.
 
-- **URL** - URL-ul către care sunt trimise notificările
-- **Eveniment** - Tipul de eveniment care declanșează webhook-ul
-- **Acțiuni** - Opțiuni pentru editare și ștergere
+<Note>
+Ai nevoie de permisiunea **Setări** ca să deschizi pagina și de permisiunile pentru webhook-uri din [Roluri](/crm/roles) ca să le vezi, adaugi sau ștergi.
+</Note>
 
-## Creare webhook
+## Evenimente
 
-Pentru a crea un webhook nou, apasă butonul **"Creează Webhook"** și completează formularul.
+| Eveniment | Cheie | Când este trimis |
+| --- | --- | --- |
+| **Comandă creată** | `order.created` | Imediat după ce un client plasează o comandă din formularul unui landing page. |
+| **Comandă expediată** | `order.dispatched` | Când comanda este trimisă la Helpship. Pentru comenzile din formular, la circa 6 minute după plasare, după fereastra pentru upsell-ul post-achiziție. |
+| **Comandă confirmată** | `order.confirmed` | Când o comandă confirmată din CRM a fost confirmată cu succes la Helpship. |
+| **Comandă programată** | `order.scheduled` | Când o comandă este confirmată cu o dată de livrare programată. |
+| **Comandă anulată** | `order.canceled` | Când o comandă este anulată din CRM, prin asistenții AI sau prin API. |
+| **Comandă pusă în așteptare** | `order.held` | Când o comandă este pusă în așteptare (hold). |
+| **Comandă scoasă din așteptare** | `order.unheld` | Când o comandă în așteptare este eliberată. |
+| **Parțial creat** | `partial.created` | La 15 minute după ce un client a început formularul fără să plaseze comanda, dacă între timp nu a finalizat comanda. |
 
-### Câmpuri formular
-
-#### URL
-Introdu URL-ul complet către care vor fi trimise notificările webhook.
+<Tip>
+Folosește **Comandă creată** ca să reacționezi imediat la o vânzare. Folosește **Comandă expediată** când ai nevoie de conținutul final al comenzii, inclusiv upsell-urile post-achiziție acceptate.
+</Tip>
 
 <Info>
-URL-ul trebuie să fie accesibil public și să accepte cereri POST cu date JSON.
+Comenzile anulate automat pentru că clientul este pe lista neagră nu trimit **Comandă anulată**, iar **Comandă confirmată** nu se trimite dacă confirmarea eșuează la Helpship.
 </Info>
 
-<Warning>
-Asigură-te că URL-ul este corect și că serverul tău este configurat să primească și să proceseze cererile webhook.
-</Warning>
+## Ce date se trimit
 
-#### Eveniment
+Cererea are header-ul `Content-Type: application/json` și un corp JSON cu două câmpuri:
 
-Selectează evenimentul care va declanșa webhook-ul. Evenimentele disponibile sunt:
+```json
+{
+  "event_type": "order.created",
+  "data": { "orderId": 45213, "...": "..." }
+}
+```
 
-- **Comandă creată** - Se declanșează când o comandă nouă este plasată
-- **Comandă expediată** - Se declanșează când o comandă este trimisă către Helpship
-- **Comandă confirmată** - Se declanșează când o comandă este confirmată din pagina Comenzi > Order Confirm
-- **Comandă programată** - Se declanșează când o comandă este programată (scheduled)
-- **Comandă anulată** - Se declanșează când o comandă este anulată
-- **Comandă pusă în așteptare** - Se declanșează când o comandă este pusă în așteptare (hold)
-- **Comandă scoasă din așteptare** - Se declanșează când o comandă este scoasă din așteptare (unhold)
-- **Parțial creat** - Se declanșează când un parțial este creat
+- Evenimentele de comandă trimit datele comenzii: ID, status, total, monedă, magazin, țară, numele și telefonul clientului, sursa, slug-ul paginii și produsele.
+- **Parțial creat** trimite datele din formular, oferta landing page-ului și istoricul clientului, dacă telefonul aparține unui client existent.
 
-<Tip>
-Poți crea mai multe webhook-uri pentru același eveniment dacă dorești să trimiți notificări către mai multe sisteme.
-</Tip>
+Datele sunt cele din momentul evenimentului, nu starea curentă a comenzii. Structura completă a fiecărui câmp este în documentația API a instanței, tab-ul **Webhooks**. Vezi [API și integrări](/crm/api).
 
-## Gestionare webhook-uri
+## Livrare
 
-### Editare webhook
-
-Pentru a edita un webhook existent:
-1. Găsește webhook-ul în tabel
-2. Apasă pe iconița **creion** din coloana Acțiuni
-3. Modifică URL-ul sau evenimentul
-4. Salvează modificările
-
-### Ștergere webhook
-
-Pentru a șterge un webhook:
-1. Găsește webhook-ul în tabel
-2. Apasă pe iconița **ștergere** din coloana Acțiuni
-3. Confirmă ștergerea
-
-<Warning>
-Ștergerea unui webhook este permanentă. Asigură-te că nu mai ai nevoie de acel webhook înainte de a-l șterge.
-</Warning>
-
-## Testare webhook-uri
-
-### Verificare funcționare
-
-Pentru a verifica că webhook-ul funcționează corect:
-
-1. **Creează un webhook** pentru un eveniment de test
-2. **Declanșează evenimentul** manual (ex: creează o comandă de test)
-3. **Verifică logs** pe serverul tău pentru a confirma primirea cererii
-4. **Validează datele** primite pentru a te asigura că sunt complete
-
-### Debugging
-
-Dacă webhook-ul nu funcționează:
-
-- **Verifică URL-ul** - Asigură-te că este corect și accesibil
-- **Verifică serverul** - Confirmă că serverul acceptă cereri POST
-- **Verifică firewall-ul** - Asigură-te că nu blochează cererile
-- **Verifică logs** - Caută erori în logs-urile serverului tău
-- **Testează manual** - Folosește tools precum Postman pentru a testa endpoint-ul
-
-<Tip>
-Poți folosi servicii precum webhook.site sau requestbin.com pentru a testa și a vedea exact ce date sunt trimise de webhook.
-</Tip>
+- Webhook-urile sunt trimise la scurt timp după eveniment.
+- Serverul tău trebuie să răspundă în **10 secunde**. Răspunde rapid cu un cod `2xx` și procesează datele ulterior.
+- Fiecare webhook este trimis **o singură dată**. Cererile eșuate (timeout, eroare de conexiune, răspuns în afara `2xx`) **nu sunt reîncercate**.
+- Evenimentele pot ajunge în altă ordine decât s-au produs. Bazează-te pe statusul din date, nu pe ordinea sosirii.
 
 ## Securitate
 
-### Bune practici de securitate
-
-- **Folosește HTTPS** - Întotdeauna folosește URL-uri HTTPS pentru a proteja datele
-- **Limitează accesul** - Restricționează accesul la endpoint-ul webhook doar la IP-urile platformei
-- **Monitorizează** - Monitorizează cererile webhook pentru activitate suspectă
-- **Gestionează erorile** - Implementează gestionare corectă a erorilor pe serverul tău
-
-### Protecție împotriva atacurilor
-
 <Warning>
-Nu expune informații sensibile în răspunsurile webhook-ului și asigură-te că endpoint-ul este protejat împotriva atacurilor.
+Cererile **nu sunt semnate** și nu au header-e proprii. Oricine cunoaște adresa poate trimite cereri către ea.
 </Warning>
 
-## Bune practici
+- Folosește o adresă `https` greu de ghicit, de exemplu cu un token secret în URL.
+- Înainte de o acțiune importantă, verifică datele prin API (de exemplu cu `GET /api/v1/orders/{id}`), folosind o [cheie API](/crm/api#chei-api).
+- Nu expune informații sensibile în răspunsul serverului tău.
 
-### Configurare webhook-uri
+## Testare și depanare
 
-- **Testează înainte de producție** - Testează webhook-urile într-un mediu de test
-- **Documentează** - Păstrează documentație despre ce face fiecare webhook
-- **Monitorizează** - Verifică regulat că webhook-urile funcționează corect
-- **Optimizează** - Asigură-te că procesarea webhook-urilor este rapidă
+1. Adaugă un webhook către un serviciu de test precum webhook.site.
+2. Declanșează evenimentul (de exemplu, plasează o comandă de test).
+3. Verifică cererea primită și datele din ea.
 
-### Procesare date
+Dacă webhook-ul nu ajunge:
 
-- **Procesare asincronă** - Procesează datele webhook în background pentru răspunsuri rapide
-- **Validare date** - Validează întotdeauna datele primite
-- **Idempotență** - Implementează procesare idempotentă pentru a gestiona duplicate
-- **Logging** - Păstrează logs detaliate pentru debugging
-
-### Scalabilitate
-
-- **Queue system** - Folosește un sistem de queue pentru procesare
-- **Rate limiting** - Implementează rate limiting pe endpoint
-- **Load balancing** - Distribuie încărcarea pe mai multe servere
-- **Monitoring** - Monitorizează performanța și volumul de cereri
-
-<Tip>
-Pentru aplicații critice, consideră implementarea unui sistem de backup care să verifice periodic dacă toate evenimentele au fost procesate corect.
-</Tip>
-
+- verifică dacă adresa este corectă, publică și acceptă cereri `POST`;
+- verifică dacă serverul răspunde în mai puțin de 10 secunde;
+- verifică dacă firewall-ul nu blochează cererile;
+- verifică logurile serverului tău.

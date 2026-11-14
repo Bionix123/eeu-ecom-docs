@@ -16,15 +16,16 @@ Tabelul afișează toate paginile de destinație configurate cu următoarele inf
 ### Coloane disponibile
 
 - **ID** - ID-ul paginii de destinație în sistem
-- **Produs** - Produsul asociat acestei pagini
-- **Magazin** - Magazinul căruia îi aparține pagina
-- **Nume** - Numele descriptiv al paginii
-- **Slug** - URL-ul paginii (ex: produs-demo)
+- **Pagină** - Numele paginii (îngroșat), produsul cu eticheta statusului său (Active, Testing, Leftover, Paused) și link-ul `magazin/slug`, care deschide pagina într-un tab nou
 - **Link-uri** - Link-urile pentru previzualizare formular și widget recenzii + tutoriale pentru utilizare
-- **Preț 1, Preț 2, Preț 3** - Prețurile pentru cele 3 oferte
-- **Preț transport** - Costul transportului
-- **Status post achizitie** - Dacă pagina are activate ofertele post achizitie
+- **Prețuri** - Prețurile pentru **1 buc.**, **2 buc.**, **3 buc.** și **Livrare**, în moneda magazinului. Dacă SRP-ul este mai mare decât prețul pentru o bucată, apare tăiat lângă el.
+- **Status post achizitie** - Dacă pagina are activate ofertele post achizitie (planul Gold)
 - **Status urmărire** - Configurarea tracking-ului (Sursă urmărire și Status)
+
+### Filtre
+
+- **Filtru Status Pagină de Destinație**: **Activ** sau **Testare**, după statusul produsului paginii
+- **Filtru Magazin Pagină de Destinație**: paginile unui anumit magazin
 
 ### Sursă urmărire
 
@@ -73,6 +74,9 @@ Introdu un nume pentru calea finală a slide-ului paginii de destinație (ex: "p
 Slug-ul trebuie să fie unic și să conțină doar litere mici, cifre și cratime. Nu folosi spații sau caractere speciale.
 </Warning>
 
+#### Versiune formular
+Aspectul formularului de comandă: **Original** (implicit) sau **Modern**. Câmpurile și funcționarea sunt aceleași în toate versiunile.
+
 #### Calea paginii Thank You
 Exemplu: Calea Thank You `/multumim-frumos` va direcționa clientul pe pagina `magazinulmeu.ro/multumim-frumos` după plasarea comenzii.
 
@@ -90,49 +94,42 @@ Pagina Thank You este pagina pe care clientul o vede după ce a plasat comanda c
 ![Landing Page Create Form - Part 2](/images/landing-page-create-2.png)
 </Frame>
 
+Secțiunea **Setări ofertă** conține, în ordine: **Setări formular**, **Schemă de culori**, multiplicatorul de cantitate și prețurile.
+
 ### Setări formular
 
-### SKU principal
-Selectează SKU-ul principal al produsului care va fi afișat în formularul de comandă.
+Câmpul **Setări formular** are cinci părți, fiecare cu previzualizare.
 
-În cazul în care produsul are mai multe variante, acesta va fi varianta implicită afișată în formular.
+#### Varianta preselectată
+Produsul selectat automat când clientul deschide formularul. Caută SKU-ul printre **Variante Produs** și **Pachete**. Varianta preselectată trebuie să fie printre variantele afișate în formular.
 
-#### Titlu Oferta 1, 2, 3
-Definește titlurile pentru cele 3 oferte disponibile (ex: "Cumpără 1", "Cumpără 2", "Cumpără 3").
+#### Oferte de cantitate
+Textele celor 3 carduri de ofertă (1, 2 și 3 bucăți): pentru **Oferta 1**, **Oferta 2** și **Oferta 3** completezi **Etichetă** (ex: "Cel mai vândut") și **Text cantitate** (ex: "Doi"). Prețurile se setează mai jos, la **Prețuri**.
 
-#### Numerale 1, 2, 3
-Setează numerale descriptive pentru fiecare ofertă (ex: "Un creion", "Două creioane", "Trei creioane").
+#### Variante în formular
+Variantele dintre care alege clientul (culoare, mărime...), în ordinea afișării. Pentru fiecare alegi **SKU**-ul și **Nume Afișare** (maxim 20 de caractere). Ordinea se schimbă cu **Mută mai sus** / **Mută mai jos**, iar o variantă nouă se adaugă cu **Adaugă variantă**.
 
-#### Afișați etichetele variantelor
-Bifarea acestei căsuțe va face ca numele de afișare ale variantelor să apară deasupra imaginilor, în formularul de checkout.
+Comutatorul **Afișează numele pe imagini** afișează numele variantelor deasupra imaginilor în formular.
+
+#### Câmpuri suplimentare
+Pentru **Email**, **Cod poștal** și **Notă de la client** alegi **Ascuns**, **Opțional** sau **Obligatoriu**. Dacă nota nu este ascunsă, poți seta și **Text Placeholder Notă**.
 
 <Tip>
-Activează această opțiune dacă dorești ca clienții să vadă clar numele fiecărei variante (ex: "Roz", "Nude", "Roșu") deasupra imaginilor produsului în formular.
+Nu recomandăm câmpul de email obligatoriu: mulți clienți nu folosesc adrese de email, iar rata de conversie poate scădea.
 </Tip>
 
-#### Afișați Variante
-Selectează ce variante să fie afișate în formular.
+#### Butonul de comandă
+Textul de pe butonul care trimite comanda (ex: "Plasează comanda!"), cu previzualizare alături. Gol înseamnă textul implicit, în limba formularului.
 
-<Info>
-Această opțiune este utilă pentru produsele cu mai multe variante, permițând afișarea tutoror variațiilor de produs și/sau a unor pachete.
-</Info>
+### Schemă de culori
 
-### Text formular
+Personalizează culorile formularului de comandă:
 
-#### Text Buton Comandă
-Personalizează textul butonului de comandă (ex: "Plasează comanda", "Comandă acum").
+- **Culoarea primară** - Culoarea principală a formularului
+- **Culoarea accent** - Culoarea pentru butoane și elemente interactive
+- **Culoarea fundal** - Culoarea de fundal a formularului
 
-#### Câmp Email
-Bifează acest câmp dacă dorești să colectezi adrese de email în formularul de comandă.
-<Tip>
-Nu recomandăm acest lucru deoarece există riscul ca rata de conversie să scadă deoarece mulți dintre clienții noștri nu folosesc adrese de email.
-</Tip>
-
-#### Câmp Notă
-Bifează acest câmp dacă dorești să permiti clienților să adauge note la comanda lor.
-
-#### Text Placeholder Notă
-Setează textul placeholder pentru câmpul de notă (ex: "Scrie o notă (opțional)").
+Dacă nu modifici aceste culori, pagina preia schema de culori a magazinului.
 
 ### Multiplicator cantitate
 
@@ -163,23 +160,6 @@ Ofertele pre-achiziție și post-achiziție sunt disponibile începând cu planu
 <Frame caption="Formular creare pagină - Prețuri și personalizare">
 ![Landing Page Create Form - Part 3](/images/landing-page-create-3.png)
 </Frame>
-
-## Personalizare
-
-### Număr recenzii
-Selectează numărul de recenzii care să fie afișate în widget-ul pentru recenzii.
-
-### Schemă de culori
-
-Personalizează culorile formularului de comandă:
-
-- **Culoarea primară** - Culoarea principală a formularului
-- **Culoarea accent** - Culoarea pentru butoane și elemente interactive  
-- **Culoarea fundal** - Culoarea de fundal a formularului
-
-<Tip>
-Poți folosi aceleași culori ca la nivel de magazin sau poți personaliza pentru fiecare pagină în parte.
-</Tip>
 
 ## Urmărire conversii
 
@@ -227,7 +207,7 @@ Pagina de detalii conține trei secțiuni principale:
 ### Recenzii
 
 <Info>
-Funcționalitatea de recenzii este disponibilă începând cu planul **Silver**.
+Funcționalitatea de recenzii este disponibilă începând cu planul **Starter**.
 </Info>
 
 Recenziile sunt afișate în widget-ul de recenzii de pe pagina de destinație și ajută la creșterea încrederii clienților.
@@ -258,7 +238,7 @@ Pentru a face recenziile mai credibile, variază numărul de like-uri, reacții 
 După ce ai adăugat recenzii, le poți previzualiza accesând link-ul din coloana **"Link-uri utile"** din tabelul de pagini de destinație.
 
 <Info>
-Numărul de recenzii afișate în widget se configurează din secțiunea **Personalizare** → **Număr recenzii** la crearea/editarea paginii de destinație.
+Widget-ul de recenzii afișează doar comentariile, fără antetul cu stele și numărul de recenzii.
 </Info>
 
 ### Oferte pre-achiziție

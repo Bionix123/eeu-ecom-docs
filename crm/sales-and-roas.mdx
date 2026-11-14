@@ -1,30 +1,29 @@
 ---
-title: "Vânzări și Roas"
+title: "Vânzări & ROAS"
+description: "Cheltuieli publicitare, vânzări și ROAS zilnic pe pagină de destinație, pentru luna selectată."
 icon: "chart-mixed"
 ---
 
-Pagina **Vânzări și Roas** oferă o analiză detaliată a performanței vânzărilor și a eficienței campaniilor publicitare prin metrica ROAS (Return on Ad Spend). Această pagină este esențială pentru evaluarea rentabilității campaniilor de marketing.
+Pagina **Vânzări & ROAS** (în meniu, **Analiză** → **Vânzări & Roas**) oferă o analiză detaliată a performanței vânzărilor și a eficienței campaniilor publicitare prin metrica ROAS (Return on Ad Spend). Această pagină este esențială pentru evaluarea rentabilității campaniilor de marketing.
 
 <Info>
-Această funcționalitate este disponibilă doar pentru abonamentul **Gold Plus**.
+Pagina este disponibilă pentru abonamentul **Gold Plus** și pentru utilizatorii cu permisiunea **Vânzări și ROAS** din grupul **Rapoarte și dashboard-uri**.
 </Info>
 
 <Info>
-**Diferența față de Cost și Profit:** Pagina Sales și ROAS analizează **vânzările brute** (înainte de rata de retur), în timp ce pagina Cost și Profit analizează **încasările reale** (comenzi confirmate și livrate, după aplicarea ratei de returnare). Vânzări și ROAS oferă o imagine a performanței campaniilor în timp real, înainte de ajustări.
+**Diferența față de Cost și Profit:** Pagina Vânzări & ROAS analizează **vânzările brute** (înainte de rata de retur), în timp ce pagina [Cost & Profit](/crm/cost-and-profit) analizează **încasările reale** (comenzi confirmate și livrate, după aplicarea ratei de returnare). Vânzări & ROAS oferă o imagine a performanței campaniilor în timp real, înainte de ajustări.
 </Info>
 
 ## Filtre și opțiuni
 
 ### Selectează an și lună
-- **Anul** - Dropdown pentru selectarea anului dorit (ex: 2026)
-- **Luna** - Dropdown pentru selectarea lunii dorite (ex: Martie)
-- **Buton Generează** - Generează raportul pentru perioada selectată
+- **An** și **Lună**: perioada raportului (ex: 2026, Martie)
+- **Încarcă**: generează raportul. Pagina nu încarcă nimic până nu apeși butonul.
 
 ### Opțiuni de afișare
-- **Include vânzări din upsell-uri** - Include veniturile din upsell-uri în calcule
+- **Include venituri din upsell-uri?** (activ implicit) - Include veniturile din upsell-uri în calcule
 
-### Statistici pentru destinație
-- **Toate paginile de destinație** - Afișează date agregate pentru toate landing page-urile
+Vânzările includ toate comenzile, mai puțin cele anulate și de test, indiferent dacă au fost încasate. Cheltuielile publicitare sunt doar cele ale campaniilor de vânzare.
 
 ## Grafic comparativ ROAS
 
@@ -40,16 +39,18 @@ Graficul liniar multi-serie **Comparație ROAS pentru toate paginile de destina�
 Folosește acest grafic pentru a compara rapid performanța diferitelor landing page-uri și pentru a identifica care campanii au cel mai bun ROAS.
 </Tip>
 
-## Tabel detaliat pe perioade
+## Detaliere zilnică
 
-Tabelul afișează o defalcare detaliată pentru fiecare perioadă cu următoarele coloane:
+Alege pagina din **Selectează pagina de destinație** (implicit **Toate paginile de destinație**). Sus vezi totalurile lunii pentru pagina aleasă: **Cheltuieli publicitate**, **Valoare vânzări**, **ROAS** și **Comenzi**.
+
+Tabelul afișează câte un rând pentru fiecare zi și un rând **Totaluri**, cu următoarele coloane:
 
 ### Coloane disponibile
 
 - **Dată** - Perioada pentru care sunt calculate datele
 - **Cheltuieli publicitate** - Costuri totale cu publicitatea (RON)
-- **Vânzări vândute** - Numărul total de vânzări
-- **Valoare medie comenzi** - Valoarea medie a unei comenzi (RON)
+- **Valoare vânzări** - Valoarea totală a vânzărilor (RON)
+- **Valoare medie comandă** - Valoarea medie a unei comenzi (RON)
 - **ROAS** - Return on Ad Spend (Venituri / Cheltuieli publicitate)
 - **Comenzi** - Numărul total de comenzi
 - **Produse vândute** - Numărul total de produse vândute
@@ -59,16 +60,19 @@ Tabelul afișează o defalcare detaliată pentru fiecare perioadă cu următoare
 
 Tabelul folosește un sistem de culori pentru a indica rapid performanța ROAS:
 
-- **Verde închis** - ROAS excelent (peste 3.5)
-- **Verde deschis** - ROAS foarte bun (3.0-3.5)
-- **Cyan** - ROAS bun (2.5-3.0)
-- **Galben** - ROAS acceptabil (2.0-2.5)
-- **Portocaliu** - ROAS scăzut (1.5-2.0)
-- **Roșu** - ROAS foarte scăzut (sub 1.5)
+Pragurile sunt ≥ 4,5, ≥ 3,5, ≥ 3, ≥ 2,5, ≥ 2 și sub 2, de la verde (foarte bun) la roșu (slab). Aceleași culori se folosesc și în graficul **ROAS pe pagină de destinație**.
 
-<Warning>
-Un ROAS sub 3.0 indică faptul că eficiența campaniilor publicitare este scăzută. Analizează și optimizează campaniile pentru a îmbunătăți performanța.
-</Warning>
+### Evoluție zilnică
+
+Sub tabel, trei grafice pentru pagina aleasă: suma vânzărilor și cheltuielile publicitare, produsele vândute și comenzile, și ROAS-ul pe zile.
+
+## Metrici pe pagină de destinație
+
+Graficele compară paginile între ele: **ROAS pe pagină de destinație**, **Comenzi pe pagină de destinație**, **Produse vândute pe pagină de destinație** și **Cheltuieli publicitare pe pagină de destinație**. La **Setări grafice** poți căuta o pagină și alege câte pagini se afișează (**Max pagini de destinație**).
+
+<Note>
+Pragurile de culoare sunt orientative. ROAS-ul minim la care o pagină nu pierde bani depinde de marja ei: îl găsești ca prag de rentabilitate în pagina [Profit](/crm/profit).
+</Note>
 
 ## Înțelegerea metricilor
 

@@ -1,156 +1,138 @@
 ---
 title: "Inventar produse"
+description: "Ce trebuie reaprovizionat, ce se vinde și ce stoc stă pe loc, plus volumul și greutatea stocului."
 icon: "gift"
 ---
 
-Pagina **Inventar produse** oferă o vizualizare completă și detaliată a stocului de produse, împărțită pe trei tab-uri principale: **General**, **Active** și **Leftovers**. Această pagină este esențială pentru monitorizarea performanței produselor și gestionarea eficientă a inventarului.
+Pagina **Inventar produse** (titlu: **Produse & Inventar**) îți arată ce trebuie reaprovizionat, ce se vinde și ce stoc stă pe loc. Datele se actualizează la 5 minute.
 
-## Tab-ul General
-
-Tab-ul **General** oferă o prezentare generală a întregului inventar de produse, indiferent de status.
-
-### Date generale inventar produse
-
-#### Valoare inventar
-Grafic cu bare care compară valoarea inventarului pentru:
-- **All Products** - Valoarea totală a tuturor produselor din stoc (VAT și Non-VAT)
-- **Active Products** - Valoarea produselor active din stoc (VAT și Non-VAT)
-- **Leftover Products** - Valoarea produselor leftover din stoc
-
-#### Status produse
-Grafic circular (pie chart) care arată distribuția produselor pe statusuri:
-- **Active** - Produse active în vânzare
-- **Leftover** - Produse care nu mai sunt promovate activ
-- **Testing** - Produse în faza de testare
-- **Paused** - Produse puse pe pauză
-
-### Rotație lunară stoc (NET - Ultimele 12 luni)
-Grafic combinat care arată evoluția stocului pe ultimele 12 luni:
-- **Turnover** (bare verzi) - Rotația stocului pe lună
-- **Quantity Sold** (linie) - Cantitatea vândută lunar
-
-Acest grafic ajută la identificarea tendințelor sezoniere și la planificarea aprovizionării.
-
-### Produse vândute pe zi (Ultimele 14 zile)
-Grafic cu bare care arată numărul de produse vândute zilnic în ultimele 14 zile. Util pentru:
-- Identificarea zilelor cu vânzări mari
-- Detectarea tendințelor pe termen scurt
-- Planificarea stocului pe termen scurt
-
-## Tab-ul Active
-
-Tab-ul **Active** se concentrează exclusiv pe produsele cu statusul **Active**, oferind analize detaliate despre performanța acestora.
-
-### Date inventar produse active
-
-#### Top 5 produse active după valoare inventar
-Tabel care listează primele 5 produse active după valoarea inventarului, cu următoarele coloane:
-- **Product Name** - Numele produsului
-- **SKU** - Codul unic al produsului
-- **Available** - Cantitatea disponibilă în stoc
-- **Inventory Value** - Valoarea totală a stocului pentru produsul respectiv
-
-Grafic cu bare orizontale care vizualizează aceleași date pentru o comparație rapidă.
-
-#### Venituri produse active (Ultimele 14 zile)
-Grafic liniar multi-serie care arată evoluția veniturilor pentru produsele active în ultimele 14 zile. Fiecare linie reprezintă un produs diferit, permițând compararea performanței.
-
-#### Top 5 produse active după venituri (Ultimele 14 zile)
-Grafic cu bare orizontale care arată primele 5 produse active după venituri generate în ultimele 14 zile.
-
-#### Produse active sub punctul de recomandare
-Tabel critic care listează produsele active care au atins sau sunt sub punctul de reaprovizionare:
-- **Product Name** - Numele produsului
-- **SKU** - Codul produsului
-- **Available** - Cantitatea disponibilă curent
-- **Reorder Point** - Punctul la care trebuie comandat stoc nou
-- **Demand** - Cererea zilnică medie
-- **Days Left** - Numărul de zile până la epuizarea stocului
-
-<Warning>
-Produsele din acest tabel necesită atenție imediată pentru a evita rupturi de stoc. Produsele cu **Days Left = 0** sunt în zona critică.
-</Warning>
-
-#### Top 5 produse active după cerere
-Grafic cu bare orizontale care arată primele 5 produse active după cererea zilnică medie, ajutând la identificarea produselor cu cea mai mare rotație.
-
-### Prezentare generală produse
-Tabel detaliat cu toate produsele active, incluzând:
-- **Product** - Imagine și nume produs
-- **Status** - Statusul produsului (Active)
-- **SKU** - Codul produsului
-- **Reorder Point** - Punctul de reaprovizionare
-- **Available** - Cantitatea disponibilă
-- **Return Rate** - Rata de returnare (%)
-- **Unit Price** - Prețul unitar
-- **Inventory Value** - Valoarea totală a stocului
-- **Demand** - Cererea zilnică medie
-- **Days Left** - Zile până la epuizare
+O găsești în meniul lateral, la **General** → **Inventar produse**.
 
 <Info>
-Acest tabel oferă o vizualizare completă a tuturor metricilor importante pentru fiecare produs activ, facilitând luarea deciziilor rapide de aprovizionare.
+Pagina este disponibilă pentru abonamentul **Gold Plus** și pentru utilizatorii cu permisiunea **Stocuri** din grupul **Rapoarte și dashboard-uri**.
 </Info>
 
-### Produse vândute pe zi (Ultimele 14 zile)
-Similar cu tab-ul General, dar filtrat doar pentru produsele active.
+În antet, rândul **Calculat cu** arată setările folosite: timpul estimat și maxim de livrare, zilele pentru calculul cererii și cu câte zile înainte primești alerta. Link-ul **Modifică →** te duce în [Setări → Stoc](/crm/settings#stoc).
 
-## Tab-ul Leftovers
+Pagina are două tab-uri: **Stoc & vânzări** și **Volum și greutate**. Ultimul tab deschis este ținut minte în browser.
 
-Tab-ul **Leftovers** se concentrează pe produsele cu statusul **Leftover** - produse care nu mai sunt promovate activ dar încă sunt disponibile pentru vânzare.
+## Cum se calculează
 
-### Date inventar produse leftover
+### Cerere / zi
 
-#### Top 5 produse leftover după valoare inventar
-Tabel și grafic cu bare care arată primele 5 produse leftover după valoarea inventarului:
-- **Product Name** - Numele produsului
-- **SKU** - Codul produsului
-- **Available** - Cantitatea disponibilă
-- **Inventory Value** - Valoarea stocului
+**Cerere / zi** = bucățile vândute în ultimele N zile ÷ N, unde N este **Zile pentru calculul cererii medii** din [Setări](/crm/settings#stoc).
 
-Acest raport ajută la identificarea produselor leftover care blochează cel mai mult capital.
+- Se iau în calcul toate zilele din interval, inclusiv cele fără vânzări.
+- Comenzile anulate, de test sau cu eroare nu intră.
+- Pentru o variantă adăugată mai recent decât intervalul, se împarte la zilele de când există, ca un produs nou să nu fie subestimat.
 
-#### Venituri produse leftover (Ultimele 14 zile)
-Grafic liniar multi-serie care arată evoluția veniturilor pentru produsele leftover în ultimele 14 zile.
+### Punct de reaprovizionare
 
-<Tip>
-Chiar dacă produsele sunt leftover, unele pot genera venituri consistente prin vânzări organice sau ca upsell/cross-sell.
-</Tip>
+**Punct reaprovizionare** = cerere / zi × timpul maxim de livrare. Altfel spus, vânzările din timpul estimat de livrare plus un stoc de siguranță pentru zilele de întârziere posibile.
 
-#### Top 5 produse leftover după venituri (Ultimele 14 zile)
-Grafic cu bare orizontale care identifică produsele leftover cu cele mai mari venituri în ultimele 14 zile.
+### Zile rămase și data de comandă
 
-#### Top 5 estimări stoc produse leftover
-Tabel detaliat cu estimări pentru produsele leftover:
-- **Product Name** - Numele produsului
-- **SKU** - Codul produsului
-- **Available** - Cantitatea disponibilă
-- **Demand** - Cererea zilnică medie
-- **Inventory Value** - Valoarea stocului
-- **Days Left** - Zile până la epuizare (999 = cerere foarte scăzută)
+- **Zile rămase** = stoc disponibil ÷ cerere / zi. Apare „—” când varianta nu a avut vânzări în perioada de calcul.
+- **Comandă până la** = data la care stocul ajunge la punctul de reaprovizionare. Dacă data a trecut, apare **Acum**, cu numărul de zile de întârziere.
 
-<Info>
-Valoarea **999** la **Days Left** indică faptul că cererea pentru produsul respectiv este foarte scăzută sau zero, iar stocul va dura foarte mult timp.
-</Info>
+### Statusul stocului
 
-## Utilizare și bune practici
+Doar pentru produsele **Active**:
 
-### Monitorizare zilnică
-- Verifică tab-ul **Active** pentru produsele sub punctul de reaprovizionare
-- Monitorizează graficul "Products Sold by Day" pentru a detecta anomalii
+| Status | Când |
+| --- | --- |
+| **Fără stoc** | Stocul este 0. |
+| **De comandat** | Stocul a ajuns aproape de punctul de reaprovizionare. |
+| **Pe terminate** | Stocul ajunge la punctul de reaprovizionare în următoarele zile de alertă (**Avertizare cu câte zile înainte**). |
+| **OK** | Stoc suficient. |
 
-### Analiză săptămânală
-- Analizează "Top 5 by Revenue" pentru a identifica produsele performante
-- Verifică "Return Rate" pentru produsele cu rate mari de returnare
+<Note>
+O variantă fără vânzări în perioada de calcul nu este marcată niciodată ca **De comandat**, nici măcar cu stoc 0.
+</Note>
 
-### Planificare lunară
-- Studiază "Monthly Stock Turnover" pentru tendințe sezoniere
-- Evaluează produsele leftover pentru posibile lichidări sau promoții
+### Rată retur
 
-### Optimizare inventar
-- Folosește datele de **Demand** pentru a ajusta cantitățile comandate
-- Monitorizează **Days Left** pentru a preveni rupturi de stoc
-- Identifică produsele leftover cu valoare mare de inventar pentru strategii de lichidare
+**Rată retur** = comenzi returnate ÷ comenzi rezolvate (plătite sau returnate), pentru comenzile trimise la livrare în ultimele 90 de zile. Comenzile încă în livrare nu intră, ca să nu scadă artificial rata. La hover vezi pe câte comenzi rezolvate s-a calculat.
+
+### Ce nu intră în stoc
+
+- Produsele cu status **Testing** sau **Paused** nu intră în **Valoare stoc**, **Bucăți în stoc** și tab-ul **Volum și greutate**. Ele apar însă în tabelul principal și în **Stoc mort**.
+- Variantele cu **SKU virtual (serviciu)** nu apar deloc pe această pagină. Vezi [Produse](/crm/products#sku-virtual-serviciu).
+
+## Stoc & vânzări
+
+### Indicatori
+
+- **Valoare stoc (cost)**: stocul disponibil × costul unitar al produsului, cu valoarea cu TVA dedesubt și împărțirea pe statusuri.
+- **Bucăți în stoc**: totalul bucăților și câte SKU-uri au stoc.
+- **De comandat acum**: variantele **De comandat** și **Fără stoc**. Un click filtrează tabelul.
+- **Stoc pe terminate**: variantele care trebuie comandate în următoarele zile de alertă.
+- **Stoc mort**: valoarea stocului fără vânzări în perioada aleasă la secțiunea **Stoc mort**.
+
+### Produse active de reaprovizionat
+
+Lista produselor active **Fără stoc**, **De comandat** sau **Pe terminate**, cele mai urgente primele. Coloane: **Produs**, **Status**, **Disponibil**, **Cerere / zi**, **Punct reaprovizionare**, **Se termină** (data estimată la care se epuizează stocul) și **Comandă până la**.
 
 <Warning>
-Produsele active cu **Days Left** sub 7 zile necesită comandă urgentă de stoc pentru a evita pierderea vânzărilor.
+Comandă stocul până la data din **Comandă până la**. După această dată, marfa poate ajunge după ce stocul s-a terminat.
 </Warning>
+
+### Cele mai vândute
+
+Primele 10 produse după bucățile vândute în ultimele **7 zile** sau **30 zile**, fără comenzile anulate.
+
+### Stoc mort
+
+Variantele cu stoc și fără nicio vânzare în ultimele **30**, **60** sau **90** de zile, ordonate după valoarea stocului. Produsele mai noi decât perioada sunt ignorate. Pentru fiecare vezi bucățile și data ultimei vânzări.
+
+### Evoluția vânzărilor
+
+- **Zilnic · 30 zile**: bucățile comandate pe zi, fără comenzile anulate.
+- **Plătite · 12 luni**: bucățile comenzilor plătite pe lună; la hover vezi costul lor de achiziție.
+
+### Toate produsele
+
+Tabelul cu toate variantele are:
+
+- căutare după nume sau SKU (**Caută după nume sau SKU**);
+- filtre după status (**Activ**, **Leftover**, **Pauzat**, **Testare** etc.) și după stoc (**De comandat acum**, **Stoc pe terminate**, **Stoc mort**);
+- sortare la click pe capul oricărei coloane.
+
+Coloane: **Produs**, **Status**, **Disponibil**, **Cerere / zi**, **Zile rămase**, **Punct reaprovizionare**, **Vândut 30z**, **Ultima vânzare**, **Rată retur**, **Valoare stoc**. Implicit, tabelul este ordonat după **Vândut 30z** și arată primele 50 de rânduri.
+
+## Volum și greutate
+
+Tab-ul calculează stocul fizic în m³ și kg, pentru spațiul din depozit, paleți și transport. Folosește dimensiunile și greutatea variantelor, completate pe pagina [Produse](/crm/products#dimensiuni-și-greutate): **lungime, lățime și înălțime în cm** și **greutate în grame**, pentru o bucată.
+
+### Indicatori
+
+- **Volum stoc**: volumul total și ce parte din bucăți au dimensiunile completate.
+- **Greutate stoc**: greutatea totală și greutatea medie pe bucată.
+- **Paleți / cutii necesari**: câți paleți sau câte cutii de mărimea aleasă ar ocupa stocul și cât de plini sunt.
+- **Fără dimensiuni / greutate**: câte SKU-uri nu au toate datele. Un click te duce la lista **De completat**.
+
+### Simulare paletizare 3D
+
+Simularea așază fiecare bucată din stoc, la dimensiunea ei, în rânduri și straturi, în paleți sau cutii de mărimea aleasă:
+
+- **Palet EUR**: 120 × 80 × 150 cm (implicit)
+- **Cutie**: 60 × 40 × 40 cm
+- **Personalizat**: introduci tu **Lungime (cm)**, **Lățime (cm)** și **Înălțime (cm)**, între 5 și 2000 cm
+
+Vezi câți paleți sau câte cutii sunt **Necesari**, **Umplere medie**, **Bucăți așezate** și greutatea pe palet sau cutie. Vizualizarea 3D se rotește prin tragere și se mărește cu scroll; la hover pe o cutie vezi produsul.
+
+<Note>
+Simularea este o estimare, nu un plan optim de încărcare. Variantele fără toate dimensiunile lipsesc din simulare, iar cele mai mari decât palet sau cutie nu sunt așezate.
+</Note>
+
+### Liste
+
+- **Cele mai voluminoase produse**: primele 10 produse după volumul stocului.
+- **De completat**: variantele fără lungime, lățime, înălțime sau greutate, cu câmpurile lipsă marcate și butonul **Editează**. Implicit vezi doar variantele cu stoc.
+
+## Bune practici
+
+- **Zilnic**: verifică **Produse active de reaprovizionat** și comandă înainte de data din **Comandă până la**.
+- **Săptămânal**: uită-te la **Stoc mort** și decide lichidarea, promoții sau folosirea ca upsell.
+- **Lunar**: compară **Rată retur** între produse și verifică dacă setările de livrare din **Setări → Stoc** mai sunt corecte.
+- Completează dimensiunile și greutatea variantelor ca să ai calcule corecte de volum și transport.
