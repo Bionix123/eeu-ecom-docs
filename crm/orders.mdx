@@ -146,7 +146,7 @@ Fiecare comandă trebuie să aibă următoarele informații completate:
 - **Curăță și Completează** - Ajută la curățarea și completarea automată a informațiilor comenzii
 - **Undo auto-completion** - Permite anularea completării automate a informațiilor comenzii
 - **Validarea Numărului de Telefon** (Silver+) - Dacă numărul de telefon este invalid, va apărea o notificare cu text roșu
-- **Detectarea Dublurilor de Comenzi** (Silver+) - Ajută la detectarea comenzilor duplicate ale aceluiași client (același telefon), în intervalul setat în [Setări](/crm/settings) (**DUPLICATE DAYS**). În cazul unui duplicat, va apărea o alertă
+- **Detectarea Dublurilor de Comenzi** (Silver+) - Ajută la detectarea comenzilor duplicate ale aceluiași client (același telefon), în intervalul setat în [Setări](/crm/settings) (**Interval verificare comenzi duplicate (zile)**). În cazul unui duplicat, va apărea o alertă
 - **Comenzi de pe același IP** (Silver+) - Avertizează când de pe aceeași adresă IP au fost plasate mai multe comenzi în ultimele 5 zile, chiar dacă au alt telefon (vezi mai jos)
 - **Recomandarea Codului Poștal** - Ajută la completarea codului poștal corect în mod automat
 - **Avertizare blacklist** (Silver+) - Dacă numărul de telefon/clientul se află în [lista neagră](/crm/customers#gestionarea-listei-negre), comanda va fi anulată automat. Din ecranul de confirmare poți și adăuga clientul în lista neagră
@@ -167,7 +167,7 @@ Verificarea prinde și comenzile plasate cu **alt număr de telefon** sau din al
 Cum se calculează:
 
 - se numără comenzile care **nu sunt anulate**, inclusiv comanda pe care o confirmi
-- intervalul este fix, de 5 zile, și nu depinde de **DUPLICATE DAYS**
+- intervalul este fix, de 5 zile, și nu depinde de **Interval verificare comenzi duplicate (zile)**
 - pentru IPv4 se compară adresa exactă, iar pentru IPv6 rețeaua clientului (primele 64 de biți ai adresei). Telefoanele primesc adrese IPv6 diferite în timp, dar din aceeași rețea.
 
 Click pe avertisment deschide lista comenzilor de pe același IP, ca să le poți compara (nume, telefon, adresă, produse) înainte de a confirma sau a anula.
@@ -180,7 +180,7 @@ Poți căuta oricând o adresă IP (IPv4 sau IPv6) în câmpul de căutare din l
 Mai multe comenzi de pe același IP nu înseamnă neapărat fraudă: membrii aceleiași familii sau colegii dintr-un birou pot comanda de pe aceeași conexiune. Verifică detaliile comenzilor înainte de a lua o decizie.
 </Info>
 
-Verificarea este activă implicit și poate fi oprită din [Setări](/crm/settings) (**ORDER DUPLICATE IP CHECK ENABLED**).
+Verificarea este activă implicit și poate fi oprită din [Setări](/crm/settings) (**Verifică duplicatele și după IP**).
 
 **Situații cunoscute:**
 - În anumite județe există mai multe localități cu același nume, de obicei sate cu același nume care aparțin de comune diferite.

@@ -20,7 +20,7 @@ Pagina are două tab-uri: **Stoc & vânzări** și **Volum și greutate**. Ultim
 
 ### Cerere / zi
 
-**Cerere / zi** = bucățile vândute în ultimele N zile ÷ N, unde N este **Avg demand days** din [Setări](/crm/settings#stoc).
+**Cerere / zi** = bucățile vândute în ultimele N zile ÷ N, unde N este **Zile pentru calculul cererii medii** din [Setări](/crm/settings#stoc).
 
 - Se iau în calcul toate zilele din interval, inclusiv cele fără vânzări.
 - Comenzile anulate, de test sau cu eroare nu intră.
@@ -43,7 +43,7 @@ Doar pentru produsele **Active**:
 | --- | --- |
 | **Fără stoc** | Stocul este 0. |
 | **De comandat** | Stocul a ajuns aproape de punctul de reaprovizionare. |
-| **Pe terminate** | Stocul ajunge la punctul de reaprovizionare în următoarele zile de alertă (**First alert days**). |
+| **Pe terminate** | Stocul ajunge la punctul de reaprovizionare în următoarele zile de alertă (**Avertizare cu câte zile înainte**). |
 | **OK** | Stoc suficient. |
 
 <Note>

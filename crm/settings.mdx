@@ -15,21 +15,21 @@ O deschizi din meniul lateral, la **Setări**. Pagina este vizibilă doar pentru
 
 ## Comandă
 
-- **Order series**: seria implicită a comenzilor, folosită ca prefix în numărul lor (ex: `BUY` → `BUY-COD-1234`) când magazinul nu are o serie proprie.
-- **Duplicate days**: numărul maxim de zile între două comenzi ale aceluiași client pentru a fi marcate ca duplicate (maximum 100).
-- **Duplicate IP check enabled**: avertizează și pentru comenzile plasate de pe aceeași adresă IP în ultimele 5 zile, chiar dacă au alt număr de telefon. Detalii în [Comenzi](/crm/orders).
-- **Show order number**: afișează clientului numărul comenzii pe pagina de după comandă (oferta post-achiziție și mesajul de mulțumire).
-- **Partial purchase tracking enabled**: trimite către Meta (Conversions API) un eveniment Purchase când un parțial venit din Facebook este confirmat și devine comandă.
-- **Partial landing page info enabled**: afișează în fereastra de confirmare a unui parțial un panou cu informații despre landing page (link, prețuri, preț livrare, total estimat).
+- **Serie implicită comenzi**: seria implicită a comenzilor, folosită ca prefix în numărul lor (ex: `BUY` → `BUY-COD-1234`) când magazinul nu are o serie proprie.
+- **Interval verificare comenzi duplicate (zile)**: numărul maxim de zile între două comenzi ale aceluiași client pentru a fi marcate ca duplicate (maximum 100).
+- **Verifică duplicatele și după IP**: avertizează și pentru comenzile plasate de pe aceeași adresă IP în ultimele 5 zile, chiar dacă au alt număr de telefon. Detalii în [Comenzi](/crm/orders).
+- **Afișează numărul comenzii**: afișează clientului numărul comenzii pe pagina de după comandă (oferta post-achiziție și mesajul de mulțumire).
+- **Tracking conversie pentru parțiale confirmate**: trimite către Meta (Conversions API) un eveniment Purchase când un parțial venit din Facebook este confirmat și devine comandă.
+- **Informații landing page în comenzile parțiale**: afișează în fereastra de confirmare a unui parțial un panou cu informații despre landing page (link, prețuri, preț livrare, total estimat).
 
 ## Helpship
 
-- **Client ID** și **Client secret**: datele de conectare la Helpship. La salvare, CRM-ul verifică automat conexiunea.
-- **Fulfillment packing price**: prețul de ambalare al centrului de fulfillment, cu link către **Istoric Preț Ambalare**.
-- **Last COD report date**: data ultimului raport COD procesat (doar citire).
-- **Receive email**: dacă emailul proprietarului magazinului se trimite cu comenzile către Helpship.
-- **Sender name**: numele expeditorului trimis la Helpship. Gol înseamnă domeniul magazinului. Poți folosi `{store}`, care se înlocuiește cu domeniul magazinului (ex: „Magazin `{store}`”).
-- **Postcode autocompletion**: completează automat codul poștal al comenzilor când acesta este sigur.
+- **Helpship – ID client** și **Helpship – cheie secretă**: datele de conectare la Helpship. La salvare, CRM-ul verifică automat conexiunea.
+- **Cost ambalare per comandă**: prețul de ambalare al centrului de fulfillment, cu link către **Istoric Preț Ambalare**.
+- **Ultimul raport de încasări (ramburs)**: data ultimului raport COD procesat (doar citire).
+- **Primește emailuri de la Helpship**: dacă emailul proprietarului magazinului se trimite cu comenzile către Helpship.
+- **Nume expeditor pe colet**: numele expeditorului trimis la Helpship. Gol înseamnă domeniul magazinului. Poți folosi `{store}`, care se înlocuiește cu domeniul magazinului (ex: „Magazin `{store}`”).
+- **Completare automată cod poștal**: completează automat codul poștal al comenzilor când acesta este sigur.
 
 ## Stoc
 
@@ -37,16 +37,16 @@ Aceste valori sunt folosite în [Inventar produse](/crm/products-inventory), pe 
 
 - **Timp estimat de livrare**: în câte zile ajunge de obicei în stoc marfa comandată la furnizor. Punctul de reaprovizionare acoperă vânzările din aceste zile plus stocul de siguranță.
 - **Timp maxim de livrare**: cât poate dura cel mult o livrare. Zilele peste timpul estimat devin stoc de siguranță: (maxim − estimat) × vânzări pe zi. Dacă e egal cu timpul estimat, nu există rezervă.
-- **Avg demand days**: câte zile se folosesc pentru vânzările pe zi (bucăți vândute în ultimele N zile ÷ N, fără comenzile anulate, de test sau cu eroare). Mai puține zile reacționează mai repede la schimbări, mai multe netezesc vârfurile.
-- **First alert days**: cu câte zile de vânzări înainte de punctul de reaprovizionare ești avertizat. Varianta apare **Pe terminate** și primești o notificare de stoc scăzut la sincronizarea stocului cu Helpship.
+- **Zile pentru calculul cererii medii**: câte zile se folosesc pentru vânzările pe zi (bucăți vândute în ultimele N zile ÷ N, fără comenzile anulate, de test sau cu eroare). Mai puține zile reacționează mai repede la schimbări, mai multe netezesc vârfurile.
+- **Avertizare cu câte zile înainte**: cu câte zile de vânzări înainte de punctul de reaprovizionare ești avertizat. Varianta apare **Pe terminate** și primești o notificare de stoc scăzut la sincronizarea stocului cu Helpship.
 
 <Info>
-**Exemplu:** vinzi 10 bucăți pe zi, livrarea durează de obicei 7 zile și cel mult 10. Comanzi când stocul ajunge la 100 de bucăți: 70 pentru cele 7 zile plus 30 rezervă pentru o întârziere de 3 zile. Cu **First alert days** = 3, ești avertizat la 130 de bucăți.
+**Exemplu:** vinzi 10 bucăți pe zi, livrarea durează de obicei 7 zile și cel mult 10. Comanzi când stocul ajunge la 100 de bucăți: 70 pentru cele 7 zile plus 30 rezervă pentru o întârziere de 3 zile. Cu **Avertizare cu câte zile înainte** = 3, ești avertizat la 130 de bucăți.
 </Info>
 
 ## Perioadă curentă
 
-- **Period order count** și **Period limit reached**: numărul de comenzi din perioada curentă de facturare și dacă limita planului a fost atinsă (doar citire).
+- **Comenzi în perioada curentă** și **Limita de comenzi atinsă**: numărul de comenzi din perioada curentă de facturare și dacă limita planului a fost atinsă (doar citire).
 - **Limba instanței**: **Română** sau **Engleză**. Este limba notificărilor generate automat, a paginilor publice și a vizitatorilor nelogați.
 
 <Note>
