@@ -14,7 +14,7 @@ Pagina este disponibilă pentru abonamentul **Gold Plus** și pentru utilizatori
 
 ## Filtre
 
-- **Perioadă rapidă**: **Azi**, **Ieri**, **7 zile**, **30 zile**, **Luna aceasta**, **Luna trecută**, **90 zile**
+- **Perioadă rapidă**: **Azi**, **Ieri**, **7 zile** (implicit), **30 zile**, **Luna aceasta**, **Luna trecută**, **90 zile**
 - **De la** / **Până la**: interval personalizat
 - **Pagină de destinație**: o pagină anume sau **Toate paginile**
 - **Produs**: un produs anume sau **Toate produsele**
@@ -48,7 +48,8 @@ Primul bloc conține cel mult 8 recomandări generate automat, ordonate după gr
 - **Venituri**: încasările perioadei (cu TVA).
 - **Marjă**: profitul total raportat la veniturile fără TVA.
 - **Profit / comandă**: profitul total împărțit la numărul de comenzi.
-- **Reclame**: cheltuiala cu reclamele, cu **ROAS**-ul și **Prag rentabilitate**.
+- **Reclame**: cheltuiala cu reclamele și **POAS**-ul.
+- **ROAS**: verde când este peste **Prag rentabilitate**, afișat dedesubt.
 - **Comenzi**: împărțite în **Încasate**, **Returnate** și **Deschise**.
 
 ## Unde se duc banii
@@ -102,11 +103,13 @@ Comenzile încasate și returnate, cu aceleași reguli ca în [Cost & Profit](/c
 - venitul fără TVA;
 - costul produselor, livrarea și ambalarea, după istoricul costurilor;
 - costul retururilor: o comandă returnată pierde livrarea și ambalarea;
-- reclamele, pe pagină și zi.
+- reclamele, pe pagină și zi. Se iau doar cheltuielile campaniilor de vânzare; cele marcate ca testare nu intră.
+
+Calculul presupune o firmă plătitoare de TVA și nu include comisioane de ramburs sau alte cheltuieli generale.
 
 ### Profit estimat
 
-Comenzile confirmate, expediate sau încă neîncasate primesc un profit estimat din rata istorică de retur (**r**) a produselor din comandă:
+Toate comenzile care nu sunt încă încasate sau returnate (noi, în așteptare, confirmate, programate, expediate și neîncasate etc.) primesc un profit estimat din rata istorică de retur (**r**) a produselor din comandă:
 
 ```
 profit estimat = (1 − r) × profit dacă se încasează + r × pierdere dacă se returnează
@@ -122,7 +125,7 @@ Produsele cu mai puțin de **20 de comenzi finalizate** în acest interval folos
 
 ### ROAS, POAS și pragul de rentabilitate
 
-- **ROAS** = venituri ÷ reclame
+- **ROAS** = venituri (cu TVA) ÷ reclame
 - **POAS** = profit înainte de reclame ÷ reclame. Sub 1 înseamnă pierdere: reclamele costă mai mult decât profitul pe care îl aduc.
 - **Prag de rentabilitate (breakeven ROAS)** = venituri ÷ profit înainte de reclame. Este ROAS-ul la care profitul paginii ar fi zero. Dacă nu există profit nici înainte de reclame, pragul nu se poate calcula.
 
