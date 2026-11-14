@@ -155,6 +155,16 @@
       }
     ]
   },
+  "redirects": [
+    {
+      "source": "/old_crm_docs/ad-accounts",
+      "destination": "/crm/ad-accounts"
+    },
+    {
+      "source": "/crm/inbound-calls",
+      "destination": "/crm/orders"
+    }
+  ],
   "logo": {
     "light": "/logo/startscale-logo-light-bg.svg",
     "dark": "/logo/startscale-logo-dark-bg.svg",
