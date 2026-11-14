@@ -1,124 +1,84 @@
 ---
 title: "Cost & Profit"
+description: "Venituri, costuri și profit pe zile, pentru fiecare landing page."
 icon: "chart-line"
 ---
 
-Pagina **Cost & Profit** oferă o analiză detaliată a costurilor și profiturilor pentru fiecare perioadă selectată. Această pagină este esențială pentru monitorizarea performanței financiare și identificarea tendințelor de profitabilitate.
+Pagina **Cost & Profit** arată veniturile, costurile și profitul pe zile, pentru o lună aleasă și pentru fiecare pagină de destinație.
+
+O găsești în meniul lateral, la **Analiză** → **Cost & Profit**.
 
 <Info>
-Această funcționalitate este disponibilă doar pentru abonamentul **Gold Plus**.
+Pagina este disponibilă pentru abonamentul **Gold Plus** și pentru utilizatorii cu permisiunea **Costuri și profit** din grupul **Rapoarte și dashboard-uri**.
 </Info>
 
 <Info>
-**Diferența față de Vânzări și ROAS:** Pagina Cost și Profit analizează **încasările reale** (comenzi confirmate și livrate, după aplicarea ratei de returnare), în timp ce pagina Vânzări și ROAS analizează **vânzările brute** (înainte de rata de retur). Cost și Profit oferă o imagine mai realistă a profitabilității efective.
+**Diferența față de alte pagini:**
+- **Cost & Profit** analizează **încasările reale**: veniturile comenzilor plătite, după retururi, pe zile.
+- [Vânzări & ROAS](/crm/sales-and-roas) analizează **vânzările brute**, înainte de retururi.
+- [Profit](/crm/profit) estimează și profitul comenzilor încă deschise și îl arată pe pagini, produse și stoc.
 </Info>
 
 ## Filtre și opțiuni
 
-### Selectează an și lună
-- **Anul** - Dropdown pentru selectarea anului dorit (ex: 2026)
-- **Luna** - Dropdown pentru selectarea lunii dorite (ex: Martie)
-- **Buton Generează** - Generează raportul pentru perioada selectată
+- **Selectează an și lună**: anul și luna raportului.
+- **Încarcă**: generează raportul. Pagina nu încarcă nimic până nu apeși butonul.
+- **Include venituri din upsell-uri?** (activ implicit): include veniturile din upsell-uri.
+- **Plătitor TVA?** (activ implicit): calculează profitul pentru o firmă plătitoare sau neplătitoare de TVA.
+- **Include cheltuieli pentru campanii de testare?** (inactiv implicit): scade și cheltuielile campaniilor de testare.
+- **Selectează pagina de destinație**: o pagină anume sau **Toate paginile de destinație**.
 
-### Opțiuni de afișare
-- **Include vânzări din upsell-uri** - Include veniturile din upsell-uri în calcule
-- **Plătitor TVA** - Calculează profitul pentru firmă plătitoare de TVA (bifat) sau neplătitoare de TVA (nebifat). Această opțiune afectează modul de calcul al profitului deoarece există diferențe în tratamentul TVA-ului
-- **Include cheltuieli pentru campanii de retargeting** - Include costurile campaniilor de retargeting în calcule
+## Indicatori
 
-## Statistici generale
+- **Venituri**: veniturile comenzilor plătite, cu TVA.
+- **Comenzi încasate**: numărul comenzilor plătite, cu câte sunt **Încă deschise** sau mesajul **Toate zilele închise**.
+- **TVA rămas de plătit** (doar pentru plătitorii de TVA): TVA-ul colectat minus TVA-ul deductibil din costurile cu produsele, livrarea și ambalarea.
+- **Profit**: profitul lunii și marja medie (profit ÷ venituri).
+- **ROI %**: profit ÷ costul produselor.
+- **Cheltuieli publicitate**: costul reclamelor și **ROAS mediu** (venituri ÷ cheltuieli).
+- **Rată returnare**: media ponderată a lunii.
 
-Panoul afișează următorii indicatori principali pentru perioada selectată:
+## Detaliu pe zile
 
-### Venituri
-**Valoarea totală** - Venituri totale generate în perioada selectată (RON)
+Tabelul are câte un rând pentru fiecare zi a lunii și un rând **Totaluri**:
 
-### TVA datorat de plătit
-**Valoarea TVA** - TVA de plătit pentru perioada selectată (RON)
-- **TVA Încasat** - TVA încasat
-- **TVA de Plată** - TVA de plătit
+- **Dată**
+- **Venituri**
+- **Încasate**: comenzile plătite din ziua respectivă
+- **Cheltuieli publicitate**
+- **Cost total**: costul produselor, livrării și ambalării; la hover vezi împărțirea pe **Produse**, **Livrare** și **Ambalare**
+- **Profit** și **Profit %**
+- **ROAS** = venituri ÷ cheltuieli publicitate
+- **POAS** = profit ÷ cheltuieli publicitate
+- **Rată returnare (%)**
 
-### Profit
-**Valoarea profitului** - Profit total generat în perioada selectată (RON)
-- **Net** - Profit net (pentru plătitori TVA)
-- **% din venituri** - Procentul profitului din venituri
+### Zile deschise
 
-### Cheltuieli publicitate
-**Valoarea cheltuielilor** - Cheltuieli totale cu publicitatea (RON)
-- **ROAS** - Return on Ad Spend (Venituri / Cheltuieli publicitate)
+O zi este **deschisă** cât timp are comenzi care nu sunt nici plătite, nici returnate. Rândul ei este marcat cu galben, iar venitul și rata de retur sunt estimate până la închiderea zilei.
 
-### Rată returnare
-**Procentaj returnări** - Rata de returnare a comenzilor (%)
-
-## Tabel detaliat pe perioade
-
-Tabelul afișează o defalcare detaliată pentru fiecare perioadă cu următoarele coloane:
-
-### Coloane disponibile
-
-- **Dată** - Perioada pentru care sunt calculate datele
-- **Venituri** - Venituri totale generate
-- **Cheltuieli publicitate** - Costuri cu publicitatea
-- **Cost total** - Costuri totale (produse + împachetare + livrare)
-- **Profit** - Profitul net din vânzări înainte de taxe și cheltuieli administrative
-- **Profit %** - Procentul profitului din venituri
-- **ROAS** - Return on Ad Spend (Venituri / Cheltuieli publicitate)
-- **Rată returnare (%)** - Procentul comenzilor returnate
-
-### Coduri de culoare pentru Profit %
-
-Tabelul folosește un sistem de culori pentru a indica rapid performanța:
-
-- **Verde** - Profit % ridicat (peste 15%)
-- **Galben** - Profit % mediu (10-15%)
-- **Portocaliu** - Profit % scăzut (5-10%)
-- **Roșu** - Profit % foarte scăzut sau negativ (sub 5%)
+În celula **Încasate** a unei zile deschise apare o iconiță **ⓘ**. La hover (sau la atingere, pe telefon) vezi **Comenzi încă deschise în această zi**, cu numărul de comenzi pe fiecare status (Nouă, În coadă, În așteptare, Confirmată, Neplătită, În hold, Programată, Necesită acțiune, Adresă greșită, Eroare).
 
 <Tip>
-Folosește codurile de culoare pentru a identifica rapid perioadele cu performanță slabă și pentru a investiga cauzele.
+Lasă o perioadă de cel puțin 7–10 zile înainte să tragi concluzii despre o zi: până atunci multe comenzi sunt încă în livrare.
 </Tip>
 
-### Coduri de culoare pentru ROAS
+### Culori
 
-- **Verde** - ROAS ridicat (peste 3.0)
-- **Galben** - ROAS mediu (2.0-3.0)
-- **Portocaliu** - ROAS scăzut (1.5-2.0)
-- **Roșu** - ROAS foarte scăzut (sub 1.5)
+Celulele **Profit %** și **ROAS** sunt colorate după praguri, de la roșu (slab) la verde (foarte bun). Pentru ROAS, pragurile sunt ≥ 4,5, ≥ 3,5, ≥ 3, ≥ 2,5, ≥ 2 și sub 2.
 
-<Warning>
-Un ROAS sub 2.5 indică faptul că cheltuielile cu publicitatea sunt prea mari în raport cu veniturile generate. Revizuiește strategia de marketing.
-</Warning>
+## Grafice
 
-## Utilizare și bune practici
+- **Grafice serie temporală**: **Profit vs Cheltuieli publicitate**, **ROAS** și **Rată returnare & Profit %**, pe zile.
+- **Metrici pe pagină de destinație**: rata de returnare, profitul în procente și în bani, ROI-ul, costul produselor și POAS-ul fiecărei pagini.
 
-### Analiză lunară
-- Generează rapoarte lunare pentru a evalua performanța generală
-- Compară profitul % între luni pentru a identifica tendințe sezoniere
-- Monitorizează ROAS-ul pentru a optimiza bugetul de publicitate
+La **Setări grafice** poți căuta o pagină, ascunde paginile cu ROI negativ, cu cost de produse mic sau cu ROI extrem și alege câte pagini se afișează (**Max pagini de destinație**).
 
-### Identificare probleme
-- Perioadele cu profit % roșu necesită investigare imediată
-- Verifică rata de returnare pentru perioade cu performanță slabă
-- Analizează costurile totale pentru a identifica cheltuieli neașteptate
+## Cum obții rezultate corecte
 
-### Optimizare campanii
-- Folosește datele de ROAS pentru a aloca bugetul către campaniile performante
-- Identifică perioadele cu cheltuieli mari de publicitate și profit scăzut
-- Ajustează strategia de marketing pe baza datelor istorice
+- Marchează corect statusul comenzilor (plătite, returnate, anulate).
+- Ține la zi costul produselor, prețurile curierilor și prețul ambalării (din [Produse](/crm/products) și [Setări](/crm/settings)).
+- Înregistrează cheltuielile cu reclamele în [Conturi publicitare](/crm/ad-accounts).
 
-### Planificare financiară
-- Folosește datele de TVA pentru planificarea plăților
-- Monitorizează profitul net pentru a evalua sănătatea financiară
-- Identifică tendințele de venituri pentru planificarea bugetului
-
-<Info>
-Raportul ia în considerare toate comenzile confirmate și livrate în perioada selectată. Comenzile anulate sau returnate sunt excluse din calcule, dar sunt reflectate în rata de returnare.
-</Info>
-
-## Cum să obții cele mai precise rezultate
-
-Pentru a obține cele mai precise rezultate din raport, asigură-te că:
-
-- Toate comenzile sunt marcate corect (confirmate, livrate, anulate, returnate)
-- Costurile de produse, împachetare și livrare sunt actualizate periodic în paginile produse și setări
-- Perioada selectată include suficiente date pentru analiză (zilele marcate cu galben reprezintă zilele cu date incomplete)
-- Ia în considerare o perioadă tampon de cel putin 7-10 zile pentru a evita erorile de calcul
+<Note>
+Datele sunt informative și pot să nu includă unele costuri ascunse sau istorice (de exemplu comisioane sau cheltuieli administrative).
+</Note>
