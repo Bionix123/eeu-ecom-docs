@@ -1,161 +1,128 @@
 ---
-title: "Panou principal comenzi"
+title: "Orders Insights"
+description: "Comenzile, veniturile, confirmarea și alertele într-o singură pagină, cu comparații față de perioada anterioară."
 icon: "clipboard-list"
 ---
 
-Pagina **Panou principal comenzi** (Orders Dashboard) oferă o vizualizare completă a statisticilor și performanței comenzilor, cu posibilitatea de filtrare după perioadă și landing page. Această pagină este esențială pentru monitorizarea vânzărilor și analiza performanței campaniilor.
+Pagina **Orders Insights** (fostul **Panou principal comenzi**) arată comenzile și veniturile pe perioada aleasă, rezultatul call center-ului, comenzile care cer atenție și când plasează clienții comenzi.
+
+O găsești în meniul lateral, la **General** → **Orders Insights**.
 
 <Info>
-Această funcționalitate este disponibilă doar pentru abonamentul **Gold Plus**.
+Pagina este disponibilă pentru abonamentul **Gold Plus** și pentru utilizatorii cu permisiunea **Comenzi** din grupul **Rapoarte și dashboard-uri**.
 </Info>
 
-## Filtre și KPI-uri
+<Note>
+Partea de sus a widget-ului (filtrele, cifrele, sursele de trafic și statusurile) apare și deasupra listei [Comenzi](/crm/orders). Graficele de venituri, upsell-uri, top venituri și harta pe zile și ore apar doar pe pagina **Orders Insights**.
+</Note>
 
-Secțiunea de filtrare permite personalizarea datelor afișate pentru a obține informații relevante.
+## Bara de sumar
 
-### Filtre disponibile
+Bara de sus arată perioada, numărul de comenzi și veniturile. Eticheta **N necesită atenție** adună comenzile din tab-ul **Alertă** și pe cele **Neconfirmate de peste 24h**; un click pe ea deschide tab-ul **Alertă**.
 
-#### Perioada
-- **Start Date** - Data de început pentru analiza datelor
-- **End Date** - Data de sfârșit pentru analiza datelor
-- **Presets rapide**:
-  - **Today** - Doar comenzile de astăzi
-  - **Week To Date** - De la începutul săptămânii până acum
-  - **Month To Date** - De la începutul lunii până acum
-  - **All Time** - Toate comenzile din istoric
+Butonul **Restrânge Dashboard-ul** / **Extinde Dashboard-ul** ascunde sau afișează restul widget-ului. Alegerea este ținută minte în browser.
 
-#### Landing Page
-- **All Landing Pages** - Afișează date pentru toate paginile de destinație
-- **Filtrare specifică** - Selectează o pagină de destinație specifică pentru analiză detaliată
+## Filtre
 
-<Info>
-Dacă nu găsești o pagină de destinație în dropdown, poți schimba sursa pentru a vedea și alte opțiuni disponibile.
-</Info>
+- **Perioadă rapidă**: **Astăzi** (implicit), **Ieri**, **Ultimele trei zile**, **De la începutul săptămânii** (de luni), **De la începutul lunii**, **Tot timpul**
+- **Data de început** / **Data de sfârșit**: interval personalizat
+- **Pagină de destinație**: o pagină anume sau **Toate paginile de destinație**. Paginile sunt ordonate după statusul produsului (activ, testare, leftover, pauză).
+- **Sursă**: **Toate sursele** sau o sursă anume (Facebook, Tiktok, Google, Organic, Partial, Admin, Inbound Call)
 
-#### Source (Sursă)
-Filtrare după sursa comenzilor (de exemplu: Facebook, Partial, Organic, etc.)
+Apasă **Aplică filtrele** ca să actualizezi datele. Rezultatele sunt păstrate în cache 15 minute pentru fiecare combinație de filtre.
 
-### KPI-uri principale
+<Tip>
+Dacă nu găsești o pagină de destinație în listă, mergi la **Pagini de destinație** → **Editează** și apasă **Salvează** fără să modifici nimic.
+</Tip>
 
-Panoul afișează următorii indicatori cheie de performanță:
+### Butoane rapide
 
-- **Total** - Valoarea totală a comenzilor în perioada selectată (RON)
-- **Comenzi** - Numărul total de comenzi
-- **Produse vândute** - Numărul total de produse vândute
-- **Rată de erori** - Rata problemelor (%)
-- **Valoare medie** - Valoarea medie a comenzii (RON)
+În dreapta perioadelor rapide sunt două butoane care deschid direct lista [Comenzi](/crm/orders) filtrată:
 
-## Statistici și grafice
+| Buton | Ce deschide |
+| --- | --- |
+| **Upsell neconfirmat** | Comenzile cu status **New** și upsell post-achiziție neconfirmat |
+| **De confirmat (pending)** | Comenzile cu status **Pending** |
+
+Numărul de pe fiecare buton arată comenzile din acest moment, indiferent de perioada aleasă. Se ține cont doar de pagina de destinație selectată.
+
+## Cifrele perioadei
+
+Pe un singur rând vezi cifrele, sursele de trafic și statusurile.
+
+### Indicatori
+
+Se iau în calcul comenzile create în perioadă, fără cele anulate și de test.
+
+- **Venituri**: suma totalurilor comenzilor
+- **Comenzi**: numărul de comenzi
+- **Valoare medie**: venituri ÷ comenzi
+- **Produse vândute**: totalul bucăților din comenzi
+- **Rată upsell**: procentul comenzilor cu cel puțin un upsell pre sau post-achiziție. Dedesubt vezi ce procent din venituri vine din upsell-uri.
+
+### Comparație cu perioada anterioară
+
+Sub fiecare indicator vezi variația față de perioada anterioară de aceeași lungime: verde cu săgeată în sus pentru creștere, roșu cu săgeată în jos pentru scădere. Rata upsell se compară în puncte procentuale (pp).
+
+Dacă perioada aleasă nu s-a terminat încă, comparația se face **până la aceeași oră**. De exemplu, azi până la 14:30 se compară cu ieri până la 14:30, iar sub cifre scrie **vs. perioada anterioară până la aceeași oră**. Pentru **Tot timpul** nu există comparație.
+
+### Rată confirmare
+
+**Rată confirmare** = comenzi confirmate ÷ (confirmate + anulate), adică procentul confirmărilor din comenzile la care call center-ul a primit un răspuns. Se consideră confirmate și comenzile care au ajuns ulterior plătite, neplătite sau returnate.
+
+Bara de sub procent împarte toate comenzile plasate în perioadă în **Confirmate** (verde), **În lucru** (gri) și **Anulate** (roșu), cu numărul și procentul fiecăreia.
+
+### Rată neridicate
+
+Pe planul **Gold Plus** apare și **Rată neridicate**, cu numărul comenzilor încă în livrare (**Comenzi în așteptare livrare**).
 
 ### Comenzi după sursa de trafic
 
-Grafic cu bare care arată distribuția comenzilor pe surse de trafic:
-- **Organic** - Trafic organic
-- **Partner** - Trafic de la parteneri
-- **Facebook** - Trafic de pe Facebook
-- **Inbound Call** - Comenzi primite prin apeluri telefonice
-
-Fiecare sursă afișează procentajul din totalul comenzilor.
+Câte comenzi și ce procent vin din fiecare sursă (Facebook, Tiktok, Organic, Partial etc.). La hover vezi și veniturile sursei.
 
 ### Comenzi după status
 
-Tabel care listează comenzile grupate pe statusuri:
-- **STATUS** - Statusul comenzii
-- **COUNT** - Numărul de comenzi cu acel status
+Tabelul are două tab-uri. Un click pe orice rând deschide **lista de comenzi filtrată** pe statusul respectiv.
 
-Statusuri posibile:
-- **Confirmed** - Comenzi confirmate și trimise către fulfillment
-- **Pending** - Comenzi în așteptare pentru confirmare
-- **Canceled** - Comenzi anulate
-- **New Inbound** - Comenzi noi primite prin apeluri telefonice
-- **Wrong Address** - Adresă incorectă
-- **Action Required** - Necesită acțiune
-- **Refused** - Refuzate
-- **Error** - Erori
-- **New** - Noi
-- **Upsell Unconfirmed** - Upsell neconfirmat
+- **Alertă** (deschis implicit): comenzile cu probleme, indiferent de perioadă: **Error**, **Wrong Address**, **Unpaid**, **Action Required**, **Hold**, **Upsell Unconfirmed**, **Not Fulfillable**, **Old On Hold**. Coloana **> 24h** arată câte sunt plasate de peste 24 de ore. Dacă nu e nimic de rezolvat, apare **Nicio comandă în alertă**.
+- **Principal**: comenzile din perioadă pe statusurile principale (**Confirmed**, **Pending**, **Canceled**, **Returned**, **Paid**, **New Inbound**).
 
-<Tip>
-Monitorizează statusurile **Action Required** și **Error** pentru a rezolva rapid problemele și a îmbunătăți rata de conversie.
-</Tip>
+### Neconfirmate de peste 24h
 
-### Rată returnări
+Sub tab-ul **Alertă** apar comenzile încă neconfirmate (New, Queued, Confirming, Pending) plasate de peste 24 de ore, grupate pe status, cu vechimea celei mai vechi. Un click pe rând deschide lista de comenzi filtrată.
 
-Indicator care arată rata de returnare a comenzilor:
-- **Procentaj** - Rata de returnare (%)
-- **Detalii** - Număr de returnări vs. comenzi livrate
+<Warning>
+Comenzile cu status **Error** sau **Action Required** trebuie rezolvate cât mai repede. Pentru **Error** folosește acțiunea **Order Requeue** ca să retrimiți comanda. Pentru **Action Required**, verifică în Helpship ce acțiune este necesară.
+</Warning>
 
-<Info>
-O rată de returnare de **0,0%** este ideală și indică produse de calitate și clienți mulțumiți.
-</Info>
+## Grafice
+
+Următoarele secțiuni apar doar pe pagina **Orders Insights**.
 
 ### Creștere venituri
 
-Grafic liniar care arată evoluția veniturilor în perioada selectată, cu două linii:
-- **Pre-Purchase** (linia albastră) - Venituri din vânzări tip upsell pre-purchase din formular
-- **Post-Purchase** (linia violet) - Venituri din upsell-uri post-achiziție de pe pagina de mulțumire
+- **Total**: evoluția veniturilor totale și a veniturilor din upsell-uri, plus împărțirea veniturilor pe tip (Pre-Purchase, Post-Purchase).
+- **Pe pagină de destinație**: evoluția veniturilor pentru primele 10 pagini de destinație.
 
-Graficul include și o vizualizare cu bare pentru comparație directă între cele două tipuri de venituri.
-
-<Note>
-Acest grafic poate fi filtrat **By Landing Page** pentru a vedea performanța fiecărei pagini de destinație individual.
-</Note>
+Graficul este pe ore pentru o singură zi, pe zile până la 90 de zile și pe luni pentru perioade mai lungi.
 
 ### Distribuție upsell-uri
 
-Grafic circular (pie chart) care arată distribuția upsell-urilor.
-
-Acest grafic ajută la înțelegerea tipurilor de upsell-uri care generează cele mai multe venituri.
+Grafic circular cu bucățile vândute pentru fiecare produs de upsell, cu filtrele **Pre**, **Post** și **Toate**.
 
 ### Top venituri
 
-Secțiune cu tab-uri care arată top produsele după venituri:
+Paginile de destinație sau produsele cu cele mai mari venituri, cu butonul **Afișează tot**.
 
-#### Tab-uri disponibile:
-- **Pre** - Venituri din vânzări tip upsell pre-purchase din formular
-- **Post** - Venituri din upsell-uri post-achiziție de pe pagina de mulțumire
-- **All** - Toate veniturile din upsell-uri combinate
+### Comenzi pe zile și ore
 
-#### Filtrare:
-- **Landing Page** - Filtrare după landing page
+Harta arată câte comenzi au fost plasate în fiecare zi a săptămânii (Lun–Dum) și în fiecare oră (00–23), în perioada și cu filtrele alese. Este utilă pentru programul call center-ului și al reclamelor.
 
-Grafic cu bare orizontale care arată:
-- **Numele produsului**
-- **Valoarea veniturilor** (RON)
+## Bune practici
 
-<Tip>
-Folosește această secțiune pentru a identifica produsele cele mai performante și pentru a optimiza strategia de vânzare.
-</Tip>
+- **Zilnic**: verifică tab-ul **Alertă**, **Neconfirmate de peste 24h** și butoanele rapide.
+- **Săptămânal**: urmărește **Rată confirmare** și variațiile față de săptămâna trecută.
+- **Lunar**: compară sursele de trafic și paginile cu cele mai mari venituri.
+- Folosește harta **Comenzi pe zile și ore** ca să programezi call center-ul în orele cu cele mai multe comenzi.
 
-## Utilizare și bune practici
-
-### Monitorizare zilnică
-- Folosește preset-ul **Today** pentru a vedea performanța zilei curente
-- Verifică **Comenzi după status** pentru comenzi care necesită acțiune
-- Monitorizează **Rată returnări** (return rate) constant pentru a identifica potențiale probleme fie in pasul de confirmare al comenzii fie în procesul de livrare
-
-### Analiză săptămânală
-- Folosește **Week To Date** pentru a evalua performanța săptămânii
-- Compară **Creștere venituri** între Pre-Purchase și Post-Purchase
-- Analizează **Comenzi după sursa de trafic** pentru a optimiza bugetul și strategia
-
-### Planificare lunară
-- Folosește **Month To Date** pentru rapoarte lunare
-- Studiază **Distribuție upsell-uri** pentru a identifica oportunități de upsell
-- Analizează **Top venituri** pentru a identifica produsele performante
-
-### Optimizare campanii
-- Filtrează după **Landing Page** specifică pentru a evalua performanța fiecărei campanii
-- Identifică produsele cu cele mai mari venituri pentru a le promova mai mult
-
-<Warning>
-Comenzile cu status **Error** sau **Action Required** trebuie rezolvate cât mai rapid pentru a evita pierderea vânzărilor și nemulțumirea clienților. Pentru comenzile cu status **Error** folosește acțiunea **Order Requeue** pentru a reîncerca trimiterea comenzii. Pentru comenzile cu status **Action Required**, verifică detaliile comenzii în Helpship pentru a identifica acțiunea necesară.
-</Warning>
-
-## Butonul "Aplică filtre"
-
-După ce ai configurat filtrele dorite (perioadă, landing page, sursă), apasă butonul **Aplică filtre** pentru a actualiza toate statisticile și graficele conform selecției tale.
-
-<Info>
-Toate graficele și statisticile se vor actualiza automat după aplicarea filtrelor, oferind o vizualizare personalizată a datelor tale. Fiecare interogare este salvată în memoria cache timp de 15 minute pentru a optimiza performanța, acesta fiind motivul pentru care modificările nu se reflectă imediat.
-</Info>
+Pentru profitul pe pagini și produse, vezi [Profit](/crm/profit).
