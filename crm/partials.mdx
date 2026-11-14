@@ -9,9 +9,68 @@ Pagina **Parțiale** conține toate comenzile parțiale făcute de clienți care
 Asigură-te că Parțialul pe care urmează să lucrezi are cel puțin **10 minute vechime**, altfel ar putea fi vorba de un client care încă completează formularul de checkout.
 </Warning>
 
+## Widget-ul de recuperare
+
+Pe planul **Gold Plus**, deasupra listei de parțiale apare un widget pe toată lățimea paginii, cu rezultatele recuperării pe perioada aleasă. Descrierea lui, la final, rezumă rolul: formulare începute și netrimise, sunate de call center, ce se recuperează, ce așteaptă și când merită sunat.
+
+Butonul **Restrânge Dashboard-ul** / **Extinde Dashboard-ul** ascunde sau afișează widget-ul.
+
+### Filtre
+
+- **Perioadă**: **Azi** (implicit), **Ieri**, **Ultimele 3 Zile**, **Săptămâna Curentă**, **Luna Curentă**, **Tot Timpul**
+- **Data Început** / **Data Sfârșit**
+- **Landing Page**: o pagină anume sau **Toate Landing Page-urile**
+
+Apasă **Aplică Filtrele** ca să actualizezi datele. Rezultatele sunt păstrate în cache 15 minute.
+
+### Cifre
+
+| Card | Ce arată |
+| --- | --- |
+| **Parțiale** | Toate parțialele din perioadă și câte sunt încă în așteptare. Când există parțiale în așteptare, link-ul **Deschide** deschide lista filtrată pe **Pending**, cele mai vechi primele. |
+| **Rată Acceptare** | Acceptate ÷ (acceptate + refuzate + fără răspuns): procentul de reușită din parțialele la care agentul a obținut un rezultat. |
+| **Rată conversie** | Acceptate ÷ toate parțialele din perioadă (fără cele de test și duplicate): câte comenzi aduc, în total, parțialele. |
+| **Venit recuperat** | Suma comenzilor obținute din parțiale acceptate, fără comenzile anulate. |
+| **Valoare Medie** | Valoarea medie a unei comenzi recuperate. |
+| **Rată Returnare Partiale** | Rata de neridicare a comenzilor venite din parțiale, cu numărul celor încă în livrare. |
+
+<Info>
+**Rata de acceptare** arată cât de bine lucrează call center-ul cu parțialele sunate. **Rata de conversie** arată cât recuperezi din toate parțialele, inclusiv cele încă nesunate sau amânate. Diferența mare între ele înseamnă de obicei multe parțiale încă în așteptare.
+</Info>
+
+### Reapeluri și curățare
+
+- **De resunat (later)**: câte parțiale sunt acum marcate **Later**, indiferent de perioadă, cu link-ul **Deschide** către lista lor (cele mai vechi primele). Cardul te avertizează câte expiră în curând: parțialele **Later** neatinse de peste 7 zile sunt marcate refuzate la următoarea curățare.
+- **Curăță Partiale**: rulează curățarea descrisă [mai jos](#curăță-parțiale) și arată câte parțiale au fost eliminate și câte au fost marcate refuzate.
+
+### Agenți
+
+Tabelul are câte un rând pentru fiecare utilizator, după cine a setat ultimul status al parțialului: **Procesate**, **Acceptate**, **Refuzate**, **Fără răspuns**, **Mai târziu**, **Duplicate**, **Rată Acceptare**, **În 1h** (procentul parțialelor rezolvate în prima oră de la intrare) și **Venit recuperat**. Ultimul rând este totalul.
+
+### Grafice
+
+Graficele apar doar când perioada are mai mult de o zi:
+
+- **Distribuție Status**: acceptate, refuzate, fără răspuns, mai târziu și duplicate.
+- **Tendințe Rată Acceptare**: evoluția ratei de acceptare **În Timp** sau **Pe Landing Page**.
+- **Viteza de apel**: timpul de la intrarea parțialului până la rezultatul agentului, pe intervale (sub 15 min, 15–60 min, 1–6 h, 6–24 h, peste 24 h), cu câte au devenit comenzi. Sus vezi procentul **rezolvate în prima oră** și **timp mediu**.
+
+<Note>
+Timpii sunt aproximativi: se măsoară până la ultima modificare a parțialului, nu până la primul apel.
+</Note>
+
+<Info>
+Pe planurile sub **Gold Plus**, deasupra listei apar carduri mai simple: parțialele în așteptare, statusul parțialelor modificate azi și cardul de curățare (**Rulează curățarea**).
+</Info>
+
 ## Curăță parțiale
 
-Aceasta este o funcție care ajută la curățarea parțialelor care au fost deja transformate în comenzi. Uneori, aceste parțiale nu sunt eliminate automat din listă.
+Curățarea face două lucruri:
+
+- **șterge** parțialele în așteptare pentru care clientul a plasat deja comanda;
+- marchează ca **refuzate** parțialele **Later** neatinse de peste 7 zile.
+
+Curățarea nu rulează automat: pornește doar când apeși butonul.
 
 <Tip>
 Recomandăm utilizatorilor să ruleze mai întâi **"Curăță parțiale"** înainte de a începe lucrul cu parțialele (apelarea comenzilor parțiale).
