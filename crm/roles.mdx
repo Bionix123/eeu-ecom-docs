@@ -3,45 +3,96 @@ title: "Roluri"
 icon: "id-badge"
 ---
 
-Pagina **Roluri** permite configurarea și gestionarea rolurilor de utilizator și a permisiunilor asociate acestora. Rolurile definesc ce acțiuni pot efectua utilizatorii în aplicația CRM.
+Pagina **Roluri** îți permite să creezi roluri și să alegi ce poate face fiecare. Un rol este un set de permisiuni pe care îl atribui utilizatorilor din pagina [Utilizatori](/crm/users).
 
-## Funcționalități
-
-### Creare roluri
-
-Pentru a crea un rol nou:
-
-1. Click pe butonul **Adaugă rol**
-2. Introdu numele rolului (ex: "Manager Vânzări", "Operator Call Center")
-3. Adaugă o descriere opțională pentru rol
-4. Selectează permisiunile dorite din lista disponibilă
-5. Salvează rolul
-
-### Editare roluri
-
-Pentru a modifica un rol existent:
-
-1. Selectează rolul din listă
-2. Click pe butonul **Editează**
-3. Modifică numele, descrierea sau permisiunile
-4. Salvează modificările
+O găsești în meniul lateral, la **Gestionare utilizatori** → **Roluri**.
 
 <Info>
-Modificările aduse unui rol se aplică automat tuturor utilizatorilor care au acel rol asignat.
+Rolurile sunt disponibile începând cu planul **Silver**, pentru utilizatorii care au permisiunea de a vedea rolurile.
 </Info>
 
-### Ștergere roluri
+## Matricea de permisiuni
 
-Pentru a elimina un rol din sistem:
+Pe pagina unui rol, permisiunile sunt grupate pe zone de lucru:
 
-1. Selectează rolul din listă
-2. Click pe butonul **Șterge**
-3. Confirmă acțiunea de ștergere
+1. **Comenzi**
+2. **Parțiale (comenzi abandonate)**
+3. **Clienți**
+4. **Produse și stoc**
+5. **Magazine și pagini de vânzare**
+6. **Publicitate**
+7. **Rapoarte și dashboard-uri**
+8. **Livrare, țări și monede**
+9. **Echipă și roluri**
+10. **Setări și integrări** (setări, webhook-uri, chei API, asistenți AI)
+
+Pentru fiecare resursă bifezi drepturile de bază: **Vede lista**, **Vede detaliile**, **Creează**, **Editează**, **Șterge**. Drepturile speciale (acțiuni precum confirmarea sau anularea comenzilor) sunt la **Alte drepturi**. Fiecare permisiune are un nume și o descriere care explică ce permite.
+
+### Dependențe bifate automat
+
+Unele permisiuni au nevoie de altele ca să funcționeze, iar CRM-ul le bifează automat:
+
+- **Vede detaliile** și **Creează** au nevoie de **Vede lista**; **Editează** și **Șterge** au nevoie de **Vede lista** și **Vede detaliile**.
+- Liniile și adresele comenzilor se editează din pagina comenzii, deci au nevoie de detaliile comenzii. La fel, variantele au nevoie de detaliile produsului, iar recenziile și ofertele, de detaliile paginii de destinație.
+
+Când bifezi o permisiune, un mesaj îți spune ce s-a mai bifat. Când debifezi una, se debifează și cele care depind de ea.
+
+### Permisiuni sensibile
+
+Permisiunile care șterg sau expun date, schimbă cine ce poate face sau acționează în afara CRM-ului au un scut și eticheta **Sensibil**. Exemple: anularea și unirea comenzilor, ștergerile, gestionarea utilizatorilor și rolurilor, **Setări**, webhook-urile și **Gestionare API keys**.
 
 <Warning>
-Nu poți șterge un rol care este asignat unor utilizatori activi. Trebuie mai întâi să reasignezi utilizatorii la un alt rol.
+Acordă permisiunile sensibile doar persoanelor de încredere.
 </Warning>
 
+### Permisiuni blocate de plan
+
+Permisiunile pentru funcții care nu sunt incluse în planul tău au un lacăt și eticheta **Disponibil din** urmată de plan (de exemplu **Disponibil din Gold Plus**). Nu pot fi bifate sau debifate până nu treci la planul respectiv.
+
+| Plan | Exemple de permisiuni |
+| --- | --- |
+| **Starter** | elementele pachetelor, recenziile paginilor de destinație |
+| **Silver** | reguli de atașare, roluri, crearea utilizatorilor, unirea comenzilor și notele, parțiale „mai târziu”, lista neagră |
+| **Gold** | oferte pre și post-achiziție, webhook-uri, crearea țărilor |
+| **Gold Plus** | conturi publicitare, toate dashboard-urile din **General** și **Analiză** (în afară de Calculatoare), asistenți AI (MCP) |
+
+## Creează un rol
+
+1. Click pe butonul de creare a unui rol.
+2. Introdu numele rolului (ex: "Operator Call Center").
+3. Opțional, alege un rol tip din **Pornește de la un rol tip**: permisiunile lui se bifează automat.
+4. Ajustează permisiunile din matrice.
+5. Salvează rolul.
+
+### Roluri tip
+
+| Rol tip | Ce include |
+| --- | --- |
+| **Agent call center** | Confirmă comenzi și parțiale la telefon, corectează adrese și produse, fără ștergeri și setări. |
+| **Manager depozit** | Produse, variante, stoc, pachete, curieri și sincronizarea comenzilor cu depozitul. |
+| **Marketing** | Pagini de vânzare, recenzii, oferte, conturi de publicitate și rapoartele de vânzări și ROAS. |
+| **Administrator** | Toate permisiunile. |
+
+Dacă alegi un rol tip după ce ai bifat deja permisiuni, CRM-ul te întreabă înainte să debifeze ceva.
+
 <Tip>
-Pentru o securitate optimă, creează roluri granulare cu permisiuni specifice în loc să folosești roluri generice cu acces larg.
+Pornește de la rolul tip cel mai apropiat și elimină ce nu e necesar. Este mai sigur decât să dai acces larg și să restrângi ulterior.
 </Tip>
+
+## Editează sau șterge un rol
+
+Deschide rolul, apasă **Editează**, modifică numele sau permisiunile și salvează.
+
+<Info>
+Modificările unui rol se aplică automat tuturor utilizatorilor care au acel rol.
+</Info>
+
+Pentru a șterge un rol, folosește acțiunea de ștergere și confirmă.
+
+<Warning>
+Nu poți șterge un rol atribuit unor utilizatori activi. Mută mai întâi utilizatorii la alt rol.
+</Warning>
+
+## Permisiuni pentru un singur utilizator
+
+Dacă un utilizator are nevoie de câteva drepturi în plus față de rolul lui, nu crea un rol nou: adaugă-le din pagina utilizatorului, la **Permisiuni specifice utilizatorului**. Vezi [Utilizatori](/crm/users#permisiuni-specifice-utilizatorului).
