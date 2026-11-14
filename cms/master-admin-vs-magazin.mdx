@@ -11,11 +11,11 @@ Aplicația este structurată pe două niveluri principale: **Master Admin** și 
 
 Din zona de Master Admin, utilizatorul poate:
 
-- configura unul sau mai multe magazine
-- gestiona utilizatorii și permisiunile acestora
-- atribui utilizatori la unul sau mai multe magazine
+- configura unul sau mai multe magazine și domeniile lor
+- gestiona utilizatorii și accesul lor la magazine
+- vedea și gestiona [cererile de retur](/cms/admin-cereri-retur) ale tuturor magazinelor
 - administra planul de abonament
-- gestiona setări generale ale contului
+- conecta [asistenți AI](/cms/asistenti-ai) (planul Advanced)
 
 Master Admin este practic zona de **management centralizat** pentru toate magazinele unui client.
 
@@ -42,18 +42,21 @@ Structura aplicației poate fi înțeleasă astfel:
 ### **Master Admin (cont client)**
 
 **Dashboard**\
-→ Abonament\
-→ Noutăți
+→ Abonament și utilizare
 
 **Magazine**\
 → Magazin 1\
 → Magazin 2\
 → Magazin 3
 
+**Cereri de retur**
+
 **Utilizatori**\
-→ Utilizator 1 (Account Admin)\
+→ Utilizator 1 (Administrator)\
 → Utilizator 2\
 → Utilizator 3
+
+**Asistenți AI (MCP)**
 
 Iar în interiorul fiecărui magazin:
 
@@ -68,8 +71,8 @@ Iar în interiorul fiecărui magazin:
 → Vizualizare pagini produs
 
 **Pagini statice**\
-→ Creare/editare pagini produs\
-→ Vizualizare pagini produs
+→ Creare/editare pagini statice\
+→ Vizualizare pagini statice
 
 **Homepage**\
 → Produse / Categorii
