@@ -5,10 +5,17 @@ icon: "clipboard-list"
 
 Pagina **Comenzi** este cea mai importantă secțiune a aplicației CRM. Aici poți vedea toate comenzile primite și poți lua măsuri precum confirmarea sau anularea unei comenzi, editarea produselor, confirmarea/eliminarea ofertelor post-achiziție, și re-trimiterea unei comenzi în caz de eroare.
 
+## Widgetul Orders Insights
+
+Deasupra listei de comenzi se află widgetul [Orders Insights](/crm/orders-dashboard). Din el poți deschide rapid lista filtrată:
+
+- butoanele rapide **Upsell neconfirmat** (comenzi cu ofertă post-achiziție neconfirmată) și **De confirmat (pending)**
+- tabelul de statusuri, împărțit în **Alertă** și **Principal**: click pe un rând deschide lista comenzilor cu acel status
+
 ## Ciclul de viață al unei comenzi în funcție de status
 
 <Info>
-Exită și alte statusuri care pot apărea în anumite situații speciale, dar acestea sunt cele mai comune. Pentru mai multe detalii, consultă secțiunea [Statusuri speciale](#statusuri-speciale).
+Există și alte statusuri care pot apărea în anumite situații speciale, dar acestea sunt cele mai comune. Pentru mai multe detalii, consultă secțiunea [Statusuri speciale](#statusuri-speciale).
 </Info>
 
 Acestea sunt statusurile prin care trece o comandă de la început până la final:
@@ -22,15 +29,18 @@ Comenzile cu acest status așteaptă să fie procesate de sistem. Sistemul verif
 ### Pending
 Acest status înseamnă că comanda așteaptă **confirmarea manuală** de către un operator. Comanda va rămâne în acest status până când cineva o confirmă manual.
 
+### Scheduled
+Comanda a fost confirmată cu o **dată programată** (din ecranul de confirmare, câmpul **Data programată**, cu cel mult 10 zile în avans). În ziua programată comanda este confirmată și trimisă automat. Programarea comenzilor este disponibilă începând cu planul **Silver**.
+
 ### Confirmed
 Acesta este ultimul status din ciclul de viață al comenzii. Înseamnă că comanda a fost confirmată cu succes și poate fi trimisă de angajații centrului de fulfillment.
 
 ### Error
 Acest status este setat de obicei atunci când apare o eroare în pașii menționați anterior. În acest caz, poți încerca să **replasezi comanda cu Retrimitere comandă** și, dacă acest lucru eșuează, contactează suportul tehnic.
 
-<Warning>
-Asigură-te că respectiva comandă nu a fost deja trimisă către **Helpship** înainte de a o retrimite. Dacă comanda a fost deja trimisă, recomandăm schimbarea manuala a statusului în **Confirmed** și manipularea comenzii direct din Helpship.
-</Warning>
+<Info>
+**Retrimitere comandă** refuză comenzile care au deja un ID de fulfillment și verifică mai întâi dacă comanda există deja în **Helpship**. Dacă o găsește, o leagă de comanda din CRM în loc să creeze un duplicat. Dacă ai dubii, verifică în Helpship și, dacă e cazul, schimbă manual statusul în **Confirmed**.
+</Info>
 
 ### Test
 Acest status este setat pentru comenzile de test. Toate comenzile cu produse care au statusul **Testing** vor avea automat statusul **Test**.
@@ -48,7 +58,7 @@ Comenzile din faza de testare, precum și comenzile cu eroare sau cele cu produs
 
 ## Statusuri speciale
 <Info>
-Aceste statusuri apar doar clienților cu planul **Gold Plus** în urma sincronizărilor zilnice cu Helpship.
+Aceste statusuri apar în urma sincronizărilor cu Helpship. Sincronizarea automată zilnică este disponibilă doar în planul **Gold Plus**, iar statusurile **Paid** și **Returned** sunt setate doar pentru Gold Plus.
 </Info>
 
 ### Returned
@@ -56,6 +66,9 @@ Comenzile cu acest status nu au fost ridicate de către client.
 
 ### Paid
 Comenzile cu acest status au fost plătite de către client și există într-unul din COD report-urile generate de Helpship.
+
+### Unpaid
+Comanda a fost livrată, dar după cel puțin 7 zile nu apare încă într-un raport COD (banii nu au fost încasați).
 
 ### Wrong Address
 Comenzile cu acest status au fost marcate de către curier din cauza adresei greșite. Verificați situația individual pentru a determina adresa corectă. Ulterior, contactați Helpship pentru a solicita curierului să modifice adresa.
@@ -85,6 +98,7 @@ Dacă pagina ta de destinație (Landing Page) are oferte post-achiziție atașat
 - **None** - Nu există niciun produs post-achiziție în comandă și comanda este plasată în queue ca de obicei
 - **Confirmed** - Comanda are cel puțin un produs post-achiziție și clientul a finalizat cu succes procesul post-achiziție. Nu este necesară nicio acțiune suplimentară
 - **Unconfirmed** - Comanda are cel puțin un produs post-achiziție, dar clientul nu a dat click pe butonul "finalizează comanda". În acest caz, puteți suna clientul pentru a verifica dacă produsele au fost adăugate din greșeală sau nu
+- **Removed** - Produsele post-achiziție au fost eliminate cu acțiunea **Eliminare post-achiziție**
 
 <Note>
    Recomandăm confirmarea telefonică a comenzilor cu status **Unconfirmed** pentru a verifica dacă clientul a adăugat produsele din greșeală sau nu.
@@ -118,7 +132,7 @@ Sub secțiunea **Cod poștal** se află zona de sumar comandă - aici poți veri
 
 Fiecare comandă trebuie să aibă următoarele informații completate:
 
-- **Numărul de Telefon** - Acesta trebuie să fie un număr de România valid
+- **Numărul de Telefon** - Acesta trebuie să fie un număr valid pentru țara comenzii
 - **Județul și Localitatea** - Acestea trebuie să fie verificate și corectate dacă este necesar
 - **Adresă și Detalii Adresă** - Acestea trebuie să fie verificate și corectate dacă este necesar. Câmpul **Adresă** trebuie să conțină doar tipul străzii (Strada, Alee, Bulevard, etc.), denumirea străzii și numărul străzii și numărul. Câmpul **Detalii Adresă** trebuie să conțină blocul, etajul, apartamentul, sau alte detalii relevante
 - **Codul Poștal** - Acesta trebuie să fie completat corect pentru a fi sigur că livrarea se va face în zona corectă
@@ -131,11 +145,12 @@ Fiecare comandă trebuie să aibă următoarele informații completate:
 
 - **Curăță și Completează** - Ajută la curățarea și completarea automată a informațiilor comenzii
 - **Undo auto-completion** - Permite anularea completării automate a informațiilor comenzii
-- **Validarea Numărului de Telefon** - Dacă numărul de telefon este invalid, va apărea o notificare cu text roșu
-- **Detectarea Dublurilor de Comenzi** - Ajută la detectarea comenzilor duplicate ale aceluiași client (același telefon), în intervalul setat în [Setări](/crm/settings) (**DUPLICATE DAYS**). În cazul unui duplicat, va apărea o alertă
-- **Comenzi de pe același IP** - Avertizează când de pe aceeași adresă IP au fost plasate mai multe comenzi în ultimele 5 zile, chiar dacă au alt telefon (vezi mai jos)
+- **Validarea Numărului de Telefon** (Silver+) - Dacă numărul de telefon este invalid, va apărea o notificare cu text roșu
+- **Detectarea Dublurilor de Comenzi** (Silver+) - Ajută la detectarea comenzilor duplicate ale aceluiași client (același telefon), în intervalul setat în [Setări](/crm/settings) (**DUPLICATE DAYS**). În cazul unui duplicat, va apărea o alertă
+- **Comenzi de pe același IP** (Silver+) - Avertizează când de pe aceeași adresă IP au fost plasate mai multe comenzi în ultimele 5 zile, chiar dacă au alt telefon (vezi mai jos)
 - **Recomandarea Codului Poștal** - Ajută la completarea codului poștal corect în mod automat
-- **Avertizare blacklist** - Dacă numărul de telefon/clientul se află în lista neagră, comanda va fi anulată automat
+- **Avertizare blacklist** (Silver+) - Dacă numărul de telefon/clientul se află în [lista neagră](/crm/customers#gestionarea-listei-negre), comanda va fi anulată automat. Din ecranul de confirmare poți și adăuga clientul în lista neagră
+- **Programare comandă** (Silver+) - Câmpul **Data programată** trimite comanda la o dată aleasă, cu cel mult 10 zile în avans (status **Scheduled**)
 - **Avertizare istoric** - Dacă clientul are comenzi anulate în trecut, va apărea o alertă și posbilitatea de a vizualiza istoricul comenzilor
 
 #### Comenzi de pe același IP
@@ -175,7 +190,7 @@ Verificarea este activă implicit și poate fi oprită din [Setări](/crm/settin
 
 ### Anulare comandă
 
-Această acțiune este utilizată pentru a anula o comandă. 
+Această acțiune este utilizată pentru a anula o comandă (și în Helpship). Poți anula cel mult **100 de comenzi odată**; pentru mai multe, împarte-le în loturi.
 
 <Warning>
 Asigură-te că comanda este fie **queued**, fie **pending**. Poți anula și o comandă **confirmed**, dar asigură-te că aceasta nu a fost deja trimisă.
@@ -185,7 +200,19 @@ Asigură-te că comanda este fie **queued**, fie **pending**. Poți anula și o 
 
 Aceste acțiuni sunt echivalentul Hold și Unhold din Helpship. O comandă pusă pe Hold nu va mai pleca spre împachetare până când nu va fi deblocată (unhold).
 
+### Îmbinare comenzi
+
+<Note>
+Disponibilă începând cu planul **Silver**.
+</Note>
+
+Combină mai multe comenzi ale **aceluiași client** într-o singură comandă (un singur colet). Comenzile confirmate sau anulate nu pot fi combinate. La îmbinare alegi logica prețului de livrare: **Adună prețurile de livrare** sau **Folosește cel mai mare preț de livrare**.
+
 ### Notă comandă
+
+<Note>
+Disponibilă începând cu planul **Silver**.
+</Note>
 
 Această acțiune este utilizată pentru a adăuga o notă la o comandă. Poate fi folosită pentru a adăuga informații utile despre comandă, cum ar fi motivul anulării, detalii despre client, etc.
 
@@ -203,7 +230,7 @@ Folosește această acțiune pentru a elimina upsell-urile post-purchase ale com
 
 ### Retrimitere comandă / Order Requeue
 
-Această acțiune încearcă să pună din nou comanda în pending. Poate fi folosită în caz de **eroare**.
+Această acțiune încearcă să trimită din nou comanda către Helpship. Poate fi folosită în caz de **eroare**. Poți retrimite cel mult **100 de comenzi odată**. Comenzile deja trimise (cu ID de fulfillment) sunt refuzate.
 
 <Tip>
 Poți folosi acțiunea **Retrimitere comandă** pentru a transforma o **comandă de test** (status: **test**) într-o comandă reală. Pentru a face acest lucru, urmează cu atenție pașii menționați mai sus. Asigură-te doar că comanda nu este mai veche de **10 zile**, altfel aceasta va rămâne blocată în starea "Pending / Fulfillable".
