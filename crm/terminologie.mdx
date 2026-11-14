@@ -18,6 +18,9 @@ Funcționalitate premium opțională care poate fi activată în CRM pentru a au
 ### API (Application Programming Interface)
 O interfață care permite comunicarea între două aplicații software. De exemplu, API-ul de conversii Meta permite trimiterea datelor de conversie direct către Meta pentru tracking mai precis.
 
+### API key (Cheie API)
+Cheie secretă cu care o aplicație externă accesează API-ul CRM-ului. Se creează din **Setări** → **API și Webhooks**, este afișată o singură dată și poate avea acces **Doar citire** sau **Citire și scriere**. Detalii în [API și integrări](/crm/api).
+
 ### API Conversii (Conversions API)
 Sistem de tracking server-side oferit de Meta care trimite datele de conversie direct de pe server către Meta, fără a depinde de browser-ul utilizatorului. Mai precis decât tracking-ul client-side.
 
@@ -34,12 +37,19 @@ O colecție de produse vândute împreună ca un singur produs. De exemplu, un p
 ### Blacklist (Listă neagră)
 Lista cu clienți care au fost marcați ca nedoriți (de obicei din cauza fraudelor sau comenzilor false). Comenzile de la clienții din lista neagră sunt anulate automat.
 
+
+### Breakeven ROAS (Prag de rentabilitate)
+ROAS-ul la care profitul unei pagini este zero: venituri ÷ profit înainte de reclame. Peste prag pagina câștigă bani, sub prag pierde. Îl găsești în pagina [Profit](/crm/profit).
+
 ---
 
 ## C
 
 ### CMS (Content Management System)
 Sistem de gestionare a conținutului care permite crearea și editarea paginilor web fără a scrie cod. CMS-ul Startscale este optimizat pentru crearea rapidă de landing page-uri de vânzare.
+
+### Comandă deschisă
+Comandă care nu este încă nici plătită, nici returnată. În rapoartele de profit, rezultatul ei este estimat până la finalizare.
 
 ### Conversie
 Acțiunea dorită pe care o face un vizitator pe site (de obicei plasarea unei comenzi). Rata de conversie = numărul de comenzi / numărul de vizitatori × 100.
@@ -122,6 +132,9 @@ Setare care înmulțește cantitatea din oferte. De exemplu, cu multiplicator 2,
 
 ## O
 
+### Orders Insights
+Pagina cu statisticile comenzilor (fostul Panou principal comenzi): cifrele perioadei, rata de confirmare, alertele și harta pe zile și ore. Detalii în [Orders Insights](/crm/orders-dashboard).
+
 ### Ofertă post-achiziție
 Upsell afișat pe pagina de mulțumire, după ce clientul a plasat comanda inițială. Clientul poate adăuga produse suplimentare la comanda existentă.
 
@@ -138,11 +151,17 @@ Proces de recontactare a clienților ale căror comenzi nu au fost livrate din p
 ### Pixel
 Cod de tracking plasat pe site pentru urmărirea acțiunilor vizitatorilor. Exemple: Facebook Pixel, TikTok Pixel.
 
+### POAS (Profit on Ad Spend)
+Profitul generat de reclame raportat la costul lor: profit înainte de reclame ÷ cheltuieli publicitare. Un POAS sub 1 înseamnă că reclamele costă mai mult decât profitul pe care îl aduc.
+
 ### Post-purchase (Post-achiziție)
 Vezi "Ofertă post-achiziție".
 
 ### Pre-purchase (Pre-achiziție)
 Vezi "Ofertă pre-achiziție".
+
+### Punct de reaprovizionare
+Stocul la care trebuie să comanzi marfă nouă: cererea medie zilnică × timpul maxim de livrare. Include un stoc de siguranță pentru întârzieri.
 
 ### Produs
 Articol fizic pe care îl vinzi. Un produs poate avea mai multe variante (culori, mărimi, etc.).
@@ -152,7 +171,10 @@ Articol fizic pe care îl vinzi. Un produs poate avea mai multe variante (culori
 ## R
 
 ### Rata de returnare
-Procentul din comenzi care sunt returnate de clienți sau de curier (neridicate, refuzate, etc.). Formula: comenzi returnate / total comenzi × 100.
+Procentul din comenzi care sunt returnate de clienți sau de curier (neridicate, refuzate, etc.).
+
+### Rată de retur pe comenzi rezolvate
+Rata de retur calculată doar pe comenzile finalizate: returnate ÷ (plătite + returnate). Comenzile încă în livrare nu intră, ca să nu scadă artificial rata. Se folosește în [Inventar produse](/crm/products-inventory) (ultimele 90 de zile) și în [Profit](/crm/profit).
 
 ### Recenzie
 Feedback de la clienți despre produs, afișat pe landing page pentru a crește încrederea. În CRM poți adăuga recenzii cu like-uri, reacții și fotografii.
@@ -170,6 +192,9 @@ Tracking care se face de pe server, nu din browser-ul utilizatorului. Mai precis
 ### SKU (Stock Keeping Unit)
 Cod unic care identifică o variantă specifică de produs. De exemplu, dacă ai un creion în 3 culori, vei avea 3 SKU-uri diferite (unul pentru fiecare culoare).
 
+### SKU virtual (serviciu)
+Variantă care reprezintă un serviciu vândut cu SKU doar pentru fulfillment și factură. Nu are stoc fizic, deci nu intră în valoarea stocului, în estimările de stoc și în alertele de stoc mic.
+
 ### Slug
 Partea finală a URL-ului unei pagini. De exemplu, pentru URL-ul "magazin.ro/creion-sprancene", slug-ul este "creion-sprancene".
 
@@ -181,6 +206,9 @@ Prețul recomandat de vânzare - prețul "tăiat" care apare lângă prețul pro
 
 ### Status
 Starea curentă a unei comenzi, produs sau alte elemente din sistem. Exemple statusuri comenzi: New, Queued, Confirmed, Shipped, Delivered, Returned.
+
+### Stoc mort
+Stoc fără nicio vânzare într-o perioadă aleasă (30, 60 sau 90 de zile). Reprezintă bani blocați în marfă.
 
 ### Stoc
 Cantitatea disponibilă dintr-un produs în depozit.
