@@ -35,13 +35,14 @@ Când lucrezi cu un asistent AI la o integrare, dă-i adresa `/api-docs.md` sau 
 
 ## Chei API
 
-Cererile către `/api/v1/*` au nevoie de o **cheie API**. Cheile se gestionează din **Setări** → **API și Webhooks**, de utilizatorii cu permisiunea **Gestionare API keys**.
+Cererile către `/api/v1/*` au nevoie de o **cheie API**. Cheile se gestionează din **Setări** → **API și Webhooks**, de utilizatorii cu permisiunea **Gestionare API keys** (pe lângă permisiunea **Setări**, necesară ca să deschizi pagina). Cheile API sunt disponibile pe orice plan.
 
 ### Creează o cheie
 
 1. Deschide **Setări** → **API și Webhooks**.
-2. Creează o cheie nouă: alege un nume (de exemplu numele integrării), nivelul de acces și, opțional, o dată de expirare.
-3. Copiază cheia afișată și păstreaz-o într-un loc sigur (manager de parole, variabilă de mediu pe serverul integrării).
+2. La **Chei API**, completează **Nume** (de exemplu numele integrării), alege **Acces** și, opțional, data la care cheia **Expiră**.
+3. Apasă **Creează cheie**.
+4. Copiază cheia afișată și păstreaz-o într-un loc sigur (manager de parole, variabilă de mediu pe serverul integrării), apoi apasă **Am copiat-o**.
 
 <Warning>
 Cheia completă este afișată **o singură dată**, la creare. După aceea lista arată doar primele caractere ale cheii. Dacă ai pierdut-o, revoc-o și creează alta.
@@ -51,8 +52,8 @@ Cheia completă este afișată **o singură dată**, la creare. După aceea list
 
 | Nivel | Ce permite |
 | --- | --- |
-| `read` (Citire) | Doar cereri `GET`. Orice altă cerere primește eroarea `403`. |
-| `read_write` (Citire și scriere) | Toate endpoint-urile: citire, confirmări, anulări, note, linii de comandă. |
+| **Doar citire** (`read`, implicit) | Doar cereri `GET`. Orice altă cerere primește eroarea `403`. |
+| **Citire și scriere** (`read_write`) | Toate endpoint-urile: citire, confirmări, anulări, note, linii de comandă. |
 
 În documentația API, fiecare endpoint are o etichetă cu nivelul minim necesar.
 
@@ -72,7 +73,9 @@ Tokenul de instanță folosit înainte de cheile API este încă acceptat, cu ac
 
 ### Revocă o cheie
 
-O cheie compromisă sau care nu mai e folosită se revocă din **Setări** → **API și Webhooks**. Integrarea care o folosea primește imediat eroarea `401`.
+O cheie compromisă sau care nu mai e folosită se revocă din **Setări** → **API și Webhooks**, cu butonul **Revocă**. Aplicațiile care o folosesc pierd accesul imediat.
+
+Lista cheilor arată, pentru fiecare, începutul cheii, nivelul de acces, cine a creat-o, când a fost creată, ultima folosire și data de expirare.
 
 ### Bune practici
 
