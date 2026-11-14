@@ -67,7 +67,7 @@ Permisiunile se gestionează din [Roluri](/crm/roles):
 | `mcp.write` | Acțiunile care modifică date. Fără ea, asistentul nici nu vede aceste acțiuni |
 | `mcp.audit` | Vizualizarea activității AI și a aplicațiilor conectate ale **tuturor** utilizatorilor, nu doar ale tale |
 
-`mcp.use` și `mcp.write` sunt acordate implicit rolurilor **Master Admin** și **Store Owner**. Pe lângă acestea, fiecare acțiune verifică aceleași permisiuni ca în aplicație (ex: anularea unei comenzi, crearea unui review) și funcțiile incluse în abonament.
+Toate trei permisiunile sunt acordate implicit rolurilor create la instalare (**Master Admin** și **Store Owner**). Rolurile create ulterior le primesc doar dacă le bifezi. Pe lângă acestea, fiecare acțiune verifică aceleași permisiuni ca în aplicație (ex: anularea unei comenzi, crearea unui review) și funcțiile incluse în abonament.
 
 <Tip>
 Pentru a tăia imediat accesul unui utilizator, scoate permisiunea `mcp.use` din rolul lui sau apasă **Deconectează** în lista de aplicații conectate.
@@ -80,7 +80,7 @@ Pentru a tăia imediat accesul unui utilizator, scoate permisiunea `mcp.use` din
 - caută și afișează comenzi, parțiale, clienți, landing page-uri, review-uri, upsell-uri, produse, magazine. Căutarea este aceeași ca în aplicație, inclusiv căutarea comenzilor după IP.
 - afișează un landing page complet într-un singur pas: prețurile, setările formularului de comandă, review-urile și upsell-urile (cu SKU-ul vândut și imaginile)
 - calculează statistici direct pe server: comenzi pe landing page și zi, cele mai vândute upsell-uri, rata de retur pe landing page, clienți cu multe comenzi sau retururi
-- rapoartele din aplicație, cu aceleași cifre: [Landing Page Offers](/crm/landing-page-offers) (recomandat pentru rapoarte zilnice sau săptămânale), [Sales & ROAS](/crm/sales-and-roas), [Cost & Profit](/crm/cost-and-profit), [Hartă rată retururi](/crm/return-rate-map)
+- rapoartele din aplicație, cu aceleași cifre: [Landing Page Offers](/crm/landing-page-offers) (recomandat pentru rapoarte zilnice sau săptămânale), [Sales & ROAS](/crm/sales-and-roas), [Cost & Profit](/crm/cost-and-profit), [Hartă rată retur](/crm/return-rate-map)
 - **exporturi**: pentru volume mari, asistentul generează un fișier CSV sau JSONL și îți dă un link de descărcare valabil o oră, în loc să afișeze datele în conversație
 
 ### Comenzi
