@@ -1,0 +1,142 @@
+---
+title: "Profit"
+description: "Unde câștigi și unde pierzi bani: pe pagini, produse și comenzi, cu estimare pentru comenzile încă deschise."
+icon: "arrow-trend-up"
+---
+
+Pagina **Profit** arată unde câștigi și unde pierzi bani: pe pagini de destinație, pe produse și pe comenzi. Pentru comenzile care nu sunt încă încasate sau returnate, profitul este estimat din rata istorică de retur, așa că vezi rezultatul perioadei fără să aștepți finalizarea livrărilor.
+
+O găsești în meniul lateral, la **General** → **Profit**.
+
+<Info>
+Pagina este disponibilă pentru abonamentul **Gold Plus** și pentru utilizatorii care au permisiunea **Profit** (vede profitul real și estimat pe pagini, produse și comenzi, plus randamentul stocului). Permisiunea dă acces la date financiare complete, așa că acord-o doar persoanelor de încredere.
+</Info>
+
+## Filtre
+
+- **Perioadă rapidă**: **Azi**, **Ieri**, **7 zile**, **30 zile**, **Luna aceasta**, **Luna trecută**, **90 zile**
+- **De la** / **Până la**: interval personalizat
+- **Pagină de destinație**: o pagină anume sau **Toate paginile**
+- **Produs**: un produs anume sau **Toate produsele**
+
+Apasă **Aplică** ca să recalculezi. Rezultatele sunt păstrate în cache 15 minute.
+
+Sub filtre, pagina îți spune câte zile din perioadă sunt încă „deschise” și câte comenzi nu sunt finalizate (profitul lor este estimat). Când toate comenzile sunt încasate sau returnate, apare mesajul **Toate comenzile sunt încasate sau returnate**.
+
+## Ce ar trebui să știi
+
+Primul bloc conține cel mult 8 recomandări generate automat, ordonate după gravitate și impact. Click pe o recomandare te duce la rândul respectiv din tabel.
+
+| Recomandare | Când apare |
+| --- | --- |
+| **Magazinul a pierdut bani în perioada aleasă** | Profitul total, după toate costurile și reclamele, este negativ. |
+| **[pagina] pierde bani** | ROAS-ul paginii este sub pragul de rentabilitate. |
+| **[pagina] pierde bani chiar și fără reclame** | Comenzile nu acoperă costul produselor, livrarea, ambalarea și retururile. Revizuiește prețul sau costurile. |
+| **[pagina] e aproape de pragul de rentabilitate** | ROAS-ul este cu cel mult 10% peste prag: o mică scădere a performanței reclamelor o duce pe pierdere. |
+| **Retururile la [produs] te costă** | Rata de retur a produsului este peste media magazinului. Vezi cât ai fi câștigat în plus la rata medie. |
+| **Retururile mănâncă din profitul lui [produs]** | Transportul și ambalarea comenzilor returnate consumă cel puțin 20% din profitul produsului. |
+| **Stoc prea mare la [produs]** | Stocul ajunge pentru mai mult de 90 de zile la vânzările actuale; vezi valoarea stocului care nu se vinde în acest interval. |
+| **Stocul lui [produs] nu se vinde** | Ai stoc și nicio vânzare recentă. |
+| **[pagina] merită scalată** | Cel mai mare profit pe comandă din perioadă (minim 5 comenzi, profit pozitiv și POAS peste 1). |
+| **[pagina] aduce cel mai mult pe comandă** | Cel mai mare profit pe comandă, fără cheltuieli cu reclame înregistrate. |
+| **Profitul a crescut / a scăzut cu X%** | Variație de cel puțin 15% față de perioada anterioară de aceeași lungime. |
+| **X% din profit e încă estimat** | Cel puțin 20% din profit vine din comenzi încă deschise, deci cifra finală se poate schimba. |
+
+## Indicatori principali
+
+- **Profit total**: profitul după toate costurile și reclame, împărțit în **Real** (comenzi finalizate, minus reclamele) și **Estimat** (comenzi încă deschise). Eticheta **X% estimat** arată ce parte din profit este încă estimată. Variația este afișată **față de perioada anterioară**.
+- **Venituri**: încasările perioadei (cu TVA).
+- **Marjă**: profitul total raportat la veniturile fără TVA.
+- **Profit / comandă**: profitul total împărțit la numărul de comenzi.
+- **Reclame**: cheltuiala cu reclamele, cu **ROAS**-ul și **Prag rentabilitate**.
+- **Comenzi**: împărțite în **Încasate**, **Returnate** și **Deschise**.
+
+## Unde se duc banii
+
+Bara arată, **din fiecare 100 încasați**, cât merge pe **TVA**, **Cost produse**, **Livrare și retururi**, **Ambalare**, **Reclame** și cât rămâne **Profit**. Dacă perioada e pe pierdere, bara arată și **Pierdere** cu suma depășită.
+
+## Profit pe zile
+
+Graficul arată profitul fiecărei zile. Partea hașurată este estimată, pentru comenzile încă deschise, iar zilele recente cu multe comenzi nefinalizate sunt marcate ca **zile deschise**.
+
+## Profit pe comandă, înainte de reclame
+
+Histograma grupează comenzile după profitul fiecăreia înainte de reclame. Deasupra vezi ce procent din comenzi pierd bani chiar înainte de reclame: un semn că prețul, costul produsului sau rata de retur nu se potrivesc.
+
+## Pagini de destinație
+
+Tabelul are câte un rând pentru fiecare pagină de destinație, cu căutare și sortare. Deasupra vezi câte pagini sunt pe pierdere.
+
+- **Comenzi**, **Venituri**, **Reclame**
+- **Profit** (cu partea estimată, dacă există) și **Profit/cmd**
+- **Marjă**
+- **ROAS / prag**: bara compară ROAS-ul real cu pragul de rentabilitate al paginii (linia neagră). Verde înseamnă peste prag. Paginile fără cheltuieli cu reclame sunt marcate **fără reclame**.
+- **POAS**
+- **Retur**: rata de retur folosită pentru estimare
+- **Trend**: evoluția profitului în perioadă
+
+## Produse și stoc
+
+Tabelul are câte un rând pentru fiecare produs vândut în perioadă sau care are stoc. Deasupra vezi suma totală blocată în stoc.
+
+- **Bucăți**, **Venituri**, **Profit**, **Profit/buc**, **Marjă**
+- **Retur**: rata de retur a produsului. Eticheta **mag.** înseamnă că produsul are prea puține comenzi finalizate și se folosește rata magazinului.
+- **Stoc**: bucățile din stoc
+- **Bani blocați**: valoarea la cost a stocului care nu se vinde în următoarele 90 de zile, la ritmul actual de vânzare
+- **ROI stoc/an**: profitul produsului în perioadă raportat la valoarea stocului, anualizat
+- **Rotații/an**: de câte ori pe an se vinde stocul curent, la ritmul din perioadă
+- **Zile stoc**: câte zile ajunge stocul la cererea medie zilnică
+
+<Note>
+Produsele cu SKU virtual (servicii), cele în **Testing** și cele **Paused** nu intră în calculul stocului.
+</Note>
+
+## Cum se calculează
+
+Secțiunea **Asumpții și cum se calculează**, de la finalul paginii, rezumă regulile.
+
+### Profit real
+
+Comenzile încasate și returnate, cu aceleași reguli ca în [Cost & Profit](/crm/cost-and-profit):
+
+- venitul fără TVA;
+- costul produselor, livrarea și ambalarea, după istoricul costurilor;
+- costul retururilor: o comandă returnată pierde livrarea și ambalarea;
+- reclamele, pe pagină și zi.
+
+### Profit estimat
+
+Comenzile confirmate, expediate sau încă neîncasate primesc un profit estimat din rata istorică de retur (**r**) a produselor din comandă:
+
+```
+profit estimat = (1 − r) × profit dacă se încasează + r × pierdere dacă se returnează
+```
+
+Pierderea dacă se returnează este costul livrării plus costul ambalării. Comenzile anulate, de test sau cu eroare nu intră în calcul.
+
+### Rata de retur
+
+**r = returnate ÷ (încasate + returnate)**, calculată pe produs, pentru comenzile create în cele **30 de zile de dinainte de ultimele 14**. Ultimele 14 zile sunt lăsate deoparte pentru că retururile lor nu sunt încă înregistrate. Când o comandă are mai multe produse, rata se ponderează cu valoarea liniilor.
+
+Produsele cu mai puțin de **20 de comenzi finalizate** în acest interval folosesc rata de retur a magazinului.
+
+### ROAS, POAS și pragul de rentabilitate
+
+- **ROAS** = venituri ÷ reclame
+- **POAS** = profit înainte de reclame ÷ reclame. Sub 1 înseamnă pierdere: reclamele costă mai mult decât profitul pe care îl aduc.
+- **Prag de rentabilitate (breakeven ROAS)** = venituri ÷ profit înainte de reclame. Este ROAS-ul la care profitul paginii ar fi zero. Dacă nu există profit nici înainte de reclame, pragul nu se poate calcula.
+
+<Tip>
+Compară mereu ROAS-ul cu pragul de rentabilitate al paginii, nu cu un prag fix. O pagină cu marjă mică poate pierde bani la ROAS 3, iar una cu marjă mare poate fi profitabilă la ROAS 2.
+</Tip>
+
+### Stoc
+
+- **ROI stoc/an** = profit în perioadă ÷ valoarea stocului × (365 ÷ zilele perioadei)
+- **Rotații/an** = bucăți vândute în perioadă × (365 ÷ zilele perioadei) ÷ bucăți în stoc
+- **Zile stoc** = bucăți în stoc ÷ cererea medie zilnică
+- **Bani blocați** = (bucăți în stoc − cererea medie zilnică × 90) × costul unitar, dacă rezultatul e pozitiv
+
+<Info>
+Rezultatele sunt la fel de bune ca datele introduse: ține la zi costurile produselor, prețurile curierilor și ale ambalării (din [Setări](/crm/settings)) și cheltuielile cu reclamele (din [Conturi publicitare](/crm/ad-accounts)).
+</Info>
