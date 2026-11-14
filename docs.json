@@ -21,6 +21,7 @@
               "crm/cms-sau-wordpress",
               "crm/cum-incep",
               "crm/terminologie",
+              "crm/noutati",
               "crm/documentatie-veche"
             ]
           },
@@ -38,7 +39,8 @@
             "pages": [
               "crm/landing-page-offers",
               "crm/products-inventory",
-              "crm/orders-dashboard"
+              "crm/orders-dashboard",
+              "crm/profit"
             ]
           },
           {
@@ -47,7 +49,8 @@
             "pages": [
               "crm/cost-and-profit",
               "crm/sales-and-roas",
-              "crm/return-rate-map"
+              "crm/return-rate-map",
+              "crm/calculators"
             ]
           },
           {
@@ -67,7 +70,8 @@
               "crm/landing-pages",
               "crm/ad-accounts",
               "crm/customers",
-              "crm/webhooks"
+              "crm/webhooks",
+              "crm/api"
             ]
           },
           {
